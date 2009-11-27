@@ -1,0 +1,43 @@
+- content_for :sidebar do
+  %h3
+    %span Map Overview:
+
+  %a{:href => extended_map_graph_path(map, :format => :png)}
+    .graph
+      != image_tag(extended_map_graph_path(map, :format => :png))
+  %h3
+    %span Goal Status:
+  %a{:href => simple_map_graph_path(map, :format => :png)}
+    .graph
+      != image_tag(simple_map_graph_path(map, :format => :png))
+
+- content_for :editable do
+  %p== Map Manager: #{linked_user_name map.manager}
+
+!= render :partial => '/layouts/object_header', :object => resource
+
+%h2 Top Level Goals:
+
+.container
+  %table
+    %thead
+      %tr
+        %th Name
+        %th Status
+    %tbody
+      - map.children.each do |goal|
+        %tr
+          %td
+            %div== #{delete_link(goal.hierarchy)} #{link_to h(goal.name), goal.hierarchy}
+          %td= status_image(goal)
+      - if map.children.empty?
+        %tr
+          %td.helptext{:colspan => 2}=t ".#{write_permission? ? 'write' : 'read'}.empty.map"
+    - if write_permission?
+      %tfoot
+        %tr
+          %td{:colspan => 2}
+            %p= new_link('new goal', map.hierarchy << Goal)
+
+!= render :partial => '/stakes/index', :object => map
+

@@ -1,0 +1,7 @@
+- unless object.comments.empty?
+  %ul.discussion
+    - object.comments.each do |comment|
+      %li
+        :textile
+          #{comment.message}
+        %div.info== Posted on #{comment.created_at.to_s(:short)} by #{linked_user_name(comment.user)}</a>

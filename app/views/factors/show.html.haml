@@ -1,0 +1,8 @@
+- content_for :editable do
+  %p
+    :plain
+      This Factor is currently #{status_tag factor.status},
+      with a target value of <span class="target">#{h factor.target}</span>
+      and a predicted value of <span class="likely">#{h factor.likely}</span>.
+
+!= render :partial => '/layouts/object_header', :object => factor

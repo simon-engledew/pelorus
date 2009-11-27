@@ -1,0 +1,42 @@
+!!! Strict
+%html{html_attrs('en-GB')}
+  %head
+    %title== Pelorus - #{resource && resource.respond_to?(:name) ? resource.name : @title || 'Home'}
+    != stylesheet_link_tag 'reset'
+    != stylesheet_link_tag 'application'
+    != javascript_include_tag :mootools
+    != yield :head
+  %body
+    #header
+      #header-container
+        %a{:href => root_url}
+          %h1
+            %span
+              %img{:src => '/images/logo.gif'}
+              Pelorus - The Tool For Change
+        %ul
+          %li
+            %img{:src => '/images/icons/home.png'}
+            != link_to 'Welcome Page', root_path
+          %li
+            %img{:src => '/images/icons/users.png'}
+            != link_to 'Manage Users', users_path
+    #page
+      #page-container
+        #sidebar
+          #breadcrumbs
+            %ul
+              -#
+                %li= link_to('Welcome Page', root_url)
+                - if controller.instance_of? UsersController
+                  %li= link_to('Manage Users', users_path)
+              != breadcrumbs(resource).join
+          != yield :sidebar
+        #content
+          != yield
+        %div{:style => 'clear:both'}
+    #footer
+      #footer-container
+        Pelorus is designed and built by <a href="http://www.john-speed.co.uk">John Speed Ltd</a>. We are change specialists based in Winchester, England.
+
+    != javascript_include_tag 'application'

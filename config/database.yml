@@ -1,0 +1,18 @@
+defaults: &defaults
+  adapter: sqlite3
+  timeout: 5000
+
+development:
+  <<: *defaults
+  database: db/development.sqlite3
+
+test: &TEST
+  <<: *defaults
+  database: db/test.sqlite3
+
+production:
+  <<: *defaults
+  database: db/production.sqlite3
+
+cucumber:
+  <<: *TEST

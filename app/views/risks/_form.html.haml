@@ -1,0 +1,4 @@
+- fields_for object, :builder => LabellingFormBuilder do |f|  
+  != f.text_field(:name)
+  != f.text_area(:description)
+  != f.select(:status, Status::Enum.invert)

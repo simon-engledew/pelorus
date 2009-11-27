@@ -1,0 +1,23 @@
+%h2
+  %a Stakes:
+
+.container
+  %table
+    %thead
+      %tr
+        %th Name
+        %th Owner
+    %tbody
+      - object.stakes.each do |stake|
+        %tr
+          %td
+            %div== #{delete_link(stake.hierarchy) unless stake.enforced} #{link_to h(stake.name), polymorphic_path(stake.hierarchy, :action => :edit)}
+          %td= linked_user_name(stake.user)
+      - if object.stakes.empty?
+        %tr
+          %td.helptext{:colspan => 2}=t ".#{write_permission? ? 'write' : 'read'}.empty"
+    - if write_permission?
+      %tfoot
+        %tr
+          %td{:colspan => 2}
+            %p= new_link('new stake', object.hierarchy << Stake)

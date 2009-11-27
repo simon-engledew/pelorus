@@ -1,0 +1,21 @@
+.container
+  %table#users
+    %thead
+      %tr
+        %th Email Address
+        %th Name
+    %tbody
+      - @users.each do |user|
+        %tr[user]
+          %td
+            %div== #{delete_link(user)} #{link_to(h(user.email_address), user)}
+          %td
+            %nobr= user.name
+      - if @users.empty?
+        %tr
+          %td{:colspan => 2}=t ".#{write_permission? ? 'write' : 'read'}.empty.user"
+    - if write_permission?
+      %tfoot
+        %tr
+          %td{:colspan => 2}
+            %p= new_link('new user', User)

@@ -1,0 +1,13 @@
+%h1 Add Supporting Goal
+
+!= error_messages_for controller_name.singularize
+
+- unless @goal.valid_support_targets.empty?
+  - form_for @supporting_goal.hierarchy, :builder => LabellingFormBuilder do |f|
+    != f.select :supported_by_id, @goal.valid_support_targets.map{|o|[h(o.name), o.id]}
+    %input{:type => 'submit', :value => 'Create'}  
+
+  != button_to('Cancel', @goal.hierarchy, :method => :get)
+- else
+  %p There are no valid support targets for this goal.
+  

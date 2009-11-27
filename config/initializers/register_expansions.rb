@@ -1,0 +1,1 @@
+ActionView::Helpers::AssetTagHelper.register_javascript_expansion :mootools => ['mootools/1.2/core', 'mootools/1.2/more']

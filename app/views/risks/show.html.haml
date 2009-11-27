@@ -1,0 +1,4 @@
+- content_for :editable do
+  %p== This Risk is currently #{status_tag risk.status}.
+
+!= render :partial => '/layouts/object_header', :object => risk

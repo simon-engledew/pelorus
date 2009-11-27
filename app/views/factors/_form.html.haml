@@ -1,0 +1,15 @@
+- fields_for object, :builder => LabellingFormBuilder do |f|  
+  != f.text_field(:name)
+  != f.text_area(:description)
+  
+  %fieldset
+    %legend Target
+    != f.text_field(:target)
+    != f.text_field(:report)
+    != f.text_field(:fail)
+  
+  %fieldset
+    %legend Predicted
+    != f.text_field(:likely)
+    != f.text_field(:best)
+    != f.text_field(:worst)

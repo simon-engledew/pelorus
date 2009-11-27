@@ -1,0 +1,33 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+link_1:
+  goal: goal_1
+  supported_by: goal_2
+
+link_2:
+  goal: goal_1
+  supported_by: goal_3
+
+link_3:
+  goal: goal_1
+  supported_by: goal_4
+
+link_4:
+  goal: goal_2
+  supported_by: goal_4
+
+link_5:
+  goal: goal_3
+  supported_by: goal_4
+
+link_6:
+  goal: goal_4
+  supported_by: goal_5
+
+link_7:
+  goal: goal_4
+  supported_by: goal_6
+
+link_8:
+  goal: goal_5
+  supported_by: goal_10

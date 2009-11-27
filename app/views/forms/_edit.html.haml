@@ -1,0 +1,10 @@
+%h1== Edit #{current_model_name.humanize}
+
+!= error_messages_for controller_name.singularize
+
+- form_tag resource.hierarchy, :method => :put do
+  != render :partial => 'form', :object => resource
+ 
+  %input{:type => 'submit', :value => 'Update'}  
+  
+!= button_to('Cancel', local_assigns[:cancel] || resource.hierarchy || root_url, :method => :get)

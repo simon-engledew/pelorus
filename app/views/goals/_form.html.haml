@@ -1,0 +1,5 @@
+- fields_for object, :builder => LabellingFormBuilder do |f|
+  != f.text_field(:name)
+  != f.text_area(:description)
+  != f.check_box(:propagate, :label => 'Propagate Status Information:')
+  != hidden_field_tag('goal[parent_id]', object.parent_id || params[:parent_id])

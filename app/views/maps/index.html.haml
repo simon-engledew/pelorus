@@ -1,0 +1,27 @@
+%h1 Welcome To Pelorus
+%h2 Your Maps:
+
+.container
+  %table#maps
+    %thead
+      %tr
+        %th Name
+        %th Status
+        %th Manager
+        %th Goals
+    %tbody
+      - @maps.each do |map|
+        %tr[map]
+          %td
+            %div== #{delete_link(map)} #{link_to(h(map.name), map)}
+          %td= status_image(map)
+          %td= linked_user_name(map.manager)
+          %td= map.goals.count
+      - if @maps.empty?
+        %tr
+          %td{:colspan => 2}=t ".#{write_permission? ? 'write' : 'read'}.empty.map"
+    - if write_permission?
+      %tfoot
+        %tr
+          %td{:colspan => 2}
+            %p= new_link('new map', Map)

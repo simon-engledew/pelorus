@@ -1,0 +1,13 @@
+<% unless object.children.empty? %>
+  subgraph cluster_<%= object.id %> {
+    label="<%= sanitize_label(object.name) %>";
+    color="<%= status_color(object.status) %>";
+    fontname="Georgia";
+    fontsize="11";
+    fillcolor="<%= status_color(object.status) %>";
+    <%= render :partial => 'extended_goal', :collection => object.children %>
+    node <%= object.id %> [width=0,fixedsize=true,style=invis];
+  }
+<% else %>
+  node <%= object.id %> [fontname="Helvetica",fontsize="10",label="<%= sanitize_label(object.name) %>",color="<%= line_color(object.status) %>",fillcolor="<%= status_color(object.status) %>"];
+<% end %>

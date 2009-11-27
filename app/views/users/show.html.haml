@@ -1,0 +1,39 @@
+!= render :partial => '/layouts/object_header', :object => resource
+
+%h2 Details
+
+.container
+  %table
+    %tbody
+      %td Email Address
+      %td= user.email_address
+
+%h2 Roles:
+
+.container
+  %table
+    %thead
+      %tr
+        %th Role
+        %th Goal
+        %th Map
+    %tbody
+      - if map = Map.find_by_manager_id(user.id)
+        %tr
+          %td
+            %div== Map Manager
+          %td &mdash;
+          %td
+            %nobr= link_to(map.name, map.hierarchy)
+      - else
+        - if user.stakes.empty?
+          %tr
+            %td This user has no stakes.
+      - user.stakes.each do |stake|
+        %tr
+          %td
+            %div== #{delete_link(stake.hierarchy) unless stake.enforced} #{stake.name}
+          %td
+            %nobr= stake.goal ? %(<font color="#{Status::Color[stake.goal.status]}">&#8226;</font> ) + link_to(stake.goal.name, stake.goal.hierarchy) : '&mdash;'
+          %td
+            %nobr= stake.map ? link_to(stake.map.name, stake.map.hierarchy) : '&mdash;'

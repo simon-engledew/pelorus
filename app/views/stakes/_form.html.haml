@@ -1,0 +1,3 @@
+- fields_for object, :builder => LabellingFormBuilder do |f|
+  != f.text_field(:name) unless object.enforced
+  != f.select(:user_id, User.all.collect{|user|[user.name, user.id]}, {:include_blank => 'Select User'})

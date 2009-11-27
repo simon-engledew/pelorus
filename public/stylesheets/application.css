@@ -1,0 +1,408 @@
+form {
+  display: inline;
+}
+
+strong {
+  font-weight: bold;
+}
+
+h1 {
+  font: 20pt Georgia;
+  color: #111;
+  color: #222;
+  margin-bottom: 0.5em;
+}
+
+h2 {
+  font-size: 15pt;
+  margin: 1em 0 0.5em;
+  color: #222;
+}
+
+h3 {
+  font-size: 9pt;
+  font-weight: bold;
+  margin-bottom: 0.5em;
+}
+
+legend {
+  font-size: 9pt;
+  font-weight: bold;
+  padding: 0 1ex;
+}
+
+html {
+  background: #222;
+}
+
+body {
+  font-size: 62.5%;
+  font-family: 'Lucida Grande', Verdana, Arial, Sans-Serif;
+  color: #333;
+}
+
+#header, #page, #footer {
+  min-width: 900px;
+}
+
+#header-container, #page-container, #footer-container {
+  width: 900px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+#footer {
+  border-top: solid 3px #444;
+  background: #222;
+}
+
+#footer-container {
+  color: #eaeaea;
+  font-size: 1.3em;
+  text-align: center;
+  padding: 1em 0;
+}
+#footer-container a {
+  color: #fff;
+}
+
+#header {
+  margin-top: 4px;
+  background: #fff;
+  border-top: solid 3px #dedcd7;
+}
+
+#header-container {
+  position: relative;
+  border-bottom: solid 1px #ddd;
+}
+#header-container h1 {
+  padding: 20px 0;
+  width: 259px;
+  height: 74px;
+  margin: 0;
+  background: transparent url(/images/logo.gif) no-repeat center center;
+}
+#header-container h1 > span {
+  display: none;
+}
+#header-container > ul {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 9px 10px;
+}
+#header-container > ul > li {
+  display: inline;
+  padding: 9px 0 9px 16px;
+}
+#header-container > ul > li > img {
+  position: relative;
+  bottom: -0.35em;
+}
+#header-container > ul > li > a {
+  margin-left: 1.5ex;
+  color: #333;
+  text-decoration: none;
+}
+#header-container > ul > li > a:hover {
+  text-decoration: underline;
+}
+
+#page-container {
+  padding: 40px 0;
+}
+
+#page {
+  min-height: 480px;
+  background: #fff;
+  /* :background #fff url(/images/page.gif) repeat-y top
+   * :border-bottom solid 1px #ccc
+   * :margin-bottom 20px */
+}
+
+/* #content, #sidebar 
+ *   :overflow-x hidden */
+#content {
+  width: 560px;
+  /* :margin 0 1px
+   * :background #fff
+   * :position relative
+   * :top -20px
+   * :margin-bottom -20px */
+}
+
+#sidebar {
+  float: right;
+  width: 300px;
+  padding: 20px 0;
+}
+#sidebar .graph {
+  border: solid 1px #E5E5E5;
+  padding: 5px;
+  text-align: center;
+  margin-bottom: 2em;
+  background-color: #fff;
+}
+#sidebar .graph img {
+  border: none;
+  max-width: 100%;
+  max-height: 200px;
+}
+#sidebar > #navigation {
+  font-size: 9pt;
+}
+#sidebar > #navigation > h3 {
+  margin-bottom: 1em;
+}
+#sidebar > #navigation > ul > li {
+  margin: 0.75em 0 0 0;
+}
+#sidebar > #navigation > ul > li > a {
+  color: #444;
+  text-decoration: none;
+}
+
+#breadcrumbs {
+  border-left: solid 2px #ddd;
+  margin: 0 0 15px;
+  padding: 0 0 8px 5px;
+  background: transparent url(/images/breadcrumbs.gif) no-repeat bottom left;
+  /* > ul 
+   *   :display inline
+   *   > li 
+   *     :display inline
+   *     :margin-right 5px
+   *     :line-height 150%
+   *     a 
+   *       :margin-right 5px
+   *       :padding 3px 5px
+   *       :color #444
+   *       :border solid 1px #ddd
+   *       :text-decoration none
+   *       &:hover
+   *         :text-decoration underline
+   *     &:after
+   *       :content ' → '
+   *     &:last-child:after
+   *       :content none */
+}
+#breadcrumbs a {
+  text-decoration: none;
+}
+#breadcrumbs .breadcrumb {
+  margin-bottom: 3px;
+}
+#breadcrumbs .breadcrumb > img {
+  position: relative;
+  bottom: -5px;
+  margin-right: 3px;
+}
+#breadcrumbs .breadcrumb > span {
+  padding: 3px 0;
+  -moz-border-radius: 7px;
+  overflow-x: hidden;
+  color: #333;
+}
+
+ul.discussion {
+  font-size: 11pt;
+  margin: 20px 0 2em 20px;
+}
+ul.discussion li {
+  background: #fff2d7;
+  border: solid 1px #fdebc9;
+  margin-bottom: 3px;
+  line-height: 150%;
+  padding: 5px 10px;
+  font-size: 0.9em;
+}
+ul.discussion li p {
+  margin-bottom: 0.75em;
+}
+ul.discussion li div.info {
+  color: #333;
+  font-size: 0.9em;
+  text-transform: lowercase;
+}
+ul.discussion li div.info a {
+  color: #369;
+}
+
+form.button-to div {
+  display: inline;
+}
+
+fieldset {
+  border: solid 1px #aaa;
+  padding: 0 1em 1em;
+  margin-bottom: 1em;
+}
+
+div.input {
+  margin-bottom: 2em;
+}
+div.input > label {
+  display: block;
+  margin: 1em 0 0.5em;
+}
+
+input[type=text], input[type=password], textarea {
+  padding: 8px;
+  font: 14px 'Lucida Grande', Verdana, Arial, Sans-Serif;
+  color: #837c7c;
+  font-weight: bold;
+  border: 2px solid #dedede;
+}
+input[type=text]:focus, input[type=password]:focus, textarea:focus {
+  border: solid 2px #837C7C;
+  color: #383131;
+}
+
+fieldset {
+  border: solid 2px #dedede;
+}
+
+label {
+  font: 16px Georgia, "Times New Roman", serif;
+}
+
+div#content > #description > #editable {
+  margin: 2em 0;
+  font-size: 11pt;
+}
+div#content > #description > div#description-text {
+  margin-bottom: 1em;
+  padding: 1em;
+  border-left: solid 5px #aaa;
+  text-align: justify;
+  color: #222;
+  font-size: 11pt;
+}
+div#content > #description > div#description-text > p {
+  line-height: 175%;
+  margin-bottom: 1em;
+}
+div#content > #description > div#description-text > p:last-child {
+  margin-bottom: 0;
+}
+
+#content-footer {
+  text-align: right;
+  margin-top: 20px;
+}
+
+#back_to_top {
+  text-align: right;
+}
+#back_to_top > a {
+  background: #369;
+  color: #fff;
+  text-decoration: none;
+  padding: 0.2em 0.5em;
+  border: solid 1px;
+  border-top-color: #58b;
+  border-left-color: #58b;
+  border-right-color: #147;
+  border-bottom-color: #147;
+  cursor: pointer;
+}
+
+div.control {
+  background: #fff;
+  opacity: 0.9;
+  font-size: 9pt;
+  -moz-border-radius: 7px;
+  display: inline;
+  text-transform: lowercase;
+  border: solid 2px;
+}
+div.control > a {
+  text-decoration: none;
+  color: #333;
+  padding: 0.5em;
+}
+
+div.edit {
+  border-color: #85B7D6;
+}
+
+div.discuss {
+  border-color: #BDD684;
+}
+
+div.delete {
+  border-color: #D68585;
+}
+
+div.new {
+  border-color: #BDD684;
+}
+
+div.container > table > * > tr > *,
+div#content > .info,
+div#content > #description > .controls > .edit {
+  color: #333;
+}
+
+div.container {
+  border: solid 1px #e5e5e5;
+}
+div.container > dl > li {
+  padding: 0.75em 1em;
+  list-style-type: none;
+}
+div.container > dl > li > * {
+  display: inline;
+}
+div.container > table, div.container div.container > dl {
+  border-collapse: separate;
+  border: solid 1px #aaa;
+  font-size: 9pt;
+}
+div.container > table > * > tr > * {
+  padding: 0.75em 1em;
+  text-align: center;
+}
+div.container > table > * > tr > *:first-child {
+  width: 100%;
+  text-align: left;
+}
+div.container > table > thead > tr.odd {
+  background-color: #fafafa;
+}
+div.container > table > thead > tr > th {
+  border-bottom: solid 1px #ccc;
+  font-weight: bold;
+  background-color: #eee;
+}
+div.container > table > tbody > tr:last-child > td {
+  border-bottom: solid 1px #ddd;
+}
+div.container > table > tbody > tr > td {
+  border-bottom: solid 1px #eee;
+}
+div.container > table > tbody > tr > td > div {
+  position: relative;
+}
+div.container > table > tbody > tr > td > div > a {
+  color: #333;
+}
+div.container > table > tbody > tr > td > div > div.delete {
+  position: absolute;
+  right: 0;
+}
+
+#errorExplanation {
+  margin-bottom: 2em;
+}
+#errorExplanation > h2 {
+  color: #900;
+}
+#errorExplanation > p, #errorExplanation > ul {
+  margin-bottom: 1em;
+}
+#errorExplanation > ul > li {
+  list-style-type: disc;
+  margin: 0 0 0.5em 2ex;
+}

@@ -1,0 +1,25 @@
+#description.tab
+  %h1
+    - if object.respond_to?(:status)
+      != status_image(object)
+    !=h object.name
+
+  - if object.respond_to?(:description)
+    #description-text
+      - unless object.description.blank? #Sanitize.clean(object.description, Sanitize::Config::RESTRICTED)
+        :textile
+          #{h object.description}
+      - else
+        %p Click edit to add a description.
+
+  - if object.respond_to?(:comments)
+    != render :partial => '/comments/index', :object => object
+
+  - if (editable = yield(:editable))
+    #editable
+      != editable
+
+  - if write_permission?
+    .controls
+      .control.edit= link_to 'edit', polymorphic_path(resource.hierarchy, :action => :edit)
+      != yield(:controls)

@@ -1,0 +1,10 @@
+%h1== New #{current_model_name.humanize}
+
+!= error_messages_for controller_name.singularize
+
+- form_tag url_for(resource.hierarchy) do
+  != render :partial => 'form', :object => resource
+ 
+  %input{:type => 'submit', :value => 'Create'}  
+
+!= button_to('Cancel', local_assigns[:cancel] || (resource.parent_node ? resource.parent_node.hierarchy : root_url), :method => :get)

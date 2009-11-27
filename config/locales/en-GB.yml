@@ -1,0 +1,61 @@
+en:
+  date:
+    formats:
+      default: "%d-%m-%Y"
+      short: "%e %b"
+      long: "%B %e, %Y"
+      only_day: "%e"
+
+    day_names: [Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday]
+    abbr_day_names: [Sun, Mon, Tue, Wed, Thu, Fri, Sat]
+    month_names: [~, January, February, March, April, May, June, July, August, September, October, November, December]
+    abbr_month_names: [~, Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec]
+    order: [ :year, :month, :day ]
+  
+  time:
+    formats:
+      default: "%a %b %d %H:%M:%S %Z %Y"
+      time: "%H:%M"
+      short: "%d %b %H:%M"
+      long: "%B %d, %Y %H:%M"
+      only_second: "%S"
+      
+      datetime:
+        formats:
+          default: "%d-%m-%YT%H:%M:%S%Z"
+          
+      am: 'am'
+      pm: 'pm'
+  maps:
+    index:
+      write:
+        empty: Click the new map button to get started.
+      read:
+        empty: Contact your project manager to create a map.
+    show:
+      write:
+        empty: Click the new goal link to create a new top level goal.
+      read:
+        empty: Contact your project manager to add a new top level goal.
+  goals:
+    show:
+      write:
+        empty:
+          supporting_goal: Click the new supporting goal link to get started.
+          risk: Click the new risk link to get started.
+          factor: Click the new factor link to get started.
+          subgoal: Click on the new subgoal link to add a goal below this one.
+      read:
+        empty:
+          supporting_goal: Contact your project manager to add a supporting goal link.
+          risk: Contact your project manager to add a risk.
+          factor: Contact your project manager to add a factor.
+          subgoal: Contact your project manager to add a subgoal.    
+  users:
+    index:
+      write:
+        empty:
+          Click the new user button to get started.
+      read:
+        empty:
+          Contact your project manager to add a new user.

@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+user_1:
+  email_address: email@address.com
+  name: Andrew Jannings
+
+user_2:
+  email_address: email@address.com
+  name: Dennis Benson

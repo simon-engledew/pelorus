@@ -1,0 +1,348 @@
+form
+  :display inline
+
+strong
+  :font-weight bold
+
+h1
+  :font 20pt Georgia
+  :color #111
+  :color #222
+  :margin-bottom 0.5em
+
+h2
+  :font-size 15pt
+  :margin 1em 0 0.5em
+  :color #222
+
+h3
+  :font-size 9pt
+  :font-weight bold
+  :margin-bottom 0.5em
+
+legend
+  :font-size 9pt
+  :font-weight bold
+  :padding 0 1ex
+
+html
+  :background #222
+  //:background #fff url(/images/body.png) repeat-x top
+
+!container_width = 900px
+
+body
+  :font-size 62.5%
+  :font-family 'Lucida Grande', Verdana, Arial, Sans-Serif
+  :color #333
+
+#header, #page, #footer
+  :min-width = !container_width
+
+#header-container, #page-container, #footer-container
+  :width = !container_width
+  :margin 0 auto
+  :text-align left
+
+#footer
+  :border-top solid 3px #444
+  :background #222
+
+#footer-container
+  :color #eaeaea
+  :font-size 1.3em
+  :text-align center
+  :padding 1em 0
+  a
+    :color #fff
+
+#header 
+  :margin-top 4px
+  //:background #efefef
+  :background #fff
+  :border-top solid 3px #dedcd7
+  
+#header-container
+  :position relative
+  :border-bottom solid 1px #ddd
+  h1 
+    :padding 20px 0
+    :width 259px
+    :height 74px
+    :margin 0
+    :background transparent url(/images/logo.gif) no-repeat center center
+    > span 
+      :display none
+  > ul 
+    :position absolute
+    :bottom 0
+    :right 0
+    :padding 9px 10px
+    > li 
+      :display inline
+      :padding 9px 0 9px 16px
+      > img
+        :position relative
+        :bottom -0.35em
+      > a 
+        :margin-left 1.5ex
+        :color #333
+        :text-decoration none
+        &:hover
+          :text-decoration underline
+
+#page-container
+  :padding 40px 0
+
+#page
+  :min-height 480px
+  :background #fff
+  /*
+    :background #fff url(/images/page.gif) repeat-y top
+    :border-bottom solid 1px #ccc
+    :margin-bottom 20px
+
+/*
+  #content, #sidebar 
+    :overflow-x hidden
+
+!sidebar_width = 300px
+!sidebar_gutter = 40px
+
+#content 
+  :width = !container_width - !sidebar_gutter - !sidebar_width
+  //:padding 20px 0
+  /*
+    :margin 0 1px
+    :background #fff
+    :position relative
+    :top -20px
+    :margin-bottom -20px
+
+#sidebar 
+  :float right
+  :width = !sidebar_width
+  :padding 20px 0
+  //:padding 10px
+  .graph 
+    :border solid 1px #E5E5E5
+    :padding 5px
+    :text-align center
+    :margin-bottom 2em
+    :background-color #fff
+    img 
+      :border none
+      :max-width 100%
+      :max-height 200px
+
+  > #navigation 
+    :font-size 9pt
+    > h3 
+      :margin-bottom 1em
+    > ul > li 
+      :margin 0.75em 0 0 0
+      > a 
+        :color #444
+        :text-decoration none
+
+#breadcrumbs
+  :border-left solid 2px #ddd
+  :margin 0 0 15px
+  :padding 0 0 8px 5px
+  :background transparent url(/images/breadcrumbs.gif) no-repeat bottom left
+  a
+    :text-decoration none
+  .breadcrumb
+    :margin-bottom 3px
+    > img
+      :position relative
+      :bottom -5px
+      :margin-right 3px
+    > span
+      //background #c0dffe
+      :padding 3px 0
+      :-moz-border-radius 7px
+      :overflow-x hidden
+      :color #333
+    
+  /*
+    > ul 
+      :display inline
+      > li 
+        :display inline
+        :margin-right 5px
+        :line-height 150%
+        a 
+          :margin-right 5px
+          :padding 3px 5px
+          :color #444
+          :border solid 1px #ddd
+          :text-decoration none
+          &:hover
+            :text-decoration underline
+        &:after
+          :content ' → '
+        &:last-child:after
+          :content none
+
+ul.discussion
+  :font-size 11pt
+  :margin 20px 0 2em 20px
+  li
+    :background #fff2d7
+    :border solid 1px #fdebc9
+    :margin-bottom 3px
+    :line-height 150%
+    :padding 5px 10px
+    :font-size 0.9em
+    p
+      :margin-bottom 0.75em
+    div.info
+      :color #333
+      :font-size 0.9em
+      :text-transform lowercase
+      a
+        :color #369
+
+form.button-to div 
+  :display inline
+
+fieldset 
+  :border solid 1px #aaa
+  :padding 0 1em 1em
+  :margin-bottom 1em
+
+div.input 
+  :margin-bottom 2em
+  > label 
+    :display block
+    :margin 1em 0 0.5em
+
+input[type=text], input[type=password], textarea 
+  :padding 8px
+  :font 14px 'Lucida Grande', Verdana, Arial, Sans-Serif
+  :color #837c7c
+  :font-weight bold
+  :border 2px solid #dedede
+  &:focus
+    :border solid 2px #837C7C
+    :color #383131
+  
+fieldset 
+  :border solid 2px #dedede
+
+label 
+  :font 16px Georgia, "Times New Roman", serif
+
+div#content > #description
+  > #editable 
+    :margin 2em 0
+    :font-size 11pt
+  > div#description-text 
+    :margin-bottom 1em
+    :padding 1em
+    :border-left solid 5px #aaa
+    :text-align justify
+    :color #222
+    :font-size 11pt
+    > p 
+      :line-height 175%
+      :margin-bottom 1em
+      &:last-child 
+        :margin-bottom 0
+
+#content-footer 
+  :text-align right
+  :margin-top 20px
+
+#back_to_top 
+  :text-align right
+  > a 
+    :background #369
+    :color #fff
+    :text-decoration none
+    :padding 0.2em 0.5em
+    :border solid 1px
+      :top-color #58b
+      :left-color #58b
+      :right-color #147
+      :bottom-color #147
+    :cursor pointer
+
+div.control
+  :background #fff
+  :opacity 0.9
+  :font-size 9pt
+  :-moz-border-radius 7px
+  :display inline
+  :text-transform lowercase
+  :border solid 2px
+  > a 
+    :text-decoration none
+    :color #333
+    :padding 0.5em
+
+div.edit 
+  :border-color #85B7D6
+
+div.discuss
+  :border-color #BDD684
+
+div.delete 
+  :border-color #D68585
+
+div.new 
+  :border-color #BDD684
+
+div.container > table > * > tr > *,
+div#content > .info,
+div#content > #description > .controls > .edit 
+  :color #333
+
+div.container 
+  :border solid 1px #e5e5e5
+  > dl > li 
+    :padding 0.75em 1em
+    :list-style-type none
+    > * 
+      :display inline
+  > table, div.container > dl 
+    :border-collapse separate
+    :border solid 1px #aaa
+    :font-size 9pt
+  > table
+    > * > tr > * 
+      :padding 0.75em 1em
+      :text-align center
+      &:first-child
+        :width 100%
+        :text-align left
+    > thead
+      > tr.odd 
+        :background-color #fafafa
+      > tr > th 
+        :border-bottom solid 1px #ccc
+        :font-weight bold
+        :background-color #eee
+    > tbody > tr
+      &:last-child > td
+        :border-bottom solid 1px #ddd
+      > td 
+        :border-bottom solid 1px #eee
+        > div 
+          :position relative
+          > a 
+            :color #333
+          > div.delete 
+            :position absolute
+            :right 0
+
+#errorExplanation 
+  :margin-bottom 2em
+  > h2 
+    :color #900
+  > p, > ul 
+    :margin-bottom 1em
+  > ul > li 
+    :list-style-type disc
+    :margin 0 0 0.5em 2ex
