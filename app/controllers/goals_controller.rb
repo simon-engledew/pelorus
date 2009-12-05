@@ -1,6 +1,6 @@
 class GoalsController < ApplicationController
   
-  cache_sweeper :map_sweeper
+  cache_sweeper :graph_sweeper
   
   def index
     redirect_to map.hierarchy

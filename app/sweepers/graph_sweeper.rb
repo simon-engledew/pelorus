@@ -13,8 +13,8 @@ class MapSweeper < ActionController::Caching::Sweeper
 private
 
   def expire_caches(model)
-    expire_action(:controller => :maps, :action => :graph, :id => model.map.id, :format => :png)
-    expire_action(:controller => :maps, :action => :complex_graph, :id => model.map.id, :format => :png)
+    expire_action(:controller => :graphs, :action => :simple_map, :id => model.map.id, :format => :png)
+    expire_action(:controller => :graphs, :action => :extended_map, :id => model.map.id, :format => :png)
   end
   
 end

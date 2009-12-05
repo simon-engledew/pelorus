@@ -1,6 +1,6 @@
 class SupportingGoalsController < ApplicationController
   
-  cache_sweeper :map_sweeper
+  cache_sweeper :graph_sweeper
 
   def new
     @supporting_goal = goal.supporting_goals.build
