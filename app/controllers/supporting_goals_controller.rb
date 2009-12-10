@@ -13,10 +13,13 @@ class SupportingGoalsController < ApplicationController
   end
   
   def destroy
-    @supporting_goal = goal.supporting_goals.find(params[:id])
-    @supporting_goal.destroy
+    supporting_goal.destroy
     
     redirect_to goal.hierarchy
+  end
+  
+  def supporting_goal
+    @supporting_goal ||= goal.supporting_goals.find(params[:id])
   end
 
 end
