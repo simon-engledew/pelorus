@@ -1,10 +1,6 @@
 class MapsController < ApplicationController
-  
-  ActionWhitelist = :complex_graph, :graph
-
-  caches_action  :graph, :complex_graph
-  
-  cache_sweeper :map_sweeper
+ 
+  cache_sweeper :graph_sweeper
 
   def index
     @maps = Map.all
