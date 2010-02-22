@@ -10,6 +10,10 @@ class GraphSweeper < ActionController::Caching::Sweeper
     expire_caches(model)
   end
   
+  def after_destroy(model)
+    expire_caches(model)
+  end
+  
 private
 
   def expire_caches(model)

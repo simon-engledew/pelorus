@@ -199,6 +199,7 @@ body {
   margin-right: 3px;
 }
 #breadcrumbs .breadcrumb > span {
+  line-height: 200%;
   padding: 3px 0;
   -moz-border-radius: 7px;
   overflow-x: hidden;
