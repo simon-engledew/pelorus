@@ -1,15 +1,10 @@
 - content_for :sidebar do
   %h3
-    %span Map Overview:
+    %span Network View:
 
   %a{:href => extended_map_graph_path(map, :format => :png)}
     .graph
-      != image_tag(extended_map_graph_path(map, :format => :png))
-  %h3
-    %span Goal Status:
-  %a{:href => simple_map_graph_path(map, :format => :png)}
-    .graph
-      != image_tag(simple_map_graph_path(map, :format => :png))
+      != image_tag(extended_map_graph_path(map, :format => :png, :timestamp => Time.now.to_i))
 
 - content_for :editable do
   %p== Map Manager: #{linked_user_name map.manager}
