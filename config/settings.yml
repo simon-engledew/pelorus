@@ -9,3 +9,15 @@ development:
     stenning:
       password: pelorus
       write_permission: true
+
+production:
+  users:
+    admin:
+      password: pelorus
+      write_permission: true
+    collaborator:
+      password: pelorus
+      write_permission: false
+    stenning:
+      password: pelorus
+      write_permission: true

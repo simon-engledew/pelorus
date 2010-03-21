@@ -19,7 +19,7 @@
           %td= map.goals.count
       - if @maps.empty?
         %tr
-          %td{:colspan => 2}=t ".#{write_permission? ? 'write' : 'read'}.empty.map"
+          %td{:colspan => 2}=t ".#{write_permission? ? 'write' : 'read'}.empty"
     - if write_permission?
       %tfoot
         %tr
