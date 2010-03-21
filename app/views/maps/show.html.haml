@@ -27,7 +27,7 @@
           %td= status_image(goal)
       - if map.children.empty?
         %tr
-          %td.helptext{:colspan => 2}=t ".#{write_permission? ? 'write' : 'read'}.empty.map"
+          %td.helptext{:colspan => 2}=t ".#{write_permission? ? 'write' : 'read'}.empty"
     - if write_permission?
       %tfoot
         %tr
