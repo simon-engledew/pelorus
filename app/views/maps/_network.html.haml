@@ -1,0 +1,7 @@
+- unless map.goals.empty?
+  %h3
+    %span Network View:
+
+  %a{:href => extended_map_graph_path(map, :format => :png)}
+    .graph
+      != image_tag(extended_map_graph_path(map, :format => :png, :timestamp => Time.now.to_i))
