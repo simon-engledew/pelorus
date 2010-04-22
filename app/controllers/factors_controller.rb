@@ -23,7 +23,7 @@ class FactorsController < ApplicationController
   def update
     return render(:action => :edit) unless factor.update_attributes(params[:factor])
     flash[:notice] = "Factor was successfully updated."
-    redirect_to factor.hierarchy
+    redirect_to factor.parent_node.hierarchy
   end
   
   def destroy
