@@ -12,7 +12,7 @@ class RisksController < ApplicationController
   
   def create
     @risk = goal.risks.build(params[:risk])
-    return redirect_to(@risk.hierarchy) if @risk.save
+    return redirect_to(@risk.parent_node.hierarchy) if @risk.save
     render :action => :new
   end
   

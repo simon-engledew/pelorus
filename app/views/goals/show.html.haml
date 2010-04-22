@@ -8,6 +8,8 @@
       %li== <font color="#{Status::Color[goal.supported_chain_status]}">&#8226;</font> <a href="#supporting_goals">Supporting Goals</a>
       %li== <font color="#{Status::Color[goal.supported_by_status]}">&#8226;</font> <a href="#supported_goals">Supported Goals</a>
       %li== <font color="#999">&#8226;</font> <a href="#stakes">Stakes</a>
+  
+  != render :partial => '/maps/network'
 
 - content_for :editable do
   %p== This goal <strong>#{goal.propagate ? 'is' : 'is not'}</strong> propagating its status information.

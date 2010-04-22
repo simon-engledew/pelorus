@@ -16,7 +16,7 @@ class FactorsController < ApplicationController
   
   def create
     @factor = goal.factors.build(params[:factor])
-    return redirect_to(@factor.hierarchy) if @factor.save
+    return redirect_to(@factor.parent_node.hierarchy) if @factor.save
     render :action => :new
   end
   
