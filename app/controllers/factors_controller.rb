@@ -7,6 +7,7 @@ class FactorsController < ApplicationController
   end
 
   def show
+    redirect_to edit_map_goal_factor_path(map, goal, factor)
   end
   
   def new

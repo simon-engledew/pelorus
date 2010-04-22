@@ -31,6 +31,7 @@ class RisksController < ApplicationController
   end
   
   def show
+    redirect_to edit_map_goal_risk_path(map, goal, risk)
   end
   
 private
