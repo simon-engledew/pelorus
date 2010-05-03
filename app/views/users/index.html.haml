@@ -8,11 +8,9 @@
       - @users.each do |user|
         %tr[user]
           %td
-            = user.name
-            - if user.admin
-              == (admin)
+            %div== #{delete_link(user)} #{user.name} #{'(admin)' if user.admin}
           %td
-            %div== #{delete_link(user)} #{link_to(h(user.email), user)}
+            %div= link_to(h(user.email), user)
       - if @users.empty?
         %tr
           %td{:colspan => 2}=t ".#{write_permission? ? 'write' : 'read'}.empty.user"

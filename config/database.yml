@@ -14,5 +14,11 @@ production: &PRODUCTION
   username: pelorus
   encoding: utf8
 
+staging: &STAGING
+  adapter: mysql
+  database: pelorus_staging
+  username: pelorus
+  encoding: utf8
+
 cucumber:
   <<: *TEST

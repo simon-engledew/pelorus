@@ -1,11 +1,13 @@
+set :stages, %w(staging production)
+set :default_stage, 'staging'
+
+require 'capistrano/ext/multistage'
+
 set :application, 'pelorus'
 
 set :scm, :git
 set :repository, 'git@toolforchange.com:pelorus.git'
-set :branch, 'master'
 set :deploy_via, :remote_cache
-
-set :deploy_to, '/home/deploy/apps/pelorus'
 
 set :user, 'deploy'
 set :ssh_options, { :forward_agent => true }
