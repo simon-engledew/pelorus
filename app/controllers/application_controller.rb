@@ -33,7 +33,8 @@ protected
   end
   
   def check_permissions
-    raise NotFound.new("accessed to #{controller_name}##{action_name} denied") unless write_permission? || self.class.instance_eval { class_variable_get(:@@whitelist) }.include?(action_name)
+    whitelist = self.class.instance_eval { class_variable_get(:@@whitelist) }
+    raise NotFound.new("access to #{controller_name}##{action_name} denied. available actions are #{whitelist.to_a.to_sentence}") unless write_permission? || whitelist.include?(action_name)
   end
   
   
