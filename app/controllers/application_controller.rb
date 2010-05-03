@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
 
 protected
   def self.whitelist(*actions)
-    @@whitelist = actions.map(&:to_s).to_set
+    write_inheritable_attribute(:whitelist, (read_inheritable_attribute(:white_list) || Set.new) + actions.map(&:to_s))
   end
   
   def map
@@ -33,8 +33,8 @@ protected
   end
   
   def check_permissions
-    whitelist = self.class.instance_eval { class_variable_get(:@@whitelist) }
-    raise NotFound.new("access to #{controller_name}##{action_name} denied. available actions are #{whitelist.to_a.to_sentence}") unless write_permission? || whitelist.include?(action_name)
+    whitelist = self.class.read_inheritable_attribute(:whitelist)
+    raise NotFound.new("access to #{controller_name}##{action_name} denied. available actions are #{whitelist.to_a.to_sentence}") unless write_permission? || (whitelist && whitelist.include?(action_name))
   end
   
   
