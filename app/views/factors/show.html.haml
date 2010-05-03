@@ -6,3 +6,5 @@
       and a predicted value of <span class="likely">#{h factor.likely}</span>.
 
 != render :partial => '/layouts/object_header', :object => factor
+
+= link_to 'back', polymorphic_path(resource.parent_node.hierarchy)

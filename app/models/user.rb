@@ -1,13 +1,13 @@
 class User < ActiveRecord::Base
-  
+
   def hierarchy
     [self]
   end
   
   validates_presence_of :name
-  validates_presence_of :email_address
-  
+
   has_many :stakes
+  has_many :comments
   
   before_destroy :has_stakes?
   
@@ -15,4 +15,9 @@ class User < ActiveRecord::Base
     stakes.empty? and not Map.exists?(:manager_id => self.id)
   end
   
+  # :http_authenticatable, :token_authenticatable, :lockable, :timeoutable and :activatable
+  devise :registerable, :authenticatable, :confirmable, :recoverable,
+         :rememberable, :trackable, :validatable
+
+  attr_accessible :email, :name, :password, :password_confirmation
 end

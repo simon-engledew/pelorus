@@ -37,7 +37,7 @@ class GoalsController < ApplicationController
 protected
 
   def goal
-    @goal ||= map.goals.find(params[:id])
+    @goal ||= (map.goals.find(params[:id]) if params[:id])
   end
   
 end

@@ -1,14 +1,17 @@
 !!! Strict
 %html{html_attrs('en-GB')}
   %head
-    %title== Pelorus - #{resource && resource.respond_to?(:name) ? resource.name : @title || 'Home'}
+    %title== Pelorus - #{@title || (resource && resource.respond_to?(:name) ? resource.name : 'Home')}
     != stylesheet_link_tag 'reset'
     != stylesheet_link_tag 'application'
     != javascript_include_tag :mootools
     != yield :head
   %body
-    #header
-      #header-container
+    - if flash[:notice]
+      #notice_container
+        #notice= flash[:notice]
+    #header_container
+      #header
         %a{:href => root_url}
           %h1
             %span
@@ -17,26 +20,32 @@
         %ul
           %li
             %img{:src => '/images/icons/home.png'}
-            != link_to 'Welcome Page', root_path
+            != link_to 'Home', root_path
           %li
             %img{:src => '/images/icons/users.png'}
-            != link_to 'Manage Users', users_path
-    #page
-      #page-container
-        #sidebar
-          #breadcrumbs
-            %ul
-              -#
-                %li= link_to('Welcome Page', root_url)
-                - if controller.instance_of? UsersController
-                  %li= link_to('Manage Users', users_path)
-              != breadcrumbs(resource).join
-          != yield :sidebar
-        #content
-          != yield
+            != link_to 'Stakeholders', users_path
+          - if user_signed_in?
+            %li
+              %span== #{current_user.name} (#{link_to 'Logout', destroy_user_session_path})
+          - else
+            %li
+              %span= link_to 'Login', new_user_session_path
+    #page_container
+      #page
+        #sidebar_container
+          #sidebar
+            - if resource and !controller.devise_controller?
+              %h3 Navigation:
+              #breadcrumbs
+                %ul
+                  != breadcrumbs(resource).join
+            != yield :sidebar
+        #content_container
+          #content
+            != yield
         %div{:style => 'clear:both'}
-    #footer
-      #footer-container
+    #footer_container
+      #footer
         Pelorus is designed and built by John Speed Ltd – a small company based in Winchester, England.
 
     != javascript_include_tag 'application'

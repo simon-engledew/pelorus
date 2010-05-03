@@ -1,9 +1,17 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 user_1:
-  email_address: email@address.com
   name: Andrew Jannings
+  email: andrew@jannings.com
+  encrypted_password: d49ded97e1a2e9a84ccebb55727e2e3db4a6379e
+  password_salt: n30Hs0J5lcdReqhcGbG3
+  confirmed_at: <%= DateTime.now.utc %>
+  admin: true
 
 user_2:
-  email_address: email@address.com
   name: Dennis Benson
+  email: dennis@benson.com
+  encrypted_password: dbb2430c122b7a4ea9f28c9f442f9df3c9d523d1
+  password_salt: XwldzYouADIqsa2Hd-5e
+  confirmed_at: <%= DateTime.now.utc %>
+  admin: false

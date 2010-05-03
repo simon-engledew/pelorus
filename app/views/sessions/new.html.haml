@@ -1,0 +1,17 @@
+- @title = 'Login'
+
+%h2 Login
+
+= flash[:alert]
+
+- form_for resource_name, resource, :url => session_path(resource_name), :builder => LabellingFormBuilder do |f|
+  = f.text_field :email
+  = f.password_field :password
+
+  - if devise_mapping.rememberable?
+    = f.check_box :remember_me
+
+  .submit= f.submit 'Login'
+
+-#
+  = render :partial => 'shared/devise_links'

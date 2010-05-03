@@ -2,15 +2,17 @@
   %table#users
     %thead
       %tr
-        %th Email Address
         %th Name
+        %th Email Address
     %tbody
       - @users.each do |user|
         %tr[user]
           %td
-            %div== #{delete_link(user)} #{link_to(h(user.email_address), user)}
+            = user.name
+            - if user.admin
+              == (admin)
           %td
-            %nobr= user.name
+            %div== #{delete_link(user)} #{link_to(h(user.email), user)}
       - if @users.empty?
         %tr
           %td{:colspan => 2}=t ".#{write_permission? ? 'write' : 'read'}.empty.user"

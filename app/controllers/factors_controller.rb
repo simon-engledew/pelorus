@@ -7,7 +7,7 @@ class FactorsController < ApplicationController
   end
 
   def show
-    redirect_to edit_map_goal_factor_path(map, goal, factor)
+    redirect_to edit_map_goal_factor_path(map, goal, factor) if write_permission?
   end
   
   def new
@@ -37,7 +37,7 @@ class FactorsController < ApplicationController
 protected
 
   def factor
-    @factor ||= goal.factors.find(params[:id])
+    @factor ||= (goal.factors.find(params[:id]) if params[:id])
   end
   
   helper_method :factor

@@ -1,11 +1,10 @@
 class GraphsController < ApplicationController
   
-  caches_action  :extended_map, :simple_map
+  whitelist :network
   
-  def extended_map
-  end
-
-  def simple_map
+  caches_action  :network
+  
+  def network
   end
 
 end

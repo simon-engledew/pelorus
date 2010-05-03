@@ -1,5 +1,6 @@
 - content_for :sidebar do
-  != render :partial => '/maps/network'
+  != render :partial => '/shared/network_graph'
+  != render :partial => '/shared/comments'
 
 - content_for :editable do
   %p== Map Manager: #{linked_user_name map.manager}

@@ -35,6 +35,6 @@ class MapsController < ApplicationController
   
 protected
   def map
-    @map ||= Map.find_by_id(params[:id])
+    @map ||= (Map.find_by_id(params[:id]) if params[:id])
   end
 end

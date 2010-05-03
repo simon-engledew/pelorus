@@ -9,13 +9,11 @@
       %li== <font color="#{Status::Color[goal.supported_by_status]}">&#8226;</font> <a href="#supported_goals">Supported Goals</a>
       %li== <font color="#999">&#8226;</font> <a href="#stakes">Stakes</a>
   
-  != render :partial => '/maps/network'
+  != render :partial => '/shared/network_graph'
+  != render :partial => '/shared/comments'
 
 - content_for :editable do
   %p== This goal <strong>#{goal.propagate ? 'is' : 'is not'}</strong> propagating its status information.
-
-- content_for :controls do
-  .control.discuss= link_to 'discuss', polymorphic_path(resource.hierarchy, :action => :edit)
 
 != render :partial => '/layouts/object_header', :object => resource
 

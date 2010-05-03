@@ -5,15 +5,15 @@
     !=h object.name
 
   - if object.respond_to?(:description)
-    #description-text
+    #description_text
       - unless object.description.blank? #Sanitize.clean(object.description, Sanitize::Config::RESTRICTED)
         :textile
           #{h object.description}
       - else
-        %p Click edit to add a description.
-
-  - if object.respond_to?(:comments)
-    != render :partial => '/comments/index', :object => object
+        - if write_permission?
+          %p Click edit to add a description.
+        - else
+          %p No description.
 
   - if (editable = yield(:editable))
     #editable

@@ -12,6 +12,7 @@ class Map < ActiveRecord::Base
   has_many :goals
   has_many :roles
   has_many :stakes, :conditions => {:goal_id => nil}
+  has_many :comments, :as => :parent
   
   validates_associated :manager
   validates_presence_of :manager

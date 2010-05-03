@@ -26,6 +26,7 @@ $$('a[href^="#"]').each(function(link) {
   });
 });
 
+/*
 $$('div.container > table > tbody > tr:nth-child(odd)').addClass('odd');
 $$('div.container > table > tbody > tr').each(function(row){
   var element = row.getElement('.delete');
@@ -36,6 +37,7 @@ $$('div.container > table > tbody > tr').each(function(row){
     row.fireEvent('mouseout');
   }
 });
+*/
 
 // document.addEvent('domready', function() {
 //    $$('.tab').each(function(tab, i) {

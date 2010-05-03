@@ -5,6 +5,6 @@
 - form_tag url_for(resource.hierarchy) do
   != render :partial => 'form', :object => resource
  
-  %input{:type => 'submit', :value => 'Create'}  
-
-!= button_to('Cancel', local_assigns[:cancel] || (resource.parent_node ? resource.parent_node.hierarchy : root_url), :method => :get)
+  .submit
+    %input{:type => 'submit', :value => 'Create'}  
+    = link_to('Cancel', local_assigns[:cancel] || (resource.parent_node ? resource.parent_node.hierarchy : root_url), :class => 'button')

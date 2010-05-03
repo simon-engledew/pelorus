@@ -31,13 +31,13 @@ class RisksController < ApplicationController
   end
   
   def show
-    redirect_to edit_map_goal_risk_path(map, goal, risk)
+    redirect_to edit_map_goal_risk_path(map, goal, risk) if write_permission?
   end
   
 private
 
   def risk
-    @risk ||= goal.risks.find(params[:id])
+    @risk ||= (goal.risks.find(params[:id]) if params[:id])
   end
   
   helper_method :risk

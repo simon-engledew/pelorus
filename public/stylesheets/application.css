@@ -1,7 +1,3 @@
-form {
-  display: inline;
-}
-
 strong {
   font-weight: bold;
 }
@@ -41,95 +37,92 @@ body {
   color: #333;
 }
 
-#header, #page, #footer {
+#header_container, #page_container, #footer_container {
   min-width: 900px;
 }
 
-#header-container, #page-container, #footer-container {
+#header, #page, #footer {
   width: 900px;
   margin: 0 auto;
   text-align: left;
 }
 
-#footer {
+#footer_container {
   border-top: solid 3px #444;
   background: #222;
 }
 
-#footer-container {
+#footer {
   color: #eaeaea;
   font-size: 1.3em;
   text-align: center;
   padding: 1em 0;
 }
-#footer-container a {
+#footer a {
   color: #fff;
 }
 
-#header {
+#header_container {
   margin-top: 4px;
   background: #fff;
   border-top: solid 3px #dedcd7;
 }
 
-#header-container {
+#header {
   position: relative;
   border-bottom: solid 1px #ddd;
 }
-#header-container h1 {
+#header h1 {
   padding: 20px 0;
   width: 259px;
   height: 74px;
   margin: 0;
   background: transparent url(/images/logo.gif) no-repeat center center;
 }
-#header-container h1 > span {
+#header h1 > span {
   display: none;
 }
-#header-container > ul {
+#header > ul {
   position: absolute;
   bottom: 0;
   right: 0;
   padding: 9px 10px;
 }
-#header-container > ul > li {
+#header > ul > li {
   display: inline;
   padding: 9px 0 9px 16px;
 }
-#header-container > ul > li > img {
+#header > ul > li > img {
   position: relative;
   bottom: -0.35em;
 }
-#header-container > ul > li > a {
+#header > ul > li > a {
   margin-left: 1.5ex;
   color: #333;
   text-decoration: none;
 }
-#header-container > ul > li > a:hover {
+#header > ul > li > a:hover {
   text-decoration: underline;
 }
 
-#page-container {
-  padding: 40px 0;
+#page_container {
+  min-height: 480px;
+  background: #fff;
 }
 
 #page {
-  min-height: 480px;
-  background: #fff;
-  /* :background #fff url(/images/page.gif) repeat-y top
-   * :border-bottom solid 1px #ccc
-   * :margin-bottom 20px */
+  padding: 40px 0;
 }
 
-/* #content, #sidebar 
- *   :overflow-x hidden */
+form > .submit {
+  font-size: 16px;
+}
+form > .submit > a {
+  margin-left: 1ex;
+}
+
 #content {
   width: 560px;
-  /* :margin 0 1px
-   * :background #fff
-   * :position relative
-   * :top -20px
-   * :margin-bottom -20px */
 }
 
 #sidebar {
@@ -168,24 +161,6 @@ body {
   margin: 0 0 15px;
   padding: 0 0 8px 5px;
   background: transparent url(/images/breadcrumbs.gif) no-repeat bottom left;
-  /* > ul 
-   *   :display inline
-   *   > li 
-   *     :display inline
-   *     :margin-right 5px
-   *     :line-height 150%
-   *     a 
-   *       :margin-right 5px
-   *       :padding 3px 5px
-   *       :color #444
-   *       :border solid 1px #ddd
-   *       :text-decoration none
-   *       &:hover
-   *         :text-decoration underline
-   *     &:after
-   *       :content ' → '
-   *     &:last-child:after
-   *       :content none */
 }
 #breadcrumbs a {
   text-decoration: none;
@@ -206,11 +181,25 @@ body {
   color: #333;
 }
 
-ul.discussion {
+div.discussion > p {
+  margin-bottom: 1em;
+}
+div.discussion > ul.discussion > li > p {
+  margin-bottom: 1em;
+}
+div.discussion > ul.discussion > li > p.details > span.user a {
+  font-weight: bold;
+  color: #333;
+  text-decoration: none;
+}
+div.discussion > ul.discussion > li > p.details > span.user a:hover {
+  text-decoration: underline;
+}
+div.discussion > ul.comments {
   font-size: 11pt;
   margin: 20px 0 2em 20px;
 }
-ul.discussion li {
+div.discussion > ul.comments > li {
   background: #fff2d7;
   border: solid 1px #fdebc9;
   margin-bottom: 3px;
@@ -218,20 +207,16 @@ ul.discussion li {
   padding: 5px 10px;
   font-size: 0.9em;
 }
-ul.discussion li p {
+div.discussion > ul.comments > li > p {
   margin-bottom: 0.75em;
 }
-ul.discussion li div.info {
+div.discussion > ul.comments > li > p.posted_at {
   color: #333;
   font-size: 0.9em;
   text-transform: lowercase;
 }
-ul.discussion li div.info a {
+div.discussion > ul.comments > li > p.posted_at a {
   color: #369;
-}
-
-form.button-to div {
-  display: inline;
 }
 
 fieldset {
@@ -272,7 +257,7 @@ div#content > #description > #editable {
   margin: 2em 0;
   font-size: 11pt;
 }
-div#content > #description > div#description-text {
+div#content > #description > div#description_text {
   margin-bottom: 1em;
   padding: 1em;
   border-left: solid 5px #aaa;
@@ -280,17 +265,12 @@ div#content > #description > div#description-text {
   color: #222;
   font-size: 11pt;
 }
-div#content > #description > div#description-text > p {
+div#content > #description > div#description_text > p {
   line-height: 175%;
   margin-bottom: 1em;
 }
-div#content > #description > div#description-text > p:last-child {
+div#content > #description > div#description_text > p:last-child {
   margin-bottom: 0;
-}
-
-#content-footer {
-  text-align: right;
-  margin-top: 20px;
 }
 
 #back_to_top {
@@ -335,6 +315,9 @@ div.discuss {
 div.delete {
   border-color: #D68585;
 }
+div.delete > a:hover {
+  color: #933;
+}
 
 div.new {
   border-color: #BDD684;
@@ -369,7 +352,7 @@ div.container > table > * > tr > *:first-child {
   width: 100%;
   text-align: left;
 }
-div.container > table > thead > tr.odd {
+div.container > table > thead > tr:nth-child(odd) {
   background-color: #fafafa;
 }
 div.container > table > thead > tr > th {
@@ -390,8 +373,15 @@ div.container > table > tbody > tr > td > div > a {
   color: #333;
 }
 div.container > table > tbody > tr > td > div > div.delete {
+  -webkit-box-shadow: 0 0 2px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 0 0 2px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.4);
   position: absolute;
   right: 0;
+  opacity: 0;
+}
+div.container > table > tbody > tr:hover > td > div > div.delete {
+  opacity: 1;
 }
 
 #errorExplanation {

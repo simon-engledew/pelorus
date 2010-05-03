@@ -34,7 +34,7 @@ class UsersController < ApplicationController
 protected
 
   def user
-    @user ||= User.find_by_id(params[:id])
+    @user ||= (User.find_by_id(params[:id]) if params[:id])
   end
   
   helper_method :user

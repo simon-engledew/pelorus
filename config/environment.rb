@@ -20,14 +20,14 @@ Rails::Initializer.run do |config|
   # you must remove the Active Record framework.
   # config.frameworks -= [ :active_record, :active_resource, :action_mailer ]
   
-  config.frameworks -= [:active_resource, :action_mailer]
+  config.frameworks -= [:active_resource]
 
   config.i18n.default_locale = 'en-GB'
 
   config.gem 'haml'
   config.gem 'RedCloth'
-  config.gem 'authlogic'
-
+  config.gem 'devise'
+  
   # Only load the plugins named here, in the order given. By default, all plugins 
   # in vendor/plugins are loaded in alphabetical order.
   # :all can be used as a placeholder for all plugins not explicitly named

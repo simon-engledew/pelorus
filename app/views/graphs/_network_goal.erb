@@ -5,7 +5,7 @@
     fontname="Georgia";
     fontsize="11";
     fillcolor="<%= status_color(object.status) %>";
-    <%= render :partial => 'extended_goal', :collection => object.children %>
+    <%= render :partial => 'network_goal', :collection => object.children %>
     node <%= object.id %> [width=0,fixedsize=true,style=invis];
   }
 <% else %>

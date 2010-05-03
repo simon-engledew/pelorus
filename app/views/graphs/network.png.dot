@@ -1,7 +1,7 @@
 digraph "<%= sanitize_label(map.name) %>" {
   rankdir=BT;
   node [shape=box];
-  <%= render :partial => 'extended_goal', :collection => map.children %>
+  <%= render :partial => 'network_goal', :collection => map.children %>
   <% map.goals.each do |goal| -%>
     <% goal.supporting_goals.each do |supporting_goal| -%>
       <%= supporting_goal.supported_by.id %> -> <%= supporting_goal.goal.id %> [style=<%= supporting_goal.supported_by.propagate ? 'solid' : 'dotted' %>,color="<%= line_color(supporting_goal.supported_by.status) %>"];)

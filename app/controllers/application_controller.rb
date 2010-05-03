@@ -13,44 +13,39 @@ class ApplicationController < ActionController::Base
   # from your application log (in this case, all fields with names like "password"). 
   # filter_parameter_logging :password
 
-  before_filter :authenticate #if Rails.env.production?
-  before_filter :check_permissions
+  #before_filter :authenticate #if Rails.env.production?
 
 protected
-  attr_accessor :title
-
-  def authenticate
-    authenticate_or_request_with_http_basic('Pelorus') do |username, password|
-      (user = Settings['users'][username] and user['password'] == password).tap do |authenticated|
-        @write_permission = user['write_permission'] if authenticated
-      end
-    end
+  def self.whitelist(*actions)
+    @@whitelist = actions.map(&:to_s).to_set
   end
   
-  def check_permissions
-    raise NotFound unless write_permission? || (['show', 'index'].to_set + (
-      self.class.const_defined?('ActionWhitelist') ?
-        self.class.const_get('ActionWhitelist').map{|o|o.to_s}.to_set :
-        Set.new
-    )).include?(action_name)
-  end
-
   def map
-    @map ||= Map.find(params[:map_id])
+    @map ||= (Map.find(params[:map_id]) if params[:map_id])
   end
   
   def goal
-    @goal ||= map.goals.find_by_id(params[:goal_id])
+    @goal ||= (map.goals.find_by_id(params[:goal_id]) if params[:goal_id])
   end
   
   def resource
     @resource ||= send(controller_name.singularize)
   end
   
-  def write_permission?
-    @write_permission
+  def check_permissions
+    raise NotFound unless write_permission? || self.class.instance_eval { class_variable_get(:@@whitelist) }.include?(action_name)
   end
+  
+  
+  def write_permission?
+    user_signed_in?? current_user.admin : false
+  end
+
+  whitelist :show, :index
   
   helper_method :map, :goal, :resource, :title, :write_permission?
   
+  before_filter :check_permissions, :unless => lambda { |controller| controller.kind_of?(SessionsController) } # controller.devise_controller? }
+    # controller.kind_of?(SessionsController)
+  # end # || controller.kind_of?(ConfirmationsController)}
 end

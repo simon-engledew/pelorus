@@ -37,7 +37,7 @@ module ApplicationHelper
     status = Status::Enum[object.respond_to?(:status) ? object.status : object].to_s.downcase
     title ||= status.titlecase
     status = "#{status}_hollow" if object.instance_of?(Goal) and !object.propagate
-    image_tag("status/#{status}.png", :title => title, :alt => title)
+    image_tag("status/#{status}.png", :title => title, :alt => title, :height => 20, :width => 20)
   end
   
   def status_tag(status)
