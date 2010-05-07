@@ -184,8 +184,14 @@ form > .submit > a {
 div.discussion > p {
   margin-bottom: 1em;
 }
+div.discussion > ul.discussion > li {
+  margin-top: 2em;
+}
 div.discussion > ul.discussion > li > p {
   margin-bottom: 1em;
+}
+div.discussion > ul.discussion > li > p.details {
+  margin-top: -0.5em;
 }
 div.discussion > ul.discussion > li > p.details > span.user a {
   font-weight: bold;
@@ -194,29 +200,6 @@ div.discussion > ul.discussion > li > p.details > span.user a {
 }
 div.discussion > ul.discussion > li > p.details > span.user a:hover {
   text-decoration: underline;
-}
-div.discussion > ul.comments {
-  font-size: 11pt;
-  margin: 20px 0 2em 20px;
-}
-div.discussion > ul.comments > li {
-  background: #fff2d7;
-  border: solid 1px #fdebc9;
-  margin-bottom: 3px;
-  line-height: 150%;
-  padding: 5px 10px;
-  font-size: 0.9em;
-}
-div.discussion > ul.comments > li > p {
-  margin-bottom: 0.75em;
-}
-div.discussion > ul.comments > li > p.posted_at {
-  color: #333;
-  font-size: 0.9em;
-  text-transform: lowercase;
-}
-div.discussion > ul.comments > li > p.posted_at a {
-  color: #369;
 }
 
 fieldset {

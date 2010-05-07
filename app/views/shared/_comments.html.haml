@@ -1,16 +1,16 @@
-- if resource.respond_to?(:comments)
+- if object.respond_to?(:comments)
   %h3== #{image_tag 'bubble.png', :style => 'vertical-align:bottom'} Discussion
 
   %div.discussion
-    - if resource.comments.empty?
+    - if object.comments.empty?
       %p There are no comments for this #{controller_name.singularize}.
     - else
       %ul.discussion
-        - resource.comments.each do |comment|
+        - object.comments.each do |comment|
           %li
             :textile
               #{comment.message}
             %p.details== <span class="user">#{linked_user_name(comment.user)}</span> - <span class="posted_at">#{comment.created_at.to_s(:short)}</span>
 
     - if user_signed_in?
-      %p= link_to 'discuss', polymorphic_path([:new, *resource.hierarchy] << :comment)
+      %p= link_to 'discuss', polymorphic_path([:new, *object.hierarchy] << :comment)

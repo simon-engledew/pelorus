@@ -10,7 +10,7 @@
       %li== <font color="#999">&#8226;</font> <a href="#stakes">Stakes</a>
   
   != render :partial => '/shared/network_graph'
-  != render :partial => '/shared/comments'
+  != render :partial => '/shared/comments', :object => resource
 
 - content_for :editable do
   %p== This goal <strong>#{goal.propagate ? 'is' : 'is not'}</strong> propagating its status information.

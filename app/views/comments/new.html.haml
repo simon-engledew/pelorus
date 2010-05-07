@@ -1,1 +1,4 @@
+- content_for :sidebar do
+  != render :partial => '/shared/comments', :object => resource.parent_node
+
 != render :partial => '/forms/new'
