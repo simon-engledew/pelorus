@@ -4,6 +4,8 @@ class Risk < ActiveRecord::Base
     self.goal.hierarchy << self
   end
   
+  attr_protected :goal
+  
   belongs_to :goal
 
   validates_uniqueness_of :name, :scope => :goal_id

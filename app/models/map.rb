@@ -9,6 +9,8 @@ class Map < ActiveRecord::Base
   validates_uniqueness_of :name
   validates_presence_of :name
   
+  attr_protected :manager
+  
   has_many :goals
   has_many :roles
   has_many :stakes, :conditions => {:goal_id => nil}

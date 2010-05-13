@@ -14,6 +14,8 @@ public
   
   acts_as_tree
   
+  attr_protected :map
+  
   has_many :factors
   has_many :risks
   has_many :stakes

@@ -1,5 +1,7 @@
 class Factor < ActiveRecord::Base
   
+  attr_protected :goal
+  
   Priorities = [
     'very_low',
     'low',
