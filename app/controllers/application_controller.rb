@@ -16,6 +16,23 @@ class ApplicationController < ActionController::Base
   #before_filter :authenticate #if Rails.env.production?
 
 protected
+
+  unless Rails.env.development?
+    rescue_from(
+      ActionController::RoutingError,
+      ActionController::UnknownController,
+      ActionController::UnknownAction,
+      ActiveRecord::RecordNotFound,
+      NotFound,
+      :with => :rescue_resource_not_found
+    )
+  end
+
+  def rescue_resource_not_found(exception)
+    response.status = 404
+    return render :file => Rails.root.join('public', '404.html')
+  end
+
   def self.whitelist(*actions)
     write_inheritable_attribute(:whitelist, (read_inheritable_attribute(:white_list) || Set.new) + actions.map(&:to_s))
   end

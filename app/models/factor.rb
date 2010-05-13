@@ -1,11 +1,20 @@
 class Factor < ActiveRecord::Base
   
+  Priorities = [
+    'very_low',
+    'low',
+    'medium',
+    'high',
+    'very_high'
+  ]
+  
   def hierarchy
     self.goal.hierarchy << self
   end
   
   belongs_to :goal
 
+  validates_inclusion_of :priority, :in => Factor::Priorities
   validates_uniqueness_of :name, :scope => :goal_id
   validates_associated :goal
   validates_presence_of :goal_id, :name

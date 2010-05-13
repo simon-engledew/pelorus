@@ -5,9 +5,11 @@
 - unless @goal.valid_support_targets.empty?
   - form_for @supporting_goal.hierarchy, :builder => LabellingFormBuilder do |f|
     != f.select :supported_by_id, @goal.valid_support_targets.map{|o|[h(o.name), o.id]}
-    %input{:type => 'submit', :value => 'Create'}  
 
-  != button_to('Cancel', @goal.hierarchy, :method => :get)
+    .submit
+      %input{:type => 'submit', :value => 'Create'}  
+      = link_to('Cancel', local_assigns[:cancel] || (resource.parent_node ? resource.parent_node.hierarchy : root_path), :class => 'button')
+
 - else
   %p There are no valid support targets for this goal.
   

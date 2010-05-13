@@ -4,15 +4,15 @@ strong {
 
 h1 {
   font: 20pt Georgia;
-  color: #111;
-  color: #222;
+  color: #111111;
+  color: #222222;
   margin-bottom: 0.5em;
 }
 
 h2 {
   font-size: 15pt;
   margin: 1em 0 0.5em;
-  color: #222;
+  color: #222222;
 }
 
 h3 {
@@ -28,13 +28,13 @@ legend {
 }
 
 html {
-  background: #222;
+  background: #222222;
 }
 
 body {
   font-size: 62.5%;
-  font-family: 'Lucida Grande', Verdana, Arial, Sans-Serif;
-  color: #333;
+  font-family: "Lucida Grande", Verdana, Arial, Sans-Serif;
+  color: #333333;
 }
 
 #header_container, #page_container, #footer_container {
@@ -48,8 +48,8 @@ body {
 }
 
 #footer_container {
-  border-top: solid 3px #444;
-  background: #222;
+  border-top: solid 3px #444444;
+  background: #222222;
 }
 
 #footer {
@@ -59,18 +59,18 @@ body {
   padding: 1em 0;
 }
 #footer a {
-  color: #fff;
+  color: white;
 }
 
 #header_container {
   margin-top: 4px;
-  background: #fff;
+  background: white;
   border-top: solid 3px #dedcd7;
 }
 
 #header {
   position: relative;
-  border-bottom: solid 1px #ddd;
+  border-bottom: solid 1px #dddddd;
 }
 #header h1 {
   padding: 20px 0;
@@ -98,7 +98,7 @@ body {
 }
 #header > ul > li > a {
   margin-left: 1.5ex;
-  color: #333;
+  color: #333333;
   text-decoration: none;
 }
 #header > ul > li > a:hover {
@@ -107,7 +107,7 @@ body {
 
 #page_container {
   min-height: 480px;
-  background: #fff;
+  background: white;
 }
 
 #page {
@@ -115,7 +115,8 @@ body {
 }
 
 form > .submit {
-  font-size: 16px;
+  margin-top: 2em;
+  font-size: 14px;
 }
 form > .submit > a {
   margin-left: 1ex;
@@ -131,11 +132,11 @@ form > .submit > a {
   padding: 20px 0;
 }
 #sidebar .graph {
-  border: solid 1px #E5E5E5;
+  border: solid 1px #e5e5e5;
   padding: 5px;
   text-align: center;
   margin-bottom: 2em;
-  background-color: #fff;
+  background-color: white;
 }
 #sidebar .graph img {
   border: none;
@@ -152,12 +153,12 @@ form > .submit > a {
   margin: 0.75em 0 0 0;
 }
 #sidebar > #navigation > ul > li > a {
-  color: #444;
+  color: #444444;
   text-decoration: none;
 }
 
 #breadcrumbs {
-  border-left: solid 2px #ddd;
+  border-left: solid 2px #dddddd;
   margin: 0 0 15px;
   padding: 0 0 8px 5px;
   background: transparent url(/images/breadcrumbs.gif) no-repeat bottom left;
@@ -178,7 +179,7 @@ form > .submit > a {
   padding: 3px 0;
   -moz-border-radius: 7px;
   overflow-x: hidden;
-  color: #333;
+  color: #333333;
 }
 
 div.discussion > p {
@@ -195,7 +196,7 @@ div.discussion > ul.discussion > li > p.details {
 }
 div.discussion > ul.discussion > li > p.details > span.user a {
   font-weight: bold;
-  color: #333;
+  color: #333333;
   text-decoration: none;
 }
 div.discussion > ul.discussion > li > p.details > span.user a:hover {
@@ -203,7 +204,7 @@ div.discussion > ul.discussion > li > p.details > span.user a:hover {
 }
 
 fieldset {
-  border: solid 1px #aaa;
+  border: solid 1px #aaaaaa;
   padding: 0 1em 1em;
   margin-bottom: 1em;
 }
@@ -211,20 +212,20 @@ fieldset {
 div.input {
   margin-bottom: 2em;
 }
-div.input > label {
+div.input label {
   display: block;
   margin: 1em 0 0.5em;
 }
 
 input[type=text], input[type=password], textarea {
   padding: 8px;
-  font: 14px 'Lucida Grande', Verdana, Arial, Sans-Serif;
+  font: 14px "Lucida Grande", Verdana, Arial, Sans-Serif;
   color: #837c7c;
   font-weight: bold;
   border: 2px solid #dedede;
 }
 input[type=text]:focus, input[type=password]:focus, textarea:focus {
-  border: solid 2px #837C7C;
+  border: solid 2px #837c7c;
   color: #383131;
 }
 
@@ -232,8 +233,31 @@ fieldset {
   border: solid 2px #dedede;
 }
 
+.factor_fields {
+  width: 45%;
+}
+
+.factor_fields#factor_target {
+  margin-right: 5px;
+}
+
+.factor_fields#factor_target, .factor_fields#factor_predicted {
+  float: left;
+}
+
+.factor_fields#factor_content {
+  clear: both;
+}
+
 label {
   font: 16px Georgia, "Times New Roman", serif;
+}
+label span.error {
+  font-weight: bold;
+  color: #993333;
+}
+label span.error:before {
+  content: " - ";
 }
 
 div#content > #description > #editable {
@@ -243,9 +267,9 @@ div#content > #description > #editable {
 div#content > #description > div#description_text {
   margin-bottom: 1em;
   padding: 1em;
-  border-left: solid 5px #aaa;
+  border-left: solid 5px #aaaaaa;
   text-align: justify;
-  color: #222;
+  color: #222222;
   font-size: 11pt;
 }
 div#content > #description > div#description_text > p {
@@ -260,20 +284,20 @@ div#content > #description > div#description_text > p:last-child {
   text-align: right;
 }
 #back_to_top > a {
-  background: #369;
-  color: #fff;
+  background: #336699;
+  color: white;
   text-decoration: none;
   padding: 0.2em 0.5em;
   border: solid 1px;
-  border-top-color: #58b;
-  border-left-color: #58b;
-  border-right-color: #147;
-  border-bottom-color: #147;
+  border-top-color: #5588bb;
+  border-left-color: #5588bb;
+  border-right-color: #114477;
+  border-bottom-color: #114477;
   cursor: pointer;
 }
 
 div.control {
-  background: #fff;
+  background: white;
   opacity: 0.9;
   font-size: 9pt;
   -moz-border-radius: 7px;
@@ -283,33 +307,72 @@ div.control {
 }
 div.control > a {
   text-decoration: none;
-  color: #333;
+  color: #333333;
   padding: 0.5em;
 }
 
+input[type=button], input[type=submit], a.button {
+  margin: 0 7px 0 0;
+  -webkit-box-shadow: 0 0 2px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 0 0 2px rgba(0, 0, 0, 0.25);
+  background-color: #f5f5f5;
+  border: 1px solid #cecece;
+  border-top: 1px solid #dddddd;
+  border-left: 1px solid #dddddd;
+  font-family: "Lucida Grande", Tahoma, Arial, Verdana, sans-serif;
+  font-size: 100%;
+  line-height: 130%;
+  text-decoration: none;
+  font-weight: bold;
+  color: #333333;
+  cursor: pointer;
+  padding: 5px 10px 6px 7px;
+}
+input[type=button]:hover, input[type=submit]:hover, a.button:hover {
+  background-color: #e6efc2;
+  border: 1px solid #c6d880;
+  color: #529214;
+}
+input[type=button][disabled], input[type=submit][disabled], a.button[disabled] {
+  color: #999999;
+}
+input[type=button][disabled]:hover, input[type=submit][disabled]:hover, a.button[disabled]:hover {
+  color: #999999;
+  background-color: #f5f5f5;
+  border: 1px solid #cecece;
+  border-top: 1px solid #dddddd;
+  border-left: 1px solid #dddddd;
+}
+input[type=button]:active, input[type=submit]:active, a.button:active {
+  background-color: #f7ffd3;
+  position: relative;
+  top: 1px;
+  left: 1px;
+}
+
 div.edit {
-  border-color: #85B7D6;
+  border-color: #85b7d6;
 }
 
 div.discuss {
-  border-color: #BDD684;
+  border-color: #bdd684;
 }
 
 div.delete {
-  border-color: #D68585;
+  border-color: #d68585;
 }
 div.delete > a:hover {
-  color: #933;
+  color: #993333;
 }
 
 div.new {
-  border-color: #BDD684;
+  border-color: #bdd684;
 }
 
 div.container > table > * > tr > *,
 div#content > .info,
 div#content > #description > .controls > .edit {
-  color: #333;
+  color: #333333;
 }
 
 div.container {
@@ -324,7 +387,7 @@ div.container > dl > li > * {
 }
 div.container > table, div.container div.container > dl {
   border-collapse: separate;
-  border: solid 1px #aaa;
+  border: solid 1px #aaaaaa;
   font-size: 9pt;
 }
 div.container > table > * > tr > * {
@@ -339,26 +402,25 @@ div.container > table > thead > tr:nth-child(odd) {
   background-color: #fafafa;
 }
 div.container > table > thead > tr > th {
-  border-bottom: solid 1px #ccc;
+  border-bottom: solid 1px #cccccc;
   font-weight: bold;
-  background-color: #eee;
+  background-color: #eeeeee;
 }
 div.container > table > tbody > tr:last-child > td {
-  border-bottom: solid 1px #ddd;
+  border-bottom: solid 1px #dddddd;
 }
 div.container > table > tbody > tr > td {
-  border-bottom: solid 1px #eee;
+  border-bottom: solid 1px #eeeeee;
 }
 div.container > table > tbody > tr > td > div {
   position: relative;
 }
 div.container > table > tbody > tr > td > div > a {
-  color: #333;
+  color: #333333;
 }
 div.container > table > tbody > tr > td > div > div.delete {
   -webkit-box-shadow: 0 0 2px rgba(0, 0, 0, 0.4);
   -moz-box-shadow: 0 0 2px rgba(0, 0, 0, 0.4);
-  box-shadow: 0 0 2px rgba(0, 0, 0, 0.4);
   position: absolute;
   right: 0;
   opacity: 0;
@@ -371,7 +433,7 @@ div.container > table > tbody > tr:hover > td > div > div.delete {
   margin-bottom: 2em;
 }
 #errorExplanation > h2 {
-  color: #900;
+  color: #990000;
 }
 #errorExplanation > p, #errorExplanation > ul {
   margin-bottom: 1em;

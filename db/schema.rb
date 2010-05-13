@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100503090357) do
+ActiveRecord::Schema.define(:version => 20100513181238) do
 
   create_table "comments", :force => true do |t|
     t.text     "message"
@@ -32,6 +32,9 @@ ActiveRecord::Schema.define(:version => 20100503090357) do
     t.integer  "goal_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "priority",         :default => "medium"
+    t.string   "benchmark"
+    t.string   "benchmark_source"
   end
 
   create_table "goals", :force => true do |t|
