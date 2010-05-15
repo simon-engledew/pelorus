@@ -495,3 +495,44 @@ textarea[id$="_description"] {
 #content.factor_content fieldset#factor_target input[type=text], #content.factor_content fieldset#factor_predicted input[type=text] {
   width: 230px;
 }
+
+#network_view_large {
+  z-index: 3;
+  visibility: hidden;
+  opacity: 0;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  margin-left: -400px;
+  margin-top: -300px;
+  height: 600px;
+  width: 800px;
+  border: solid 8px rgba(0, 0, 0, 0.2);
+  background-color: transparent;
+  -moz-border-radius: 7px;
+  -webkit-border-radius: 7px;
+  border-radius: 7px;
+}
+#network_view_large > a > div {
+  position: static;
+  display: table-cell;
+  width: 800px;
+  height: 600px;
+  vertical-align: middle;
+  text-align: center;
+  background-color: white;
+  border: solid 1px #aaaaaa;
+  margin: -1px 0 0 -1px;
+  cursor: pointer;
+}
+#network_view_large > a > div > img {
+  max-width: 800px;
+  max-height: 600px;
+}
+#network_view_large > img {
+  z-index: 4;
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  cursor: pointer;
+}

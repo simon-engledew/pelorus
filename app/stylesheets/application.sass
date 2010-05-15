@@ -414,4 +414,40 @@ textarea[id$="_description"]
     :float left
     input[type=text]
       :width 230px
-      
+
+#network_view_large
+  $width: 800px
+  $height: 600px
+  z-index: 3
+  visibility: hidden
+  opacity: 0
+  position: fixed
+  left: 50%
+  top: 50%
+  margin-left: -($width / 2)
+  margin-top: -($height / 2)
+  height: $height
+  width: $width
+  border: solid 8px rgba(0, 0, 0, 0.2)
+  background-color: transparent
+  +border-radius(7px)
+  > a > div
+    position: static
+    display: table-cell
+    width: $width
+    height: $height
+    vertical-align: middle
+    text-align: center
+    background-color: #fff
+    border: solid 1px #aaa
+    margin: -1px 0 0 -1px
+    cursor: pointer
+    > img
+      max-width: $width
+      max-height: $height
+  > img
+    z-index: 4
+    position: absolute
+    top: -15px
+    right: -15px
+    cursor: pointer
