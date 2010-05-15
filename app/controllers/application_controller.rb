@@ -46,7 +46,11 @@ protected
   end
   
   def resource
-    @resource ||= send(controller_name.singularize)
+    send(controller_name.singularize)
+  end
+  
+  def resource_name
+    controller_name.singularize
   end
   
   def check_permissions
@@ -61,7 +65,7 @@ protected
 
   whitelist :show, :index
   
-  helper_method :map, :goal, :resource, :title, :write_permission?
+  helper_method :map, :goal, :resource, :resource_name, :title, :write_permission?
   
   before_filter :check_permissions, :unless => lambda { |controller| controller.kind_of?(SessionsController) } # controller.devise_controller? }
     # controller.kind_of?(SessionsController)

@@ -1,4 +1,4 @@
 - content_for :sidebar do
   != render :partial => '/shared/comments', :object => resource.parent_node
 
-!= render :partial => '/forms/new'
+!= render :partial => '/forms/new', :locals => {:url => comments_path(polymorphic_parameters(parent_node))}

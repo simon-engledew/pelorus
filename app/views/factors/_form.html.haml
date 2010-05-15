@@ -2,19 +2,19 @@
   != f.text_field(:name)
   != f.text_area(:description)
   
-  %fieldset.factor_fields#factor_target
+  %fieldset#factor_target
     %legend Target
     != f.text_field(:target, :size => 10)
     != f.text_field(:report, :size => 10)
     != f.text_field(:fail, :size => 10)
 
-  %fieldset.factor_fields#factor_predicted
+  %fieldset#factor_predicted
     %legend Predicted
     != f.text_field(:likely, :size => 10)
     != f.text_field(:best, :size => 10)
     != f.text_field(:worst, :size => 10)
 
-  %fieldset.factor_fields#factor_context
+  %fieldset#factor_context
     %legend Context
     != f.select(:priority, options_for_select(Factor::Priorities.map{|s| [s.to_s.humanize.titlecase, s] }))
     != f.text_field(:benchmark)

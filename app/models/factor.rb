@@ -15,6 +15,7 @@ class Factor < ActiveRecord::Base
   end
   
   belongs_to :goal
+  has_many :comments, :as => :parent
 
   validates_inclusion_of :priority, :in => Factor::Priorities
   validates_uniqueness_of :name, :scope => :goal_id

@@ -41,11 +41,14 @@
                   != breadcrumbs(resource).join
             != yield :sidebar
         #content_container
-          #content
+          #content{:class => %(#{resource_name}_content)}
             != yield
         %div{:style => 'clear:both'}
     #footer_container
       #footer
-        Pelorus is designed and built by John Speed Ltd – a small company based in Winchester, England.
+        %p Pelorus is designed and built by John Speed Ltd &ndash; a small company based in Winchester, England.
+        #contact_details
+          %p{:style => 'float:left;width:45%;text-align:right'} email: <a href="mailto:enquiries@toolforchange.com">enquiries@toolforchange.com</a>
+          %p{:style => 'float:right;width:45%;text-align:left'} telephone: +44 (0)1962 711703
 
     != javascript_include_tag 'application'

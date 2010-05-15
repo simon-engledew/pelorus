@@ -6,12 +6,9 @@ module ApplicationHelper
   #   content_tag(:a, content_tag(:div, tag(:img, :src => src), :class => 'graph'), :href => src)
   # end
   
-  #TODO
-  # PELORUS
-  # SUCCEED WITH YOUR CHANGE
-  
-  # Get to where you want to be.
-  # Clearly define goals, involve stakeholders, manage risks and keep change on track.
+  def polymorphic_parameters(parent_node)
+    {:parent_node_type => parent_node.class.to_s.underscore.pluralize, :parent_node_id => parent_node.id}
+  end
 
   def linked_user_name(user)
     content_tag(:nobr, link_to(user.name, polymorphic_path(user), :class => 'user_name'))
@@ -23,6 +20,10 @@ module ApplicationHelper
 
   def delete_link(object)
     write_permission? ? content_tag(:div, link_to(content_tag(:span, 'Delete'), object, :confirm => 'Are you sure?', :method => :delete), :class => 'control delete') : nil
+  end
+  
+  def edit_link(object)
+    write_permission? ? content_tag(:div, link_to(content_tag(:span, 'Edit'), [:edit, *object]), :class => 'control edit') : nil
   end
   
   def new_link(text, hierarchy, link_options = {})

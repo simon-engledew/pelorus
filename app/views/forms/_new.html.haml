@@ -2,9 +2,9 @@
 
 != error_messages_for controller_name.singularize
 
-- form_tag url_for(resource.hierarchy) do
+- form_tag local_assigns[:url] || url_for(resource.hierarchy) do
   != render :partial => 'form', :object => resource
  
-  .submit
+  .form_buttons
     %input{:type => 'submit', :value => 'Create'}  
     = link_to('Cancel', local_assigns[:cancel] || (resource.parent_node ? resource.parent_node.hierarchy : root_path), :class => 'button')

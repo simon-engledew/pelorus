@@ -10,16 +10,10 @@
         :textile
           #{h object.description}
       - else
-        - if write_permission?
-          %p Click edit to add a description.
-        - else
-          %p No description.
+        %p No description.
 
   - if (editable = yield(:editable))
-    #editable
-      != editable
-
-  - if write_permission?
-    .controls
-      .control.edit= link_to 'edit', polymorphic_path(resource.hierarchy, :action => :edit)
-      != yield(:controls)
+    #editable= editable
+    - if write_permission?
+      .controls
+        .control.edit= link_to 'edit', polymorphic_path(resource.hierarchy, :action => :edit)

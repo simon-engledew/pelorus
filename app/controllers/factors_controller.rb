@@ -7,7 +7,7 @@ class FactorsController < ApplicationController
   end
 
   def show
-    redirect_to edit_map_goal_factor_path(map, goal, factor) if write_permission?
+    # redirect_to edit_map_goal_factor_path(map, goal, factor) if write_permission?
   end
   
   def new

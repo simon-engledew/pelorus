@@ -1,4 +1,11 @@
-- content_for :editable do
-  %p== This Risk is currently #{status_tag risk.status}.
+- content_for :sidebar do
+  != render :partial => '/shared/comments', :object => resource
 
 != render :partial => '/layouts/object_header', :object => risk
+
+%p This Risk is currently #{status_tag risk.status}.
+
+.form_footer
+  - if write_permission?
+    = link_to 'Edit', polymorphic_path([:edit, *resource.hierarchy]), :class => 'button'
+  = link_to 'Back', polymorphic_path(resource.parent_node.hierarchy)

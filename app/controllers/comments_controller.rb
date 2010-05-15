@@ -20,11 +20,13 @@ protected
   end
 
   def parent_node
-    (goal || map)
+    params[:parent_node_type].camelize.singularize.constantize.find_by_id(params[:parent_node_id])
   end
 
   def comment
     @comment ||= (parent_node.comments.find(params[:id]) if params[:id])
   end
+  
+  helper_method :parent_node
 
 end
