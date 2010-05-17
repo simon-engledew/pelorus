@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
   
   before_destroy :has_stakes?
   
-  def has_roles?
+  def has_stakes?
     stakes.empty? and not Map.exists?(:manager_id => self.id)
   end
   
