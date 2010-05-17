@@ -19,7 +19,7 @@ class RisksController < ApplicationController
   def update
     return render(:action => :edit) unless risk.update_attributes(params[:risk])
     flash[:notice] = "Risk was successfully updated."
-    redirect_to risk.parent_node.hierarchy
+    redirect_to risk.hierarchy
   end
   
   def destroy

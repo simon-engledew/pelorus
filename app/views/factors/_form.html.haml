@@ -16,6 +16,6 @@
 
   %fieldset#factor_context
     %legend Context
-    != f.select(:priority, options_for_select(Factor::Priorities.map{|s| [s.to_s.humanize.titlecase, s] }))
+    != f.select(:priority, options_for_select(Factor::Priorities.map{|s| [s.to_s.humanize.titlecase, s] }, object.priority))
     != f.text_field(:benchmark)
     != f.text_field(:benchmark_source)

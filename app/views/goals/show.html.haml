@@ -59,9 +59,7 @@
           %tr
             %td
               %div
-                %ul.inline_controls
-                  %li= edit_link factor.hierarchy
-                  %li= delete_link factor.hierarchy
+                = edit_link factor.hierarchy
                 = link_to h(factor.name), factor.hierarchy
             %td
               %nobr= factor.target
@@ -92,9 +90,7 @@
           %tr
             %td
               %div
-                %ul.inline_controls
-                  %li= edit_link risk.hierarchy
-                  %li= delete_link risk.hierarchy
+                = edit_link risk.hierarchy
                 = link_to h(risk.name), risk.hierarchy
             %td= status_image(risk)
         - if goal.risks.empty?

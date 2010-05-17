@@ -359,18 +359,18 @@ input[type=button]:active, input[type=submit]:active, a.button:active {
   left: 1px;
 }
 
-div.edit {
+div.control.edit {
   border-color: #85b7d6;
 }
 
-div.discuss {
+div.control.discuss {
   border-color: #bdd684;
 }
 
-div.delete {
+div.control.delete {
   border-color: #d68585;
 }
-div.delete > a:hover {
+div.control.delete > a:hover {
   color: #993333;
 }
 
@@ -472,8 +472,6 @@ textarea[id$="_description"] {
   height: 7em;
 }
 
-/* FACTORS
- * */
 #content.factor_content fieldset ul li {
   margin-top: 1em;
   color: #555555;
@@ -497,7 +495,7 @@ textarea[id$="_description"] {
 }
 
 #network_view_large {
-  z-index: 3;
+  z-index: 2;
   visibility: hidden;
   opacity: 0;
   position: fixed;
@@ -505,13 +503,19 @@ textarea[id$="_description"] {
   top: 50%;
   margin-left: -400px;
   margin-top: -300px;
-  height: 600px;
-  width: 800px;
+  height: 602px;
+  width: 802px;
   border: solid 8px rgba(0, 0, 0, 0.2);
   background-color: transparent;
   -moz-border-radius: 7px;
   -webkit-border-radius: 7px;
   border-radius: 7px;
+}
+#network_view_large > a {
+  z-index: 4;
+  display: block;
+  height: 602px;
+  width: 802px;
 }
 #network_view_large > a > div {
   position: static;
@@ -530,7 +534,7 @@ textarea[id$="_description"] {
   max-height: 600px;
 }
 #network_view_large > img {
-  z-index: 4;
+  z-index: 5;
   position: absolute;
   top: -15px;
   right: -15px;

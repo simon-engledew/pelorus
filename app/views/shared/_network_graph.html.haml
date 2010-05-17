@@ -7,7 +7,7 @@
       != image_tag(network_graph_path(map, :format => :png, :timestamp => Time.now.to_i))
 
   #network_view_large
-    %a{:href => network_graph_path(map, :format => :png), :target => '_blank', :title => 'Open this image in another window'}
+    %a{:href => network_graph_path(map, :format => :png), :target => '_blank', :title => 'Click to enlarge.'}
       %div= image_tag(network_graph_path(map, :format => :png, :timestamp => Time.now.to_i))
     %img{:src => image_path('closebox.png')}
 
