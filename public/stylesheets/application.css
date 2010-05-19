@@ -56,7 +56,8 @@ body {
   color: #eaeaea;
   font-size: 10pt;
   text-align: center;
-  padding: 1em 0;
+  overflow: hidden;
+  padding: 1em 0 2em;
 }
 #footer > p {
   margin-bottom: 1em;
