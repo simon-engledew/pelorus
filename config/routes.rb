@@ -5,7 +5,7 @@ ActionController::Routing::Routes.draw do |map|
   map.devise_for :users, :path_names => { :sign_up => 'register', :sign_in => 'login', :sign_out => 'logout' }
 
   map.with_options :controller => 'graphs' do |graphs|
-    graphs.network_graph '/graphs/maps/:map_id/network.:format', :action => 'network'
+    graphs.network_graph '/graphs/maps/:map_id/:action.:format', :action => 'network'
   end
 
   map.resources :comments, :path_prefix => ':parent_node_type/:parent_node_id', :requirements => {:parent_node_type => '/goals|maps/factors|risks/', :parent_node_id => '\d+'}

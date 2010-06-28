@@ -1,24 +1,7 @@
 - unless map.goals.empty?
   %h3
     %span Network View:
-
-  %a#network_view{:href => network_graph_path(map, :format => :png), :target => '_blank', :style => 'display:block'}
+  
+  %a#network_view{:href => network_graph_path(map, :format => :svg), :title => 'Click to enlarge.'}
     .graph
-      != image_tag(network_graph_path(map, :format => :png, :timestamp => Time.now.to_i))
-
-  #network_view_large
-    %a{:href => network_graph_path(map, :format => :png), :target => '_blank', :title => 'Click to enlarge.'}
-      %div= image_tag(network_graph_path(map, :format => :png, :timestamp => Time.now.to_i))
-    %img{:src => image_path('closebox.png')}
-
-  :javascript
-    $('network_view_large').fade('hide');
-    document.getElement('#network_view_large > img').addEvent('click', function(e)
-    {
-      $('network_view_large').fade('hide');
-    });
-    $('network_view').addEvent('click', function(e)
-    {
-      $('network_view_large').fade('show');
-      return false;
-    });
+      != image_tag(network_graph_path(map, :format => :svg, :timestamp => Time.now.to_i))

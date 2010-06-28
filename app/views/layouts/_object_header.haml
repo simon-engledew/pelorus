@@ -15,5 +15,4 @@
   - if (editable = yield(:editable))
     #editable= editable
     - if write_permission?
-      .controls
-        .control.edit= link_to 'edit', polymorphic_path(resource.hierarchy, :action => :edit)
+      .controls= link_to 'edit', polymorphic_path(resource.hierarchy, :action => :edit), :class => 'button'

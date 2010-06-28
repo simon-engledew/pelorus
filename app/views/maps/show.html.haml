@@ -27,8 +27,7 @@
     - if write_permission?
       %tfoot
         %tr
-          %td{:colspan => 2}
-            %p= new_link('new goal', map.hierarchy << Goal)
+          %td{:colspan => 2}= new_link('new goal', map.hierarchy << Goal)
 
 != render :partial => '/stakes/index', :object => map
 

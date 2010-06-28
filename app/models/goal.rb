@@ -91,7 +91,11 @@ public
   end
   
   def status
-    [supported_chain_status, children_status, factors_status, risks_status].max
+    [supported_chain_status, children_status, local_status].max
+  end
+  
+  def local_status
+    [factors_status, risks_status].max
   end
 
   def parent_node

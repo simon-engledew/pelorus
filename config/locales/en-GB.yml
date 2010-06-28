@@ -12,6 +12,9 @@ en:
     abbr_month_names: [~, Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec]
     order: [ :year, :month, :day ]
   
+  activerecord:
+    attributes:
+  
   time:
     formats:
       default: "%a %b %d %H:%M:%S %Z %Y"

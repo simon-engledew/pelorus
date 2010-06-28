@@ -27,7 +27,7 @@ module ApplicationHelper
   end
   
   def new_link(text, hierarchy, link_options = {})
-    content_tag(:div, link_to(text, polymorphic_path(hierarchy, link_options.reverse_merge(:action => :new))), :class => 'control new')
+    link_to text, polymorphic_path(hierarchy, link_options.reverse_merge(:action => :new)), :class => 'button'
   end
   
   def trim_operator(operator)

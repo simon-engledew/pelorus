@@ -2,12 +2,12 @@
   %fieldset#navigation
     %legend Jump To:
     %ul
-      %li== <font color="#{Status::Color[goal.children_status]}">&#8226;</font> <a href="#sub_goals">Sub Goals</a>
-      %li== <font color="#{Status::Color[goal.factors_status]}">&#8226;</font> <a href="#factors">Factors</a>
-      %li== <font color="#{Status::Color[goal.risks_status]}">&#8226;</font> <a href="#risks">Risks</a>
-      %li== <font color="#{Status::Color[goal.supported_chain_status]}">&#8226;</font> <a href="#supporting_goals">Supporting Goals</a>
-      %li== <font color="#{Status::Color[goal.supported_by_status]}">&#8226;</font> <a href="#supported_goals">Supported Goals</a>
-      %li== <font color="#999">&#8226;</font> <a href="#stakes">Stakes</a>
+      %li== #{status_image goal.children_status} <a href="#sub_goals">Sub Goals</a>
+      %li== #{status_image goal.factors_status} <a href="#factors">Factors</a>
+      %li== #{status_image goal.risks_status} <a href="#risks">Risks</a>
+      %li== #{status_image goal.supported_chain_status} <a href="#supporting_goals">Supporting Goals</a>
+      %li== #{status_image goal.supported_by_status} <a href="#supported_goals">Supported Goals</a>
+      %li== <img src="/images/status/none.png" alt="no status" /> <a href="#stakes">Stakes</a>
   
   != render :partial => '/shared/network_graph'
   != render :partial => '/shared/comments', :object => resource
