@@ -5,6 +5,8 @@ class CreateComments < ActiveRecord::Migration
       t.references :user
       t.references :parent
       t.string :parent_type
+      t.integer :status, :default => nil
+      t.boolean :override_status, :default => false
 
       t.timestamps
     end

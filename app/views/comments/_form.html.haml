@@ -1,2 +1,4 @@
 - fields_for object, :builder => LabellingFormBuilder do |f|  
   != f.text_area :message
+  != f.select(:status, Status::Enum.invert, :include_blank => 'None')
+  != f.check_box(:override_status)

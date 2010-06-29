@@ -177,9 +177,21 @@ body
 div.discussion
   > p
     :margin-bottom 1em
+  > p.discuss
+    :margin-top 2em
+    :padding-left 20px
+    :position relative
+    img
+      :position absolute
+      :left -10px
   > ul.discussion
     > li
       :margin-top 2em
+      :padding-left 20px
+      :position relative
+      img
+        :position absolute
+        :left -10px
       > p
         :margin-bottom 1em
       > p.details
@@ -250,16 +262,11 @@ div#content
 #back_to_top 
   :text-align right
   > a 
-    :background #369
-    :color #fff
     :text-decoration none
-    :padding 0.2em 0.5em
-    :border solid 1px
-      :top-color #58b
-      :left-color #58b
-      :right-color #147
-      :bottom-color #147
-    :cursor pointer
+    :color #cc3300
+    :font-size 10pt 
+    &:hover
+    :text-decoration underline
 
 div.control
   :background #fff
@@ -406,7 +413,7 @@ div.container
 input[type="text"][id$="_name"]
   :width 540px
 
-textarea[id$="_description"]
+textarea[id$="_description"], textarea[id="comment_message"]
   :width 540px
   :height 7em
 

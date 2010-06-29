@@ -1,6 +1,6 @@
 #description.tab
   %h1
-    - if object.respond_to?(:status)
+    - if object.respond_to?(:computed_status)
       != status_image(object)
     !=h object.name
 

@@ -198,8 +198,23 @@ body {
 div.discussion > p {
   margin-bottom: 1em;
 }
+div.discussion > p.discuss {
+  margin-top: 2em;
+  padding-left: 20px;
+  position: relative;
+}
+div.discussion > p.discuss img {
+  position: absolute;
+  left: -10px;
+}
 div.discussion > ul.discussion > li {
   margin-top: 2em;
+  padding-left: 20px;
+  position: relative;
+}
+div.discussion > ul.discussion > li img {
+  position: absolute;
+  left: -10px;
 }
 div.discussion > ul.discussion > li > p {
   margin-bottom: 1em;
@@ -292,16 +307,10 @@ div#content > #description > div#description_text > p:last-child {
   text-align: right;
 }
 #back_to_top > a {
-  background: #336699;
-  color: white;
   text-decoration: none;
-  padding: 0.2em 0.5em;
-  border: solid 1px;
-  border-top-color: #5588bb;
-  border-left-color: #5588bb;
-  border-right-color: #114477;
-  border-bottom-color: #114477;
-  cursor: pointer;
+  color: #cc3300;
+  font-size: 10pt;
+  text-decoration: underline;
 }
 
 div.control {
@@ -476,7 +485,7 @@ input[type="text"][id$="_name"] {
   width: 540px;
 }
 
-textarea[id$="_description"] {
+textarea[id$="_description"], textarea[id="comment_message"] {
   width: 540px;
   height: 7em;
 }

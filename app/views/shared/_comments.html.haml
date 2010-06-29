@@ -8,9 +8,10 @@
       %ul.discussion
         - object.comments.each do |comment|
           %li
+            #{comment_status_image comment}
             :textile
               #{comment.message}
             %p.details== <span class="user">#{linked_user_name(comment.user)}</span> - <span class="posted_at">#{comment.created_at.to_s(:short)}</span>
 
     - if user_signed_in?
-      %p= link_to 'discuss', new_comment_path(polymorphic_parameters(object))
+      %p.discuss #{comment_status_image object.comment_status} #{link_to 'discuss', new_comment_path(polymorphic_parameters(object)), :class => 'button'}

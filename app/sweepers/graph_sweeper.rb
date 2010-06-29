@@ -17,7 +17,7 @@ class GraphSweeper < ActionController::Caching::Sweeper
 private
 
   def expire_caches(model)
-    expire_action(:controller => :graphs, :action => :network, :map_id => model.map.id, :format => :png)
+    expire_action(:controller => :graphs, :action => :network, :map_id => model.map.id, :format => :svg)
   end
   
 end

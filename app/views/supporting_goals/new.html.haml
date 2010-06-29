@@ -11,5 +11,8 @@
       = link_to('Cancel', local_assigns[:cancel] || (resource.parent_node ? resource.parent_node.hierarchy : root_path), :class => 'button')
 
 - else
-  %p There are no valid support targets for this goal.
+  %p{:style => 'margin-bottom:1.5em'} There are no valid support targets for this goal.
+  
+  .submit
+    = link_to('Cancel', local_assigns[:cancel] || (resource.parent_node ? resource.parent_node.hierarchy : root_path), :class => 'button')
   

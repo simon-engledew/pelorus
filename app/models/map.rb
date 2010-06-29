@@ -1,5 +1,7 @@
 class Map < ActiveRecord::Base
 
+  include Comment::Parent
+
   DefaultStakes = ['Goal Champion', 'Goal Manager', 'Risk Manager', 'Change Manager'].freeze
 
   def hierarchy
@@ -14,7 +16,6 @@ class Map < ActiveRecord::Base
   has_many :goals
   has_many :roles
   has_many :stakes, :conditions => {:goal_id => nil}
-  has_many :comments, :as => :parent
   
   validates_associated :manager
   validates_presence_of :manager
@@ -45,7 +46,7 @@ class Map < ActiveRecord::Base
   end
   
   def status
-    children.map{|goal| goal.propagate ? goal.status : 0 }.max || 0
+    [children.map{|goal| goal.propagate ? goal.computed_status : 0 }.max || 0, self.comment_status].max
   end
   
   def map

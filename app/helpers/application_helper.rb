@@ -35,9 +35,16 @@ module ApplicationHelper
   end
   
   def status_image(object, title = nil)
-    status = Status::Enum[object.respond_to?(:status) ? object.status : object].to_s.downcase
+    status = Status::Enum[object.respond_to?(:computed_status) ? object.computed_status : object].to_s.downcase
     title ||= status.titlecase
     status = "#{status}_hollow" if object.instance_of?(Goal) and !object.propagate
+    image_tag("status/#{status}.png", :title => title, :alt => title, :height => 20, :width => 20)
+  end
+  
+  def comment_status_image(object, title = nil)
+    status = (Status::Enum[object.respond_to?(:status) ? object.status : object] || 'none').to_s.downcase
+    title ||= status.titlecase
+    # status = "#{status}_hollow" if object.instance_of?(Comment) and !object.override_status
     image_tag("status/#{status}.png", :title => title, :alt => title, :height => 20, :width => 20)
   end
   

@@ -1,9 +1,11 @@
 class Goal < ActiveRecord::Base
 
+  include Comment::Parent
+
 private
   def self.has_status(*attrs)
     attrs.each do |attr|
-      class_eval { define_method("#{attr}_status") { instance_eval { send(attr).map{|o| o.status }.max || 0 }}}
+      class_eval { define_method("#{attr}_status") { instance_eval { send(attr).map{|o| o.computed_status }.max || 0 }}}
     end
   end
   
@@ -19,7 +21,6 @@ public
   has_many :factors
   has_many :risks
   has_many :stakes
-  has_many :comments, :as => :parent
   
   has_many :supporting_goals, :dependent => :destroy
   has_many :supported_by, :through => :supporting_goals, :source => :supported_by
@@ -29,7 +30,7 @@ public
   
   belongs_to :map
   
-  has_status :factors, :supports, :supported_by
+  has_status :risks, :factors, :supports, :supported_by
   
   validates_presence_of :map_id
   validates_associated  :map, :parent
@@ -78,16 +79,12 @@ public
     return valid_targets
   end
   
-  def risks_status
-    self.risks.maximum(:status) || 0
-  end
-  
   def children_status
-    children.map{|goal| goal.propagate ? goal.status : 0}.max || 0
+    children.map{|goal| goal.propagate ? goal.computed_status : 0}.max || 0
   end
   
   def supported_chain_status
-    supported_chain.map{|goal| goal.status}.max || 0
+    supported_chain.map{|goal| goal.computed_status}.max || 0
   end
   
   def status
