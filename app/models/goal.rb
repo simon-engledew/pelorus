@@ -87,6 +87,10 @@ public
     supported_chain.map{|goal| goal.computed_status}.max || 0
   end
   
+  def remote_status
+    (children.map{|goal| goal.supported_chain_status} << supported_chain_status).max || 0
+  end
+  
   def computed_status
     status
   end
