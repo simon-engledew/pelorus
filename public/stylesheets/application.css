@@ -195,39 +195,33 @@ body {
   color: #333333;
 }
 
-div.discussion > p {
+#discussion > p {
   margin-bottom: 1em;
 }
-div.discussion > p.discuss {
+#discussion > p.discuss {
+  margin-top: 2em;
+}
+#discussion > ul.discussion > li {
   margin-top: 2em;
   padding-left: 20px;
   position: relative;
 }
-div.discussion > p.discuss img {
+#discussion > ul.discussion > li img {
   position: absolute;
   left: -10px;
 }
-div.discussion > ul.discussion > li {
-  margin-top: 2em;
-  padding-left: 20px;
-  position: relative;
-}
-div.discussion > ul.discussion > li img {
-  position: absolute;
-  left: -10px;
-}
-div.discussion > ul.discussion > li > p {
+#discussion > ul.discussion > li > p {
   margin-bottom: 1em;
 }
-div.discussion > ul.discussion > li > p.details {
+#discussion > ul.discussion > li > p.details {
   margin-top: -0.5em;
 }
-div.discussion > ul.discussion > li > p.details > span.user a {
+#discussion > ul.discussion > li > p.details > span.user a {
   font-weight: bold;
   color: #333333;
   text-decoration: none;
 }
-div.discussion > ul.discussion > li > p.details > span.user a:hover {
+#discussion > ul.discussion > li > p.details > span.user a:hover {
   text-decoration: underline;
 }
 

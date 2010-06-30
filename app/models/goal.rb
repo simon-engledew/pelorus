@@ -87,12 +87,16 @@ public
     supported_chain.map{|goal| goal.computed_status}.max || 0
   end
   
+  def computed_status
+    status
+  end
+  
   def status
-    [supported_chain_status, children_status, local_status].max
+    [supported_chain_status, local_status].max
   end
   
   def local_status
-    [factors_status, risks_status].max
+    [factors_status, risks_status, children_status, comment_status].max
   end
 
   def parent_node

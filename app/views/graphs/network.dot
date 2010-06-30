@@ -1,6 +1,7 @@
 digraph "<%= sanitize_label(map.name) %>" {
   rankdir=BT;
   node [shape=box];
+  pad=0.75;
   <%= render :partial => 'network_goal', :collection => map.children %>
   <% map.goals.each do |goal| -%>
     <% goal.supporting_goals.each do |supporting_goal| -%>
