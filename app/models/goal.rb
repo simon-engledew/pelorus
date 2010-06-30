@@ -80,15 +80,19 @@ public
   end
   
   def children_status
-    children.map{|goal| goal.propagate ? goal.computed_status : 0}.max || 0
-  end
-  
-  def supported_chain_status
-    supported_chain.map{|goal| goal.computed_status}.max || 0
+    children.map{|goal| goal.status}.max || 0
   end
   
   def remote_status
-    (children.map{|goal| goal.supported_chain_status} << supported_chain_status).max || 0
+    [children.map{|goal| goal.remote_status}.max || 0, supported_chain_status].max || 0
+  end
+  
+  def local_status
+    [children.map{|goal| goal.local_status }.max || 0, factors_status, risks_status, comment_status].max || 0
+  end
+  
+  def supported_chain_status
+    supported_chain.map{|goal| goal.propagate ? goal.status : 0}.max || 0
   end
   
   def computed_status
@@ -96,11 +100,7 @@ public
   end
   
   def status
-    [supported_chain_status, local_status].max
-  end
-  
-  def local_status
-    [factors_status, risks_status, children_status, comment_status].max
+    [supported_chain_status, factors_status, risks_status, children_status, comment_status].max || 0
   end
 
   def parent_node
