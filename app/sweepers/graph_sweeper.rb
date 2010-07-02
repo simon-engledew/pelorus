@@ -1,6 +1,6 @@
 class GraphSweeper < ActionController::Caching::Sweeper
   
-  observe Goal, Map, Risk, Factor, SupportingGoal
+  observe Goal, Map, Risk, Factor, SupportingGoal, Comment
   
   def after_create(model)
     expire_caches(model)
