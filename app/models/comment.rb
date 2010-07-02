@@ -18,6 +18,10 @@ class Comment < ActiveRecord::Base
     end
   end
   
+  def map
+    self.parent.map
+  end
+  
   attr_accessible :message, :status, :override_status
   
   def hierarchy
