@@ -363,12 +363,13 @@ input[type=button][disabled]:hover, input[type=submit][disabled]:hover, a.button
   border-left: 1px solid #dddddd;
 }
 input[type=button]:active, input[type=submit]:active, a.button:active {
-  -webkit-box-shadow: none;
-  -mox-box-shadow: none;
-  box-shadow: none;
-  position: relative;
-  top: 1px;
-  left: 1px;
+  /* -webkit-box-shadow: none
+   * -mox-box-shadow: none
+   * box-shadow: none
+   *
+   * position: relative
+   * top: 1px
+   * left: 1px */
 }
 
 /* input[type=submit]
@@ -484,26 +485,42 @@ textarea[id$="_description"], textarea[id="comment_message"] {
   height: 7em;
 }
 
-#content.factor_content fieldset ul li {
+#content.factor_content .toggle_advanced {
+  clear: both;
+  margin: 0 0 2em;
+}
+#content.factor_content fieldset[class^="factor_"] {
+  padding-left: 0;
+  padding-right: 0;
+  border: none;
+  border-top: solid 2px #e3e6e9;
+}
+#content.factor_content fieldset[class^="factor_"] > legend {
+  margin-left: 1ex;
+}
+#content.factor_content fieldset[class^="factor_"] > ul > li {
   margin-top: 1em;
   color: #555555;
 }
-#content.factor_content fieldset ul li span.value {
+#content.factor_content fieldset[class^="factor_"] > ul > li > span.value {
   color: #333333;
   font-weight: bold;
 }
-#content.factor_content fieldset#factor_target {
-  margin-right: 12px;
+#content.factor_content fieldset[class^="factor_"] > ul > li > div.input {
+  margin-bottom: 0;
 }
-#content.factor_content fieldset#factor_context {
-  clear: both;
+#content.factor_content fieldset.factor_context input[type=text] {
+  width: 540px;
 }
-#content.factor_content fieldset#factor_target, #content.factor_content fieldset#factor_predicted {
-  width: 250px;
+#content.factor_content fieldset.factor_target {
+  margin-right: 20px;
+}
+#content.factor_content fieldset.factor_target, #content.factor_content fieldset.factor_predicted {
+  width: 270px;
   float: left;
 }
-#content.factor_content fieldset#factor_target input[type=text], #content.factor_content fieldset#factor_predicted input[type=text] {
-  width: 230px;
+#content.factor_content fieldset.factor_target input[type=text], #content.factor_content fieldset.factor_predicted input[type=text] {
+  width: 250px;
 }
 
 /* #network_view_large

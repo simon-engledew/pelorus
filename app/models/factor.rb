@@ -22,8 +22,6 @@ class Factor < ActiveRecord::Base
   validates_uniqueness_of :name, :scope => :goal_id
   validates_associated :goal
   validates_presence_of :goal_id, :name
-  
-  # validates_presence_of :status, :message => 'cannot be calculated'
 
   LongDate = %r"(\d{1,2}[-/.]\d{1,2}[-/.]\d{4})"
   ShortDate = %r"(\d{1,2}[-/.]\d{1,2}[-/.]\d{2})"
@@ -54,60 +52,87 @@ class Factor < ActiveRecord::Base
     return nil
   end
   
-  DetailedQuantifiers = [:report, :fail, :best, :worst].to_set
+  AdvancedQuantifiers = [:report, :fail, :best, :worst].to_set
   
   def self.compare(a, operator, b)
     return a.send(operator, b) if a and b and a.class == b.class
   end
   
+  def parsed_target
+    @parsed_target ||= Factor.parse_target(target)
+  end
+  
+  def target_value
+    parsed_target.last
+  end
+  
+  [:likely, :report, :fail].each do |quantifier|
+    method = :"parsed_#{quantifier}"
+    define_method(method) do
+      variable = :"@#{method}"
+      instance_variable_get(variable) || 
+      instance_variable_set(variable, (value = send(quantifier)).blank?? target_value : Factor.parse_quantifier(value))
+    end
+  end
+  
+  [:best, :worst].each do |quantifier|
+    method = :"parsed_#{quantifier}"
+    define_method(method) do
+      variable = :"@#{method}"
+      instance_variable_get(variable) || 
+      instance_variable_set(variable, (value = send(quantifier)).blank?? parsed_likely : Factor.parse_quantifier(value))
+    end
+  end
+  
   def validate
-    parsed_values = {}
+    advanced_values = Set.new
     
-    operator, target_value = Factor.parse_target(target)
+    operator, target_value = self.parsed_target
     
     errors.add(:target, 'is not valid') unless target_value
-    errors.add(:likely, 'is not valid') unless likely_value = Factor.parse_quantifier(likely)
+    errors.add(:likely, 'is not valid') unless likely_value = self.parsed_likely
     
     operator = (operator or '=') + '='
     
-    DetailedQuantifiers.each do |field|
-      value = send(field)
-      unless value.blank?
-        if Factor.parse_quantifier(value)
-          parsed_values[field] = Factor.parse_quantifier(value)
-        else
-          errors.add(field, 'is not valid')
-        end
+    if errors.empty?
+      AdvancedQuantifiers.each do |field|
+        errors.add(field, 'is not valid') unless send(:"parsed_#{field}")
+        advanced_values.add(field) unless send(field).blank?
       end
     end
-        
-    unless parsed_values.keys.empty?
-      missing = DetailedQuantifiers - parsed_values.keys
+       
+    unless advanced_values.empty?
+      missing = AdvancedQuantifiers - advanced_values
+      
+      errors.add(:likely, 'cannot be blank') if likely.blank?
+      
       unless missing.empty?
         missing.each { |field| errors.add(field, 'cannot be blank') }
       else
-        errors.add(:target, "must be #{operator} than report") unless Factor.compare(target_value, operator, parsed_values[:report])
-        errors.add(:report, "must be #{operator} than fail") unless Factor.compare(parsed_values[:report], operator, parsed_values[:fail])
-
-        errors.add(:best, "must be #{operator} than likely") unless Factor.compare(parsed_values[:best], operator, likely_value)
-        errors.add(:likely, "must be #{operator} than worst") unless Factor.compare(likely_value, operator, parsed_values[:worst])
+        errors.add(:target, "must be #{operator} than report") unless Factor.compare(target_value, operator, self.parsed_report)
+        errors.add(:report, "must be #{operator} than fail") unless Factor.compare(self.parsed_report, operator, self.parsed_fail)
+    
+        errors.add(:best, "must be #{operator} than likely") unless Factor.compare(self.parsed_best, operator, likely_value)
+        errors.add(:likely, "must be #{operator} than worst") unless Factor.compare(likely_value, operator, self.parsed_worst)
       end
     end
   end
   
+  def advanced
+    AdvancedQuantifiers.any? {|quantifier| not send(quantifier).blank?}
+  end
+  
   def status
-    operator, target_value = Factor.parse_target(target)
-    likely_value = Factor.parse_quantifier(likely)
-    
+    operator, target_value = self.parsed_target
     operator = (operator or '=') + '='
     
-    if report_value = Factor.parse_quantifier(report) and fail_value = Factor.parse_quantifier(fail) and worst_value = Factor.parse_quantifier(worst) then
-      return Status::Red unless Factor.compare(worst_value, operator, fail_value)
-      return Status::Amber unless Factor.compare(likely_value, operator, report_value)
+    if self.advanced then
+      return Status::Red unless Factor.compare(self.parsed_worst, operator, self.parsed_fail)
+      return Status::Amber unless Factor.compare(self.parsed_likely, operator, self.parsed_report)
       return Status::Green
     end
     
-    return Factor.compare(likely_value, operator, target_value) ? Status::Green : Status::Red
+    return Factor.compare(self.parsed_likely, operator, target_value) ? Status::Green : Status::Red
   end
 
   def map

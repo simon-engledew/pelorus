@@ -3,45 +3,44 @@
 
 != render :partial => '/layouts/object_header', :object => factor
 
-#factor_content
-  %fieldset#factor_target
-    %legend Target
-    %ul
-      %li
-        Target:
-        %span.value= factor.target
-      %li
-        Report:
-        %span.value= factor.report
-      %li
-        Fail:
-        %span.value= factor.fail
+%fieldset.factor_target
+  %legend Target
+  %ul
+    %li
+      Target:
+      %span.value= factor.target
+    %li.advanced
+      Report:
+      %span.value= factor.report
+    %li.advanced
+      Fail:
+      %span.value= factor.fail
 
-  %fieldset#factor_predicted
-    %legend Predicted <small>or</small> Actual
-    %ul
-      %li
-        Likely:
-        %span.value= factor.likely
-      %li
-        Best:
-        %span.value= factor.best
-      %li
-        Worst:
-        %span.value= factor.worst
+%fieldset.factor_predicted
+  %legend Predicted <small>or</small> Actual
+  %ul
+    %li
+      Likely:
+      %span.value= factor.likely
+    %li.advanced
+      Best:
+      %span.value= factor.best
+    %li.advanced
+      Worst:
+      %span.value= factor.worst
 
-  %fieldset#factor_context
-    %legend Context
-    %ul
-      %li
-        Priority:
-        %span.value= factor.priority.to_s.humanize.titlecase
-      %li
-        Benchmark:
-        %span.value= factor.benchmark
-      %li
-        Benchmark Source:
-        %span.value= factor.benchmark_source
+%fieldset.factor_context
+  %legend Context
+  %ul
+    %li
+      Priority:
+      %span.value= factor.priority.to_s.humanize.titlecase
+    %li
+      Benchmark:
+      %span.value= factor.benchmark
+    %li
+      Benchmark Source:
+      %span.value= factor.benchmark_source
 
 .form_footer
   - if write_permission?

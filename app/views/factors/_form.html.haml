@@ -2,20 +2,62 @@
   != f.text_field(:name)
   != f.text_area(:description)
   
-  %fieldset#factor_target
+  %fieldset.factor_target
     %legend Target
-    != f.text_field(:target, :size => 10)
-    != f.text_field(:report, :size => 10)
-    != f.text_field(:fail, :size => 10)
+    %ul
+      %li= f.text_field(:target, :size => 10)
+      %li.advanced= f.text_field(:report, :size => 10)
+      %li.advanced= f.text_field(:fail, :size => 10)
 
-  %fieldset#factor_predicted
+  %fieldset.factor_predicted
     %legend Predicted <small>or</small> Actual
-    != f.text_field(:likely, :size => 10)
-    != f.text_field(:best, :size => 10)
-    != f.text_field(:worst, :size => 10)
+    %ul
+      %li= f.text_field(:likely, :size => 10)
+      %li.advanced= f.text_field(:best, :size => 10)
+      %li.advanced= f.text_field(:worst, :size => 10)
 
-  %fieldset#factor_context
+  .toggle_advanced
+
+  %fieldset.factor_context
     %legend Context
-    != f.select(:priority, options_for_select(Factor::Priorities.map{|s| [s.to_s.humanize.titlecase, s] }, object.priority))
-    != f.text_field(:benchmark)
-    != f.text_field(:benchmark_source)
+    %ul
+      %li= f.select(:priority, options_for_select(Factor::Priorities.map{|s| [s.to_s.humanize.titlecase, s] }, object.priority))
+      %li= f.text_field(:benchmark)
+      %li= f.text_field(:benchmark_source)
+
+:javascript
+  var advancedFields = $$('div.factor_content fieldset[class^="factor_"] > ul > li.advanced');
+  var show = 'Show Advanced';
+  var hide = 'Hide Advanced';
+  
+  $$('.toggle_advanced').grab(new Element('a',
+  {
+    'text': hide,
+    'href': '',
+    'class': 'button',
+    'events':
+    {
+      'click': function(e)
+      {
+        target = $((e && e.target) || this);
+        
+        switch (target.get('text'))
+        {
+          case show:
+            target.set('text', hide);
+            advancedFields.show();
+          break;
+          case hide:
+            target.set('text', show);
+            advancedFields.hide();
+          break;
+            
+        }
+        return false;
+      }
+    }
+  }));
+
+- unless object.advanced
+  :javascript
+    $$('.toggle_advanced > a.button').fireEvent('click');

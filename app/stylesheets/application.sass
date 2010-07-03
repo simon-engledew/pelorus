@@ -314,13 +314,14 @@ input[type=button], input[type=submit], a.button
       border-top: 1px solid #dddddd
       border-left: 1px solid #dddddd
   &:active
-    -webkit-box-shadow: none
-    -mox-box-shadow: none
-    box-shadow: none
+    /*
+      -webkit-box-shadow: none
+      -mox-box-shadow: none
+      box-shadow: none
 
-    position: relative
-    top: 1px
-    left: 1px
+      position: relative
+      top: 1px
+      left: 1px
 
 /*
   input[type=submit]
@@ -413,24 +414,35 @@ textarea[id$="_description"], textarea[id="comment_message"]
   :height 7em
 
 #content.factor_content
-  fieldset
-    ul
-      li
-        :margin-top 1em
-        :color #555
-        span.value
-          :color #333
-          :font-weight bold
-        
-  fieldset#factor_target
-    :margin-right 12px
-  fieldset#factor_context
-    :clear both
-  fieldset#factor_target, fieldset#factor_predicted
-    :width 250px
+  .toggle_advanced
+    clear: both
+    :margin 0 0 2em
+  fieldset[class^="factor_"]
+    padding-left: 0
+    padding-right: 0
+    border: none
+    border-top: solid 2px #e3e6e9
+    > legend
+      :margin-left 1ex
+    > ul > li
+      :margin-top 1em
+      :color #555
+      > span.value
+        :color #333
+        :font-weight bold
+      > div.input
+        :margin-bottom 0
+
+  fieldset.factor_context
+    input[type=text]
+      width: 540px
+  fieldset.factor_target
+    :margin-right 20px
+  fieldset.factor_target, fieldset.factor_predicted
+    :width 270px
     :float left
     input[type=text]
-      :width 230px
+      :width 250px
 
 /*
   #network_view_large
