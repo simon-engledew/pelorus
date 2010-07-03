@@ -2,13 +2,21 @@ class DotHandler < ActionView::TemplateHandler
   include ActionView::TemplateHandlers::Compilable
   def compile(path)
     <<-EOS
-      controller.response.content_type ||= Mime::SVG
+    
+      format = controller.params[:format]
+      content_type = case format
+        when 'svg' then Mime::SVG
+        when 'png' then Mime::PNG
+        else raise "\#{format} not supported"
+      end
+      
+      controller.response.content_type ||= content_type
       
       #{ActionView::Template.handler_class_for_extension('erb').call(path)}
-      
+    
       $stdout.puts @output_buffer
       
-      @output_buffer = IO.popen("dot -Tsvg", 'r+') do |io|
+      @output_buffer = IO.popen("dot -T\#{format}", 'r+') do |io|
         io.write(@output_buffer)
         io.close_write
         io.set_encoding('BINARY') if io.respond_to?(:set_encoding)
