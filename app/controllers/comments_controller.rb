@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
 
+  cache_sweeper :graph_sweeper
   before_filter :authenticate_user!
 
   def new
