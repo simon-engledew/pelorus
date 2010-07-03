@@ -2,6 +2,7 @@
   %h3
     %span Network View:
   
-  %a#network_view{:href => network_graph_path(map, :format => :svg), :title => 'Click to enlarge.'}
-    .graph
-      != image_tag(network_graph_path(map, :format => :svg, :timestamp => Time.now.to_i))
+  - (request.env["HTTP_USER_AGENT"] =~ /WebKit/ ? :svg : :png).tap do |graph_format|
+    %a#network_view{:href => network_graph_path(map, :format => graph_format), :title => 'Click to enlarge.'}
+      .graph
+        != image_tag(network_graph_path(map, :format => graph_format, :timestamp => Time.now.to_i))
