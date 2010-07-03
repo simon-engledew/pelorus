@@ -503,6 +503,14 @@ textarea[id$="_description"], textarea[id="comment_message"] {
   color: #555555;
 }
 #content.factor_content fieldset[class^="factor_"] > ul > li > span.value {
+  background: #dde7f9;
+  border: solid 1px #a2bdee;
+  padding: 0 1ex;
+  -moz-border-radius: 14px;
+  -webkit-border-radius: 14px;
+  border-radius: 14px;
+}
+#content.factor_content fieldset[class^="factor_"] > ul > li > span {
   color: #333333;
   font-weight: bold;
 }

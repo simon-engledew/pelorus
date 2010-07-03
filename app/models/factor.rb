@@ -65,7 +65,7 @@ class Factor < ActiveRecord::Base
   def target_value
     parsed_target.last
   end
-  
+
   [:likely, :report, :fail].each do |quantifier|
     method = :"parsed_#{quantifier}"
     define_method(method) do

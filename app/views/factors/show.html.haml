@@ -8,39 +8,46 @@
   %ul
     %li
       Target:
-      %span.value= factor.target
+      - unless factor.target.blank?
+        %span.value= factor.target
     %li.advanced
       Report:
-      %span.value= factor.report
+      - unless factor.report.blank?
+        %span.value= factor.report
     %li.advanced
       Fail:
-      %span.value= factor.fail
+      - unless factor.fail.blank?
+        %span.value= factor.fail
 
 %fieldset.factor_predicted
   %legend Predicted <small>or</small> Actual
   %ul
     %li
       Likely:
-      %span.value= factor.likely
+      - unless factor.likely.blank?
+        %span.value= factor.likely
     %li.advanced
       Best:
-      %span.value= factor.best
+      - unless factor.best.blank?
+        %span.value= factor.best
     %li.advanced
       Worst:
-      %span.value= factor.worst
+      - unless factor.worst.blank?
+        %span.value= factor.worst
 
 %fieldset.factor_context
   %legend Context
   %ul
     %li
       Priority:
-      %span.value= factor.priority.to_s.humanize.titlecase
+      - unless factor.priority.blank?
+        %span.value= factor.priority.to_s.humanize.titlecase
     %li
       Benchmark:
-      %span.value= factor.benchmark
+      %span= factor.benchmark
     %li
       Benchmark Source:
-      %span.value= factor.benchmark_source
+      %span= factor.benchmark_source
 
 .form_footer
   - if write_permission?
