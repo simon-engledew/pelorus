@@ -28,17 +28,17 @@ legend {
 }
 
 html {
-  background: #222222;
+  height: 100%;
+  background: #222222 url(/images/body.png) repeat-x;
 }
 
 body {
+  padding-top: 8px;
   font-size: 62.5%;
   font-family: "Lucida Grande", Verdana, Arial, Sans-Serif;
   color: #333333;
-}
-
-#header_container, #page_container, #footer_container {
   min-width: 900px;
+  width: expression(document.body.clientWidth \< !width ? !width_px : 'auto');
 }
 
 #header, #page, #footer {
@@ -67,34 +67,43 @@ body {
 }
 
 #header_container {
-  margin-top: 4px;
-  background: white;
-  border-top: solid 3px #dedcd7;
+  background: white url(/images/header_container.png) repeat-x bottom;
+  overflow: hidden;
+  border-top: solid 1px #bbbbbb;
+  padding-bottom: 15px;
+}
+#header_container hr {
+  display: none;
 }
 
 #header {
+  padding: 15px 0 0;
   position: relative;
-  border-bottom: solid 1px #dddddd;
 }
-#header h1 {
-  padding: 20px 0;
+#header > h1 {
+  background: transparent url(/images/logo.gif) no-repeat 0 0;
   width: 259px;
   height: 74px;
-  margin: 0;
-  background: transparent url(/images/logo.gif) no-repeat center center;
+  position: relative;
 }
-#header h1 > span {
+#header > h1 > a {
+  display: block;
+  position: absolute;
+  width: 259px;
+  height: 74px;
+}
+#header > h1 > a > span {
   display: none;
 }
 #header > ul {
   position: absolute;
   bottom: 0;
   right: 0;
-  padding: 9px 10px;
+  padding: 0 10px;
 }
 #header > ul > li {
   display: inline;
-  padding: 9px 0 9px 16px;
+  padding: 0 0 0 16px;
 }
 #header > ul > li > img {
   position: relative;
@@ -109,6 +118,39 @@ body {
   text-decoration: underline;
 }
 
+/* #header_container
+ *   :margin-top 4px
+ *   :background #fff
+ *   :border-top solid 3px #dedcd7
+ *
+ * #header
+ *   :position relative
+ *   :border-bottom solid 1px #ddd
+ *   h1 
+ *     :padding 20px 0
+ *     :width 259px
+ *     :height 74px
+ *     :margin 0
+ *     :background transparent url(/images/logo.gif) no-repeat center center
+ *     > span 
+ *       :display none
+ *   > ul 
+ *     :position absolute
+ *     :bottom 0
+ *     :right 0
+ *     :padding 9px 10px
+ *     > li 
+ *       :display inline
+ *       :padding 9px 0 9px 16px
+ *       > img
+ *         :position relative
+ *         :bottom -0.35em
+ *       > a 
+ *         :margin-left 1.5ex
+ *         :color #333
+ *         :text-decoration none
+ *         &:hover
+ *           :text-decoration underline */
 #page_container {
   min-height: 480px;
   background: white;
@@ -508,6 +550,7 @@ textarea[id$="_description"], textarea[id="comment_message"] {
 }
 #content.factor_content fieldset[class^="factor_"] > ul > li > span.value {
   background: #dde7f9;
+  text-shadow: 0 -1px 0 rgba(255, 255, 255, 0.5);
   border: solid 1px #a2bdee;
   padding: 0 1ex;
   -moz-border-radius: 14px;

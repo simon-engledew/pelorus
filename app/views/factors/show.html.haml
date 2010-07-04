@@ -44,10 +44,12 @@
         %span.value= factor.priority.to_s.humanize.titlecase
     %li
       Benchmark:
-      %span= factor.benchmark
+      - unless factor.benchmark.blank?
+        %span.value= factor.benchmark
     %li
       Benchmark Source:
-      %span= factor.benchmark_source
+      - unless factor.benchmark_source.blank?
+        %span.value= factor.benchmark_source
 
 .form_footer
   - if write_permission?
