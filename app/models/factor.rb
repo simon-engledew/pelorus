@@ -63,7 +63,7 @@ class Factor < ActiveRecord::Base
   end
   
   def target_value
-    parsed_target.last
+    parsed_target.try(:last)
   end
 
   [:likely, :report, :fail].each do |quantifier|

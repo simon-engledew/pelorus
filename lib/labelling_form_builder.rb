@@ -7,7 +7,7 @@ class LabellingFormBuilder < ActionView::Helpers::FormBuilder
       [:select, :grouped_select, :text_field, :password_field, :text_area, :check_box, :file_field].each do |method_name|
         define_method(method_name) do |method, *args|
           hash = args.last.is_a?(Hash)? args.last : {}
-          errors = @object.errors.on(method)
+          errors = @object.errors.on(method.to_s.chomp('_id'))
 
           label_text = []
           label_text << (hash.delete(:label) || human_attribute_name(method))

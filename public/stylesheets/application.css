@@ -118,41 +118,9 @@ body {
   text-decoration: underline;
 }
 
-/* #header_container
- *   :margin-top 4px
- *   :background #fff
- *   :border-top solid 3px #dedcd7
- *
- * #header
- *   :position relative
- *   :border-bottom solid 1px #ddd
- *   h1 
- *     :padding 20px 0
- *     :width 259px
- *     :height 74px
- *     :margin 0
- *     :background transparent url(/images/logo.gif) no-repeat center center
- *     > span 
- *       :display none
- *   > ul 
- *     :position absolute
- *     :bottom 0
- *     :right 0
- *     :padding 9px 10px
- *     > li 
- *       :display inline
- *       :padding 9px 0 9px 16px
- *       > img
- *         :position relative
- *         :bottom -0.35em
- *       > a 
- *         :margin-left 1.5ex
- *         :color #333
- *         :text-decoration none
- *         &:hover
- *           :text-decoration underline */
 #page_container {
   min-height: 480px;
+  height: expression(this.scrollHeight \< !height ? !height_px : 'auto');
   background: white;
 }
 
@@ -389,10 +357,12 @@ input[type=button], input[type=submit], a.button {
   cursor: pointer;
   padding: 5px 10px 6px 7px;
   display: inline-block;
-  /* &:hover
-   *   background-color: #e6efc2
-   *   border: 1px solid #c6d880
-   *   color: #529214 */
+}
+input[type=button] .confirm:hover, input[type=submit] .confirm:hover, a.button .confirm:hover {
+  color: #529214;
+}
+input[type=button] .deny:hover, input[type=submit] .deny:hover, a.button .deny:hover {
+  color: #330000;
 }
 input[type=button][disabled], input[type=submit][disabled], a.button[disabled] {
   color: #999999;
@@ -404,24 +374,7 @@ input[type=button][disabled]:hover, input[type=submit][disabled]:hover, a.button
   border-top: 1px solid #dddddd;
   border-left: 1px solid #dddddd;
 }
-input[type=button]:active, input[type=submit]:active, a.button:active {
-  /* -webkit-box-shadow: none
-   * -mox-box-shadow: none
-   * box-shadow: none
-   *
-   * position: relative
-   * top: 1px
-   * left: 1px */
-}
 
-/* input[type=submit]
- *   background-color: #f1f1f1
- *   background: -webkit-gradient(linear, center bottom, center top, from(#d6e8c7), to(#eff6ea))
- *   background: -moz-linear-gradient(top, #eff6ea, #d6e8c7)
- *
- *   border: solid 1px #cae1b7
- *   border-bottom-color: #95c46f
- *   border-right-color: #95c46f */
 div.control.edit {
   border-color: #85b7d6;
 }
@@ -575,43 +528,3 @@ textarea[id$="_description"], textarea[id="comment_message"] {
 #content.factor_content fieldset.factor_target input[type=text], #content.factor_content fieldset.factor_predicted input[type=text] {
   width: 250px;
 }
-
-/* #network_view_large
- *   $width: 800px
- *   $height: 600px
- *   z-index: 2
- *   visibility: hidden
- *   opacity: 0
- *   position: fixed
- *   left: 50%
- *   top: 50%
- *   margin-left: -($width / 2)
- *   margin-top: -($height / 2)
- *   height: $height + 2
- *   width: $width + 2
- *   border: solid 8px rgba(0, 0, 0, 0.2)
- *   background-color: transparent
- *   +border-radius(7px)
- *   > a
- *     z-index: 4
- *     display: block
- *     > div
- *       width: $width
- *       height: $height
- *       position: static
- *       display: table-cell
- *       vertical-align: middle
- *       text-align: center
- *       background-color: #fff
- *       border: solid 1px #aaa
- *       margin: -1px 0 0 -1px
- *       cursor: pointer
- *       > img
- *         max-width: 100%
- *         max-height: 100%
- *   > img
- *     z-index: 5
- *     position: absolute
- *     top: -15px
- *     right: -15px
- *     cursor: pointer */

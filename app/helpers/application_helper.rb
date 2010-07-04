@@ -57,15 +57,19 @@ module ApplicationHelper
   def breadcrumb(object)
     info = []
     info << status_image(object) if object.respond_to?(:status)
-    info << content_tag(:span, "&lt;#{object.class.to_s.singularize.humanize}&gt; #{object.name}")
+    info << content_tag(:span, "&lt;#{object.class.human_name}&gt; #{object.new_record?? %(New #{object.class.human_name}) : object.name}")
     content_tag(:div, info.join(' '), :class => 'breadcrumb')
   end
 
   def breadcrumbs(object, result = [])
     if object
       breadcrumbs(object.parent_node, result) if object.respond_to?(:parent_node) and object.parent_node
-      if object.respond_to?(:name) and object.respond_to?(:hierarchy) and object.id
-        result << content_tag(:li, link_to(breadcrumb(object), object.hierarchy), :class => resource == object ? 'current_node' : nil)
+      if object.respond_to?(:name) and object.respond_to?(:hierarchy)
+        if resource == object
+          result << content_tag(:li, link_to(breadcrumb(object), request.request_uri), :class => 'current_node')
+        else
+          result << content_tag(:li, link_to(breadcrumb(object), object.hierarchy))
+        end
       end
     end
     result
