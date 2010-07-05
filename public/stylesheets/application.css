@@ -498,9 +498,9 @@ textarea[id$="_description"], textarea[id="comment_message"] {
   font-weight: bold;
 }
 #content.factor_content fieldset[class^="factor_"] > ul > li > span.value {
-  background: #dde7f9;
+  background: #eeeeee;
   text-shadow: 0 -1px 0 rgba(255, 255, 255, 0.5);
-  border: solid 1px #a2bdee;
+  border: solid 1px #dddddd;
   padding: 0 1ex;
   -moz-border-radius: 14px;
   -webkit-border-radius: 14px;

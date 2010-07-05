@@ -19,11 +19,11 @@ module ApplicationHelper
   end
 
   def delete_link(object)
-    write_permission? ? content_tag(:div, link_to(content_tag(:span, 'Delete'), object, :confirm => 'Are you sure?', :method => :delete), :class => 'control delete') : nil
+    write_permission? ? content_tag(:div, link_to(content_tag(:span, 'delete'), object, :confirm => 'Are you sure?', :method => :delete), :class => 'control delete') : nil
   end
   
   def edit_link(object)
-    write_permission? ? content_tag(:div, link_to(content_tag(:span, 'Edit'), [:edit, *object]), :class => 'control edit') : nil
+    write_permission? ? content_tag(:div, link_to(content_tag(:span, 'edit'), [:edit, *object]), :class => 'control edit') : nil
   end
   
   def new_link(text, hierarchy, link_options = {})
