@@ -6,10 +6,13 @@ Pelorus.unselectable = function(element) {
   element.style.MozUserSelect = "none";
 }
 
-$$('a[href^="#"]').each(function(link) {
-  link.addEvent('click', function(e){
-    new Fx.Scroll(window).toElement(document.getElement(link.getProperty('href')));
-    return false;
-  });
+$$('a[href^="#"]').addEvent('click', function(e) {
+  target = $((e && e.target) || this);
+  new Fx.Scroll(window).toElement(document.getElement(target.getProperty('href')));
+  return false;
 });
- 
+
+$$('a.button').addEvent('click', function(e) {
+  target = $((e && e.target) || this);
+  return !target.getProperty('disabled');
+});

@@ -364,15 +364,11 @@ input[type=button] .confirm:hover, input[type=submit] .confirm:hover, a.button .
 input[type=button] .deny:hover, input[type=submit] .deny:hover, a.button .deny:hover {
   color: #330000;
 }
+input[type=button]:active, input[type=submit]:active, a.button:active {
+  background: #d7d7d7;
+}
 input[type=button][disabled], input[type=submit][disabled], a.button[disabled] {
   color: #999999;
-}
-input[type=button][disabled]:hover, input[type=submit][disabled]:hover, a.button[disabled]:hover {
-  color: #999999;
-  background-color: #f5f5f5;
-  border: 1px solid #cecece;
-  border-top: 1px solid #dddddd;
-  border-left: 1px solid #dddddd;
 }
 
 div.control.edit {

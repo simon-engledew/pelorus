@@ -27,7 +27,7 @@ module ApplicationHelper
   end
   
   def new_link(text, hierarchy, link_options = {})
-    link_to text, polymorphic_path(hierarchy, link_options.reverse_merge(:action => :new)), :class => 'button'
+    link_to text, new_polymorphic_path(hierarchy), :class => 'button'
   end
   
   def trim_operator(operator)
