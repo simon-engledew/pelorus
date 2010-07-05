@@ -16,17 +16,17 @@
       %li.advanced= f.text_field(:best, :size => 10)
       %li.advanced= f.text_field(:worst, :size => 10)
 
-  .toggle_advanced
-
-  %fieldset.factor_context
+  %fieldset.factor_context.advanced
     %legend Context
     %ul
       %li= f.select(:priority, options_for_select(Factor::Priorities.map{|s| [s.to_s.humanize.titlecase, s] }, object.priority))
       %li= f.text_field(:benchmark)
       %li= f.text_field(:benchmark_source)
 
+  .toggle_advanced
+
 :javascript
-  var advancedFields = $$('div.factor_content fieldset[class^="factor_"] > ul > li.advanced');
+  var advancedFields = $$('.advanced');
   var show = 'Show Advanced';
   var hide = 'Hide Advanced';
   
@@ -58,6 +58,6 @@
     }
   }));
 
-- unless object.advanced
+- unless object.advanced?
   :javascript
     $$('.toggle_advanced > a.button').fireEvent('click');

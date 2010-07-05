@@ -13,9 +13,7 @@ class DotHandler < ActionView::TemplateHandler
       controller.response.content_type ||= content_type
       
       #{ActionView::Template.handler_class_for_extension('erb').call(path)}
-    
-      $stdout.puts @output_buffer
-      
+  
       @output_buffer = IO.popen("dot -T\#{format}", 'r+') do |io|
         io.write(@output_buffer)
         io.close_write

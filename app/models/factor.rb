@@ -118,15 +118,19 @@ class Factor < ActiveRecord::Base
     end
   end
   
-  def advanced
+  def advanced_quantifiers?
     AdvancedQuantifiers.any? {|quantifier| not send(quantifier).blank?}
+  end
+  
+  def advanced?
+    self.advanced_quantifiers? or [:benchmark, :benchmark_source].any? {|benchmark| not send(benchmark).blank?} || self.priority != 'medium'
   end
   
   def status
     operator, target_value = self.parsed_target
     operator = (operator or '=') + '='
     
-    if self.advanced then
+    if self.advanced_quantifiers? then
       return Status::Red unless Factor.compare(self.parsed_worst, operator, self.parsed_fail)
       return Status::Amber unless Factor.compare(self.parsed_likely, operator, self.parsed_report)
       return Status::Green
