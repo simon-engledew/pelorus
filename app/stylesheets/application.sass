@@ -109,6 +109,7 @@ body
     :height 74px
     position: relative
     > a
+      outline-style: none
       display: block
       position: absolute
       width: 259px
@@ -308,17 +309,18 @@ div.control
 input[type=button], input[type=submit], a.button
   .confirm:hover
     color: #529214
-    text-shadow 0 -1px 0 rgba(255, 255, 255, 0.5)
   .deny:hover
     color: #300
-    text-shadow 0 -1px 0 rgba(255, 255, 255, 0.5)
     
   &:active
     background: #d7d7d7
     
   margin: 0 7px 0 0
+  outline-style: none
   
   +box_shadow(1px, 1px, 2px, rgba(0, 0, 0, 0.15))
+  +border_radius(3px)
+  text-shadow: 0 1px 0 #fff
   
   background-color: #f1f1f1
   background: -webkit-gradient(linear, center bottom, center top, from(#d7d7d7), to(#f1f1f1))
@@ -418,6 +420,8 @@ input[type="text"][id$="_name"]
 
 textarea[id$="_description"], textarea[id="comment_message"]
   :width 540px
+  +max_width(540px)
+  +min_width(540px)
   :height 7em
 
 #content.factor_content
