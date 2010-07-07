@@ -6,11 +6,13 @@ class Comment < ActiveRecord::Base
     end
     
     def comment_status
-      override_comment = self.comments.first(:conditions => ['comments.override_status = ? AND comments.status IS NOT NULL', true], :order => 'updated_at DESC')
+      Cache.read("#{self.cache_key}.comment_status") do
+        override_comment = self.comments.first(:conditions => ['comments.override_status = ? AND comments.status IS NOT NULL', true], :order => 'updated_at DESC')
 
-      override_comment ?
-        [override_comment.status || 0, self.comments.maximum(:status, :conditions => ['comments.updated_at > ?', override_comment.updated_at]) || 0].max :
-        self.comments.maximum(:status) || 0
+        override_comment ?
+          [override_comment.status || 0, self.comments.maximum(:status, :conditions => ['comments.updated_at > ?', override_comment.updated_at]) || 0].max :
+          self.comments.maximum(:status) || 0
+      end
     end
     
     def computed_status

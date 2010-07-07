@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
   end
   
   # :http_authenticatable, :token_authenticatable, :lockable, :timeoutable and :activatable
-  devise :registerable, :authenticatable, :confirmable, :recoverable,
+  devise :registerable, :database_authenticatable, :confirmable, :recoverable,
          :rememberable, :trackable, :validatable
 
   attr_accessible :email, :name, :password, :password_confirmation

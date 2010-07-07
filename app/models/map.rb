@@ -46,7 +46,9 @@ class Map < ActiveRecord::Base
   end
   
   def status
-    [children.map{|goal| goal.propagate ? goal.computed_status : 0 }.max || 0, self.comment_status].max
+    Cache.read("#{self.cache_key}.status") do
+      [children.map{|goal| goal.propagate ? goal.computed_status : 0 }.max || 0, self.comment_status].max
+    end
   end
   
   def map

@@ -100,7 +100,9 @@ public
   end
   
   def status
-    [supported_chain_status, factors_status, risks_status, children_status, comment_status].max || 0
+    Cache.read("#{self.cache_key}.status") do
+      [supported_chain_status, factors_status, risks_status, children_status, comment_status].max || 0
+    end
   end
 
   def parent_node
