@@ -2,7 +2,6 @@
 %html{html_attrs('en-GB')}
   %head
     %title== Pelorus - #{@title || (resource && resource.respond_to?(:name) ? resource.name : 'Home')}
-    != stylesheet_link_tag 'reset'
     != stylesheet_link_tag 'application'
     != javascript_include_tag :mootools
     != yield :head
@@ -15,7 +14,7 @@
         %h1
           %a{:href => root_path}
             %span
-              %img{:src => '/images/logo.gif'}
+              %img{:src => '/images/logo.png'}
               Pelorus - The Tool For Change
         %ul
           %li

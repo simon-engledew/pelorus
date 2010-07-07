@@ -1,3 +1,5 @@
+@import 'reset'
+
 =max_width($width)
   $width_px: unquote("'#{$width}px'")
   max-width: $width + 0px
@@ -102,7 +104,7 @@ body
   :padding 15px 0 0
   :position relative
   > h1
-    :background transparent url(/images/logo.gif) no-repeat 0 0
+    :background transparent url(/images/logo.png) no-repeat 0 0
     :width 259px
     :height 74px
     position: relative
@@ -182,7 +184,7 @@ body
   :border-left solid 2px #ddd
   :margin 0 0 15px
   :padding 0 0 8px 5px
-  :background transparent url(/images/breadcrumbs.gif) no-repeat bottom left
+  :background transparent url(/images/breadcrumbs.png) no-repeat bottom left
   a
     :text-decoration none
   li.current_node
