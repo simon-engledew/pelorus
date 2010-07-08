@@ -20,19 +20,23 @@ module ApplicationHelper
 
   def controls_for(object)
     if write_permission?
-      %(<ul class="controls"><li class="edit">#{link_to('edit', [:edit, *object])}</li><li class="delete">#{link_to('delete', object, :confirm => 'Are you sure?', :method => :delete)}</li></ul>)
+      content_tag(:ul, [
+        delete_control(object),
+        edit_control(object)
+      ], :class => 'controls')
+      # %(<ul class="controls"><li class="edit">#{link_to('edit', [:edit, *object])}</li><li class="delete">#{link_to('delete', object, :confirm => 'Are you sure?', :method => :delete)}</li></ul>)
     end
       # %ul.controls
       #   %li= link_to(content_tag(:span, 'delete'), goal.hierarchy, :confirm => 'Are you sure?', :method => :delete)
       #   %li= link_to(content_tag(:span, 'edit'), [:edit, *goal.hierarchy])
   end
 
-  def delete_link(object)
-    write_permission? ? content_tag(:div, link_to(content_tag(:span, 'delete'), object, :confirm => 'Are you sure?', :method => :delete), :class => 'control delete') : nil
+  def delete_control(object)
+    write_permission? ? content_tag(:li, link_to('delete', object, :confirm => 'Are you sure?', :method => :delete), :class => 'delete') : nil
   end
   
-  def edit_link(object)
-    write_permission? ? content_tag(:div, link_to(content_tag(:span, 'edit'), [:edit, *object]), :class => 'control edit') : nil
+  def edit_control(object)
+    write_permission? ? content_tag(:li, link_to('edit', [:edit, *object]), :class => 'edit') : nil
   end
   
   def new_link(text, hierarchy, link_options = {})

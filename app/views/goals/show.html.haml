@@ -147,7 +147,10 @@
         - goal.supports.each do |goal|
           %tr
             %td
-              %div= link_to goal.name, goal.hierarchy
+              %div
+                - if write_permission?
+                  %ul.controls= edit_control goal.hierarchy
+                = link_to goal.name, goal.hierarchy
             %td= status_image(goal)
         - if goal.supports.empty?
           %tr
