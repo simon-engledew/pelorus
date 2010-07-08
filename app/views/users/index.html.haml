@@ -8,7 +8,11 @@
       - @users.each do |user|
         %tr[user]
           %td
-            %div== #{delete_link(user)} #{user.name} #{'(admin)' if user.admin}
+            %div
+              = controls_for user.hierarchy
+              = user.name
+              - if user.admin
+                (admin)
           %td
             %div= link_to(h(user.email), user)
       - if @users.empty?

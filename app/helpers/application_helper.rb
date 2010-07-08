@@ -36,7 +36,7 @@ module ApplicationHelper
   end
   
   def edit_control(object)
-    write_permission? ? content_tag(:li, link_to('edit', [:edit, *object]), :class => 'edit') : nil
+    write_permission? ? content_tag(:li, link_to('edit', polymorphic_path(object, :action => :edit)), :class => 'edit') : nil
   end
   
   def new_link(text, hierarchy, link_options = {})

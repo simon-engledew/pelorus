@@ -12,7 +12,10 @@
         %tr
           %td
             - if write_permission?
-              %div== #{delete_link(stake.hierarchy) unless stake.enforced} #{link_to h(stake.name), polymorphic_path(stake.hierarchy, :action => :edit)}
+              %div
+                - unless stake.enforced
+                  %ul.controls= delete_control(stake.hierarchy)
+                = link_to h(stake.name), polymorphic_path(stake.hierarchy, :action => :edit)
             - else
               = stake.name
           %td= linked_user_name(stake.user)

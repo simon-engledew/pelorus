@@ -34,7 +34,11 @@
         - user.stakes.each do |stake|
           %tr
             %td
-              %div== #{delete_link(stake.hierarchy) unless stake.enforced} #{stake.name}
+              - if write_permission?
+                %div
+                  - unless stake.enforced
+                    %ul.controls= delete_control(stake.hierarchy)
+              = stake.name
             %td
               %nobr= stake.goal ? %(<font color="#{Status::Color[stake.goal.status]}">&#8226;</font> ) + link_to(stake.goal.name, stake.goal.hierarchy) : '&mdash;'
             %td
