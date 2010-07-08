@@ -7,4 +7,4 @@
  
   .form_buttons
     %input{:type => 'submit', :value => 'Create'}  
-    = link_to('Cancel', local_assigns[:cancel] || (resource.parent_node ? resource.parent_node.hierarchy : root_path), :class => 'button')
+    = link_to('Cancel', session[:back] || :back, :class => 'button')

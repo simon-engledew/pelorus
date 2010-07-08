@@ -17,6 +17,18 @@ class ApplicationController < ActionController::Base
 
 protected
 
+  before_filter :store_referrer
+  def store_referrer
+    referrer_path = URI.parse(request.referrer).path
+    referrer_route = ActionController::Routing::Routes.recognize_path(referrer_path, :method => :get)
+
+    if ['show', 'index'].include?(referrer_route[:action]) 
+      unless referrer_route[:controller] == controller_name and referrer_route[:action] == action_name
+        session[:back] = referrer_path
+      end
+    end
+  end
+
   unless Rails.env.development?
     rescue_from(
       ActionController::RoutingError,

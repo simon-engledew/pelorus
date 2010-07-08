@@ -14,7 +14,7 @@
   != render :partial => '/shared/comments', :object => resource
 
 - content_for :editable do
-  %p== This goal <strong>#{goal.propagate ? 'is' : 'is not'}</strong> propagating its status information.
+  %p== The status of this goal <strong>#{goal.propagate ? 'does' : 'does not'}</strong> affect supported goals.
 
 != render :partial => '/layouts/object_header', :object => resource
 
@@ -32,7 +32,9 @@
         - goal.children.each do |goal|
           %tr
             %td
-              %div== #{delete_link(goal.hierarchy)} #{link_to h(goal.name), goal.hierarchy}
+              %div
+                = controls_for goal.hierarchy
+                = link_to h(goal.name), goal.hierarchy
             %td= status_image(goal)
         - if goal.children.empty?
           %tr
@@ -60,7 +62,7 @@
           %tr
             %td
               %div
-                = edit_link factor.hierarchy
+                = controls_for factor.hierarchy
                 = link_to h(factor.name), factor.hierarchy
             %td
               %nobr= factor.target
@@ -91,7 +93,7 @@
           %tr
             %td
               %div
-                = edit_link risk.hierarchy
+                = controls_for risk.hierarchy
                 = link_to h(risk.name), risk.hierarchy
             %td= status_image(risk)
         - if goal.risks.empty?
@@ -118,7 +120,9 @@
           - supported_by = supporting_goal.supported_by
           %tr
             %td
-              %div== #{delete_link(supporting_goal.hierarchy)} #{link_to(h(supported_by.name), supported_by.hierarchy)}
+              %div
+                = controls_for supporting_goal.hierarchy
+                = link_to h(supported_by.name), supported_by.hierarchy
             %td= status_image(supported_by)
         - if goal.supporting_goals.empty?
           %tr
@@ -143,7 +147,7 @@
         - goal.supports.each do |goal|
           %tr
             %td
-              %div== #{link_to goal.name, goal.hierarchy}
+              %div= link_to goal.name, goal.hierarchy
             %td= status_image(goal)
         - if goal.supports.empty?
           %tr

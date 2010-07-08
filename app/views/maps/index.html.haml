@@ -13,7 +13,9 @@
       - @maps.each do |map|
         %tr[map]
           %td
-            %div== #{delete_link(map)} #{link_to(h(map.name), map)}
+            %div
+              = controls_for map
+              = link_to h(map.name), map
           %td= status_image(map)
           %td= linked_user_name(map.manager)
           %td= map.goals.count

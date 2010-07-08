@@ -18,6 +18,15 @@ module ApplicationHelper
     controller_name.singularize.camelize
   end
 
+  def controls_for(object)
+    if write_permission?
+      %(<ul class="controls"><li class="edit">#{link_to('edit', [:edit, *object])}</li><li class="delete">#{link_to('delete', object, :confirm => 'Are you sure?', :method => :delete)}</li></ul>)
+    end
+      # %ul.controls
+      #   %li= link_to(content_tag(:span, 'delete'), goal.hierarchy, :confirm => 'Are you sure?', :method => :delete)
+      #   %li= link_to(content_tag(:span, 'edit'), [:edit, *goal.hierarchy])
+  end
+
   def delete_link(object)
     write_permission? ? content_tag(:div, link_to(content_tag(:span, 'delete'), object, :confirm => 'Are you sure?', :method => :delete), :class => 'control delete') : nil
   end

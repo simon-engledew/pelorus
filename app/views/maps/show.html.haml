@@ -19,7 +19,9 @@
       - map.children.each do |goal|
         %tr
           %td
-            %div== #{delete_link(goal.hierarchy)} #{link_to h(goal.name), goal.hierarchy}
+            %div
+              = controls_for goal.hierarchy
+              = link_to h(goal.name), goal.hierarchy
           %td= status_image(goal)
       - if map.children.empty?
         %tr
