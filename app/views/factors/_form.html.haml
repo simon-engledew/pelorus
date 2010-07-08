@@ -45,7 +45,9 @@
         {
           case show:
             target.set('text', hide);
+            advancedFields.setStyle('opacity', 0);
             advancedFields.show();
+            advancedFields.tween('opacity', 1);
           break;
           case hide:
             target.set('text', show);

@@ -218,6 +218,10 @@ body
       :margin-top 2em
       :padding-left 20px
       :position relative
+      &:hover > ul.controls
+        //:visibility visible
+        :opacity 1
+        -webkit-transition: opacity 0.1s linear
       img
         :position absolute
         :left -10px
@@ -371,48 +375,49 @@ div.container
         :border-bottom solid 1px #eee
         > div 
           :position relative
-          > ul.controls
-            :position absolute
-            :right 0
-            :visibility hidden
-            :opacity 0
-            -webkit-transition-property: opacity
-            -webkit-transition-duration: 0.1s
-            > li
-              :float left
-              :background #222
-              :background #111
-              +vertical_linear_gradient(#333, #111)
-              :padding 5px 0
-              :margin -5px 0 0 0
-            > li > a
-              :border-left solid 1px rgba(255, 255, 255, 0.2)
-              :border-right solid 1px rgba(255, 255, 255, 0.4)
-              :padding 0 10px
-              :color #fff
-              :text-shadow 0 1px 0 #000
-              :text-decoration none
-              &:hover
-                :text-decoration underline
-            > li:first-child
-              -webkit-border-top-left-radius: 5px
-              -moz-border-radius-topleft: 5px
-              -webkit-border-bottom-left-radius: 5px
-              -moz-border-radius-bottomleft: 5px
-              > a
-                :border-left none
-            > li:last-child
-              -webkit-border-top-right-radius: 5px
-              -moz-border-radius-topright: 5px
-              -webkit-border-bottom-right-radius: 5px
-              -moz-border-radius-bottomright: 5px
-              > a
-                :border-right none
 
     > tbody > tr:hover > td > div
       > ul.controls
-        :visibility visible
+        //:visibility visible
         :opacity 1
+        -webkit-transition: opacity 0.1s linear
+
+ul.controls
+  :position absolute
+  :right 0
+  //:visibility hidden
+  :opacity 0
+  -webkit-transition: opacity 0.1s linear
+  > li
+    :float left
+    :background #222
+    :background #111
+    +vertical_linear_gradient(#333, #111)
+    :padding 5px 0
+    :margin -5px 0 0 0
+    &:active
+      background: #000
+  > li > a
+    :border-left solid 1px rgba(255, 255, 255, 0.2)
+    :border-right solid 1px rgba(255, 255, 255, 0.4)
+    :padding 0 10px
+    :color #fff
+    :text-shadow 0 1px 0 #000
+    :text-decoration none
+  > li:first-child
+    -webkit-border-top-left-radius: 5px
+    -moz-border-radius-topleft: 5px
+    -webkit-border-bottom-left-radius: 5px
+    -moz-border-radius-bottomleft: 5px
+    > a
+      :border-left none
+  > li:last-child
+    -webkit-border-top-right-radius: 5px
+    -moz-border-radius-topright: 5px
+    -webkit-border-bottom-right-radius: 5px
+    -moz-border-radius-bottomright: 5px
+    > a
+      :border-right none
 
 #errorExplanation 
   :margin-bottom 2em

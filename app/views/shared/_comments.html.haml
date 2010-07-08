@@ -8,6 +8,10 @@
       %ul.discussion
         - object.comments.each do |comment|
           %li{:style => comment.override_status ? "border-top:solid 2px #{Status::Color[comment.status || 0]};padding-top:2em" : nil}
+            - if write_permission?
+              %ul.controls
+                %li.delete= link_to('delete', comment_path(polymorphic_parameters(object).merge(:id => comment.id)), :confirm => 'Are you sure?', :method => :delete)
+
             #{comment_status_image comment}
             :textile
               #{comment.message}

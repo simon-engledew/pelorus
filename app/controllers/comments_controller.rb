@@ -13,6 +13,12 @@ class CommentsController < ApplicationController
     return redirect_to(@comment.parent_node.hierarchy) if @comment.save
     render :action => :new
   end
+  
+  def destroy
+    comment.destroy
+    redirect_to comment.parent_node.hierarchy
+  end
+
 
 protected
 
