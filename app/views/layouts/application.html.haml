@@ -16,19 +16,13 @@
             %span
               %img{:src => '/images/logo.png'}
               Pelorus - The Tool For Change
-        %ul
-          %li
-            %img{:src => '/images/icons/home.png'}
-            != link_to 'Home', root_path
-          %li
-            %img{:src => '/images/icons/users.png'}
-            != link_to 'Stakeholders', users_path
+        %ul.controls
+          %li= link_to 'Home', root_path
+          %li= link_to 'Stakeholders', users_path
           - if user_signed_in?
-            %li
-              %span== #{current_user.name} (#{link_to 'Logout', destroy_user_session_path})
+            %li= link_to "#{current_user.name} (Logout)", destroy_user_session_path
           - else
-            %li
-              %span= link_to 'Login', new_user_session_path
+            %li= link_to 'Login', new_user_session_path
     #page_container
       #page
         #sidebar_container

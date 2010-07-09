@@ -19,8 +19,7 @@
 != render :partial => '/layouts/object_header', :object => resource
 
 #sub_goals.tab
-  %h2
-    %span Sub Goals:
+  %h2 Sub Goals
 
   .container
     %table
@@ -46,8 +45,7 @@
               %p= new_link('new subgoal', goal.map.hierarchy << Goal, :parent_id => goal)
 
 #factors.tab
-  %h2
-    %span Factors:
+  %h2 Factors
 
   .container
     %table
@@ -79,8 +77,7 @@
               %p= new_link('new factor', goal.hierarchy << Factor)
 
 #risks.tab
-  %h2
-    %span Risks:
+  %h2 Risks
 
   .container
     %table
@@ -106,8 +103,7 @@
               %p= new_link('new risk', goal.hierarchy << Risk)
 
 #supporting_goals.tab
-  %h2
-    %span Supporting Goals:
+  %h2 Supporting Goals
 
   .container
     %table
@@ -139,8 +135,7 @@
               %p= new_link('new supporting goal', goal.hierarchy << SupportingGoal)
 
 #supported_goals.tab
-  %h2
-    %span Supported Goals:
+  %h2 Supported Goals
 
   .container
     %table
