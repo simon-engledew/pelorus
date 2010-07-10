@@ -79,7 +79,6 @@ legend
 
 ul.controls
   :position absolute
-  :right 0
   > li
     :float left
     :background #222
@@ -160,12 +159,15 @@ body
   :padding 15px 0 0
   :position relative
   > ul.controls
+    :right 0
     :bottom 0
     > li
       :background #eee
       +vertical_linear_gradient(#fff, #f5f5f5)
       :border-top solid 1px #eee
-      :border-bottom solid 1px #eee
+      :border-bottom solid 1px #ddd
+      :border-left solid 1px rgba(100, 100, 100, 0.05)
+      :border-right solid 1px rgba(100, 100, 100, 0.1)
       &:active
         :background #f5f5f5
       > a
@@ -194,7 +196,7 @@ body
 #page_container
   +min_height(480px)
   :background #fff
-  //+vertical_linear_gradient(#fff, #fafafa)
+  // +vertical_linear_gradient(#fff, #f6f3f1)
 
 #page
   :padding 40px 0
@@ -216,7 +218,6 @@ body
   :width = !sidebar_width
   :padding 20px 0
   .graph 
-    :background-color #fff
     img 
       :border none
       :max-width 100%
@@ -379,8 +380,7 @@ input[type=button], input[type=submit], a.button
   text-shadow: 0 1px 0 #fff
   
   background-color: #f1f1f1
-  background: -webkit-gradient(linear, center bottom, center top, from(#d7d7d7), to(#f1f1f1))
-  background: -moz-linear-gradient(top, #f1f1f1, #d7d7d7)
+  +vertical_linear_gradient(#f1f1f1, #d7d7d7)
   
   border: solid 1px #ccc
   border-bottom-color: #999
@@ -436,9 +436,11 @@ div.container
       > td 
         :border-bottom solid 1px #eee
         +vertical_linear_gradient(#fff, #fcfcfc)
-        > div 
+        > div
           :position relative
           @extend .hide_controls
+          > ul.controls
+            :right 0
 
     > tbody > tr:hover > td > div > ul.controls
       :opacity 1
@@ -453,6 +455,11 @@ div.container
   > ul > li 
     :list-style-type disc
     :margin 0 0 0.5em 2ex
+
+.fieldWithErrors
+  input[type="text"], input[type="password"], textarea
+    :background-color #fee
+    +vertical_linear_gradient(#fff9f9, #fee)
 
 input[type="text"][id$="_name"]
   :width 540px

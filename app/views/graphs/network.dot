@@ -1,5 +1,6 @@
 digraph "<%= sanitize_label(map.name) %>" {
   rankdir=BT;
+  graph [truecolor bgcolor="transparent"];
   node [shape=box];
   pad=0.25;
   <%= render :partial => 'network_goal', :collection => map.children %>

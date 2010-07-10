@@ -11,6 +11,7 @@ class Risk < ActiveRecord::Base
   belongs_to :goal
 
   validates_uniqueness_of :name, :scope => :goal_id
+  validates_presence_of :goal_id, :name
   validates_inclusion_of :status, :in => Status::Enum.keys
 
   def map
