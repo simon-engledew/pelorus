@@ -14,6 +14,10 @@ production: &PRODUCTION
   username: pelorus
   encoding: utf8
 
+production:
+  adapter: sqlite3
+  database: db/production.sqlite3
+
 staging: &STAGING
   adapter: mysql
   database: pelorus_staging

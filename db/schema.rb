@@ -16,6 +16,8 @@ ActiveRecord::Schema.define(:version => 20100513181238) do
     t.integer  "user_id"
     t.integer  "parent_id"
     t.string   "parent_type"
+    t.integer  "status"
+    t.boolean  "override_status", :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
