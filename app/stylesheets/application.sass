@@ -2,13 +2,11 @@
 
 .show_controls
   &:hover > ul.controls
-    :opacity 1
-    -webkit-transition: opacity 0.1s linear
+    visibility: visible
 
 .hide_controls
   > ul.controls
-    :opacity 0
-    -webkit-transition: opacity 0.1s linear
+    visibility: hidden
 
 =max_width($width)
   $width_px: unquote("'#{$width}px'")
@@ -374,9 +372,9 @@ div#content
     :text-decoration underline
 
 input[type=button], input[type=submit], a.button
-  .confirm:hover
+  &.confirm:hover
     color: #529214
-  .deny:hover
+  &.deny:hover
     color: #300
     
   &:active
@@ -453,8 +451,7 @@ div.container
             :right 0
 
     > tbody > tr:hover > td > div > ul.controls
-      :opacity 1
-      -webkit-transition: opacity 0.1s linear
+      visibility: visible
 
 #errorExplanation 
   :margin-bottom 2em
