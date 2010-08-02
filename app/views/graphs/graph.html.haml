@@ -1,0 +1,4 @@
+= render :file => '/graphs/network', :locals => {:format => 'cmapx'}
+
+%p{:style => 'text-align:center'}
+  %img#network_view{:src => network_graph_path(map, :format => :png, :timestamp => Time.now.to_i), :usemap => "##{map.name}"}

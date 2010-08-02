@@ -6,6 +6,7 @@ ActionController::Routing::Routes.draw do |map|
 
   map.with_options :controller => 'graphs' do |graphs|
     graphs.network_graph '/graphs/maps/:map_id/:action.:format', :action => 'network'
+    graphs.graph  '/graphs/maps/:map_id/graph', :action => 'graph'
   end
 
   map.resources :comments, :path_prefix => ':parent_node_type/:parent_node_id', :requirements => {:parent_node_type => '/goals|maps/factors|risks/', :parent_node_id => '\d+'}
