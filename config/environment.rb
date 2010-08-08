@@ -26,7 +26,7 @@ Rails::Initializer.run do |config|
 
   config.gem 'haml'
   config.gem 'RedCloth'
-  config.gem 'devise'
+  config.gem 'devise', :version => '= 1.0.8'
   
   # Only load the plugins named here, in the order given. By default, all plugins 
   # in vendor/plugins are loaded in alphabetical order.
@@ -52,7 +52,7 @@ Rails::Initializer.run do |config|
   # Make sure the secret is at least 30 characters and all random, 
   # no regular words or you'll be exposed to dictionary attacks.
   config.action_controller.session = {
-    :session_key => '_pelorus.rails_session',
+    :key => '_pelorus.rails_session',
     :secret      => 'd10c13a4f900b60ecb8749b8640a4d790c43344d1da62db760fb5befe69353f0156c86084f1c1bc0969b8417a309f6e6e6005ef3b77d7a0c8032c0309f077c22'
   }
 

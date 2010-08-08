@@ -14,8 +14,13 @@ class DotHandler < ActionView::TemplateHandler
       controller.response.content_type ||= content_type
       
       #{ActionView::Template.handler_class_for_extension('erb').call(path)}
+      
+      command = []
+      command << "dot -T\#{format}"
+      command << "2>/dev/null"
+      command = command.join(' ')
   
-      @output_buffer = IO.popen("dot -T\#{format}", 'r+') do |io|
+      @output_buffer = IO.popen(command, 'r+') do |io|
         io.write(@output_buffer)
         io.close_write
         io.set_encoding('BINARY') if io.respond_to?(:set_encoding)

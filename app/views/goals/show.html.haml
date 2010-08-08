@@ -18,146 +18,141 @@
 
 != render :partial => '/layouts/object_header', :object => resource
 
-#sub_goals.tab
-  %h2 Sub Goals
+%h2 Sub Goals
 
-  .container
-    %table
-      %thead
+.container
+  %table#sub_goals
+    %thead
+      %tr
+        %th Name
+        %th Status
+    %tbody
+      - goal.children.each do |goal|
         %tr
-          %th Name
-          %th Status
-      %tbody
-        - goal.children.each do |goal|
-          %tr
-            %td
-              %div
-                = controls_for goal.hierarchy
-                = link_to h(goal.name), goal.hierarchy
-            %td= status_image(goal)
-        - if goal.children.empty?
-          %tr
-            %td.helptext{:colspan => 2}=t ".#{write_permission? ? 'write' : 'read'}.empty.subgoal"
-      - if write_permission?
-        %tfoot
-          %tr
-            %td{:colspan => 2}
-              %p= new_link('new subgoal', goal.map.hierarchy << Goal, :parent_id => goal)
-
-#factors.tab
-  %h2 Factors
-
-  .container
-    %table
-      %thead
+          %td
+            %div
+              = controls_for goal.hierarchy
+              = link_to h(goal.name), goal.hierarchy
+          %td= status_image(goal)
+      - if goal.children.empty?
         %tr
-          %th Name
-          %th Target
-          %th Predicted
-          %th Status
-      %tbody
-        - goal.factors.each do |factor|
-          %tr
-            %td
-              %div
-                = controls_for factor.hierarchy
-                = link_to h(factor.name), factor.hierarchy
-            %td
-              %nobr= factor.target
-            %td
-              %nobr= factor.likely
-            %td= status_image(factor)
-        - if goal.factors.empty?
-          %tr
-            %td.helptext{:colspan => 4}=t ".#{write_permission? ? 'write' : 'read'}.empty.factor"
-      - if write_permission?
-        %tfoot
-          %tr
-            %td{:colspan => 4}
-              %p= new_link('new factor', goal.hierarchy << Factor)
-
-#risks.tab
-  %h2 Risks
-
-  .container
-    %table
-      %thead
+          %td.helptext{:colspan => 2}=t ".#{write_permission? ? 'write' : 'read'}.empty.subgoal"
+    - if write_permission?
+      %tfoot
         %tr
-          %th Name
-          %th Status
-      %tbody
-        - goal.risks.each do |risk|
-          %tr
-            %td
-              %div
-                = controls_for risk.hierarchy
-                = link_to h(risk.name), risk.hierarchy
-            %td= status_image(risk)
-        - if goal.risks.empty?
-          %tr
-            %td.helptext{:colspan => 2}=t ".#{write_permission? ? 'write' : 'read'}.empty.risk"
-      - if write_permission?
-        %tfoot
-          %tr
-            %td{:colspan => 2}
-              %p= new_link('new risk', goal.hierarchy << Risk)
+          %td{:colspan => 2}
+            %p= new_link('new subgoal', goal.map.hierarchy << Goal, :parent_id => goal)
 
-#supporting_goals.tab
-  %h2 Supporting Goals
 
-  .container
-    %table
-      %thead
+%h2 Factors
+
+.container
+  %table#factors
+    %thead
+      %tr
+        %th Name
+        %th Target
+        %th Predicted
+        %th Status
+    %tbody
+      - goal.factors.each do |factor|
         %tr
-          %th Name
-          %th Status
-      %tbody
-        - goal.supporting_goals.each do |supporting_goal|
-          - supported_by = supporting_goal.supported_by
-          %tr
-            %td
-              %div
-              %div
-                - if write_permission?
-                  %ul.controls
-                    = edit_control supported_by.hierarchy
-                    = delete_control supporting_goal.hierarchy
-
-                = link_to h(supported_by.name), supported_by.hierarchy
-            %td= status_image(supported_by)
-        - if goal.supporting_goals.empty?
-          %tr
-            %td{:colspan => 2}=t ".#{write_permission? ? 'write' : 'read'}.empty.supporting_goal"
-      - if write_permission?
-        %tfoot
-          %tr
-            %td{:colspan => 2}
-              %p= new_link('new supporting goal', goal.hierarchy << SupportingGoal)
-
-#supported_goals.tab
-  %h2 Supported Goals
-
-  .container
-    %table
-      %thead
+          %td
+            %div
+              = controls_for factor.hierarchy
+              = link_to h(factor.name), factor.hierarchy
+          %td
+            %nobr= factor.target
+          %td
+            %nobr= factor.likely
+          %td= status_image(factor)
+      - if goal.factors.empty?
         %tr
-          %th Name
-          %th Status
-      %tbody
-        - goal.supports.each do |goal|
-          %tr
-            %td
-              %div
-                - if write_permission?
-                  %ul.controls= edit_control goal.hierarchy
-                = link_to goal.name, goal.hierarchy
-            %td= status_image(goal)
-        - if goal.supports.empty?
-          %tr
-            %td.helptext{:colspan => 2} This goal does not support any goals.
+          %td.helptext{:colspan => 4}=t ".#{write_permission? ? 'write' : 'read'}.empty.factor"
+    - if write_permission?
+      %tfoot
+        %tr
+          %td{:colspan => 4}
+            %p= new_link('new factor', goal.hierarchy << Factor)
 
-#stakes.tab
-  != render :partial => '/stakes/index', :object => goal
+%h2 Risks
+
+.container
+  %table#risks
+    %thead
+      %tr
+        %th Name
+        %th Status
+    %tbody
+      - goal.risks.each do |risk|
+        %tr
+          %td
+            %div
+              = controls_for risk.hierarchy
+              = link_to h(risk.name), risk.hierarchy
+          %td= status_image(risk)
+      - if goal.risks.empty?
+        %tr
+          %td.helptext{:colspan => 2}=t ".#{write_permission? ? 'write' : 'read'}.empty.risk"
+    - if write_permission?
+      %tfoot
+        %tr
+          %td{:colspan => 2}
+            %p= new_link('new risk', goal.hierarchy << Risk)
+
+%h2 Supporting Goals
+
+.container
+  %table#supporting_goals
+    %thead
+      %tr
+        %th Name
+        %th Status
+    %tbody
+      - goal.supporting_goals.each do |supporting_goal|
+        - supported_by = supporting_goal.supported_by
+        %tr
+          %td
+            %div
+            %div
+              - if write_permission?
+                %ul.controls
+                  = edit_control supported_by.hierarchy
+                  = delete_control supporting_goal.hierarchy
+
+              = link_to h(supported_by.name), supported_by.hierarchy
+          %td= status_image(supported_by)
+      - if goal.supporting_goals.empty?
+        %tr
+          %td{:colspan => 2}=t ".#{write_permission? ? 'write' : 'read'}.empty.supporting_goal"
+    - if write_permission?
+      %tfoot
+        %tr
+          %td{:colspan => 2}
+            %p= new_link('new supporting goal', goal.hierarchy << SupportingGoal)
+
+%h2 Supported Goals
+
+.container
+  %table#supported_goals
+    %thead
+      %tr
+        %th Name
+        %th Status
+    %tbody
+      - goal.supports.each do |goal|
+        %tr
+          %td
+            %div
+              - if write_permission?
+                %ul.controls= edit_control goal.hierarchy
+              = link_to goal.name, goal.hierarchy
+          %td= status_image(goal)
+      - if goal.supports.empty?
+        %tr
+          %td.helptext{:colspan => 2} This goal does not support any goals.
+
+!= render :partial => '/stakes/index', :object => goal
 
 #back_to_top{:style => 'margin-top:2em'}
   %a{:href => '#'} back to top

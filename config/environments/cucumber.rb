@@ -17,10 +17,13 @@ config.action_controller.allow_forgery_protection    = false
 # Tell Action Mailer not to deliver emails to the real world.
 # The :test delivery method accumulates sent emails in the
 # ActionMailer::Base.deliveries array.
+# config.action_mailer.default_url_options = { :host => 'test.toolforchange.com' }
 config.action_mailer.delivery_method = :test
+config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 
-config.gem 'cucumber',    :lib => false,        :version => '>=0.4.3' unless File.directory?(File.join(Rails.root, 'vendor/plugins/cucumber'))
-config.gem 'webrat',      :lib => false,        :version => '>=0.5.3' unless File.directory?(File.join(Rails.root, 'vendor/plugins/webrat'))
-config.gem 'rspec',       :lib => false,        :version => '>=1.2.9' unless File.directory?(File.join(Rails.root, 'vendor/plugins/rspec'))
-config.gem 'rspec-rails', :lib => false,        :version => '>=1.2.9' unless File.directory?(File.join(Rails.root, 'vendor/plugins/rspec-rails'))
+config.gem 'cucumber', :lib => false
+config.gem 'webrat', :lib => false
+config.gem 'rspec', :lib => false
+config.gem 'rspec-rails', :lib => false
 
+# config.gem 'factory_girl'
