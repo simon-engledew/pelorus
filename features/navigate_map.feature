@@ -3,6 +3,38 @@ Feature: Navigate Map
   As a stakeholder
   I want to browse map nodes
   
+  Scenario: Activate Account
+    Given I have signed up with the name "Cucumber" and the password "cucumber"
+    Then I should receive an email
+    When I open the email
+    Then I should see "Confirmation instructions" in the email subject
+    When I click the first link in the email
+    Then I should see "Cucumber (Logout)"
+  
+  Scenario: Create Map
+    Given I am logged in as an admin
+    When I follow "new map" within "#maps"
+    Then I should see the title "New Map"
+    When I fill in the following:
+      | name            | Cucumber Map              |
+      | description     | Cucumber Map Description  |
+    And I select "Cucumber" from "manager"
+    When I press "Create"
+    Then I should see "<Map> Cucumber Map"
+  
+  Scenario: Create Goal
+    Given I am logged in as an admin
+    And I have a map named "Cucumber Map"
+    When I go to the list of maps
+    And I follow "Cucumber Map"
+    When I follow "new goal" within "#goals"
+    Then I should see the title "New Goal"
+    When I fill in the following:
+      | name            | Cucumber Goal               |
+      | description     | Cucumber Goal Description   |
+    When I press "Create"
+    Then I should see "<Goal> Cucumber Goal"
+  
   Scenario: Explore Map
     Given I have fixtures
     When I go to the list of maps
@@ -43,46 +75,3 @@ Feature: Navigate Map
     When I go to the list of stakeholders
     Then I should see "Simon Engledew (admin)" within "#users"
     And I should see "Wendy Smart" within "#users"
-  
-#  Scenario: Maps List
-#    Given I have maps named "Call Centre Redesign, Office Consolidation"
-#    When I go to the list of maps
-#    Then I should see "Call Centre Redesign"
-#    And I should see "Office Consolidation"
-#  
-#  Scenario: Goals List
-#    Given I have a map named "Call Centre Redesign"
-#    And I have goals named "Business Benefits, All Staff Relocated" in the map "Call Centre Redesign"
-#    When I go to the list of maps
-#    And I follow "Call Centre Redesign"
-#    Then I should see "Business Benefits"
-#    And I should see "All Staff Relocated"
-#  
-#  Scenario: Subgoals List
-#    Given I have a map named "Call Centre Redesign"
-#    And I have a goal named "Business Benefits" in the map "Call Centre Redesign"
-#    And I have a goal named "Increased Cross Selling" in the goal "Business Benefits"
-#    When I go to the list of maps
-#    And I follow "Call Centre Redesign"
-#    And I follow "Business Benefits"
-#    Then I should see "Increased Cross Selling"
-#    When I follow "Increased Cross Selling"
-#    Then I should see "<Goal> Increased Cross Selling"
-#
-#  Scenario: Factors
-#    Given I have fixtures
-#    When I go to the list of maps
-#    And I follow "Call Centre Redesign"
-#    And I follow "Business Benefits"
-#    Then I should see "Goal achievement date"
-#    When I follow "Goal achievement date"
-#    Then I should see "<Factor> Goal achievement date"
-#  
-#  Scenario: Risks
-#    Given I have fixtures
-#    When I go to the list of maps
-#    And I follow "Call Centre Redesign"
-#    And I follow "Business Benefits"
-#    Then I should see "Cross sales might not materialize"
-#    When I follow "Cross sales might not materialize"
-#    Then I should see "<Risk> Cross sales might not materialize"

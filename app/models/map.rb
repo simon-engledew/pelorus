@@ -25,9 +25,9 @@ class Map < ActiveRecord::Base
   
   def create_default_stakes
     DefaultStakes.each do |name|
-      stake = self.stakes.build(:name => name, :user => self.manager)
-      stake.enforced = true
-      stake.save!
+      self.stakes.create!(:name => name, :user => self.manager) do |stake|
+        stake.enforced = true
+      end
     end
   end
   

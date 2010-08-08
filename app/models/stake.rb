@@ -1,7 +1,7 @@
 class Stake < ActiveRecord::Base
   
   attr_protected :enforced, :map, :goal
-  
+
   belongs_to :user
   belongs_to :map
   belongs_to :goal

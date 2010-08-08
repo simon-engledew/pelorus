@@ -42,10 +42,10 @@ public
   
   def create_default_stakes
     self.parent_node.stakes.each do |parent_stake|
-      stake = self.stakes.build(:name => parent_stake.name, :user => parent_stake.user)
-      stake.map = self.map
-      stake.enforced = parent_stake.enforced
-      stake.save!
+      self.stakes.create!(:name => parent_stake.name, :user => parent_stake.user) do |stake|
+        stake.map = self.map
+        stake.enforced = parent_stake.enforced
+      end
     end
   end
   

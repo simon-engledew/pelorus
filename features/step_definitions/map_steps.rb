@@ -1,8 +1,6 @@
-Given /^I have (?:maps|a map) named "(.*?)"$/ do |map_names|
-  map_names.split(/,\s?/).each do |map_name|
-    Map.create!(:name => map_name) do |map|
-      map.manager = User.first
-    end
+Given /^I have a map named "(.*?)"$/ do |map_name|
+  Map.create!(:name => map_name) do |map|
+    map.manager = User.first
   end
 end
 
@@ -25,18 +23,15 @@ When /^I follow the breadcrumb "(.*?)"$/ do |breadcrumb|
 end
 
 Then /^I should see the title "(.*)?"$/ do |title|
-  Then %(I should see "#{title}" within "div#content > div#description > h1")
+  Then %(I should see "#{title}" within "div#content h1")
 end
 
-Given /^I have (?:goals|a goal) named "(.*?)" in the (map|goal) "(.*?)"$/ do |goal_names, parent_type, parent_name|
+Given /^I have a goal named "(.*?)" in the (map|goal) "(.*?)"$/ do |goal_name, parent_type, parent_name|
 
   parent = parent_type.camelize.constantize.find_by_name!(parent_name)
-
-  goal_names.split(/,\s?/).each do |goal_name|
-    parent.map.goals.build(:name => goal_name) do |goal|
-      goal.parent_id = parent.id if parent.is_a?(Goal)
-    end.save!
-  end
+  parent.map.goals.build(:name => goal_name) do |goal|
+    goal.parent_id = parent.id if parent.is_a?(Goal)
+  end.save!
 
 end
 
