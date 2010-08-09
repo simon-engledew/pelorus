@@ -1,6 +1,6 @@
 Given /^I have a map named "(.*?)"$/ do |map_name|
   Map.create!(:name => map_name) do |map|
-    map.manager = User.first
+    map.manager = current_user
   end
 end
 

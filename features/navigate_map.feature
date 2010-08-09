@@ -15,12 +15,16 @@ Feature: Navigate Map
     Given I am logged in as an admin
     When I follow "new map" within "#maps"
     Then I should see the title "New Map"
-    When I fill in the following:
-      | name            | Cucumber Map              |
-      | description     | Cucumber Map Description  |
+    When I fill in "name" with "Cucumber Map"
+    And I fill in "description" with "Cucumber Map Description"
     And I select "Cucumber" from "manager"
     When I press "Create"
-    Then I should see "<Map> Cucumber Map"
+    Then I should see the Map "Cucumber Map"
+    And I should see "Cucumber Map Description" within "#description"
+    And I should see "Goal Champion Cucumber"
+    And I should see "Goal Manager Cucumber"
+    And I should see "Risk Manager Cucumber"
+    And I should see "Change Manager Cucumber"
   
   Scenario: Create Goal
     Given I am logged in as an admin
@@ -29,11 +33,31 @@ Feature: Navigate Map
     And I follow "Cucumber Map"
     When I follow "new goal" within "#goals"
     Then I should see the title "New Goal"
-    When I fill in the following:
-      | name            | Cucumber Goal               |
-      | description     | Cucumber Goal Description   |
+    When I fill in "name" with "Cucumber Goal"
+    And I fill in "description" with "Cucumber Goal Description"
     When I press "Create"
-    Then I should see "<Goal> Cucumber Goal"
+    Then I should see the Goal "Cucumber Goal"
+    And I should see "Cucumber Goal Description" within "#description"
+    And I should see "Goal Champion Cucumber"
+    And I should see "Goal Manager Cucumber"
+    And I should see "Risk Manager Cucumber"
+    And I should see "Change Manager Cucumber"
+  
+  @wip
+  Scenario: Create A Risk
+  
+  @wip
+  Scenario: Create A Factor
+  
+  @wip
+  Scenario: Create A Comment
+  
+  @wip
+  Scenario: Create A Supporting Goal
+
+  @wip
+  Scenario: Check Status Propagation
+
   
   Scenario: Explore Map
     Given I have fixtures
