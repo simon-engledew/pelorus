@@ -21,9 +21,9 @@
           %td= map.goals.count
       - if @maps.empty?
         %tr
-          %td{:colspan => 2}=t ".#{write_permission? ? 'write' : 'read'}.empty"
+          %td{:colspan => 4}=t ".#{write_permission? ? 'write' : 'read'}.empty"
     - if write_permission?
       %tfoot
         %tr
-          %td{:colspan => 2}
+          %td{:colspan => 4}
             %p= new_link('new map', Map)
