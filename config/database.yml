@@ -24,5 +24,11 @@ staging: &STAGING
   username: pelorus
   encoding: utf8
 
+sandbox: &SANDBOX
+  adapter: mysql
+  database: pelorus_sandbox
+  username: pelorus
+  encoding: utf8
+
 cucumber:
   <<: *TEST

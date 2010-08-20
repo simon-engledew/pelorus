@@ -10,6 +10,7 @@ Feature: Navigate Map
     Then I should see "Confirmation instructions" in the email subject
     When I click the first link in the email
     Then I should see "Cucumber (Logout)"
+    When I log out
   
   Scenario: Create Map
     Given I am logged in as an admin
