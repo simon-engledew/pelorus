@@ -3,6 +3,7 @@ digraph "<%= sanitize_label(map.name) %>" {
   graph [truecolor bgcolor="transparent"];
   node [shape=box];
   pad=0.25;
+  URL="<%= polymorphic_url(map) %>";
   <%= render :partial => 'network_goal', :collection => map.children %>
   <% map.goals.each do |goal| -%>
     <% goal.supporting_goals.each do |supporting_goal| -%>
