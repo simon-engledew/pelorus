@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   
   def index
-    @users = User.all
+    @users = User.all(:conditions => {:subdomain => current_subdomain})
   end
   
   def new
@@ -18,6 +18,7 @@ class UsersController < ApplicationController
   
   def create
     @user = User.new(params[:user])
+    @user.subdomain = current_subdomain
     return redirect_to(@user) if @user.save
     render :action => :new
   end
@@ -34,7 +35,7 @@ class UsersController < ApplicationController
 protected
 
   def user
-    @user ||= (User.find_by_id(params[:id]) if params[:id])
+    @user ||= (User.find_by_id_and_subdomain(params[:id], current_subdomain) if params[:id])
   end
   
   helper_method :user

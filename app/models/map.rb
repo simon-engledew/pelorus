@@ -11,7 +11,7 @@ class Map < ActiveRecord::Base
   validates_uniqueness_of :name
   validates_presence_of :name
   
-  attr_protected :manager
+  attr_protected :manager, :subdomain
   
   has_many :goals
   has_many :roles
