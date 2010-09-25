@@ -19,7 +19,7 @@
             %div= link_to(h(user.email), user)
       - if @users.empty?
         %tr
-          %td{:colspan => 2}=t ".#{write_permission? ? 'write' : 'read'}.empty.user"
+          %td{:colspan => 2}=t ".#{write_permission? ? 'write' : 'read'}.empty"
     - if write_permission?
       %tfoot
         %tr
