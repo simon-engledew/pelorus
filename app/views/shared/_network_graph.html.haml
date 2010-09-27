@@ -1,6 +1,6 @@
 - unless map.goals.empty?
   %fieldset#network_view
     %legend Network View
-    %a{:href => request.env['HTTP_USER_AGENT'] =~ /WebKit/ ? network_graph_path(map, :format => :svg) : url_for(:controller => 'graphs', :action => 'graph', :map_id => map.to_param), :title => 'Click to enlarge.'}
+    %a{:href => url_for(:controller => 'graphs', :action => 'graph', :map_id => map.to_param), :title => 'Click to enlarge.'}
       .graph
         = image_tag(network_graph_path(map, :format => :png, :timestamp => Time.now.to_i))

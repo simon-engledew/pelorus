@@ -14,7 +14,7 @@
   != render :partial => '/shared/comments', :object => resource
 
 - content_for :editable do
-  %p== The status of this goal <strong>#{goal.propagate ? 'does' : 'does not'}</strong> affect supported goals.
+  %p== The status of this goal <strong>#{goal.propagate ? 'does' : 'does not'}</strong> affect its supported goals.
 
 != render :partial => '/layouts/object_header', :object => resource
 
