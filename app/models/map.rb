@@ -8,7 +8,7 @@ class Map < ActiveRecord::Base
     [self]
   end
 
-  validates_uniqueness_of :name
+  validates_uniqueness_of :name, :scope => :subdomain
   validates_presence_of :name
   
   attr_protected :manager, :subdomain
