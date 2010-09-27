@@ -7,6 +7,8 @@ class Map < ActiveRecord::Base
   def hierarchy
     [self]
   end
+  
+  named_scope :with_subdomain, lambda {|subdomain| { :conditions => { :subdomain => subdomain || '' }}}
 
   validates_uniqueness_of :name, :scope => :subdomain
   validates_presence_of :name

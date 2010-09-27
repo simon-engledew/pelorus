@@ -3,7 +3,7 @@ class MapsController < ApplicationController
   cache_sweeper :graph_sweeper
 
   def index
-    @maps = Map.all(:conditions => {:subdomain => current_subdomain})
+    @maps = Map.with_subdomain(current_subdomain).all(:include => :manager)
   end
   
   def new
@@ -36,6 +36,6 @@ class MapsController < ApplicationController
   
 protected
   def map
-    @map ||= (Map.find_by_id_and_subdomain(params[:id], current_subdomain) if params[:id])
+    @map ||= (Map.with_subdomain(current_subdomain).find(params[:id]) if params[:id])
   end
 end

@@ -50,7 +50,7 @@ protected
   end
   
   def map
-    @map ||= (Map.find_by_id_and_subdomain!(params[:map_id], current_subdomain) if params[:map_id])
+    @map ||= (Map.with_subdomain(current_subdomain).find(params[:map_id]) if params[:map_id])
   end
   
   def goal

@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   
   def index
-    @users = User.all(:conditions => {:subdomain => current_subdomain})
+    @users = User.with_subdomain(current_subdomain).all
   end
   
   def new
@@ -35,7 +35,7 @@ class UsersController < ApplicationController
 protected
 
   def user
-    @user ||= (User.find_by_id_and_subdomain(params[:id], current_subdomain) if params[:id])
+    @user ||= (User.with_subdomain(current_subdomain).find(params[:id]) if params[:id])
   end
   
   helper_method :user

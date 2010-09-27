@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
   
   default_scope :order => 'name'
   
+  named_scope :with_subdomain, lambda {|subdomain| { :conditions => { :subdomain => ['*', subdomain || ''] }}}
+  
   validates_presence_of :name
 
   has_many :stakes
