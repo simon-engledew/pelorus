@@ -9,11 +9,11 @@ require 'uri'
 require 'cgi'
 require File.expand_path(File.join(File.dirname(__FILE__), "..", "support", "paths"))
 
-When /^I follow the link element "(.*?)"$/ do |selector|
+When /^(?:|I )follow the link element "(.*?)"$/ do |selector|
   Webrat::Link.load(webrat_session, current_dom.search(selector).first).click()
 end
 
-When /^I should see the element "(.*?)"$/ do |selector|
+Then /^(?:|I )should see the element "(.*?)"$/ do |selector|
   assert_not_nil current_dom.search(selector).first
 end
 

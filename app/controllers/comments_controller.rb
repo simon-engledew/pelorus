@@ -31,7 +31,7 @@ protected
   end
 
   def comment
-    @comment ||= (parent_node.comments.find(params[:id]) if params[:id])
+    @comment ||= (parent_node.comments.find_by_id!(params[:id]) if params[:id])
   end
   
   helper_method :parent_node

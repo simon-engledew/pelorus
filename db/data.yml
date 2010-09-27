@@ -1,143 +1,316 @@
 
 --- 
-comments: 
+maps: 
   columns: 
   - id
-  - message
-  - user_id
+  - description
+  - name
+  - manager_id
+  - created_at
+  - updated_at
+  - subdomain
+  records: 
+  - - 8
+    - Within the Call Centre, the Customer Enquiry process will be redesigned, with support from a new CRM system. The new process will be more efficient than its predecessor, provide continuity of customer contacts and support cross-selling. With the efficiency gains, some Call Centre staff will be reassigned to marketing roles. This will lead to substantial cost savings and other business benefits.
+    - Call Centre Redesign
+    - 4
+    - 2010-05-04 09:32:08
+    - 2010-05-04 09:45:00
+    - staging
+  - - 10
+    - |-
+      Currently, for historical reasons, we have several small offices in a 30-mile radius of Reading. This has resulted in inefficient use of space. Further, communication and cooperation between departments and individuals is more difficult than it should be.
+      
+      This change is to relocate all staff into a single new office and close all the old offices.
+    - Office Consolidation
+    - 10
+    - 2010-05-17 13:53:02
+    - 2010-05-17 13:53:02
+    - staging
+  - - 29
+    - Saving the Ambridge Village Shop by moving it from private ownership to one that is owned and operated by the community
+    - Ambridge Community Shop
+    - 28
+    - 2010-07-15 16:49:29
+    - 2010-07-15 16:49:58
+    - staging
+
+--- 
+goals: 
+  columns: 
+  - id
+  - description
+  - name
+  - propagate
   - parent_id
-  - parent_type
-  - status
-  - override_status
+  - map_id
   - created_at
   - updated_at
   records: 
-  - - 7
-    - It's looking like a choice between (i) Central Reading (King's Road); (ii) the Winnersh Triangle; (iii) somewhere out Pangbourne way (though offices are a bit scarce). What do people think?
-    - 4
-    - 24
-    - Goal
-    - 
+  - - 2
+    - The long-term sustainable benefits from the changes within the Call Centre.
+    - Business Benefits
     - true
-    - 2010-05-17 15:54:36
-    - 2010-05-17 15:54:36
-  - - 103
-    - Has the customer survey been completed yet?
-    - 5
-    - 5
-    - Goal
     - 
-    - false
-    - 2010-07-07 12:10:17
-    - 2010-07-10 10:10:17
-  - - 104
-    - It went out last week. Still waiting for the last few responses.
-    - 4
-    - 5
-    - Goal
-    - 0
-    - false
-    - 2010-07-07 15:10:38
-    - 2010-07-10 10:10:38
-  - - 105
-    - Process design looking good. Should be no problem with enquiry handling time.
-    - 4
-    - 5
-    - Goal
-    - 
-    - false
-    - 2010-07-10 10:08:17
-    - 2010-07-10 10:08:17
-  - - 106
-    - Goose Moose
-    - 4
-    - 6
-    - Goal
-    - 
-    - false
-    - 2010-07-10 13:26:00
-    - 2010-07-10 13:26:00
-  - - 110
-    - "Are we being sufficiently ambitious with our turnover target? The old shop used to turn over more than \xC2\xA3490k. With our new community status, shouldn't we expect to generate more custom?"
-    - 25
-    - 118
-    - Goal
-    - 
-    - false
-    - 2010-07-22 09:46:06
-    - 2010-07-22 09:46:06
-  - - 111
-    - Just to confirm. Existing suppliers to the old shop *will* want to see evidence that we've raised sufficient funds before they agree to continue their supply arrangements.
-    - 25
-    - 29
-    - Map
-    - 
-    - false
-    - 2010-07-22 09:49:05
-    - 2010-07-22 09:49:05
-  - - 112
-    - We won't be able to raise more than our current target figure through grants and loans, because the people giving the grants and loans insist that we must raise 30% of our overall funding ourselves, through our own local efforts.
-    - 25
-    - 123
-    - Goal
-    - 
-    - false
-    - 2010-07-22 10:07:31
-    - 2010-07-22 10:07:31
-  - - 120
-    - We're having problems with the business rules for making cross-selling offers. We're confident of getting there eventually but they're taking longer than expected to sort out.
-    - 4
-    - 7
-    - Goal
-    - 2
-    - false
-    - 2010-07-28 15:14:37
-    - 2010-07-28 15:14:37
-  - - 121
-    - We've just introduced a new avoidance measure -- in the form of an improvement to the training course for call centre staff -- which has helped us to reduce the probability from 3 to 2.
-    - 4
-    - 3
-    - Risk
-    - 
-    - false
-    - 2010-07-28 16:03:45
-    - 2010-07-28 16:03:45
-  - - 122
-    - "If anybody thinks that we'll be unable to contain the current problems at the goal Customer Enquiry Process Redesigned, please let me know asap. Thanks. "
-    - 4
     - 8
-    - Map
+    - 2010-05-04 09:32:34
+    - 2010-05-04 09:45:51
+  - - 3
+    - Call Centre staff numbers reduced through a combination of natural wastage and reallocation to tele-marketing roles within the Sales Division.
+    - Work Reallocated
+    - true
     - 
+    - 8
+    - 2010-05-04 09:32:52
+    - 2010-05-04 09:48:30
+  - - 4
+    - The new process is fully established and delivering consistent long-term performance.
+    - New Process Stabilized
+    - true
+    - 
+    - 8
+    - 2010-05-04 09:33:12
+    - 2010-05-04 09:49:05
+  - - 5
+    - A redesigned process in which the new CRM system guides Call Centre operators in their execution of the process. This results in greater efficiency, continuity of customer contact and increased cross-selling.
+    - Customer Enquiry Process Redesigned
     - false
-    - 2010-07-28 16:11:20
-    - 2010-07-28 16:11:20
+    - 
+    - 8
+    - 2010-05-04 09:33:35
+    - 2010-07-28 15:14:51
+  - - 6
+    - Call Center staff have been trained in the new process and have reached the required level of performance.
+    - Call Centre Staff Trained
+    - true
+    - 
+    - 8
+    - 2010-05-04 09:34:03
+    - 2010-05-04 09:50:12
+  - - 7
+    - A new CRM system that actively supports Call Centre operators in their execution of the new process.
+    - New CRM System
+    - true
+    - 
+    - 8
+    - 2010-05-04 09:34:27
+    - 2010-05-04 09:50:39
+  - - 8
+    - The total monthly costs of operating the Call Centre have been reduced.
+    - Costs Reduced
+    - true
+    - 2
+    - 8
+    - 2010-05-04 09:35:06
+    - 2010-05-04 09:46:28
+  - - 9
+    - Customers express a level of satisfaction with our service that is higher than the level achieved with the old Enquiry process.
+    - Improved Customer Satisfaction
+    - true
+    - 2
+    - 8
+    - 2010-05-04 09:35:26
+    - 2010-05-04 09:46:59
+  - - 10
+    - The annual value of cross sales is greater than that achieved with the old Enquiry process.
+    - Increased Cross Sales
+    - true
+    - 2
+    - 8
+    - 2010-05-04 09:35:39
+    - 2010-05-04 09:47:30
+  - - 11
+    - A pilot version of the new CRM system is operational, offering all the capabilities needed for training of Call Centre staff.
+    - Pilot System Operational
+    - true
+    - 7
+    - 8
+    - 2010-05-04 09:35:56
+    - 2010-05-04 09:51:05
+  - - 14
+    - The benefits that accrue a result of the consolidation.
+    - Business Benefits
+    - true
+    - 
+    - 10
+    - 2010-05-17 14:07:49
+    - 2010-05-17 14:07:49
+  - - 15
+    - The annual cost savings from the consolidation.
+    - Cost Savings
+    - true
+    - 14
+    - 10
+    - 2010-05-17 14:08:32
+    - 2010-05-17 14:08:32
+  - - 16
+    - The working efficiency increases that result from the consolidation, resulting from a better environment and easier interaction between departments and individuals.
+    - Increased Efficiency
+    - true
+    - 14
+    - 10
+    - 2010-05-17 14:09:56
+    - 2010-05-17 14:09:56
+  - - 17
+    - The staff morale improvements that result from the consolidation.
+    - Improved Staff Morale
+    - true
+    - 14
+    - 10
+    - 2010-05-17 14:10:35
+    - 2010-05-17 14:10:35
+  - - 18
+    - All staff have been relocated from their old offices to the new single office.
+    - All Staff Relocated
+    - true
+    - 
+    - 10
+    - 2010-05-17 14:11:13
+    - 2010-05-17 14:11:13
+  - - 19
+    - Leasing and services agreements for all old offices have been terminated, and the premises have been left empty.
+    - Old Offices Vacated
+    - true
+    - 
+    - 10
+    - 2010-05-17 14:12:23
+    - 2010-05-17 14:12:23
+  - - 20
+    - The new office is fully ready to receive all our staff.
+    - New Office Ready
+    - true
+    - 
+    - 10
+    - 2010-05-17 14:13:12
+    - 2010-05-17 14:13:12
+  - - 21
+    - The contract for leasing the new office has been negotiated and then signed by our MD.
+    - New Office Contract Negotiated
+    - true
+    - 
+    - 10
+    - 2010-05-17 14:15:03
+    - 2010-05-17 14:15:03
+  - - 22
+    - All our staff have been consulted on our choice of new office, in particular to determine whether any have strong objections to the choice.
+    - All Staff Consulted On Choice
+    - true
+    - 
+    - 10
+    - 2010-05-17 14:16:17
+    - 2010-05-17 14:16:17
+  - - 23
+    - Our new office has been chosen. The approach to choosing one specific office is to first identify three or four candidate offices, all in the selected geographical location, and then to select the best of these candidates.
+    - New Office Chosen
+    - true
+    - 
+    - 10
+    - 2010-05-17 14:18:37
+    - 2010-05-17 14:18:37
+  - - 24
+    - The approximate geographical location for the new office has been identified. Besides being convenient for both our staff and customers, this area must have a good selection of office accommodation so that we will be able to find at least three or four candidates.
+    - Geographical Location Identified
+    - true
+    - 
+    - 10
+    - 2010-05-17 14:20:34
+    - 2010-05-17 14:20:34
+  - - 25
+    - All our staff have been consulted on the idea and motivation for the office consolidation. Also on possible geographical locations for the new office, to determine whether any of these would be unacceptable to any staff members.
+    - All Staff Consulted On Move
+    - true
+    - 
+    - 10
+    - 2010-05-17 14:22:36
+    - 2010-05-17 14:22:36
+  - - 26
+    - The estimated annual running costs of the new office.
+    - Estimated Annual Running Costs
+    - true
+    - 20
+    - 10
+    - 2010-05-17 14:38:25
+    - 2010-05-17 14:38:25
+  - - 28
+    - The layout and seating plan for the new office has been agreed, covering all departments and all individual staff members.
+    - Department and Staff Locations Finalized
+    - true
+    - 20
+    - 10
+    - 2010-05-17 14:47:10
+    - 2010-05-17 14:47:10
+  - - 29
+    - The new office has been cabled, decorated and carpeted as necessary and all equipment has been installed and checked.
+    - All Fitment Work Complete
+    - true
+    - 20
+    - 10
+    - 2010-05-17 14:48:57
+    - 2010-05-17 14:48:57
+  - - 118
+    - A shop that serves the needs of the local community and can be sustained in the long term
+    - Sustainable Community Shop
+    - true
+    - 
+    - 29
+    - 2010-07-15 16:50:47
+    - 2010-07-16 16:29:07
+  - - 119
+    - The benefits to the local community from having a sustainable community shop
+    - Benefits to the Community
+    - true
+    - 
+    - 29
+    - 2010-07-15 16:52:03
+    - 2010-07-15 16:52:03
+  - - 120
+    - Suppliers have been arranged for the new shop -- both existing suppliers from the old shop and new suppliers of local produce
+    - Suppliers Arranged
+    - true
+    - 
+    - 29
+    - 2010-07-15 16:53:46
+    - 2010-07-22 10:37:58
+  - - 121
+    - Volunteers to staff the shop have been found and trained, and a staffing rota has been established
+    - Volunteer Staff Organized
+    - true
+    - 
+    - 29
+    - 2010-07-15 16:55:17
+    - 2010-07-15 16:55:17
+  - - 122
+    - The newly-created Industrial & Provident Society has purchased the shop premises from the owners Jack and Peggy Woolley
+    - Shop Purchased from Peggy Woolley
+    - true
+    - 
+    - 29
+    - 2010-07-15 17:02:36
+    - 2010-07-22 10:37:46
   - - 123
-    - I'm a little concerned about meeting our target for this factor. Would anybody else care to volunteer an opinion?
-    - 4
-    - 21
-    - Factor
+    - The necessary funds to launch the shop have been raised through a combination of grants and local fundraising
+    - Funds Raised
+    - true
     - 
-    - false
-    - 2010-07-28 16:51:06
-    - 2010-07-28 16:51:06
+    - 29
+    - 2010-07-15 17:04:53
+    - 2010-08-06 17:08:21
   - - 124
-    - Are we serious about these mitigation measures? In my view, if we can't produce a business plan for continuing the shop as it currently is, but under community rather than private ownership, we should just give up.
-    - 4
-    - 17
-    - Risk
+    - A legal entity to take formal ownership of the shop has been established, in the form of an Industrial and Provident Society with shareholders from the village community
+    - Industrial and Provident Society Established
+    - true
     - 
-    - false
-    - 2010-07-29 09:46:52
-    - 2010-07-29 09:46:52
-  - - 126
-    - The online staff survey is now available but people are being a bit slow in responding. We're going to email everybody again.
-    - 4
-    - 25
-    - Goal
+    - 29
+    - 2010-07-15 17:07:26
+    - 2010-07-15 17:07:26
+  - - 125
+    - A full business plan has been produced and shows that the shop can be sustained in the long term
+    - Viable Business Plan
+    - true
     - 
-    - false
-    - 2010-08-02 16:47:14
-    - 2010-08-02 16:47:14
+    - 29
+    - 2010-07-15 17:16:30
+    - 2010-07-15 17:17:08
 
 --- 
 factors: 
@@ -1924,315 +2097,6 @@ factors:
     - ""
 
 --- 
-goals: 
-  columns: 
-  - id
-  - description
-  - name
-  - propagate
-  - parent_id
-  - map_id
-  - created_at
-  - updated_at
-  records: 
-  - - 2
-    - The long-term sustainable benefits from the changes within the Call Centre.
-    - Business Benefits
-    - true
-    - 
-    - 8
-    - 2010-05-04 09:32:34
-    - 2010-05-04 09:45:51
-  - - 3
-    - Call Centre staff numbers reduced through a combination of natural wastage and reallocation to tele-marketing roles within the Sales Division.
-    - Work Reallocated
-    - true
-    - 
-    - 8
-    - 2010-05-04 09:32:52
-    - 2010-05-04 09:48:30
-  - - 4
-    - The new process is fully established and delivering consistent long-term performance.
-    - New Process Stabilized
-    - true
-    - 
-    - 8
-    - 2010-05-04 09:33:12
-    - 2010-05-04 09:49:05
-  - - 5
-    - A redesigned process in which the new CRM system guides Call Centre operators in their execution of the process. This results in greater efficiency, continuity of customer contact and increased cross-selling.
-    - Customer Enquiry Process Redesigned
-    - false
-    - 
-    - 8
-    - 2010-05-04 09:33:35
-    - 2010-07-28 15:14:51
-  - - 6
-    - Call Center staff have been trained in the new process and have reached the required level of performance.
-    - Call Centre Staff Trained
-    - true
-    - 
-    - 8
-    - 2010-05-04 09:34:03
-    - 2010-05-04 09:50:12
-  - - 7
-    - A new CRM system that actively supports Call Centre operators in their execution of the new process.
-    - New CRM System
-    - true
-    - 
-    - 8
-    - 2010-05-04 09:34:27
-    - 2010-05-04 09:50:39
-  - - 8
-    - The total monthly costs of operating the Call Centre have been reduced.
-    - Costs Reduced
-    - true
-    - 2
-    - 8
-    - 2010-05-04 09:35:06
-    - 2010-05-04 09:46:28
-  - - 9
-    - Customers express a level of satisfaction with our service that is higher than the level achieved with the old Enquiry process.
-    - Improved Customer Satisfaction
-    - true
-    - 2
-    - 8
-    - 2010-05-04 09:35:26
-    - 2010-05-04 09:46:59
-  - - 10
-    - The annual value of cross sales is greater than that achieved with the old Enquiry process.
-    - Increased Cross Sales
-    - true
-    - 2
-    - 8
-    - 2010-05-04 09:35:39
-    - 2010-05-04 09:47:30
-  - - 11
-    - A pilot version of the new CRM system is operational, offering all the capabilities needed for training of Call Centre staff.
-    - Pilot System Operational
-    - true
-    - 7
-    - 8
-    - 2010-05-04 09:35:56
-    - 2010-05-04 09:51:05
-  - - 14
-    - The benefits that accrue a result of the consolidation.
-    - Business Benefits
-    - true
-    - 
-    - 10
-    - 2010-05-17 14:07:49
-    - 2010-05-17 14:07:49
-  - - 15
-    - The annual cost savings from the consolidation.
-    - Cost Savings
-    - true
-    - 14
-    - 10
-    - 2010-05-17 14:08:32
-    - 2010-05-17 14:08:32
-  - - 16
-    - The working efficiency increases that result from the consolidation, resulting from a better environment and easier interaction between departments and individuals.
-    - Increased Efficiency
-    - true
-    - 14
-    - 10
-    - 2010-05-17 14:09:56
-    - 2010-05-17 14:09:56
-  - - 17
-    - The staff morale improvements that result from the consolidation.
-    - Improved Staff Morale
-    - true
-    - 14
-    - 10
-    - 2010-05-17 14:10:35
-    - 2010-05-17 14:10:35
-  - - 18
-    - All staff have been relocated from their old offices to the new single office.
-    - All Staff Relocated
-    - true
-    - 
-    - 10
-    - 2010-05-17 14:11:13
-    - 2010-05-17 14:11:13
-  - - 19
-    - Leasing and services agreements for all old offices have been terminated, and the premises have been left empty.
-    - Old Offices Vacated
-    - true
-    - 
-    - 10
-    - 2010-05-17 14:12:23
-    - 2010-05-17 14:12:23
-  - - 20
-    - The new office is fully ready to receive all our staff.
-    - New Office Ready
-    - true
-    - 
-    - 10
-    - 2010-05-17 14:13:12
-    - 2010-05-17 14:13:12
-  - - 21
-    - The contract for leasing the new office has been negotiated and then signed by our MD.
-    - New Office Contract Negotiated
-    - true
-    - 
-    - 10
-    - 2010-05-17 14:15:03
-    - 2010-05-17 14:15:03
-  - - 22
-    - All our staff have been consulted on our choice of new office, in particular to determine whether any have strong objections to the choice.
-    - All Staff Consulted On Choice
-    - true
-    - 
-    - 10
-    - 2010-05-17 14:16:17
-    - 2010-05-17 14:16:17
-  - - 23
-    - Our new office has been chosen. The approach to choosing one specific office is to first identify three or four candidate offices, all in the selected geographical location, and then to select the best of these candidates.
-    - New Office Chosen
-    - true
-    - 
-    - 10
-    - 2010-05-17 14:18:37
-    - 2010-05-17 14:18:37
-  - - 24
-    - The approximate geographical location for the new office has been identified. Besides being convenient for both our staff and customers, this area must have a good selection of office accommodation so that we will be able to find at least three or four candidates.
-    - Geographical Location Identified
-    - true
-    - 
-    - 10
-    - 2010-05-17 14:20:34
-    - 2010-05-17 14:20:34
-  - - 25
-    - All our staff have been consulted on the idea and motivation for the office consolidation. Also on possible geographical locations for the new office, to determine whether any of these would be unacceptable to any staff members.
-    - All Staff Consulted On Move
-    - true
-    - 
-    - 10
-    - 2010-05-17 14:22:36
-    - 2010-05-17 14:22:36
-  - - 26
-    - The estimated annual running costs of the new office.
-    - Estimated Annual Running Costs
-    - true
-    - 20
-    - 10
-    - 2010-05-17 14:38:25
-    - 2010-05-17 14:38:25
-  - - 28
-    - The layout and seating plan for the new office has been agreed, covering all departments and all individual staff members.
-    - Department and Staff Locations Finalized
-    - true
-    - 20
-    - 10
-    - 2010-05-17 14:47:10
-    - 2010-05-17 14:47:10
-  - - 29
-    - The new office has been cabled, decorated and carpeted as necessary and all equipment has been installed and checked.
-    - All Fitment Work Complete
-    - true
-    - 20
-    - 10
-    - 2010-05-17 14:48:57
-    - 2010-05-17 14:48:57
-  - - 118
-    - A shop that serves the needs of the local community and can be sustained in the long term
-    - Sustainable Community Shop
-    - true
-    - 
-    - 29
-    - 2010-07-15 16:50:47
-    - 2010-07-16 16:29:07
-  - - 119
-    - The benefits to the local community from having a sustainable community shop
-    - Benefits to the Community
-    - true
-    - 
-    - 29
-    - 2010-07-15 16:52:03
-    - 2010-07-15 16:52:03
-  - - 120
-    - Suppliers have been arranged for the new shop -- both existing suppliers from the old shop and new suppliers of local produce
-    - Suppliers Arranged
-    - true
-    - 
-    - 29
-    - 2010-07-15 16:53:46
-    - 2010-07-22 10:37:58
-  - - 121
-    - Volunteers to staff the shop have been found and trained, and a staffing rota has been established
-    - Volunteer Staff Organized
-    - true
-    - 
-    - 29
-    - 2010-07-15 16:55:17
-    - 2010-07-15 16:55:17
-  - - 122
-    - The newly-created Industrial & Provident Society has purchased the shop premises from the owners Jack and Peggy Woolley
-    - Shop Purchased from Peggy Woolley
-    - true
-    - 
-    - 29
-    - 2010-07-15 17:02:36
-    - 2010-07-22 10:37:46
-  - - 123
-    - The necessary funds to launch the shop have been raised through a combination of grants and local fundraising
-    - Funds Raised
-    - true
-    - 
-    - 29
-    - 2010-07-15 17:04:53
-    - 2010-08-06 17:08:21
-  - - 124
-    - A legal entity to take formal ownership of the shop has been established, in the form of an Industrial and Provident Society with shareholders from the village community
-    - Industrial and Provident Society Established
-    - true
-    - 
-    - 29
-    - 2010-07-15 17:07:26
-    - 2010-07-15 17:07:26
-  - - 125
-    - A full business plan has been produced and shows that the shop can be sustained in the long term
-    - Viable Business Plan
-    - true
-    - 
-    - 29
-    - 2010-07-15 17:16:30
-    - 2010-07-15 17:17:08
-
---- 
-maps: 
-  columns: 
-  - id
-  - description
-  - name
-  - manager_id
-  - created_at
-  - updated_at
-  records: 
-  - - 8
-    - Within the Call Centre, the Customer Enquiry process will be redesigned, with support from a new CRM system. The new process will be more efficient than its predecessor, provide continuity of customer contacts and support cross-selling. With the efficiency gains, some Call Centre staff will be reassigned to marketing roles. This will lead to substantial cost savings and other business benefits.
-    - Call Centre Redesign
-    - 4
-    - 2010-05-04 09:32:08
-    - 2010-05-04 09:45:00
-  - - 10
-    - |-
-      Currently, for historical reasons, we have several small offices in a 30-mile radius of Reading. This has resulted in inefficient use of space. Further, communication and cooperation between departments and individuals is more difficult than it should be.
-      
-      This change is to relocate all staff into a single new office and close all the old offices.
-    - Office Consolidation
-    - 10
-    - 2010-05-17 13:53:02
-    - 2010-05-17 13:53:02
-  - - 29
-    - Saving the Ambridge Village Shop by moving it from private ownership to one that is owned and operated by the community
-    - Ambridge Community Shop
-    - 28
-    - 2010-07-15 16:49:29
-    - 2010-07-15 16:49:58
-
---- 
 risks: 
   columns: 
   - id
@@ -2678,6 +2542,171 @@ risks:
     - 125
     - 2010-07-29 09:33:59
     - 2010-07-29 09:43:31
+
+--- 
+supporting_goals: 
+  columns: 
+  - id
+  - goal_id
+  - supported_by_id
+  - created_at
+  - updated_at
+  records: 
+  - - 1
+    - 2
+    - 5
+    - 2010-05-04 09:37:58
+    - 2010-05-04 09:37:58
+  - - 2
+    - 2
+    - 3
+    - 2010-05-04 09:38:12
+    - 2010-05-04 09:38:12
+  - - 3
+    - 2
+    - 4
+    - 2010-05-04 09:38:29
+    - 2010-05-04 09:38:29
+  - - 4
+    - 3
+    - 5
+    - 2010-05-04 09:38:47
+    - 2010-05-04 09:38:47
+  - - 5
+    - 4
+    - 5
+    - 2010-05-04 09:38:58
+    - 2010-05-04 09:38:58
+  - - 6
+    - 5
+    - 6
+    - 2010-05-04 09:39:21
+    - 2010-05-04 09:39:21
+  - - 7
+    - 5
+    - 7
+    - 2010-05-04 09:39:30
+    - 2010-05-04 09:39:30
+  - - 8
+    - 6
+    - 11
+    - 2010-05-04 09:39:43
+    - 2010-05-04 09:39:43
+  - - 11
+    - 14
+    - 19
+    - 2010-05-17 14:13:37
+    - 2010-05-17 14:13:37
+  - - 12
+    - 14
+    - 20
+    - 2010-05-17 14:13:48
+    - 2010-05-17 14:13:48
+  - - 13
+    - 14
+    - 18
+    - 2010-05-17 14:13:57
+    - 2010-05-17 14:13:57
+  - - 14
+    - 20
+    - 21
+    - 2010-05-17 14:23:13
+    - 2010-05-17 14:23:13
+  - - 15
+    - 21
+    - 22
+    - 2010-05-17 14:23:36
+    - 2010-05-17 14:23:36
+  - - 16
+    - 21
+    - 23
+    - 2010-05-17 14:23:49
+    - 2010-05-17 14:23:49
+  - - 17
+    - 22
+    - 23
+    - 2010-05-17 14:24:15
+    - 2010-05-17 14:24:15
+  - - 18
+    - 23
+    - 24
+    - 2010-05-17 14:25:48
+    - 2010-05-17 14:25:48
+  - - 19
+    - 23
+    - 25
+    - 2010-05-17 14:26:00
+    - 2010-05-17 14:26:00
+  - - 20
+    - 18
+    - 20
+    - 2010-05-17 14:26:46
+    - 2010-05-17 14:26:46
+  - - 21
+    - 19
+    - 20
+    - 2010-05-17 14:27:05
+    - 2010-05-17 14:27:05
+  - - 22
+    - 24
+    - 25
+    - 2010-05-17 14:27:57
+    - 2010-05-17 14:27:57
+  - - 81
+    - 119
+    - 118
+    - 2010-07-15 17:02:58
+    - 2010-07-15 17:02:58
+  - - 82
+    - 118
+    - 121
+    - 2010-07-15 17:03:29
+    - 2010-07-15 17:03:29
+  - - 84
+    - 118
+    - 120
+    - 2010-07-15 17:03:43
+    - 2010-07-15 17:03:43
+  - - 86
+    - 120
+    - 123
+    - 2010-07-15 17:17:55
+    - 2010-07-15 17:17:55
+  - - 87
+    - 121
+    - 122
+    - 2010-07-15 17:18:07
+    - 2010-07-15 17:18:07
+  - - 88
+    - 122
+    - 123
+    - 2010-07-15 17:18:45
+    - 2010-07-15 17:18:45
+  - - 89
+    - 122
+    - 124
+    - 2010-07-15 17:18:51
+    - 2010-07-15 17:18:51
+  - - 90
+    - 123
+    - 124
+    - 2010-07-15 17:19:25
+    - 2010-07-15 17:19:25
+  - - 91
+    - 124
+    - 125
+    - 2010-07-15 17:19:37
+    - 2010-07-15 17:19:37
+  - - 92
+    - 118
+    - 125
+    - 2010-07-15 17:20:03
+    - 2010-07-15 17:20:03
+  - - 93
+    - 120
+    - 122
+    - 2010-07-16 16:09:52
+    - 2010-07-16 16:09:52
 
 --- 
 stakes: 
@@ -4989,169 +5018,144 @@ stakes:
     - 2010-07-20 14:14:06
 
 --- 
-supporting_goals: 
+comments: 
   columns: 
   - id
-  - goal_id
-  - supported_by_id
+  - message
+  - user_id
+  - parent_id
+  - parent_type
+  - status
+  - override_status
   - created_at
   - updated_at
   records: 
-  - - 1
-    - 2
-    - 5
-    - 2010-05-04 09:37:58
-    - 2010-05-04 09:37:58
-  - - 2
-    - 2
-    - 3
-    - 2010-05-04 09:38:12
-    - 2010-05-04 09:38:12
-  - - 3
-    - 2
-    - 4
-    - 2010-05-04 09:38:29
-    - 2010-05-04 09:38:29
-  - - 4
-    - 3
-    - 5
-    - 2010-05-04 09:38:47
-    - 2010-05-04 09:38:47
-  - - 5
-    - 4
-    - 5
-    - 2010-05-04 09:38:58
-    - 2010-05-04 09:38:58
-  - - 6
-    - 5
-    - 6
-    - 2010-05-04 09:39:21
-    - 2010-05-04 09:39:21
   - - 7
+    - It's looking like a choice between (i) Central Reading (King's Road); (ii) the Winnersh Triangle; (iii) somewhere out Pangbourne way (though offices are a bit scarce). What do people think?
+    - 4
+    - 24
+    - Goal
+    - 
+    - true
+    - 2010-05-17 15:54:36
+    - 2010-05-17 15:54:36
+  - - 103
+    - Has the customer survey been completed yet?
     - 5
-    - 7
-    - 2010-05-04 09:39:30
-    - 2010-05-04 09:39:30
-  - - 8
+    - 5
+    - Goal
+    - 
+    - false
+    - 2010-07-07 12:10:17
+    - 2010-07-10 10:10:17
+  - - 104
+    - It went out last week. Still waiting for the last few responses.
+    - 4
+    - 5
+    - Goal
+    - 0
+    - false
+    - 2010-07-07 15:10:38
+    - 2010-07-10 10:10:38
+  - - 105
+    - Process design looking good. Should be no problem with enquiry handling time.
+    - 4
+    - 5
+    - Goal
+    - 
+    - false
+    - 2010-07-10 10:08:17
+    - 2010-07-10 10:08:17
+  - - 106
+    - Goose Moose
+    - 4
     - 6
-    - 11
-    - 2010-05-04 09:39:43
-    - 2010-05-04 09:39:43
-  - - 11
-    - 14
-    - 19
-    - 2010-05-17 14:13:37
-    - 2010-05-17 14:13:37
-  - - 12
-    - 14
-    - 20
-    - 2010-05-17 14:13:48
-    - 2010-05-17 14:13:48
-  - - 13
-    - 14
-    - 18
-    - 2010-05-17 14:13:57
-    - 2010-05-17 14:13:57
-  - - 14
-    - 20
-    - 21
-    - 2010-05-17 14:23:13
-    - 2010-05-17 14:23:13
-  - - 15
-    - 21
-    - 22
-    - 2010-05-17 14:23:36
-    - 2010-05-17 14:23:36
-  - - 16
-    - 21
-    - 23
-    - 2010-05-17 14:23:49
-    - 2010-05-17 14:23:49
-  - - 17
-    - 22
-    - 23
-    - 2010-05-17 14:24:15
-    - 2010-05-17 14:24:15
-  - - 18
-    - 23
-    - 24
-    - 2010-05-17 14:25:48
-    - 2010-05-17 14:25:48
-  - - 19
-    - 23
+    - Goal
+    - 
+    - false
+    - 2010-07-10 13:26:00
+    - 2010-07-10 13:26:00
+  - - 110
+    - "Are we being sufficiently ambitious with our turnover target? The old shop used to turn over more than \xC2\xA3490k. With our new community status, shouldn't we expect to generate more custom?"
     - 25
-    - 2010-05-17 14:26:00
-    - 2010-05-17 14:26:00
-  - - 20
-    - 18
-    - 20
-    - 2010-05-17 14:26:46
-    - 2010-05-17 14:26:46
-  - - 21
-    - 19
-    - 20
-    - 2010-05-17 14:27:05
-    - 2010-05-17 14:27:05
-  - - 22
-    - 24
+    - 118
+    - Goal
+    - 
+    - false
+    - 2010-07-22 09:46:06
+    - 2010-07-22 09:46:06
+  - - 111
+    - Just to confirm. Existing suppliers to the old shop *will* want to see evidence that we've raised sufficient funds before they agree to continue their supply arrangements.
     - 25
-    - 2010-05-17 14:27:57
-    - 2010-05-17 14:27:57
-  - - 81
-    - 119
-    - 118
-    - 2010-07-15 17:02:58
-    - 2010-07-15 17:02:58
-  - - 82
-    - 118
-    - 121
-    - 2010-07-15 17:03:29
-    - 2010-07-15 17:03:29
-  - - 84
-    - 118
-    - 120
-    - 2010-07-15 17:03:43
-    - 2010-07-15 17:03:43
-  - - 86
-    - 120
+    - 29
+    - Map
+    - 
+    - false
+    - 2010-07-22 09:49:05
+    - 2010-07-22 09:49:05
+  - - 112
+    - We won't be able to raise more than our current target figure through grants and loans, because the people giving the grants and loans insist that we must raise 30% of our overall funding ourselves, through our own local efforts.
+    - 25
     - 123
-    - 2010-07-15 17:17:55
-    - 2010-07-15 17:17:55
-  - - 87
-    - 121
-    - 122
-    - 2010-07-15 17:18:07
-    - 2010-07-15 17:18:07
-  - - 88
-    - 122
-    - 123
-    - 2010-07-15 17:18:45
-    - 2010-07-15 17:18:45
-  - - 89
-    - 122
-    - 124
-    - 2010-07-15 17:18:51
-    - 2010-07-15 17:18:51
-  - - 90
-    - 123
-    - 124
-    - 2010-07-15 17:19:25
-    - 2010-07-15 17:19:25
-  - - 91
-    - 124
-    - 125
-    - 2010-07-15 17:19:37
-    - 2010-07-15 17:19:37
-  - - 92
-    - 118
-    - 125
-    - 2010-07-15 17:20:03
-    - 2010-07-15 17:20:03
-  - - 93
-    - 120
-    - 122
-    - 2010-07-16 16:09:52
-    - 2010-07-16 16:09:52
+    - Goal
+    - 
+    - false
+    - 2010-07-22 10:07:31
+    - 2010-07-22 10:07:31
+  - - 120
+    - We're having problems with the business rules for making cross-selling offers. We're confident of getting there eventually but they're taking longer than expected to sort out.
+    - 4
+    - 7
+    - Goal
+    - 2
+    - false
+    - 2010-07-28 15:14:37
+    - 2010-07-28 15:14:37
+  - - 121
+    - We've just introduced a new avoidance measure -- in the form of an improvement to the training course for call centre staff -- which has helped us to reduce the probability from 3 to 2.
+    - 4
+    - 3
+    - Risk
+    - 
+    - false
+    - 2010-07-28 16:03:45
+    - 2010-07-28 16:03:45
+  - - 122
+    - "If anybody thinks that we'll be unable to contain the current problems at the goal Customer Enquiry Process Redesigned, please let me know asap. Thanks. "
+    - 4
+    - 8
+    - Map
+    - 
+    - false
+    - 2010-07-28 16:11:20
+    - 2010-07-28 16:11:20
+  - - 123
+    - I'm a little concerned about meeting our target for this factor. Would anybody else care to volunteer an opinion?
+    - 4
+    - 21
+    - Factor
+    - 
+    - false
+    - 2010-07-28 16:51:06
+    - 2010-07-28 16:51:06
+  - - 124
+    - Are we serious about these mitigation measures? In my view, if we can't produce a business plan for continuing the shop as it currently is, but under community rather than private ownership, we should just give up.
+    - 4
+    - 17
+    - Risk
+    - 
+    - false
+    - 2010-07-29 09:46:52
+    - 2010-07-29 09:46:52
+  - - 126
+    - The online staff survey is now available but people are being a bit slow in responding. We're going to email everybody again.
+    - 4
+    - 25
+    - Goal
+    - 
+    - false
+    - 2010-08-02 16:47:14
+    - 2010-08-02 16:47:14
 
 --- 
 users: 
@@ -5175,6 +5179,7 @@ users:
   - last_sign_in_ip
   - created_at
   - updated_at
+  - subdomain
   records: 
   - - 4
     - Vic Stenning
@@ -5195,6 +5200,7 @@ users:
     - 86.138.145.138
     - 2010-05-03 13:10:36
     - 2010-08-08 16:04:55
+    - staging
   - - 5
     - Simon Engledew
     - true
@@ -5214,6 +5220,7 @@ users:
     - 86.138.148.99
     - 2010-05-04 09:15:22
     - 2010-07-16 14:30:12
+    - staging
   - - 6
     - Andrew Jannings
     - false
@@ -5233,6 +5240,7 @@ users:
     - 86.138.148.99
     - 2010-05-05 12:11:50
     - 2010-05-05 12:12:17
+    - staging
   - - 7
     - Tracy Wright
     - false
@@ -5252,6 +5260,7 @@ users:
     - 86.138.148.99
     - 2010-05-17 11:11:46
     - 2010-05-17 11:12:22
+    - staging
   - - 8
     - Sally Davies
     - false
@@ -5271,6 +5280,7 @@ users:
     - 86.138.148.99
     - 2010-05-17 11:16:54
     - 2010-05-17 11:17:42
+    - staging
   - - 9
     - Brian Dobbs
     - false
@@ -5290,6 +5300,7 @@ users:
     - 86.138.148.99
     - 2010-05-17 11:19:16
     - 2010-05-17 11:29:50
+    - staging
   - - 10
     - Peter Thoms
     - false
@@ -5309,6 +5320,7 @@ users:
     - 86.138.148.99
     - 2010-05-17 11:22:57
     - 2010-05-17 11:23:22
+    - staging
   - - 11
     - David Abbott
     - false
@@ -5328,6 +5340,7 @@ users:
     - 86.138.148.99
     - 2010-05-17 11:24:15
     - 2010-05-17 11:24:31
+    - staging
   - - 12
     - Andrew Smith
     - false
@@ -5347,6 +5360,7 @@ users:
     - 86.138.148.99
     - 2010-05-17 11:25:30
     - 2010-05-17 11:25:44
+    - staging
   - - 13
     - Jenny Anson
     - false
@@ -5366,6 +5380,7 @@ users:
     - 86.138.148.99
     - 2010-05-17 11:30:45
     - 2010-05-17 11:31:13
+    - staging
   - - 14
     - James Cox
     - false
@@ -5385,6 +5400,7 @@ users:
     - 86.138.148.99
     - 2010-05-17 11:32:35
     - 2010-05-17 11:32:54
+    - staging
   - - 15
     - John Forbes
     - false
@@ -5404,6 +5420,7 @@ users:
     - 86.138.148.99
     - 2010-05-17 11:34:04
     - 2010-05-17 11:34:20
+    - staging
   - - 16
     - Gillian Reynolds
     - false
@@ -5423,6 +5440,7 @@ users:
     - 86.138.148.99
     - 2010-05-17 11:35:29
     - 2010-05-17 11:35:48
+    - staging
   - - 17
     - Wendy Smart
     - false
@@ -5442,6 +5460,7 @@ users:
     - 86.138.148.99
     - 2010-05-17 11:41:14
     - 2010-05-17 11:41:31
+    - staging
   - - 18
     - Penny Jones
     - false
@@ -5461,6 +5480,7 @@ users:
     - 86.138.148.99
     - 2010-05-17 11:42:54
     - 2010-05-17 11:43:14
+    - staging
   - - 19
     - Laura Stephens
     - false
@@ -5480,6 +5500,7 @@ users:
     - 86.138.148.99
     - 2010-05-17 11:44:16
     - 2010-05-17 11:44:34
+    - staging
   - - 20
     - Tony Sims
     - false
@@ -5499,6 +5520,7 @@ users:
     - 86.138.148.99
     - 2010-05-17 11:45:41
     - 2010-05-17 11:45:56
+    - staging
   - - 21
     - Gary Barnes
     - false
@@ -5518,6 +5540,7 @@ users:
     - 86.138.148.99
     - 2010-05-17 12:01:19
     - 2010-05-17 12:01:37
+    - staging
   - - 22
     - Simon Yorke
     - false
@@ -5537,6 +5560,7 @@ users:
     - 86.138.148.99
     - 2010-05-17 12:02:29
     - 2010-05-17 12:02:47
+    - staging
   - - 23
     - Susan Bailey
     - false
@@ -5556,6 +5580,7 @@ users:
     - 86.138.148.99
     - 2010-05-17 12:03:35
     - 2010-05-17 12:03:51
+    - staging
   - - 24
     - Charles Clark
     - false
@@ -5575,6 +5600,7 @@ users:
     - 86.138.148.99
     - 2010-05-17 12:04:49
     - 2010-05-17 12:05:03
+    - staging
   - - 25
     - Pat Archer
     - false
@@ -5594,6 +5620,7 @@ users:
     - 86.138.148.99
     - 2010-06-24 11:14:21
     - 2010-07-22 09:41:21
+    - staging
   - - 26
     - Brian Aldridge
     - false
@@ -5613,6 +5640,7 @@ users:
     - 86.138.148.99
     - 2010-06-24 11:16:14
     - 2010-06-24 11:39:08
+    - staging
   - - 27
     - Kathy Perks
     - false
@@ -5632,6 +5660,7 @@ users:
     - 86.138.148.99
     - 2010-06-24 11:16:56
     - 2010-07-29 09:48:53
+    - staging
   - - 28
     - Lynda Snell
     - false
@@ -5651,6 +5680,7 @@ users:
     - 86.138.148.99
     - 2010-07-15 16:48:33
     - 2010-07-15 16:48:50
+    - staging
   - - 29
     - Alan Franks
     - false
@@ -5670,6 +5700,7 @@ users:
     - 86.138.148.99
     - 2010-07-20 09:43:16
     - 2010-07-20 09:47:02
+    - staging
   - - 30
     - Freda Fry
     - false
@@ -5689,6 +5720,7 @@ users:
     - 86.138.148.99
     - 2010-07-20 09:44:02
     - 2010-07-20 09:47:38
+    - staging
   - - 31
     - Clarrie Grundy
     - false
@@ -5708,6 +5740,7 @@ users:
     - 86.138.148.99
     - 2010-07-20 09:44:46
     - 2010-07-20 09:47:59
+    - staging
   - - 32
     - Jamie Perks
     - false
@@ -5727,6 +5760,7 @@ users:
     - 86.138.148.99
     - 2010-07-20 09:45:22
     - 2010-07-20 09:48:16
+    - staging
   - - 33
     - David Archer
     - false
@@ -5746,6 +5780,7 @@ users:
     - 86.138.148.99
     - 2010-07-20 09:46:01
     - 2010-07-20 09:48:29
+    - staging
   - - 34
     - Gill Archer
     - false
@@ -5765,6 +5800,7 @@ users:
     - 86.138.148.99
     - 2010-07-20 09:49:28
     - 2010-07-20 09:57:01
+    - staging
   - - 35
     - Usha Gupta
     - false
@@ -5784,6 +5820,7 @@ users:
     - 86.138.148.99
     - 2010-07-20 09:50:03
     - 2010-07-20 09:57:11
+    - staging
   - - 36
     - Susan Carter
     - false
@@ -5803,6 +5840,7 @@ users:
     - 86.138.148.99
     - 2010-07-20 09:54:24
     - 2010-07-20 09:57:23
+    - staging
   - - 37
     - Oliver Sterling
     - false
@@ -5822,6 +5860,7 @@ users:
     - 86.138.148.99
     - 2010-07-20 09:55:18
     - 2010-07-20 09:57:45
+    - staging
   - - 38
     - Alistair Lloyd
     - false
@@ -5841,6 +5880,7 @@ users:
     - 86.138.148.99
     - 2010-07-20 09:55:56
     - 2010-07-20 09:57:57
+    - staging
   - - 39
     - Matt Crawford
     - false
@@ -5860,3 +5900,4 @@ users:
     - 86.138.148.99
     - 2010-07-20 09:56:39
     - 2010-07-20 09:58:10
+    - staging

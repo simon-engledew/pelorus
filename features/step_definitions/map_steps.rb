@@ -1,6 +1,7 @@
 Given /^I have a map named "(.*?)"$/ do |map_name|
   Map.create!(:name => map_name) do |map|
     map.manager = current_user
+    map.subdomain = current_subdomain
   end
 end
 
@@ -27,7 +28,6 @@ Then /^I should see the title "(.*)?"$/ do |title|
 end
 
 Given /^I have a goal named "(.*?)" in the (map|goal) "(.*?)"$/ do |goal_name, parent_type, parent_name|
-
   parent = parent_type.camelize.constantize.find_by_name!(parent_name)
   parent.map.goals.build(:name => goal_name) do |goal|
     goal.parent_id = parent.id if parent.is_a?(Goal)
@@ -44,4 +44,9 @@ Given /^I have fixtures$/ do
   # [Map, Goal].each do |model|
   #   model.all.each(&:create_default_stakes)
   # end
+end
+
+Given /^I am visiting "(.*?)"$/ do |host|
+  SubdomainFu.tld_size = 1
+  host! host
 end

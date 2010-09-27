@@ -11,6 +11,7 @@ Feature: Navigate Map
     When I click the first link in the email
     Then I should see "Cucumber (Logout)"
     When I log out
+    Then I should be on the home page
   
   Scenario: Create Map
     Given I am logged in as an admin
@@ -55,13 +56,14 @@ Feature: Navigate Map
   
   @wip
   Scenario: Create A Supporting Goal
-
+  
   @wip
   Scenario: Check Status Propagation
-
   
   Scenario: Explore Map
     Given I have fixtures
+    And I am visiting "staging.toolforchange.com"
+    
     When I go to the list of maps
     Then I should see "Call Centre Redesign" within "#maps"
     

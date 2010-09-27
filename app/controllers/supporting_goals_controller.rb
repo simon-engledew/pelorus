@@ -19,7 +19,7 @@ class SupportingGoalsController < ApplicationController
   end
   
   def supporting_goal
-    @supporting_goal ||= (goal.supporting_goals.find(params[:id]) if params[:id])
+    @supporting_goal ||= (goal.supporting_goals.find_by_id!(params[:id]) if params[:id])
   end
 
 end

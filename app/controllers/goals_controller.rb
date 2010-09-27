@@ -8,7 +8,7 @@ class GoalsController < ApplicationController
   
   def new
     @goal = map.goals.build
-    @goal.parent = Goal.find(params[:parent_id]) if params[:parent_id]
+    @goal.parent = Goal.find_by_id!(params[:parent_id]) if params[:parent_id]
   end
   
   def create
@@ -37,7 +37,7 @@ class GoalsController < ApplicationController
 protected
 
   def goal
-    @goal ||= (map.goals.find(params[:id]) if params[:id])
+    @goal ||= (map.goals.find_by_id!(params[:id]) if params[:id])
   end
   
 end

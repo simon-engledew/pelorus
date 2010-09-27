@@ -50,11 +50,11 @@ protected
   end
   
   def map
-    @map ||= (Map.with_subdomain(current_subdomain).find(params[:map_id]) if params[:map_id])
+    @map ||= (Map.with_subdomain(current_subdomain).find_by_id!(params[:map_id]) if params[:map_id])
   end
   
   def goal
-    @goal ||= (map.goals.find_by_id(params[:goal_id]) if params[:goal_id])
+    @goal ||= (map.goals.find_by_id!(params[:goal_id]) if params[:goal_id])
   end
   
   def resource

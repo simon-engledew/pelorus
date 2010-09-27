@@ -19,7 +19,7 @@ config.action_controller.allow_forgery_protection    = false
 # ActionMailer::Base.deliveries array.
 # config.action_mailer.default_url_options = { :host => 'test.toolforchange.com' }
 config.action_mailer.delivery_method = :test
-config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+config.action_mailer.default_url_options = { :host => 'localhost' }
 
 config.gem 'cucumber', :lib => false
 config.gem 'webrat', :lib => false

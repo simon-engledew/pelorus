@@ -32,7 +32,7 @@ protected
   end
 
   def stake
-    @stake ||= (parent_node.stakes.find(params[:id]) if params[:id])
+    @stake ||= (parent_node.stakes.find_by_id!(params[:id]) if params[:id])
   end
   
   helper_method :stake

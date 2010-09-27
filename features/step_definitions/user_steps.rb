@@ -3,6 +3,7 @@ module UserHelpers
     @current_user ||= User.create!(:email => current_email_address) do |user|
       user.name = 'Cucumber'
       user.admin = admin
+      user.subdomain = current_subdomain
       'cucumber'.tap do |password|
         user.password = password
         user.password_confirmation = password
@@ -16,8 +17,7 @@ World(UserHelpers)
 
 When /^I log out$/ do
   Given %(I am on the home page)
-  When %(I follow "#{current_user.name} (Logout)")
-  Then %(I should be on the home page)
+  When %(I follow "#{ current_user.name } (Logout)")
   Then %(I should see "Login")
 end
 
@@ -35,6 +35,7 @@ end
 Given /^I have signed up with the name "(.*?)" and the password "(.*?)"$/ do |name, password|
   @current_user ||= User.create!(:email => current_email_address) do |user|
     user.name = name
+    user.subdomain = current_subdomain
     user.password = password
     user.password_confirmation = password
   end

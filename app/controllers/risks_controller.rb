@@ -36,7 +36,7 @@ class RisksController < ApplicationController
 private
 
   def risk
-    @risk ||= (goal.risks.find(params[:id]) if params[:id])
+    @risk ||= (goal.risks.find_by_id!(params[:id]) if params[:id])
   end
   
   helper_method :risk

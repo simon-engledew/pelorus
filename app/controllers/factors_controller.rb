@@ -37,7 +37,7 @@ class FactorsController < ApplicationController
 protected
 
   def factor
-    @factor ||= (goal.factors.find(params[:id]) if params[:id])
+    @factor ||= (goal.factors.find_by_id!(params[:id]) if params[:id])
   end
   
   helper_method :factor

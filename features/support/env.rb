@@ -35,6 +35,8 @@ Spork.prefork do
   Webrat.configure do |config|
     config.mode = :rails
     config.open_error_files = false # Set to true if you want error pages to pop up in the browser
+    
+    # ActionMailer::Base.default_url_options = { :host => "#{config.application_address}:#{config.application_port}" }
   end
 
 end

@@ -36,6 +36,6 @@ class MapsController < ApplicationController
   
 protected
   def map
-    @map ||= (Map.with_subdomain(current_subdomain).find(params[:id]) if params[:id])
+    @map ||= (Map.with_subdomain(current_subdomain).find_by_id!(params[:id]) if params[:id])
   end
 end
