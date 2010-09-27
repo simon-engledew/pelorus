@@ -1,5 +1,7 @@
 @import "reset";
 
+$yellow: #fff8d7;
+
 @mixin box-shadow($x, $y, $blur, $color)
 {
   box-shadow: $x $y $blur $color;
@@ -163,7 +165,7 @@ ul.controls {
 
 html {
   height: 100%;
-  background: #222222 url(/images/body.png) repeat-x;
+  background: #222 url(/images/body.png) repeat-x;
 }
 
 $container_width: 900px;
@@ -202,13 +204,14 @@ body {
 }
 
 #header_container {
-  background: white url(/images/header_container.png) repeat-x bottom;
-  @include box_shadow(0, 2px, 2px, rgba(0, 0, 0, 0.05));
+  @include vertical-linear-gradient(#fff, #f7fbfc);
+  @include box-shadow(0, 2px, 2px, rgba(0, 0, 0, 0.05));
+  border-bottom: solid 1px #bbb;
   overflow: hidden;
   z-index: 2;
   position: relative;
   border-top: solid 1px #bbbbbb;
-  padding-bottom: 8px;
+  padding-bottom: 7px;
   hr {
     display: none;
   }
@@ -330,7 +333,7 @@ $sidebar_gutter: 40px;
 }
 
 #breadcrumbs {
-  border-left: solid 2px #dddddd;
+  border-left: solid 2px #ddd;
   margin: 0 0 15px;
   padding: 0 0 8px 5px;
   background: transparent url(/images/breadcrumbs.png) no-repeat bottom left;
@@ -430,6 +433,7 @@ input[type=text], input[type=password], textarea {
   padding: 8px;
   border: 2px solid #dedede;
   @include inset_box_shadow(1px, 1px, 5px, rgba(0, 0, 0, 0.1));
+  
   &:focus {
     border: solid 2px #837c7c;
     color: #383131;
@@ -470,13 +474,14 @@ div#content {
     > div#description_text {
       margin-bottom: 1em;
       padding: 1em;
-      border-left: solid 5px #aaaaaa;
+      border-left: solid 5px #aaa;
       margin-left: -5px;
       text-align: justify;
-      color: #222222;
-      background: #fff8d7;
+      color: #222;
+      background: lighten($yellow, 2.5%);
+      @include inset-box-shadow(1px, 1px, 0, rgba(255, 255, 255, 0.75));
       font-size: 11pt;
-      border-bottom: solid 1px #ddd;
+      border-bottom: solid 1px #e8e8e8;
       > p
       {
         line-height: 175%;
@@ -498,54 +503,6 @@ div#content {
     text-decoration: underline;
   }
 }
-
-/*
-input[type=button], input[type=submit], a.button
-{
-  margin: 0 7px 0 0;
-  outline-style: none;
-  background-color: #f1f1f1;
-  border: solid 1px #cccccc;
-  border-bottom-color: #999999;
-  border-right-color: #999999;
-  font-family: "Lucida Grande", Tahoma, Arial, Verdana, sans-serif;
-  font-size: 100%;
-  line-height: 130%;
-  text-decoration: none;
-  font-weight: bold;
-  color: #333333;
-  cursor: pointer;
-  
-  line-height: 100%;
-  color: #000;
-
-  text-shadow: 0 1px 0 #fff;
-  outline: none;
-  padding: 0.5em;
-  display: inline-block;
-  
-  @include box_shadow(1px, 1px, 2px, rgba(0, 0, 0, 0.15));
-  @include vertical-linear-gradient(#f1f1f1, #d7d7d7);
-  @include border-radius(3px);
-
-  &.confirm:hover {
-    color: #529214;
-  }
-  &.deny:hover {
-    color: #330000;
-  }
-  &:active {
-    background: #d7d7d7;
-  }
-  &[disabled] {
-    color: #999999;
-  }
-  &::-moz-focus-inner, &::-moz-focus-inner
-  {
-    border: 0;
-  }
-}
-*/
 
 .button, input[type="button"], input[type="submit"]
 {
@@ -579,20 +536,6 @@ input[type=button], input[type=submit], a.button
     width: 100%;
   }
 
-  /*
-  &::after
-  {
-    bottom: 0;
-    left: 0;
-    border-bottom: solid 1px #d7d7d7;
-
-    &:active
-    {
-      visibility: hidden;
-    }
-  }
-  */
-
   &::before
   {
     top: 1px;
@@ -619,7 +562,7 @@ input[type=button], input[type=submit], a.button
 div.container > table > * > tr > *,
 div#content > .info,
 div#content > #description > div.controls > .edit {
-  color: #333333;
+  color: #333;
 }
 
 div.container {
@@ -760,4 +703,9 @@ textarea[id$="_description"], textarea[id="comment_message"] {
       width: 250px;
     }
   }
+}
+
+#graphs-graph
+{
+  text-align: center;
 }

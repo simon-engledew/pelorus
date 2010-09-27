@@ -17,26 +17,27 @@
               %img{:src => '/images/logo.png'}
               Pelorus - The Tool For Change
         %ul.controls
-          %li= link_to 'Home', root_path
+          %li= link_to 'Maps', root_path
           %li= link_to 'Stakeholders', users_path
           - if user_signed_in?
             %li= link_to "#{current_user.name} (Logout)", destroy_user_session_path
           - else
             %li= link_to 'Login', new_user_session_path
     #page_container
-      #page
-        #sidebar_container
-          #sidebar
-            - if resource and !controller.devise_controller?
-              %h3 Navigation:
-              #breadcrumbs
-                %ul
-                  != breadcrumbs(resource).join
-            != yield :sidebar
-        #content_container
-          #content{:class => %(#{resource_name}_content)}
-            != yield
-        %div{:style => 'clear:both'}
+      = yield(:page) || capture do 
+        #page
+          #sidebar_container
+            #sidebar
+              - if resource and !controller.devise_controller?
+                %h3 Navigation:
+                #breadcrumbs
+                  %ul
+                    != breadcrumbs(resource).join
+              != yield :sidebar
+          #content_container
+            #content{:class => %(#{resource_name}_content)}
+              != yield
+          %div{:style => 'clear:both'}
     #footer_container
       #footer
         %p Pelorus is designed and built by John Speed Ltd &ndash; a small company based in Winchester, England.

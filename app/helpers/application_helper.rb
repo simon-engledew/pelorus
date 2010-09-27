@@ -6,6 +6,10 @@ module ApplicationHelper
   #   content_tag(:a, content_tag(:div, tag(:img, :src => src), :class => 'graph'), :href => src)
   # end
   
+  def title(title)
+    @title = title
+  end
+  
   def polymorphic_parameters(parent_node)
     {:parent_node_type => parent_node.class.to_s.underscore.pluralize, :parent_node_id => parent_node.id}
   end

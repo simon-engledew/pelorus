@@ -77,7 +77,7 @@ protected
 
   whitelist :show, :index
   
-  helper_method :map, :goal, :resource, :resource_name, :title, :write_permission?
+  helper_method :map, :goal, :resource, :resource_name, :write_permission?
   
   before_filter :check_permissions, :unless => lambda { |controller| controller.kind_of?(SessionsController) } # controller.devise_controller? }
     # controller.kind_of?(SessionsController)

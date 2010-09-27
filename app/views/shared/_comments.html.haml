@@ -17,5 +17,5 @@
               #{comment.message}
             %p.details== <span class="user">#{linked_user_name(comment.user)}</span> - <span class="posted_at">#{comment.created_at.to_s(:short)}</span>
 
-    - if user_signed_in?
+    - if user_signed_in? and !controller.is_a?(CommentsController)
       %p.discuss= link_to 'discuss', new_comment_path(polymorphic_parameters(object)), :class => 'button'
