@@ -39,7 +39,7 @@ protected
       :with => :rescue_resource_not_found
     )
     rescue_from ActionView::TemplateError do |exception|
-      raise exception.original_exception if exception.original_exception.class.is_a?(ActiveRecord::RecordNotFound)
+      raise exception.original_exception
     end
   end
 
