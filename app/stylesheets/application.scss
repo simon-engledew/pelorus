@@ -453,6 +453,13 @@ label {
 
 div#content {
   font-size: 11pt;
+  > h2 > span.explanation
+  {
+    font-size: 10pt;
+    color: #ccc;
+    font-style: italic;
+    text-shadow: none;
+  }
   > #description {
     > h1 {
       position: relative;

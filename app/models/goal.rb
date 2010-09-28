@@ -30,7 +30,7 @@ public
   
   belongs_to :map
   
-  has_status :risks, :factors, :supports, :supported_by
+  has_status :risks, :factors, :supports, :supported_by, :supports_status
   
   validates_presence_of :map_id
   validates_associated  :map, :parent
