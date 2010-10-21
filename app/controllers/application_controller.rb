@@ -28,6 +28,15 @@ protected
       end
     end
   end
+  
+  before_filter :check_password
+  def check_password
+    if current_subdomain == 'westland'
+      authenticate_or_request_with_http_basic do |username, password|
+          username == 'westland' && password == '389cb1x6'
+      end
+    end
+  end
 
   unless Rails.env.development?
     rescue_from(
