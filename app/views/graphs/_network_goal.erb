@@ -1,5 +1,5 @@
 <% unless object.children.empty? %>
-  subgraph cluster_<%= object.id %> {
+  subgraph "cluster_<%= object.id %>" {
     label="<%= sanitize_label(object.name) %>";
     color="<%= line_color(object.remote_status) %>";
     fontname="Helvetica";
@@ -10,18 +10,14 @@
     fillcolor="<%= status_color(object.local_status) %>";
     URL="<%= polymorphic_url(object.hierarchy) %>";
     <%= render :partial => 'network_goal', :collection => object.children %>
-    node <%= object.id %> [width=0,fixedsize=true,style=invis];
+    goal_<%= object.id %> [shape=point,label="",width=0,fixedsize=true,style=invis];
   }
 <% else %>
-  node <%= object.id %> [
-    fontname="Helvetica",
-    fontsize="10",
-    penwidth="2",
+  goal_<%= object.id %> [
     fontcolor="<%= line_color(object.local_status) %>",
     label="<%= sanitize_label(object.name) %>",
     color="<%= line_color(object.remote_status) %>",
     URL="<%= polymorphic_url(object.hierarchy) %>",
-    style="filled",
     fillcolor="<%= status_color(object.local_status) %>"
   ];
 <% end %>
