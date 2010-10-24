@@ -16,4 +16,14 @@ module MapsHelper
     LineColor[status]
   end
 
+  def cluster_target(goal)
+    if goal.children.empty?
+      return goal
+    else
+      goal.children.detect do |child|
+        return cluster_target(child)
+      end
+    end
+  end
+
 end

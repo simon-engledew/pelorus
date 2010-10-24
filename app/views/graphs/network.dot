@@ -17,7 +17,7 @@ digraph "<%= sanitize_label(map.name) %>" {
   
   <%- map.goals.each do |goal| -%>
     <%- goal.supporting_goals.each do |supporting_goal| -%>
-      goal_<%= supporting_goal.supported_by.id %> -> goal_<%= supporting_goal.goal.id %> [
+      goal_<%= cluster_target(supporting_goal.supported_by).id %> -> goal_<%= cluster_target(supporting_goal.goal).id %> [
         style=<%= supporting_goal.supported_by.propagate ? 'solid' : 'dotted' %>,
         color="<%= line_color(supporting_goal.supported_by.status) %>",
         penwidth="2",
@@ -28,5 +28,3 @@ digraph "<%= sanitize_label(map.name) %>" {
     <%- end -%>
   <%- end -%>
 }
-
-

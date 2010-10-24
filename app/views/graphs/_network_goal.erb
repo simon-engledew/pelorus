@@ -10,7 +10,6 @@
     fillcolor="<%= status_color(object.local_status) %>";
     URL="<%= polymorphic_url(object.hierarchy) %>";
     <%= render :partial => 'network_goal', :collection => object.children %>
-    goal_<%= object.id %> [shape=point,label="",width=0,fixedsize=true,style=invis];
   }
 <% else %>
   goal_<%= object.id %> [
