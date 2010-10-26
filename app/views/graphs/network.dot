@@ -1,6 +1,7 @@
-digraph "<%= sanitize_label(map.name) %>" {
+digraph "map_<%= map.id %>" {
   compound=true;
   truecolor=true;
+  label="<%= sanitize_label(map.name) %>"
   size="9,100";
   rankdir=BT;
   graph [truecolor bgcolor="transparent"];
@@ -12,7 +13,7 @@ digraph "<%= sanitize_label(map.name) %>" {
     penwidth="2",
     style="filled",
   ];
-  URL="<%= polymorphic_url(map, :subdomain => current_subdomain) %>";
+  URL="<%= polymorphic_url(map) %>";
   
   <%= render :partial => 'network_goal', :collection => map.children -%>
 
