@@ -1,7 +1,6 @@
 digraph "map_<%= map.id %>" {
   compound=true;
   truecolor=true;
-  size="9,100";
   rankdir=BT;
   graph [truecolor bgcolor="transparent"];
   node [shape=box];
