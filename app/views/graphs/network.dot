@@ -12,7 +12,7 @@ digraph "<%= sanitize_label(map.name) %>" {
     penwidth="2",
     style="filled",
   ];
-  URL="<%= polymorphic_url(map) %>";
+  URL="<%= polymorphic_url(map, :subdomain => current_subdomain) %>";
   
   <%= render :partial => 'network_goal', :collection => map.children -%>
 

@@ -8,7 +8,7 @@
     style="filled";
     penwidth="2";
     fillcolor="<%= status_color(object.local_status) %>";
-    URL="<%= polymorphic_url(object.hierarchy) %>";
+    URL="<%= polymorphic_url(object.hierarchy, :subdomain => current_subdomain) %>";
     <%= render :partial => 'network_goal', :collection => object.children %>
   }
 <% else %>
@@ -16,7 +16,7 @@
     fontcolor="<%= line_color(object.local_status) %>",
     label="<%= sanitize_label(object.name) %>",
     color="<%= line_color(object.remote_status) %>",
-    URL="<%= polymorphic_url(object.hierarchy) %>",
+    URL="<%= polymorphic_url(object.hierarchy, :subdomain => current_subdomain) %>",
     fillcolor="<%= status_color(object.local_status) %>"
   ];
 <% end %>
