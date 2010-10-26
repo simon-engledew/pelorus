@@ -1,7 +1,6 @@
 digraph "map_<%= map.id %>" {
   compound=true;
   truecolor=true;
-  label="<%= sanitize_label(map.name) %>"
   size="9,100";
   rankdir=BT;
   graph [truecolor bgcolor="transparent"];
