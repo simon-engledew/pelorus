@@ -17,7 +17,7 @@ class DotHandler < ActionView::TemplateHandler
       
       command = []
       command << "dot -T\#{format}"
-      # command << "2>/dev/null"
+      command << "2>/dev/null"
       command = command.join(' ')
   
       @output_buffer = IO.popen(command, 'r+') do |io|
