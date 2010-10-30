@@ -734,6 +734,6 @@ textarea[id$="_description"], textarea[id="comment_message"] {
   text-align: center;
   > img
   {
-      @include max-width(878px);
+      // @include max-width(878px);
   }
 }
