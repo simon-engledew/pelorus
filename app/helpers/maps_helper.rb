@@ -17,10 +17,10 @@ module MapsHelper
   end
 
   def cluster_target(goal)
-    if goal.children.empty?
+    unless goal.cluster?
       return goal
     else
-      goal.children.detect do |child|
+      goal.children.reverse.detect do |child|
         return cluster_target(child)
       end
     end

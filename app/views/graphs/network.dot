@@ -4,6 +4,7 @@ digraph "map_<%= map.id %>" {
   rankdir=BT;
   graph [truecolor bgcolor="transparent"];
   node [shape=box];
+  ranksep=0.2;
   pad=0.25;
   node [
     fontname="Helvetica",
@@ -21,12 +22,27 @@ digraph "map_<%= map.id %>" {
         style=<%= supporting_goal.supported_by.propagate ? 'solid' : 'dotted' %>,
         color="<%= line_color(supporting_goal.supported_by.status) %>",
         penwidth="2",
-        <% unless supporting_goal.supported_by.children.empty? and supporting_goal.goal.children.empty? %>
-        label=" ",
+        <% if supporting_goal.supported_by.cluster? or supporting_goal.goal.cluster? %>
+        minlen=2,
         <% end %>
-        <% unless supporting_goal.supported_by.children.empty? %>ltail="cluster_<%= supporting_goal.supported_by.id %>",<% end %>
-        <% unless supporting_goal.goal.children.empty? %>lhead="cluster_<%= supporting_goal.goal.id %>",<% end %>
+        <% if supporting_goal.supported_by.cluster? %>ltail="cluster_<%= supporting_goal.supported_by.id %>",<% end %>
+        <% if supporting_goal.goal.cluster? %>lhead="cluster_<%= supporting_goal.goal.id %>",<% end %>
       ];
     <%- end -%>
+  <%- end -%>
+  
+  <%- map.goals.each do |goal| -%>
+    <%- if goal.cluster? -%>
+      <%- goal.children.inject(nil) do |previous_child, child| -%>
+        <%- if previous_child -%>
+          <%- unless previous_child.cluster? or child.cluster? -%>
+            goal_<%= previous_child.id %> -> goal_<%= child.id %> [
+              dir="none",
+              style="invis"
+            ]
+          <%- end -%>
+        <%- end -%>
+      <%- child; end -%>
+    <%- end %>
   <%- end -%>
 }

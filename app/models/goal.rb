@@ -79,6 +79,10 @@ public
     return valid_targets
   end
   
+  def cluster?
+    not children.empty?
+  end
+  
   def children_status
     children.map{|goal| goal.status}.max || 0
   end
