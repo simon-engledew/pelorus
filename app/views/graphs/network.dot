@@ -35,7 +35,7 @@ digraph "map_<%= map.id %>" {
     <%- if goal.cluster? -%>
       <%- goal.children.inject(nil) do |previous_child, child| -%>
         <%- if previous_child -%>
-          <%- unless previous_child.cluster? or child.cluster? -%>
+          <%- unless previous_child.cluster? or child.cluster? or previous_child.supporting_goals.include?(child) -%>
             goal_<%= previous_child.id %> -> goal_<%= child.id %> [
               dir="none",
               style="invis"
