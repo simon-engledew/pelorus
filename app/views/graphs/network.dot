@@ -17,6 +17,20 @@ digraph "map_<%= map.id %>" {
   <%= render :partial => 'network_goal', :collection => map.children -%>
 
   <%- map.goals.each do |goal| -%>
+    <%- if goal.cluster? -%>
+      <%- goal.children.inject(nil) do |previous_child, child| -%>
+        <%- if previous_child -%>
+          <%- unless previous_child.cluster? or child.cluster? -%>
+            goal_<%= previous_child.id %> -> goal_<%= child.id %> [
+              dir="none",
+              style="invis"
+            ]
+          <%- end -%>
+        <%- end -%>
+      <%- child; end -%>
+    <%- end %>
+  <%- end -%>
+  <%- map.goals.each do |goal| -%>
     <%- goal.supporting_goals.each do |supporting_goal| -%>
       goal_<%= cluster_target(supporting_goal.supported_by).id %> -> goal_<%= cluster_target(supporting_goal.goal).id %> [
         style=<%= supporting_goal.supported_by.propagate ? 'solid' : 'dotted' %>,
@@ -30,19 +44,5 @@ digraph "map_<%= map.id %>" {
       ];
     <%- end -%>
   <%- end -%>
-  
-  <%- map.goals.each do |goal| -%>
-    <%- if goal.cluster? -%>
-      <%- goal.children.inject(nil) do |previous_child, child| -%>
-        <%- if previous_child -%>
-          <%- unless previous_child.cluster? or child.cluster? or previous_child.supporting_goals.include?(child) or previous_child.supported_goals.include?(child) -%>
-            goal_<%= previous_child.id %> -> goal_<%= child.id %> [
-              dir="none",
-              style="invis"
-            ]
-          <%- end -%>
-        <%- end -%>
-      <%- child; end -%>
-    <%- end %>
-  <%- end -%>
+
 }
