@@ -13,6 +13,7 @@ digraph "map_<%= map.id %>" {
     style="filled",
   ];
   URL="<%= polymorphic_url(map) %>";
+  target="main";
   
   <%= render :partial => 'network_goal', :collection => target.children, :locals => { :depth => 2 } -%>
 
@@ -32,7 +33,7 @@ digraph "map_<%= map.id %>" {
   <%- end -%>
   
   <% invisible_nodes(target) do |a, b| %>
-    goal_<%= a.id %> -> goal_<%= b.id %>;
+    goal_<%= a.id %> -> goal_<%= b.id %> [style="invis"];
   <% end %>
 
 }

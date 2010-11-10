@@ -9,6 +9,7 @@
     penwidth="2";
     fillcolor="<%= status_color(object.local_status) %>";
     URL="<%= polymorphic_url(object.hierarchy) %>";
+    target="main";
     <% if depth > 1 %>
     <%= render :partial => 'network_goal', :collection => object.children, :locals => { :depth => (depth - 1) } %>
     <% end %>
@@ -19,6 +20,7 @@
     label="<%= sanitize_label(object.name) %>",
     color="<%= line_color(object.remote_status) %>",
     URL="<%= polymorphic_url(object.hierarchy) %>",
+    target="main",
     fillcolor="<%= status_color(object.local_status) %>"
   ];
 <% end %>

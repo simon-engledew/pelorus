@@ -1,5 +1,4 @@
 - title 'Network View'
-- content_for :page do
-  #graphs-graph
-    = render :file => '/graphs/network', :locals => {:format => 'cmapx'}
-    %img{:src => network_graph_path(map, :format => :png, :timestamp => Time.now.to_i), :usemap => "#map_#{map.id}"}
+#graphs-graph
+  = render :file => '/graphs/network', :locals => {:format => 'cmapx'}
+  %img{:src => network_graph_path(map, :format => :png, :timestamp => Time.now.to_i), :usemap => "#map_#{map.id}"}

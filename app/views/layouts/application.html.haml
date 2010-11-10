@@ -1,5 +1,5 @@
 !!! Strict
-%html{html_attrs('en-GB')}
+%html{html_attrs('en-GB'), :name => 'main'}
   %head
     %title== Pelorus - #{@title || (resource && resource.respond_to?(:name) ? resource.name : 'Home')}
     != stylesheet_link_tag 'application'

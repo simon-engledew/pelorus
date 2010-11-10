@@ -1,5 +1,5 @@
 class GraphsController < ApplicationController
-  
+
   whitelist :network, :graph
   
   caches_action :network
