@@ -27,19 +27,12 @@ module MapsHelper
   end
   
   def invisible_nodes(parent)
-    goals = parent.children_to_depth(2)
+    # goals = parent.children_to_depth(2)
 
     parent.children.each do |node|
       
       leafs = Set.new
-      
-      if node.children.empty?
-        leafs.add(node)
-      else
-        node.children.each do |goal|
-          leafs.add(goal) unless goal.children.any? {|child| goals.include?(child) }
-        end
-      end
+      leafs.merge(node.children)
       
       until leafs.empty?
       
