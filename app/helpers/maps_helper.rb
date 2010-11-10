@@ -32,10 +32,15 @@ module MapsHelper
     parent.children.each do |node|
       
       leafs = Set.new
-      node.children.each do |goal|
-        leafs.add(goal) unless goal.children.any? {|child| goals.include?(child) }
+      
+      if node.children.empty?
+        leafs.add(node)
+      else
+        node.children.each do |goal|
+          leafs.add(goal) unless goal.children.any? {|child| goals.include?(child) }
+        end
       end
-    
+      
       until leafs.empty?
       
         considered = Set.new
