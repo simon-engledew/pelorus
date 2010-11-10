@@ -42,11 +42,9 @@ module MapsHelper
       
         until considering.empty?
           target = considering.first
-          target.supports.each do |supporting_goal|
-            
-            considering.add(supporting_goal) if leafs.include?(supporting_goal)
-            leafs.delete(supporting_goal)
-            
+          (target.supports + target.supported_by).each do |goal|
+            considering.add(goal) if leafs.include?(goal)
+            leafs.delete(goal)
           end
 
           considered.add(target)
