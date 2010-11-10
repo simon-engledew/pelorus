@@ -1,6 +1,8 @@
 !!! Strict
-%html{html_attrs('en-GB'), :name => 'main'}
+%html{html_attrs('en-GB')}
   %head
+    :javascript
+      window.name = 'main';
     %title== Pelorus - #{@title || (resource && resource.respond_to?(:name) ? resource.name : 'Home')}
     != stylesheet_link_tag 'application'
     != javascript_include_tag :mootools
