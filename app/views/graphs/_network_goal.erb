@@ -9,7 +9,9 @@
     penwidth="2";
     fillcolor="<%= status_color(object.local_status) %>";
     URL="<%= polymorphic_url(object.hierarchy) %>";
-    <%= render :partial => 'network_goal', :collection => object.children %>
+    <% if depth > 1 %>
+    <%= render :partial => 'network_goal', :collection => object.children, :locals => { :depth => (depth - 1) } %>
+    <% end %>
   }
 <% else %>
   goal_<%= object.id %> [

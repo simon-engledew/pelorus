@@ -14,9 +14,9 @@ digraph "map_<%= map.id %>" {
   ];
   URL="<%= polymorphic_url(map) %>";
   
-  <%= render :partial => 'network_goal', :collection => map.children -%>
+  <%= render :partial => 'network_goal', :collection => target.children, :locals => { :depth => 2 } -%>
 
-  <%- map.goals.each do |goal| -%>
+  <%- target.children_to_depth(2).each do |goal| -%>
     <%- goal.supporting_goals.each do |supporting_goal| -%>
       goal_<%= cluster_target(supporting_goal.supported_by).id %> -> goal_<%= cluster_target(supporting_goal.goal).id %> [
         style=<%= supporting_goal.supported_by.propagate ? 'solid' : 'dotted' %>,
@@ -30,4 +30,9 @@ digraph "map_<%= map.id %>" {
       ];
     <%- end -%>
   <%- end -%>
+  
+  <% invisible_nodes(target) do |a, b| %>
+    goal_<%= a.id %> -> goal_<%= b.id %>;
+  <% end %>
+
 }

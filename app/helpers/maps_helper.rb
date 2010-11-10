@@ -25,5 +25,41 @@ module MapsHelper
       end
     end
   end
+  
+  def invisible_nodes(parent)
+    goals = parent.children_to_depth(2)
+
+    parent.children.each do |node|
+      
+      leafs = Set.new
+      node.children.each do |goal|
+        leafs.add(goal) unless goal.children.any? {|child| goals.include?(child) }
+      end
+    
+      until leafs.empty?
+      
+        considered = Set.new
+        considering = Set.new
+        considering.add(leafs.first)
+      
+        until considering.empty?
+          target = considering.first
+          target.supports.each do |supporting_goal|
+            
+            considering.add(supporting_goal) if leafs.include?(supporting_goal)
+            leafs.delete(supporting_goal)
+            
+          end
+
+          considered.add(target)
+          considering.delete(target)
+        
+          leafs.delete(target)
+        end
+        
+        yield(target, leafs.first) if leafs.first
+      end
+    end
+  end
 
 end

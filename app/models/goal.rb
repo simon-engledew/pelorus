@@ -83,6 +83,8 @@ public
     not children.empty?
   end
   
+  include Map::ChildrenToDepth
+  
   def children_status
     children.map{|goal| goal.status}.max || 0
   end
@@ -97,6 +99,14 @@ public
   
   def supported_chain_status
     supported_chain.map{|goal| goal.propagate ? goal.status : 0}.max || 0
+  end
+  
+  def tail?
+    self.supporting_goals.empty?
+  end
+  
+  def head?
+    self.supported_goals.empty?
   end
   
   def computed_status

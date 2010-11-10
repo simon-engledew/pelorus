@@ -37,6 +37,20 @@ class Map < ActiveRecord::Base
     goals.find :all, :conditions => {:parent_id => nil}
   end
   
+  module ChildrenToDepth
+    def children_to_depth(n, set=Set.new)
+      if n > 0
+        self.children.each do |child|
+          set.add(child)
+          child.children_to_depth(n - 1, set)
+        end
+      end
+      set
+    end
+  end
+  
+  include Map::ChildrenToDepth
+  
   def graph
     graph = DirectedGraph.new
     self.goals.each do |goal|
