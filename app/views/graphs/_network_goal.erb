@@ -11,7 +11,7 @@
     URL="<%= polymorphic_url(object.hierarchy) %>";
     target="main";
     <% if depth > 1 %>
-    <%= render :partial => 'network_goal', :collection => object.children, :locals => { :depth => (depth - 1) } %>
+    <%= render :partial => 'network_goal', :collection => ordered_goals(object.children), :locals => { :depth => (depth - 1) } %>
     <% end %>
   }
 <% else %>

@@ -1,7 +1,7 @@
 module MapsHelper
 
   def sanitize_label(s)
-    s.gsub(/([^.A-Za-z0-9 ])/, '')
+    s.gsub(/([^.A-Za-z0-9&\/ ])/, '')
   end
   
   StatusColor = {0 => '#dff7d1', 1 => '#ffe096', 2 => '#ffcdcd'}
@@ -16,14 +16,24 @@ module MapsHelper
     LineColor[status]
   end
 
-  def cluster_target(goal)
+  def cluster_head(goal)
     unless goal.cluster?
       return goal
     else
-      goal.children.reverse.detect do |child|
-        return cluster_target(child)
-      end
+      return ordered_goals(goal.children).last
     end
+  end
+  
+  def cluster_tail(goal)
+    unless goal.cluster?
+      return goal
+    else
+      return ordered_goals(goal.children).first
+    end
+  end
+  
+  def ordered_goals(goals)
+    goals.sort_by{|goal|goal.name}.sort_by{|goal|goal.head?? 1 : goal.tail?? 0 : 0.5}
   end
   
   def invisible_nodes(parent)
@@ -33,6 +43,7 @@ module MapsHelper
       
       leafs = Set.new
       leafs.merge(node.children)
+      leafs = ordered_goals(leafs)
       
       until leafs.empty?
       
