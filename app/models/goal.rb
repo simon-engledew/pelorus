@@ -79,6 +79,13 @@ public
     return valid_targets
   end
   
+  def name
+    output = ["#{ super }"]
+    output << " H" if self.head?
+    output << " T" if self.tail?
+    output.join
+  end
+  
   def cluster?
     not children.empty?
   end
