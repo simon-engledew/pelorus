@@ -26,8 +26,7 @@ digraph "map_<%= map.id %>" {
         <% if supporting_goal.supported_by.cluster? or supporting_goal.goal.cluster? %>
         minlen=2,
         <% end %>
-        <% if supporting_goal.supported_by.cluster? %>ltail="cluster_<%= supporting_goal.supported_by.id %>",<% end %>
-        <% if supporting_goal.goal.cluster? %>lhead="cluster_<%= supporting_goal.goal.id %>",<% end %>
+
       ];
     <%- end -%>
   <%- end -%>
