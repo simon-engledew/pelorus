@@ -33,7 +33,7 @@ module MapsHelper
   end
   
   def ordered_goals(goals)
-    goals.sort_by{|goal|goal.name}.sort_by{|goal|goal.head?? 1 : goal.tail?? 0 : 0.5}
+    goals.sort_by{|goal|goal.name}.sort_by{|goal|(goal.head? and goal.tail?)? 3 : goal.head?? 2 : goal.tail?? 0 : 1}
   end
   
   def invisible_nodes(parent)
