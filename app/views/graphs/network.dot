@@ -32,7 +32,7 @@ digraph "map_<%= map.id %>" {
   <%- end -%>
   
   <% invisible_nodes(target) do |a, b| %>
-    goal_<%= a.id %> -> goal_<%= b.id %> [style="invis"];
+    goal_<%= a.id %> -> goal_<%= b.id %>;
   <% end %>
 
 }
