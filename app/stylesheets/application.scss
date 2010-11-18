@@ -731,6 +731,8 @@ textarea[id$="_description"], textarea[id="comment_message"] {
 
 #graphs-graph
 {
+  width: 900px;
+  overflow-x: auto;
   text-align: center;
   > img
   {
