@@ -736,11 +736,12 @@ textarea[id$="_description"], textarea[id="comment_message"] {
 
 #graphs-graph
 {
+  @include max-height(580px);
   width: 900px;
   border: inset 2px #aaa;
   border-top-color: #999;
   border-left-color: #999;
-  overflow-x: auto;
+  overflow: auto;
   text-align: center;
   > img
   {
