@@ -309,10 +309,15 @@ $sidebar_gutter: 40px;
   width: $sidebar_width;
   padding: 20px 0;
   .graph {
-    img {
-      border: none;
-      max-width: 100%;
-      max-height: 200px;
+    text-align: center;
+    a {
+      width: 100%;
+      display: block;
+      img {
+        border: none;
+        max-width: 100%;
+        max-height: 200px;
+      }
     }
   }
   > fieldset {
