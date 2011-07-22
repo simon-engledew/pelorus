@@ -24,7 +24,7 @@ Rails::Initializer.run do |config|
 
   config.i18n.default_locale = 'en-GB'
 
-  config.gem 'haml', :version => '= 3.0.13'
+  config.gem 'haml', :version => '= 3.1.2'
   config.gem 'RedCloth'
   config.gem 'devise', :version => '= 1.0.8'
   config.gem 'subdomain-fu'
