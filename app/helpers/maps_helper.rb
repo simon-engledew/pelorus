@@ -1,7 +1,7 @@
 module MapsHelper
 
   def sanitize_label(s)
-    s.gsub(/([^.A-Za-z0-9&\/ ])/, '')
+    s.gsub('\\', '\\\\\\').gsub('"', '\"')
   end
   
   StatusColor = {0 => '#dff7d1', 1 => '#ffe096', 2 => '#ffcdcd'}

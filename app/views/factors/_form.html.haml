@@ -23,43 +23,42 @@
       %li= f.text_field(:benchmark)
       %li= f.text_field(:benchmark_source)
 
-  .toggle_advanced
-
-:javascript
-  var advancedFields = $$('.advanced');
-  var show = 'Show Advanced';
-  var hide = 'Hide Advanced';
-  
-  $$('.toggle_advanced').grab(new Element('a',
-  {
-    'text': hide,
-    'href': '',
-    'class': 'button',
-    'events':
-    {
-      'click': function(e)
-      {
-        target = $((e && e.target) || this);
-        
-        switch (target.get('text'))
-        {
-          case show:
-            target.set('text', hide);
-            advancedFields.setStyle('opacity', 0);
-            advancedFields.show();
-            advancedFields.tween('opacity', 1);
-          break;
-          case hide:
-            target.set('text', show);
-            advancedFields.hide();
-          break;
-            
-        }
-        return false;
-      }
-    }
-  }));
-
-- unless object.advanced?
+- content_for :finally do
   :javascript
-    $$('.toggle_advanced > a.button').fireEvent('click');
+    var advancedFields = $$('.advanced');
+    var show = 'Show Advanced';
+    var hide = 'Hide Advanced';
+  
+    $$('.form_footer').grab(new Element('a',
+    {
+      'text': hide,
+      'href': '',
+      'class': 'button toggle_advanced',
+      'events':
+      {
+        'click': function(e)
+        {
+          target = $((e && e.target) || this);
+        
+          switch (target.get('text'))
+          {
+            case show:
+              target.set('text', hide);
+              advancedFields.setStyle('opacity', 0);
+              advancedFields.show();
+              advancedFields.tween('opacity', 1);
+            break;
+            case hide:
+              target.set('text', show);
+              advancedFields.hide();
+            break;
+            
+          }
+          return false;
+        }
+      }
+    }));
+
+  - unless object.advanced?
+    :javascript
+      $$('a.button.toggle_advanced').fireEvent('click');

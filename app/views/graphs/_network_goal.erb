@@ -1,4 +1,4 @@
-<% unless object.children.empty? %>
+<% if not object.children.empty? and depth > 1 %>
   subgraph "cluster_<%= object.id %>" {
     label="<%= sanitize_label(object.name) %>";
     color="<%= line_color(object.remote_status) %>";

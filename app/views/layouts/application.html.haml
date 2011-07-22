@@ -3,6 +3,7 @@
   %head
     :javascript
       window.name = 'main';
+    %link{:href => 'favicon.png', :rel => 'icon', :type => 'image/png'}
     %title== Pelorus - #{@title || (resource && resource.respond_to?(:name) ? resource.name : 'Home')}
     != stylesheet_link_tag 'application'
     != javascript_include_tag :mootools
@@ -47,4 +48,5 @@
           %p{:style => 'float:left;width:45%;text-align:right'} email: <a href="mailto:enquiries@toolforchange.com">enquiries@toolforchange.com</a>
           %p{:style => 'float:right;width:45%;text-align:left'} telephone: +44 (0)1962 711703
 
-    != javascript_include_tag 'application'
+  != javascript_include_tag 'application'
+  != yield :finally

@@ -80,7 +80,7 @@ public
   end
   
   def cluster?
-    not children.empty?
+    not children.empty? and map.children.include?(self)
   end
   
   include Map::ChildrenToDepth
