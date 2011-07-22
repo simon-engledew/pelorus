@@ -37,6 +37,12 @@ protected
       end
       warden.custom_failure! if performed?
     end
+    if current_subdomain == 'utqcbbor6z'
+      authenticate_or_request_with_http_basic do |username, password|
+          username == 'oOP4bLZqmJ' && password == 'JbMthx3dOU'
+      end
+      warden.custom_failure! if performed?
+    end
   end
 
   unless Rails.env.development?
