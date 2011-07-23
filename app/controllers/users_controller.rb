@@ -13,18 +13,23 @@ class UsersController < ApplicationController
   
   def destroy
     user.destroy
+    Event.create!(:controller => self, :model => resource)
     redirect_to users_url
   end
   
   def create
     @user = User.new(params[:user])
     @user.subdomain = current_subdomain
-    return redirect_to(@user) if @user.save
+    if @user.save
+      Event.create!(:controller => self, :model => resource)
+      return redirect_to(@user)
+    end
     render :action => :new
   end
   
   def update
     return render(:action => :edit) unless user.update_attributes(params[:user])
+    Event.create!(:controller => self, :model => resource)
     flash[:notice] = "User was successfully updated."
     redirect_to user.hierarchy
   end

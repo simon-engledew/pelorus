@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
 
+  is_paranoid
+
   def hierarchy
     [self]
   end

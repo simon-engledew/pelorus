@@ -1,5 +1,6 @@
 class Factor < ActiveRecord::Base
   
+  is_paranoid
   include Comment::Parent
   
   attr_protected :goal

@@ -1,5 +1,6 @@
 class Map < ActiveRecord::Base
 
+  is_paranoid
   include Comment::Parent
 
   DefaultStakes = ['Goal Champion', 'Goal Manager', 'Risk Manager', 'Change Manager'].freeze

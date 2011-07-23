@@ -13,18 +13,23 @@ class MapsController < ApplicationController
   def create
     @map = Map.new(params[:map])
     @map.subdomain = current_subdomain
-    return redirect_to(@map.hierarchy) if @map.save
+    if @map.save
+      Event.create!(:controller => self, :model => resource)
+      return redirect_to(@map.hierarchy)
+    end
     render :action => :new
   end
   
   def update
     return render(:action => :edit) unless map.update_attributes(params[:map])
+    Event.create!(:controller => self, :model => resource)
     flash[:notice] = "Map was successfully updated."
     redirect_to @map.hierarchy
   end
   
   def destroy
     map.destroy
+    Event.create!(:controller => self, :model => resource)
     redirect_to root_url
   end
   

@@ -1,0 +1,20 @@
+- title 'Timeline'
+
+%h2= @title
+
+- @events.each do |date, events|
+  %h3= date
+  %ul.timeline
+    - events.each do |event|
+      %li
+        %span.updated_at= event.updated_at.strftime('%H:%M')
+        %span.user= event_model(event.user)
+        - if event.model.instance_of?(Comment)
+          %span.action=t ".comment.#{event.action}"
+          on
+          %span.model== "#{ event_model(event.model.parent) }"
+        - else
+          %span.action=t ".action.#{event.action}"
+          the
+          %span.model_type= event.model.class
+          %span.model== "#{ event_model(event.model) }"

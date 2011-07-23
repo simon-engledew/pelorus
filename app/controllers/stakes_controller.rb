@@ -7,18 +7,24 @@ class StakesController < ApplicationController
   def create
     @stake = parent_node.stakes.build(params[:stake])
     @stake.map = map
-    return redirect_to(@stake.parent_node.hierarchy) if @stake.save
+    if @stake.save
+      Event.create!(:controller => self, :model => resource)
+      return redirect_to(@stake.parent_node.hierarchy)
+    end
     render :action => :new
   end
   
   def update
     return render(:action => :edit) unless stake.update_attributes(params[:stake])
+    Event.create!(:controller => self, :model => resource)
     flash[:notice] = "Stake was successfully updated."
     redirect_to stake.parent_node.hierarchy
   end
 
   def destroy
-    stake.destroy unless stake.enforced
+    return redirect_to(stake.parent_node.hierarchy) unless stake.enforced
+    stake.destroy
+    Event.create!(:controller => self, :model => resource)
     redirect_to stake.parent_node.hierarchy
   end
   

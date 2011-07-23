@@ -8,7 +8,6 @@ maps:
   - manager_id
   - created_at
   - updated_at
-  - subdomain
   records: 
   - - 8
     - Within the Call Centre, the Customer Enquiry process will be redesigned, with support from a new CRM system. The new process will be more efficient than its predecessor, provide continuity of customer contacts and support cross-selling. With the efficiency gains, some Call Centre staff will be reassigned to marketing roles. This will lead to substantial cost savings and other business benefits.
@@ -16,7 +15,6 @@ maps:
     - 4
     - 2010-05-04 09:32:08
     - 2010-05-04 09:45:00
-    - staging
   - - 10
     - |-
       Currently, for historical reasons, we have several small offices in a 30-mile radius of Reading. This has resulted in inefficient use of space. Further, communication and cooperation between departments and individuals is more difficult than it should be.
@@ -26,14 +24,12 @@ maps:
     - 10
     - 2010-05-17 13:53:02
     - 2010-05-17 13:53:02
-    - staging
   - - 29
     - Saving the Ambridge Village Shop by moving it from private ownership to one that is owned and operated by the community
     - Ambridge Community Shop
     - 28
     - 2010-07-15 16:49:29
     - 2010-07-15 16:49:58
-    - staging
 
 --- 
 goals: 
@@ -5185,8 +5181,8 @@ users:
     - Vic Stenning
     - true
     - vic@toolforchange.com
-    - 0295bc393329843993da3562095db6fd213bff7a
-    - iqN51EHWVNqugAMV-McC
+    - 214286c73dea337b93e91d294314e844aa3e09a1
+    - v6NFwiPK-FQ7R8auAKNB
     - 9RPI9BU9euZQrBu2Ablj
     - 2010-05-03 13:16:13
     - 2010-05-03 13:10:36
@@ -5200,7 +5196,7 @@ users:
     - 86.138.145.138
     - 2010-05-03 13:10:36
     - 2010-08-08 16:04:55
-    - staging
+    - *
   - - 5
     - Simon Engledew
     - true

@@ -1,5 +1,7 @@
 class Comment < ActiveRecord::Base
   
+  is_paranoid
+  
   module Parent
     def self.included(base)
       base.has_many :comments, :as => :parent

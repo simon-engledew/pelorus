@@ -12,18 +12,23 @@ class RisksController < ApplicationController
   
   def create
     @risk = goal.risks.build(params[:risk])
-    return redirect_to(@risk.parent_node.hierarchy) if @risk.save
+    if @risk.save
+      Event.create!(:controller => self, :model => resource)
+      return redirect_to(@risk.parent_node.hierarchy)
+    end
     render :action => :new
   end
   
   def update
     return render(:action => :edit) unless risk.update_attributes(params[:risk])
+    Event.create!(:controller => self, :model => resource)
     flash[:notice] = "Risk was successfully updated."
     redirect_to risk.parent_node.hierarchy
   end
   
   def destroy
     risk.destroy
+    Event.create!(:controller => self, :model => resource)
     redirect_to risk.parent_node.hierarchy
   end
   

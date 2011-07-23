@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100925200149) do
+ActiveRecord::Schema.define(:version => 20110723154051) do
 
   create_table "comments", :force => true do |t|
     t.text     "message"
@@ -20,7 +20,21 @@ ActiveRecord::Schema.define(:version => 20100925200149) do
     t.boolean  "override_status", :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "deleted_at"
   end
+
+  create_table "events", :force => true do |t|
+    t.string   "action"
+    t.integer  "user_id"
+    t.string   "subdomain"
+    t.integer  "model_id"
+    t.string   "model_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.datetime "deleted_at"
+  end
+
+  add_index "events", ["subdomain"], :name => "index_events_on_subdomain"
 
   create_table "factors", :force => true do |t|
     t.text     "description"
@@ -37,6 +51,7 @@ ActiveRecord::Schema.define(:version => 20100925200149) do
     t.string   "priority",         :default => "medium"
     t.string   "benchmark"
     t.string   "benchmark_source"
+    t.datetime "deleted_at"
   end
 
   create_table "goals", :force => true do |t|
@@ -47,6 +62,7 @@ ActiveRecord::Schema.define(:version => 20100925200149) do
     t.integer  "map_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "deleted_at"
   end
 
   create_table "maps", :force => true do |t|
@@ -56,7 +72,10 @@ ActiveRecord::Schema.define(:version => 20100925200149) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "subdomain"
+    t.datetime "deleted_at"
   end
+
+  add_index "maps", ["subdomain"], :name => "index_maps_on_subdomain"
 
   create_table "risks", :force => true do |t|
     t.text     "description"
@@ -65,6 +84,7 @@ ActiveRecord::Schema.define(:version => 20100925200149) do
     t.integer  "goal_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "deleted_at"
   end
 
   create_table "stakes", :force => true do |t|
@@ -75,6 +95,7 @@ ActiveRecord::Schema.define(:version => 20100925200149) do
     t.integer  "goal_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "deleted_at"
   end
 
   create_table "supporting_goals", :force => true do |t|
@@ -82,6 +103,7 @@ ActiveRecord::Schema.define(:version => 20100925200149) do
     t.integer  "supported_by_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "deleted_at"
   end
 
   create_table "users", :force => true do |t|
@@ -104,10 +126,12 @@ ActiveRecord::Schema.define(:version => 20100925200149) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "subdomain"
+    t.datetime "deleted_at"
   end
 
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+  add_index "users", ["subdomain"], :name => "index_users_on_subdomain"
 
 end

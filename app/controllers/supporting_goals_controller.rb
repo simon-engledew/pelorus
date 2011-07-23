@@ -8,13 +8,16 @@ class SupportingGoalsController < ApplicationController
   
   def create
     @supporting_goal = goal.supporting_goals.build(params[:supporting_goal])
-    return redirect_to(goal.hierarchy) if @supporting_goal.save
+    if @supporting_goal.save
+      Event.create!(:controller => self, :model => resource)
+      return redirect_to(goal.hierarchy)
+    end
     render :action => :new
   end
   
   def destroy
     supporting_goal.destroy
-    
+    Event.create!(:controller => self, :model => resource)
     redirect_to goal.hierarchy
   end
   

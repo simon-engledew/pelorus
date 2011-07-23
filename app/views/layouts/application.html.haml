@@ -21,6 +21,7 @@
               Pelorus - The Tool For Change
         %ul.controls
           %li= link_to 'Maps', root_path
+          %li= link_to 'Timeline', timeline_path
           %li= link_to 'Stakeholders', users_path
           - if user_signed_in?
             %li= link_to "#{current_user.name} (Logout)", destroy_user_session_path

@@ -77,7 +77,8 @@ protected
   end
   
   def resource
-    send(controller_name.singularize)
+    resource = controller_name.singularize
+    respond_to?(resource) and send(resource)
   end
   
   def resource_name

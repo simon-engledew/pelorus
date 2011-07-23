@@ -13,18 +13,23 @@ class GoalsController < ApplicationController
   
   def create
     @goal = map.goals.build(params[:goal])
-    return redirect_to(@goal.hierarchy) if @goal.save
+    if @goal.save
+      Event.create!(:controller => self, :model => resource)
+      return redirect_to(@goal.hierarchy)
+    end
     render :action => :new
   end
   
   def update
     return render(:action => :edit) unless goal.update_attributes(params[:goal])
+    Event.create!(:controller => self, :model => resource)
     flash[:notice] = "Goal was successfully updated."
     redirect_to @goal.hierarchy
   end
   
   def destroy
     goal.destroy
+    Event.create!(:controller => self, :model => resource)
     redirect_to goal.parent_node.hierarchy
   end
 

@@ -29,6 +29,15 @@ en:
           
       am: 'am'
       pm: 'pm'
+  timeline:
+    index:
+      comment:
+        create: commented
+        destroy: removed a comment
+      action:
+        update: updated
+        create: created
+        destroy: destroyed
   maps:
     index:
       write:

@@ -1,5 +1,6 @@
 class Risk < ActiveRecord::Base
 
+  is_paranoid
   include Comment::Parent
 
   def hierarchy

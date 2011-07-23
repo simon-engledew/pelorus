@@ -10,12 +10,16 @@ class CommentsController < ApplicationController
   def create
     @comment = parent_node.comments.build(params[:comment])
     @comment.user = current_user
-    return redirect_to(@comment.parent_node.hierarchy) if @comment.save
+    if @comment.save
+      Event.create!(:controller => self, :model => resource)
+      return redirect_to(@comment.parent_node.hierarchy)
+    end
     render :action => :new
   end
   
   def destroy
     comment.destroy
+    Event.create!(:controller => self, :model => resource)
     redirect_to comment.parent_node.hierarchy
   end
 

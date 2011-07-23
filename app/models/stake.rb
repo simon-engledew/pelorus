@@ -1,5 +1,7 @@
 class Stake < ActiveRecord::Base
   
+  is_paranoid
+  
   attr_protected :enforced, :map, :goal
 
   belongs_to :user

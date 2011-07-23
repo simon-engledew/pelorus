@@ -16,18 +16,23 @@ class FactorsController < ApplicationController
   
   def create
     @factor = goal.factors.build(params[:factor])
-    return redirect_to(@factor.parent_node.hierarchy) if @factor.save
+    if @factor.save
+      Event.create!(:controller => self, :model => resource)
+      return redirect_to(@factor.parent_node.hierarchy)
+    end
     render :action => :new
   end
   
   def update
     return render(:action => :edit) unless factor.update_attributes(params[:factor])
+    Event.create!(:controller => self, :model => resource)
     flash[:notice] = "Factor was successfully updated."
     redirect_to factor.parent_node.hierarchy
   end
   
   def destroy
     factor.destroy
+    Event.create!(:controller => self, :model => resource)
     redirect_to factor.parent_node.hierarchy
   end
   

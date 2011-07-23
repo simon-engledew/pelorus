@@ -1,5 +1,6 @@
 class Goal < ActiveRecord::Base
 
+  is_paranoid
   include Comment::Parent
 
 private
