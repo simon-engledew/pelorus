@@ -19,9 +19,9 @@ public
   
   attr_protected :map
   
-  has_many :factors
-  has_many :risks
-  has_many :stakes
+  has_many :factors, :dependent => :destroy
+  has_many :risks, :dependent => :destroy
+  has_many :stakes, :dependent => :destroy
   
   has_many :supporting_goals, :dependent => :destroy
   has_many :supported_by, :through => :supporting_goals, :source => :supported_by
@@ -30,6 +30,8 @@ public
   has_many :supports, :through => :supported_goals, :source => :goal
   
   belongs_to :map
+  
+  use_exclusive_scope :map
   
   has_status :risks, :factors, :supports, :supported_by, :supports_status
   

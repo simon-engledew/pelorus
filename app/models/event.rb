@@ -14,25 +14,17 @@ class Event < ActiveRecord::Base
     end
   end
   
-  def user_with_exclusive_scope
-    event = self
-    User.instance_eval do
-      self.with_exclusive_scope do
-        event.user_without_exclusive_scope
-      end
-    end
-  end
+  use_exclusive_scope :user
   
   def model_with_exclusive_scope
-    event = self
+    model = self
     self.model_type.constantize.instance_eval do
       self.with_exclusive_scope do
-        event.model_without_exclusive_scope
+        model.model_without_exclusive_scope
       end
     end
   end
   
   alias_method_chain :model, :exclusive_scope
-  alias_method_chain :user, :exclusive_scope
 
 end

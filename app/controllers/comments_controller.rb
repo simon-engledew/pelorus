@@ -23,7 +23,6 @@ class CommentsController < ApplicationController
     redirect_to comment.parent_node.hierarchy
   end
 
-
 protected
 
   def write_permission?

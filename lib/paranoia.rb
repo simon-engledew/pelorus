@@ -6,6 +6,29 @@ module Paranoia
     include InstanceMethods
   end
   
+  # def user_with_exclusive_scope
+  #   model = self
+  #   User.instance_eval do
+  #     self.with_exclusive_scope do
+  #       model.user_without_exclusive_scope
+  #     end
+  #   end
+  # end
+  
+  def use_exclusive_scope(model, klass = model.to_s.camelize.constantize)
+    self.class_eval do
+      define_method(:"#{model}_with_exclusive_scope") do
+        instance = self
+        klass.instance_eval do
+          with_exclusive_scope do
+            instance.send(:"#{model}_without_exclusive_scope")
+          end
+        end
+      end
+      alias_method_chain(model, :exclusive_scope)
+    end
+  end
+  
   module InstanceMethods
     def self.included(base)
       base.class_eval do

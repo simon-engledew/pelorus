@@ -148,4 +148,6 @@ class Factor < ActiveRecord::Base
     goal
   end
   
+  use_exclusive_scope :goal
+  
 end

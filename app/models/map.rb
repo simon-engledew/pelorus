@@ -16,9 +16,9 @@ class Map < ActiveRecord::Base
   
   attr_protected :manager, :subdomain
   
-  has_many :goals
-  has_many :roles
-  has_many :stakes, :conditions => {:goal_id => nil}
+  has_many :goals, :dependent => :destroy
+  # has_many :roles, :dependent => :destroy
+  has_many :stakes, :conditions => {:goal_id => nil}, :dependent => :destroy
   
   validates_associated :manager
   validates_presence_of :manager

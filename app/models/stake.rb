@@ -26,4 +26,8 @@ class Stake < ActiveRecord::Base
     self.goal || self.map
   end
   
+  use_exclusive_scope :user
+  use_exclusive_scope :map
+  use_exclusive_scope :goal
+  
 end

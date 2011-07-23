@@ -1,5 +1,7 @@
 class SupportingGoal < ActiveRecord::Base
 
+  is_paranoid
+
   def hierarchy
     self.goal.hierarchy << self
   end
@@ -28,4 +30,7 @@ class SupportingGoal < ActiveRecord::Base
     self.goal.map
   end
   
+  use_exclusive_scope :goal
+  use_exclusive_scope :supported_by, Goal
+
 end

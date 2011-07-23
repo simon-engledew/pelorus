@@ -11,7 +11,8 @@
         %span.user= event_model(event.user)
         - if event.model.instance_of?(Comment)
           %span.action=t ".comment.#{event.action}"
-          on
+          on the
+          %span.model_type= event.model.parent.class
           %span.model== "#{ event_model(event.model.parent) }"
         - else
           %span.action=t ".action.#{event.action}"
