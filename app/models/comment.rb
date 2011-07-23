@@ -55,5 +55,6 @@ class Comment < ActiveRecord::Base
   validates_inclusion_of :status, :in => ::Status::Enum.keys, :allow_nil => true
   validates_associated :user
   validates_associated :parent
+  validates_presence_of :message
 
 end

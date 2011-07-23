@@ -1,25 +1,25 @@
 class LabellingFormBuilder < ActionView::Helpers::FormBuilder
 
   include ActionView::Helpers::TagHelper
+  
+  def label(method, *args)
+    errors = @object.errors.on(method.to_s.chomp('_id'))
+    hash = args.last.is_a?(Hash)? args.last : {}
+    text = []
+    text << (hash.delete(:label) || human_attribute_name(method))
+    text << content_tag(:span, [*errors].last, :class => 'error') unless errors.blank?
+    super(text.join(' '))
+  end
+  
 
-  class_eval do
-    instance_eval do
-      [:select, :grouped_select, :text_field, :password_field, :text_area, :check_box, :file_field].each do |method_name|
-        define_method(method_name) do |method, *args|
-          hash = args.last.is_a?(Hash)? args.last : {}
-          errors = @object.errors.on(method.to_s.chomp('_id'))
-
-          label_text = []
-          label_text << (hash.delete(:label) || human_attribute_name(method))
-          (label_text << content_tag(:span, [*errors].last, :class => 'error')) unless errors.blank?
-
-          output  = []
-          output << label(method, label_text.join(' '))
-          output << super(method, *args)
-          content_tag(:div, output.join(' '), :class => 'input')
-        end
-      end
+  [:select, :text_field, :password_field, :text_area, :check_box, :file_field].each do |method_name|
+    define_method(:"#{method_name}_with_label") do |method, *args|
+      output  = []
+      output << label(method, *args)
+      output << send(:"#{method_name}_without_label", method, *args)
+      content_tag(:div, output.join(' '), :class => 'input')
     end
+    alias_method_chain method_name, :label
   end
 
 protected

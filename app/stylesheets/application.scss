@@ -671,6 +671,7 @@ div.container {
 }
 
 .fieldWithErrors {
+  display: inline;
   input[type="text"], input[type="password"], textarea {
     background-color: #ffeeee;
     @include vertical-linear-gradient(#fff9f9, #ffeeee);

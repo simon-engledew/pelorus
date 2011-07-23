@@ -51,18 +51,20 @@ module ApplicationHelper
     operator.slice(0, 1)
   end
   
-  def status_image(object, title = nil)
+  def status_image(object, params = {})
     status = Status::Enum[object.respond_to?(:computed_status) ? object.computed_status : object].to_s.downcase
-    title ||= status.titlecase
+    params[:title] ||= status.titlecase
+    title = params.delete(:title)
     status = "#{status}_hollow" if object.instance_of?(Goal) and !object.propagate
-    image_tag("status/#{status}.png", :title => title, :alt => title, :height => 20, :width => 20)
+    image_tag("status/#{status}.png", params.reverse_merge(:title => title, :alt => title, :height => 20, :width => 20))
   end
   
-  def comment_status_image(object, title = nil)
+  def comment_status_image(object, params = {})
     status = (Status::Enum[object.respond_to?(:status) ? object.status : object] || 'none').to_s.downcase
-    title ||= status.titlecase
+    params[:title] ||= status.titlecase
+    title = params.delete(:title)
     # status = "#{status}_hollow" if object.instance_of?(Comment) and !object.override_status
-    image_tag("status/#{status}.png", :title => title, :alt => title, :height => 20, :width => 20)
+    image_tag("status/#{status}.png", params.reverse_merge(:title => title, :alt => title, :height => 20, :width => 20))
   end
   
   def status_tag(status)
