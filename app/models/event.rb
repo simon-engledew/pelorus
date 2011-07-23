@@ -3,6 +3,8 @@ class Event < ActiveRecord::Base
   belongs_to :user
   belongs_to :model, :polymorphic => true
   
+  named_scope :with_subdomain, lambda {|subdomain| { :conditions => { :subdomain => subdomain }}}
+  
   def controller=(controller)
     event = self
     controller.instance_eval do
