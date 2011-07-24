@@ -8,7 +8,7 @@
       %li== #{status_image goal.supported_chain_status} <a href="#supporting_goals">Supporting Goals</a>
       %li== #{status_image goal.supports_status} <a href="#supported_goals">Supported Goals</a>
       %li== #{status_image goal.comment_status} <a href="#discussion">Discussion</a>
-      %li== #{image_tag('status/none.png', :alt => 'No Status', :height => 20, :width => 20)} <a href="#stakes">Stakes</a>
+      %li== <div class="status_image">#{image_tag('status/none.png', :alt => 'No Status', :height => 20, :width => 20)}</div> <a href="#stakes">Stakes</a>
   
   != render :partial => '/shared/network_graph'
   != render :partial => '/shared/comments', :object => resource

@@ -348,8 +348,7 @@ $content_width: $container_width - $sidebar_gutter - $sidebar_width;
     }
     > ul > li {
       margin: 0.75em 0 0 0;
-      > img {
-        vertical-align: bottom;
+      > div.status_image {
         margin-right: 1ex;
       }
       > a {
@@ -373,13 +372,9 @@ $content_width: $container_width - $sidebar_gutter - $sidebar_width;
   }
   .breadcrumb {
     margin-bottom: 3px;
-    > img {
-      position: relative;
-      bottom: -5px;
-      margin-right: 3px;
-    }
     > span {
       line-height: 200%;
+      margin-left: 3px;
       padding: 3px 0;
       @include border-radius(7px);
       overflow-x: hidden;
@@ -450,6 +445,12 @@ div.input {
     margin: 1em 0 0.5em;
   }
 }
+div.input.check_box {
+  label {
+    display: inline;
+    margin: 0 0 0 1ex;
+  }
+}
 
 input[type=text], input[type=password], textarea, select {
   font: 11pt "Lucida Grande", Verdana, Arial, Sans-Serif;
@@ -479,6 +480,23 @@ label {
   }
 }
 
+div.status_image {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 0;
+  line-height: 0;
+  position: relative;
+  width: 20px;
+  height: 20px;
+  .propagate {
+    height: 12px;
+    width: 12px;
+    position: absolute;
+    bottom: -3px;
+    right: -3px;
+  }
+}
+
 div#content {
   font-size: 11pt;
   > h2 > span.explanation
@@ -492,7 +510,7 @@ div#content {
     > h1 {
       position: relative;
       margin-left: 18px;
-      > img {
+      > div.status_image {
         position: absolute;
         left: -30px;
         top: 50%;
@@ -507,16 +525,25 @@ div#content {
       }
     }
     > div#description_text {
+      text-align: justify;
+      color: #222;
+      font-size: 11pt;
+      padding: 1em;
+      margin-top: 1.5em;
+      border: solid 1px #ddd;
+      background: lighten($yellow, 2.5%);
+      @include vertical-linear-gradient(lighten($yellow, 2.5%), $yellow);
+      @include border-radius(5px);
+      @include inset-box-shadow(0, 0, 1px, rgba(0, 0, 0, 0.1));
+      /*
       margin-bottom: 1em;
       padding: 1em;
       border-left: solid 5px #aaa;
       margin-left: -5px;
-      text-align: justify;
-      color: #222;
       background: lighten($yellow, 2.5%);
       @include inset-box-shadow(1px, 1px, 0, rgba(255, 255, 255, 0.75));
-      font-size: 11pt;
       border-bottom: solid 1px #e8e8e8;
+      */
       > p
       {
         line-height: 175%;
@@ -693,8 +720,9 @@ $factor_content_width: $content_width - 20px;
 
 #content.timeline_content {
   ul.timeline {
-    padding-left: 1ex;
-    margin-left: -2px;
+    margin-bottom: 1em;
+    padding-left: 10px;
+    margin-left: -12px;
     border-left: solid 2px #eee;
     li {
       span.updated_at {

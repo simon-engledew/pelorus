@@ -56,7 +56,12 @@ module ApplicationHelper
     params[:title] ||= status.titlecase
     title = params.delete(:title)
     status = "#{status}_hollow" if object.instance_of?(Goal) and !object.propagate
-    image_tag("status/#{status}.png", params.reverse_merge(:title => title, :alt => title, :height => 20, :width => 20))
+    output = []
+    output << image_tag("status/#{status}.png", params.reverse_merge(:title => title, :alt => title, :height => 20, :width => 20))
+    if object.respond_to?(:propagate) and object.propagate
+      output << image_tag("propagate.png", :class => 'propagate', :title => t('goals.propagate'), :alt => t('goals.propagate'))
+    end
+    content_tag(:div, output.join, :class => 'status_image')
   end
   
   def comment_status_image(object, params = {})

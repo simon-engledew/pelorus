@@ -8,16 +8,24 @@ class LabellingFormBuilder < ActionView::Helpers::FormBuilder
     text = []
     text << (hash.delete(:label) || human_attribute_name(method))
     text << content_tag(:span, [*errors].last, :class => 'error') unless errors.blank?
-    super(text.join(' '))
+    super(method, text.join(' '))
+  end
+
+  def check_box_with_label(method, *args)
+    output  = []
+    output << label(method, *args)
+    output << send(:check_box_without_label, method, *args)
+    content_tag(:div, output.reverse.join(' '), :class => 'input check_box')
   end
   
+  alias_method_chain :check_box, :label
 
-  [:select, :text_field, :password_field, :text_area, :check_box, :file_field].each do |method_name|
+  [:select, :text_field, :password_field, :text_area, :file_field].each do |method_name|
     define_method(:"#{method_name}_with_label") do |method, *args|
       output  = []
       output << label(method, *args)
       output << send(:"#{method_name}_without_label", method, *args)
-      content_tag(:div, output.join(' '), :class => 'input')
+      content_tag(:div, output.join(' '), :class => "input #{method_name}")
     end
     alias_method_chain method_name, :label
   end

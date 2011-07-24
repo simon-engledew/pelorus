@@ -29,6 +29,7 @@ en:
           
       am: 'am'
       pm: 'pm'
+
   timeline:
     index:
       comment:
@@ -50,6 +51,7 @@ en:
       read:
         empty: Contact your project manager to add a new top level goal.
   goals:
+    propagate: The status of this goal affects its supporting goals.
     show:
       write:
         empty:
