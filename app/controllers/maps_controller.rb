@@ -28,8 +28,7 @@ class MapsController < ApplicationController
   end
   
   def destroy
-    map.destroy
-    Event.create!(:controller => self, :model => resource)
+    Event.create!(:controller => self, :model => resource) if map.destroy
     redirect_to root_url
   end
   

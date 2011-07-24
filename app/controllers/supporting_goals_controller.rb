@@ -16,8 +16,7 @@ class SupportingGoalsController < ApplicationController
   end
   
   def destroy
-    supporting_goal.destroy
-    Event.create!(:controller => self, :model => resource)
+    Event.create!(:controller => self, :model => resource) if supporting_goal.destroy
     redirect_to goal.hierarchy
   end
   

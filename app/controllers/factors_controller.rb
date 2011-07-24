@@ -31,8 +31,7 @@ class FactorsController < ApplicationController
   end
   
   def destroy
-    factor.destroy
-    Event.create!(:controller => self, :model => resource)
+    Event.create!(:controller => self, :model => resource) if factor.destroy
     redirect_to factor.parent_node.hierarchy
   end
   

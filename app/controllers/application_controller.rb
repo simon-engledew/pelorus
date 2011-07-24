@@ -102,4 +102,10 @@ protected
   before_filter :check_permissions, :unless => lambda { |controller| controller.kind_of?(SessionsController) } # controller.devise_controller? }
     # controller.kind_of?(SessionsController)
   # end # || controller.kind_of?(ConfirmationsController)}
+  
+  before_filter :set_current_subdomain
+protected
+  def set_current_subdomain
+    Thread.current[:current_subdomain] = current_subdomain
+  end
 end

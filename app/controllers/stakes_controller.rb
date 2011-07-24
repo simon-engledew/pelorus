@@ -23,8 +23,7 @@ class StakesController < ApplicationController
 
   def destroy
     return redirect_to(stake.parent_node.hierarchy) unless stake.enforced
-    stake.destroy
-    Event.create!(:controller => self, :model => resource)
+    Event.create!(:controller => self, :model => resource) if stake.destroy
     redirect_to stake.parent_node.hierarchy
   end
   

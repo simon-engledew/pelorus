@@ -27,8 +27,7 @@ class RisksController < ApplicationController
   end
   
   def destroy
-    risk.destroy
-    Event.create!(:controller => self, :model => resource)
+    Event.create!(:controller => self, :model => resource) if risk.destroy
     redirect_to risk.parent_node.hierarchy
   end
   

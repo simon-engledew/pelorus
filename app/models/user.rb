@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
     [self]
   end
   
-  default_scope :order => 'name'
+  named_scope :ordered, :order => 'name'
   
   named_scope :with_subdomain, lambda {|subdomain| { :conditions => { :subdomain => ['*', subdomain] }}}
   
@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
   before_destroy :has_stakes?
   
   def has_stakes?
-    stakes.empty? and not Map.exists?(:manager_id => self.id)
+    allowed = stakes.empty? and not Map.exists?(:manager_id => self.id)
   end
   
   # :http_authenticatable, :token_authenticatable, :lockable, :timeoutable and :activatable

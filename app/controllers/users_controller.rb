@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   
   def index
-    @users = User.with_subdomain(current_subdomain).all
+    @users = User.with_subdomain(current_subdomain).ordered.all
   end
   
   def new
@@ -11,9 +11,10 @@ class UsersController < ApplicationController
   def edit
   end
   
+  include ActionView::Helpers::TextHelper
+  
   def destroy
-    user.destroy
-    Event.create!(:controller => self, :model => resource)
+    Event.create!(:controller => self, :model => resource) if user.destroy else (flash[:error] = %(Cannot delete the stakeholder "#{user.name}" until #{pluralize user.stakes.count, 'stakes'} have been reassigned.))
     redirect_to users_url
   end
   

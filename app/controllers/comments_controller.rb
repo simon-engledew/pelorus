@@ -18,8 +18,7 @@ class CommentsController < ApplicationController
   end
   
   def destroy
-    comment.destroy
-    Event.create!(:controller => self, :model => resource)
+    Event.create!(:controller => self, :model => resource) if comment.destroy
     redirect_to comment.parent_node.hierarchy
   end
 
