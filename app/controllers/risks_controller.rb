@@ -38,7 +38,7 @@ class RisksController < ApplicationController
   def show
   end
   
-private
+protected
 
   def risk
     @risk ||= (goal.risks.find_by_id!(params[:id]) if params[:id])
