@@ -7,7 +7,7 @@ class SupportingGoal < ActiveRecord::Base
   end
 
   belongs_to :goal
-  belongs_to :supported_by, :class_name => %(Goal)
+  belongs_to :supported_by, :class_name => Goal.to_s
 
   validates_associated :goal, :supported_by
   validates_presence_of :goal_id, :supported_by_id
@@ -31,6 +31,6 @@ class SupportingGoal < ActiveRecord::Base
   end
   
   use_exclusive_scope :goal
-  use_exclusive_scope :supported_by, Goal
+  use_exclusive_scope :supported_by, :class_name => Goal.to_s
 
 end

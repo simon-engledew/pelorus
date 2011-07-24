@@ -9,7 +9,12 @@
       %li
         %span.updated_at= event.updated_at.strftime('%H:%M')
         %span.user= event_model(event.user)
-        - if event.model.instance_of?(Comment)
+        - if event.model.instance_of?(SupportingGoal)
+          %span.action=t ".supporting_goal.#{event.action}"
+          %span.model== "#{ event_model(event.model.supported_by) }"
+          supporting
+          %span.model== "#{ event_model(event.model.goal) }"
+        - elsif event.model.instance_of?(Comment)
           %span.action=t ".comment.#{event.action}"
           on the
           %span.model_type= event.model.parent.class

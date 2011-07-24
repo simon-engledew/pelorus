@@ -23,10 +23,10 @@ public
   has_many :risks, :dependent => :destroy
   has_many :stakes, :dependent => :destroy
   
-  has_many :supporting_goals, :dependent => :destroy
+  has_many :supporting_goals, :dependent => :destroy, :dependent => :destroy, :conditions => {:deleted_at => nil}
   has_many :supported_by, :through => :supporting_goals, :source => :supported_by
 
-  has_many :supported_goals, :class_name => %(SupportingGoal), :foreign_key => :supported_by_id, :dependent => :destroy
+  has_many :supported_goals, :class_name => %(SupportingGoal), :foreign_key => :supported_by_id, :dependent => :destroy, :conditions => {:deleted_at => nil}
   has_many :supports, :through => :supported_goals, :source => :goal
   
   belongs_to :map
@@ -74,7 +74,7 @@ public
     invalid_targets.add(self)
     invalid_targets.merge(descendants)
     invalid_targets.merge(supported_by)
-  
+
     map.goals.each do |goal|
       valid_targets.add(goal) unless invalid_targets.include?(goal) or graph.cyclic?(goal, self)
     end

@@ -32,6 +32,9 @@ en:
 
   timeline:
     index:
+      supporting_goal:
+        create: started
+        destroy: stopped
       comment:
         create: commented
         destroy: removed a comment

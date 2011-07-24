@@ -15,16 +15,6 @@ class Event < ActiveRecord::Base
   end
   
   use_exclusive_scope :user
+  use_exclusive_scope :model, :polymorphic => true
   
-  def model_with_exclusive_scope
-    model = self
-    self.model_type.constantize.instance_eval do
-      self.with_exclusive_scope do
-        model.model_without_exclusive_scope
-      end
-    end
-  end
-  
-  alias_method_chain :model, :exclusive_scope
-
 end

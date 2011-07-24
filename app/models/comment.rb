@@ -40,17 +40,7 @@ class Comment < ActiveRecord::Base
   end
   
   use_exclusive_scope :user
-
-  def parent_with_exclusive_scope
-    model = self
-    self.parent_type.constantize.instance_eval do
-      self.with_exclusive_scope do
-        model.parent_without_exclusive_scope
-      end
-    end
-  end
-  
-  alias_method_chain :parent, :exclusive_scope
+  use_exclusive_scope :parent, :polymorphic => true
 
   validates_inclusion_of :status, :in => ::Status::Enum.keys, :allow_nil => true
   validates_associated :user

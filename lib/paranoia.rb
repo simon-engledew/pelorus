@@ -15,11 +15,23 @@ module Paranoia
   #   end
   # end
   
-  def use_exclusive_scope(model, klass = model.to_s.camelize.constantize)
+  # def parent_with_exclusive_scope
+  #   model = self
+  #   self.parent_type.constantize.instance_eval do
+  #     self.with_exclusive_scope do
+  #       model.parent_without_exclusive_scope
+  #     end
+  #   end
+  # end
+  # 
+  # alias_method_chain :parent, :exclusive_scope
+  
+  def use_exclusive_scope(model, options = {})
+    options[:class_name] ||= model.to_s.camelize
     self.class_eval do
       define_method(:"#{model}_with_exclusive_scope") do
         instance = self
-        klass.instance_eval do
+        (options[:polymorphic] ? instance.send(:"#{model}_type") : options[:class_name]).constantize.instance_eval do
           with_exclusive_scope do
             instance.send(:"#{model}_without_exclusive_scope")
           end
