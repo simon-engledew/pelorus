@@ -529,7 +529,7 @@ div#content {
       color: #222;
       font-size: 11pt;
       padding: 1em;
-      margin-top: 1.5em;
+      margin: 1.5em 0;
       border: solid 1px #ddd;
       background: lighten($yellow, 2.5%);
       @include vertical-linear-gradient(lighten($yellow, 2.5%), $yellow);
