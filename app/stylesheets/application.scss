@@ -713,7 +713,7 @@ div.container {
   }
 }
 
-input[type="text"][id$="_name"] {
+input[type="text"][id$="_name"], input[type="password"][id^="user_"], input[type="text"][id^="user_"] {
   width: $content_width - 20px;
 }
 
@@ -826,7 +826,7 @@ $factor_content_width: $content_width - 20px;
   {
     width: $container_width + $expand;
   }
-  input[type="text"][id$="_name"] {
+  input[type="text"][id$="_name"], input[type="text"][id^="user_"], input[type="password"][id^="user_"] {
     width: $content_width + $expand - 20px;
   }
   textarea[id$="_description"], textarea[id="comment_message"] {
