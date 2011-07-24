@@ -14,7 +14,11 @@ class UsersController < ApplicationController
   include ActionView::Helpers::TextHelper
   
   def destroy
-    Event.create!(:controller => self, :model => resource) if user.destroy else (flash[:error] = %(Cannot delete the stakeholder "#{user.name}" until #{pluralize user.stakes.count, 'stakes'} have been reassigned.))
+    if user.destroy
+      Event.create!(:controller => self, :model => resource)
+    else
+      flash[:error] = %(Cannot delete the stakeholder "#{user.name}" until #{pluralize user.stakes.count, 'stakes'} have been reassigned.)
+    end
     redirect_to users_url
   end
   
