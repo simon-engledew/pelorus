@@ -45,8 +45,8 @@ en:
   factors:
     operators:
       '==': equal to
-      '=<': <= than
-      '=>': >= than
+      '>=': <= than
+      '<=': >= than
   maps:
     index:
       write:
