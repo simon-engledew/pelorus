@@ -27,14 +27,13 @@ class Factor < ActiveRecord::Base
   LongDate = %r"(\d{1,2}[-/.]\d{1,2}[-/.]\d{4})"
   ShortDate = %r"(\d{1,2}[-/.]\d{1,2}[-/.]\d{2})"
   Float = /([-+]?\d[.]?\d*)\D*/
-  Boolean = /([YN])/
   
   def self.parse_target(target)
     case target
-      when /^([<>])\s*#{ShortDate}$/ then return [$1, Date.strptime($2, '%d/%m/%y')]
-      when /^([<>])\s*#{LongDate}$/ then return [$1, Date.strptime($2, '%d/%m/%Y')]
-      when /^([=<>])\s*#{Float}$/ then return [$1, Float($2)]
-      when /^(=)?\s*#{Boolean}$/ then return [$1, $2]
+      when /^([<>])\s*#{ShortDate}$/ then return ["#{$1}=", Date.strptime($2, '%d/%m/%y')]
+      when /^([<>])\s*#{LongDate}$/ then return ["#{$1}=", Date.strptime($2, '%d/%m/%Y')]
+      when /^([=<>])\s*#{Float}$/ then return ["#{$1}=", Float($2)]
+      when /^(=)?\s*([YN])$/ then return ["#{$1}=", $2]
     end
     return nil
   rescue
@@ -46,7 +45,7 @@ class Factor < ActiveRecord::Base
       when /^#{ShortDate}$/ then return Date.strptime($1, '%d/%m/%y')
       when /^#{LongDate}$/ then return Date.strptime($1, '%d/%m/%Y')
       when /^#{Float}$/ then return Float($1)
-      when /^#{Boolean}$/ then return $1
+      when /^([YN?])$/ then return $1
     end
     return nil
   rescue
@@ -93,7 +92,7 @@ class Factor < ActiveRecord::Base
     errors.add(:target, 'is not valid') unless target_value
     errors.add(:likely, 'is not valid') unless likely_value = self.parsed_likely
     
-    operator = (operator or '=') + '='
+    operator = (operator or '==')
     
     if errors.empty?
       AdvancedQuantifiers.each do |field|
@@ -110,11 +109,11 @@ class Factor < ActiveRecord::Base
       unless missing.empty?
         missing.each { |field| errors.add(field, 'cannot be blank') }
       else
-        errors.add(:target, "must be #{operator} than report") unless Factor.compare(target_value, operator, self.parsed_report)
-        errors.add(:report, "must be #{operator} than fail") unless Factor.compare(self.parsed_report, operator, self.parsed_fail)
+        errors.add(:target, "must be #{I18n.translate %(factors.operators.#{ operator })} report") unless Factor.compare(target_value, operator, self.parsed_report)
+        errors.add(:report, "must be #{I18n.translate %(factors.operators.#{ operator })} fail") unless Factor.compare(self.parsed_report, operator, self.parsed_fail)
     
-        errors.add(:best, "must be #{operator} than likely") unless Factor.compare(self.parsed_best, operator, likely_value)
-        errors.add(:likely, "must be #{operator} than worst") unless Factor.compare(likely_value, operator, self.parsed_worst)
+        errors.add(:best, "must be #{I18n.translate %(factors.operators.#{ operator })} likely") unless Factor.compare(self.parsed_best, operator, likely_value)
+        errors.add(:likely, "must be #{I18n.translate %(factors.operators.#{ operator })} worst") unless Factor.compare(likely_value, operator, self.parsed_worst)
       end
     end
   end
@@ -129,7 +128,9 @@ class Factor < ActiveRecord::Base
   
   def status
     operator, target_value = self.parsed_target
-    operator = (operator or '=') + '='
+    operator = (operator or '==')
+    
+    return Status::Amber if self.parsed_likely == '?'
     
     if self.advanced_quantifiers? then
       return Status::Red unless Factor.compare(self.parsed_worst, operator, self.parsed_fail)
