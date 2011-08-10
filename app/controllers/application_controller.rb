@@ -31,17 +31,8 @@ protected
   
   before_filter :check_password
   def check_password
-    if current_subdomain == 'westland'
-      authenticate_or_request_with_http_basic do |username, password|
-          username == 'westland' && password == '389cb1x6'
-      end
-      warden.custom_failure! if performed?
-    end
-    if current_subdomain == 'utqcbbor6z'
-      authenticate_or_request_with_http_basic do |username, password|
-          username == 'oOP4bLZqmJ' && password == 'JbMthx3dOU'
-      end
-      warden.custom_failure! if performed?
+    if current_subdomain != 'staging'
+      redirect_to new_user_session_url if not devise_controller? and not warden.authenticated?
     end
   end
 

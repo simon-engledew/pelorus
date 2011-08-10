@@ -16,15 +16,16 @@
             %span
               %img{:src => '/images/logo.png'}
               Pelorus - The Tool For Change
-        %ul.controls
-          %li= link_to 'Maps', root_path
-          - if Event.count > 0
-            %li= link_to 'Timeline', timeline_path
-          %li= link_to 'Stakeholders', users_path
-          - if user_signed_in?
-            %li= link_to "#{current_user.name} (Logout)", destroy_user_session_path
-          - else
-            %li= link_to 'Login', new_user_session_path
+        - if current_subdomain == 'staging' or user_signed_in?
+          %ul.controls
+            %li= link_to 'Maps', root_path
+            - if Event.count > 0
+              %li= link_to 'Timeline', timeline_path
+            %li= link_to 'Stakeholders', users_path
+            - if user_signed_in?
+              %li= link_to "#{current_user.name} (Logout)", destroy_user_session_path
+            - else
+              %li= link_to 'Login', new_user_session_path
     #page_container
       = yield(:page) || capture do 
         #page
