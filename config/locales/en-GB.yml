@@ -44,9 +44,9 @@ en:
         destroy: destroyed
   factors:
     operators:
-      '==': equal to
-      '>=': <= than
-      '<=': >= than
+      ==: equal to
+      >=: >= than
+      <=: <= than
   maps:
     index:
       write:
