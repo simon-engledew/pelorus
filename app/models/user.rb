@@ -26,7 +26,7 @@ class User < ActiveRecord::Base
 
   validates_presence_of   :email
   validates_uniqueness_of :email, :scope => :subdomain, :allow_blank => true
-  validates_format_of     :email, :with  => EMAIL_REGEX, :allow_blank => true
+  validates_format_of     :email, :with  => Devise::EMAIL_REGEX, :allow_blank => true
 
   validates_presence_of     :password
   validates_confirmation_of :password
