@@ -1,4 +1,6 @@
-%h1== Edit #{current_model_name.humanize}
+- title "Edit #{current_model_name.humanize}"
+
+%h1= @title
 
 - content_for :sidebar do
   != render :partial => '/shared/comments', :object => resource

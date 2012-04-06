@@ -5,11 +5,11 @@
 # ENV['RAILS_ENV'] ||= 'production'
 
 # Specifies gem version of Rails to use when vendor/rails is not present
-RAILS_GEM_VERSION = '2.3.12' unless defined? RAILS_GEM_VERSION
+RAILS_GEM_VERSION = '2.3.14' unless defined? RAILS_GEM_VERSION
 
 # Bootstrap the Rails environment, frameworks, and default configuration
-require File.join(File.dirname(__FILE__), 'boot')
-require 'lib/paranoia'
+require File.join(File.dirname(__FILE__), 'boot.rb')
+require './lib/paranoia.rb'
 
 Rails::Initializer.run do |config|
   # Settings in config/environments/* take precedence over those specified here.
@@ -25,7 +25,7 @@ Rails::Initializer.run do |config|
 
   config.i18n.default_locale = 'en-GB'
 
-  config.gem 'haml', :version => '= 3.1.2'
+  config.gem 'haml', :version => '= 3.1.4'
   config.gem 'RedCloth'
   config.gem 'devise', :version => '= 1.0.8'
   config.gem 'subdomain-fu'
@@ -38,7 +38,7 @@ Rails::Initializer.run do |config|
   # Add additional load paths for your own custom dirs
   # config.load_paths += %W( #{RAILS_ROOT}/extras )
   
-  config.load_paths += [Rails.root.join('app', 'sweepers'), Rails.root.join('app', 'models', 'exceptions')]
+  config.autoload_paths += [Rails.root.join('app', 'sweepers'), Rails.root.join('app', 'models', 'exceptions')]
 
   # Force all environments to use the same logger level
   # (by default production uses :info, the others :debug)

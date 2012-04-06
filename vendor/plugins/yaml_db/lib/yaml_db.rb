@@ -1,18 +1,21 @@
+# encoding: UTF-8
+
 require 'rubygems'
 require 'yaml'
 require 'active_record'
 
+# YAML::ENGINE.yamler = 'syck'
 
 module YamlDb
 	def self.dump(filename)
 		disable_logger
-		YamlDb::Dump.dump(File.new(filename, "w"))
+		YamlDb::Dump.dump(File.new(filename, "w:UTF-8"))
 		reenable_logger
 	end
 
 	def self.load(filename)
 		disable_logger
-		YamlDb::Load.load(File.new(filename, "r"))
+		YamlDb::Load.load(File.new(filename, "r:UTF-8:UTF-8"))
 		reenable_logger
 	end
 
@@ -168,7 +171,9 @@ module YamlDb::Load
 		quoted_column_names = column_names.map { |column| ActiveRecord::Base.connection.quote_column_name(column) }.join(',')
 		quoted_table_name = YamlDb::Utils.quote_table(table)
 		records.each do |record|
-			ActiveRecord::Base.connection.execute("INSERT INTO #{quoted_table_name} (#{quoted_column_names}) VALUES (#{record.map { |r| ActiveRecord::Base.connection.quote(r) }.join(',')})")
+			values = record.map { |r| ActiveRecord::Base.connection.quote(r).force_encoding('UTF-8') }.join(',')
+
+			ActiveRecord::Base.connection.execute("INSERT INTO #{quoted_table_name} (#{quoted_column_names}) VALUES (#{values})")
 		end
 	end
 

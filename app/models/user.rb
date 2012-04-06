@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   
   named_scope :ordered, :order => 'name'
   
-  named_scope :with_subdomain, lambda {|subdomain| { :conditions => { :subdomain => ['*', subdomain] }}}
+  named_scope :with_subdomain, lambda {|subdomain| { :conditions => ["subdomain = '*' OR subdomain IS NULL OR subdomain = ?", subdomain]}}
   
   validates_presence_of :name
 
@@ -21,16 +21,17 @@ class User < ActiveRecord::Base
     allowed = stakes.empty? and not Map.exists?(:manager_id => self.id)
   end
   
-  # :http_authenticatable, :token_authenticatable, :lockable, :timeoutable and :activatable
-  devise :registerable, :database_authenticatable, :confirmable, :recoverable, :rememberable, :trackable, :validatable
+  devise :registerable, :database_authenticatable, :confirmable, :recoverable, :rememberable, :trackable
 
-  # validates_presence_of   :email
-  # validates_uniqueness_of :email, :scope => :subdomain, :allow_blank => true
-  # validates_format_of     :email, :with  => Devise::EMAIL_REGEX, :allow_blank => true
+  validates_presence_of   :email
+  validates_uniqueness_of :email, :scope => [ :subdomain ], :allow_blank => true
+  validates_format_of     :email, :with  => Devise::EMAIL_REGEX, :allow_blank => true
 
-  # validates_presence_of     :password
-  # validates_confirmation_of :password
-  # validates_length_of       :password, :within => 6..20, :allow_blank => true
+  with_options :if => :password_required? do |v|
+    v.validates_presence_of     :password
+    v.validates_confirmation_of :password
+    v.validates_length_of       :password, :within => 6..20, :allow_blank => true 
+  end
 
-  attr_accessible :email, :name, :password, :password_confirmation, :admin
+  attr_accessible :email, :name, :password, :password_confirmation, :admin, :remember_me
 end

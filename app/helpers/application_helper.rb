@@ -24,10 +24,14 @@ module ApplicationHelper
 
   def controls_for(object)
     if write_permission?
-      content_tag(:ul, [
-        edit_control(object),
-        delete_control(object)
-      ], :class => 'controls')
+      content_tag(
+        :ul,
+        [
+          edit_control(object),
+          delete_control(object)
+        ].join,
+        :class => 'controls'
+      )
       # %(<ul class="controls"><li class="edit">#{link_to('edit', [:edit, *object])}</li><li class="delete">#{link_to('delete', object, :confirm => 'Are you sure?', :method => :delete)}</li></ul>)
     end
       # %ul.controls
