@@ -383,6 +383,7 @@ $content_width: $container_width - $sidebar_gutter - $sidebar_width;
         }
       }
       > td.model_type {
+        width: 1%;
         color: #888;
         white-space: pre;
         padding-right: 10px;
