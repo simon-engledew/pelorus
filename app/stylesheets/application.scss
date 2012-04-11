@@ -341,6 +341,60 @@ $content_width: $container_width - $sidebar_gutter - $sidebar_width;
       overflow: hidden;
     }
   }
+  > #activity {
+    > table {
+      width: 100%;
+      &:hover {
+        > tbody > tr > td.model > span {
+          visibility: visible;
+          opacity: 1;
+          -webkit-transition: opacity 0.3s;
+        }
+      }
+    }
+    > table > thead > tr > th {
+      padding: 1em 0;
+      font-size: 8.5pt;
+      font-weight: bold;
+      color: #888;
+    }
+    > table > tbody > tr {
+      line-height: 200%;
+      & {
+        border-bottom: solid 1px #f5f5f5;
+      }
+      &:last-of-type {
+        border-bottom: none;
+      }
+      
+      > td {
+        vertical-align: top;
+        padding-top: 3px;
+        padding-bottom: 3px;
+      }
+      > td.updated_at {
+        display: none;
+      }
+      > td.action {
+        padding-right: 10px;
+        width: 1%;
+        > img {
+          vertical-align: -4px;
+        }
+      }
+      > td.model_type {
+        color: #888;
+        white-space: pre;
+        padding-right: 10px;
+      }
+      > td.model {
+        > span {
+          visibility: hidden;
+          opacity: 0;
+        }
+      }
+    }
+  }
   > #navigation {
     font-size: 9pt;
     > h3 {

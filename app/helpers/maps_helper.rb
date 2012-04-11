@@ -1,5 +1,11 @@
 module MapsHelper
 
+  def timeline_action_icon(event)
+    text = translate("timeline.index.action.#{event.action}").capitalize
+
+    image_tag "/images/icons/#{event.action}.png", :title => text, :alt => text
+  end
+
   def sanitize_label(s)
     s.gsub('\\', '\\\\\\').gsub('"', '\"')
   end

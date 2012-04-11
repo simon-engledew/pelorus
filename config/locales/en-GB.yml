@@ -34,6 +34,8 @@ en:
       pm: 'pm'
 
   timeline:
+    models:
+      supporting_goal: Supporting Goal
     index:
       supporting_goal:
         create: started

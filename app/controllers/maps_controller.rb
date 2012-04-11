@@ -4,6 +4,12 @@ class MapsController < ApplicationController
 
   def index
     @maps = Map.with_subdomain(current_subdomain).all(:include => :manager)
+    @events = ActiveSupport::OrderedHash.new.tap do |events|
+      Event.with_subdomain(current_subdomain).all(:order => "updated_at DESC", :limit => 10).each do |event|
+        date = event.updated_at.to_date
+        (events[date] ||= []) << event
+      end
+    end
   end
   
   def new
