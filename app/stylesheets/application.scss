@@ -389,6 +389,10 @@ $content_width: $container_width - $sidebar_gutter - $sidebar_width;
         padding-right: 20px;
       }
       > td.model {
+        text-align: right;
+        > span, a {
+          color: #5b7590;
+        }
         > span {
           visibility: hidden;
           opacity: 0;
