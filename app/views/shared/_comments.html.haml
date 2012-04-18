@@ -1,7 +1,7 @@
 - if object.respond_to?(:comments)
-  %h3== #{image_tag 'bubble.png', :style => 'vertical-align:bottom'} Discussion
+  %h3#discussion== #{image_tag 'bubble.png', :style => 'vertical-align:bottom'} Discussion
 
-  #discussion
+  %div.discussion
     - if object.comments.empty?
       %p There are no comments for this #{controller_name.singularize}.
     - else

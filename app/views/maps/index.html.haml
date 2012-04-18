@@ -2,29 +2,7 @@
 %h2= @title
 
 - content_for :sidebar do
-  %fieldset#activity
-    %legend Recent Activity
-    %table
-      - @events.each do |date, events|
-        %thead
-          %tr
-            %th{:colspan => 3}= date
-        %tbody
-          - events.each do |event|
-            %tr
-              %td.updated_at= event.updated_at.strftime('%H:%M')
-              %td.action= timeline_action_icon(event)
-              %td.model_type= t("timeline.models.#{event.model.class.to_s.underscore}", :default => event.model.class.to_s)
-              %td.model
-                %span
-                  - if event.model.instance_of?(SupportingGoal)
-                    = event_model(event.model.supported_by)
-                    →
-                    = event_model(event.model.goal)
-                  - elsif event.model.instance_of?(Comment)
-                    = event_model(event.model.parent)
-                  - else
-                    = event_model(event.model)
+  != render :partial => '/shared/events', :object => @events
 
 .container
   %table#maps
@@ -32,7 +10,6 @@
       %tr
         %th Name
         %th Status
-        %th Manager
         %th Goals
     %tbody
       - @maps.each do |map|
@@ -42,13 +19,12 @@
               = controls_for map
               = link_to h(map.name), map
           %td= status_image(map)
-          %td= linked_user_name(map.manager)
           %td= map.goals.count
       - if @maps.empty?
         %tr
-          %td{:colspan => 4}=t ".#{write_permission? ? 'write' : 'read'}.empty"
+          %td{:colspan => 3}=t ".#{write_permission? ? 'write' : 'read'}.empty"
     - if write_permission?
       %tfoot
         %tr
-          %td{:colspan => 4}
+          %td{:colspan => 3}
             %p= new_link('new map', Map)

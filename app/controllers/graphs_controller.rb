@@ -5,6 +5,7 @@ class GraphsController < ApplicationController
   caches_action :network
   
   def network
+    return send_data(render_to_string, :filename => 'network.png') if params[:download]
   end
   
   def graph

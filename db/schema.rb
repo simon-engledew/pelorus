@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110723154051) do
+ActiveRecord::Schema.define(:version => 20120416190854) do
 
   create_table "comments", :force => true do |t|
     t.text     "message"
@@ -32,8 +32,10 @@ ActiveRecord::Schema.define(:version => 20110723154051) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.datetime "deleted_at"
+    t.integer  "map_id"
   end
 
+  add_index "events", ["map_id"], :name => "index_events_on_map_id"
   add_index "events", ["subdomain"], :name => "index_events_on_subdomain"
 
   create_table "factors", :force => true do |t|

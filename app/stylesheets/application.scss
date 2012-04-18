@@ -442,7 +442,8 @@ $content_width: $container_width - $sidebar_gutter - $sidebar_width;
   }
 }
 
-#discussion {
+.discussion {
+  margin-bottom: 2em;
   > p {
     margin-bottom: 1em;
   }
@@ -553,6 +554,16 @@ div.status_image {
     position: absolute;
     bottom: -3px;
     right: -3px;
+  }
+}
+
+div#content > #description > h1 > span.model, div#breadcrumbs .breadcrumb span.model {
+  color: #aaa;
+  &:after {
+    content: '>';
+  }
+  &:before {
+    content: '<';
   }
 }
 
@@ -868,6 +879,12 @@ $factor_content_width: $content_width - 20px;
   overflow: auto;
   text-align: center;
 }
+#graphs-footer
+{
+  text-align: right;
+  width: $container_width;
+  padding-top: 10px;
+}
 
 @media screen and (min-width: 1280px) {
   $expand: 180px;
@@ -882,6 +899,10 @@ $factor_content_width: $content_width - 20px;
     width: $content_width + $expand;
   }
   #graphs-graph
+  {
+    width: $container_width + $expand;
+  }
+  #graphs-footer
   {
     width: $container_width + $expand;
   }

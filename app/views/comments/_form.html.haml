@@ -1,7 +1,8 @@
 - fields_for object, :builder => LabellingFormBuilder do |f|  
   != f.text_area :message
-  .input
-    = f.label(:status)
-    = f.select_without_label(:status, Status::Enum.invert, :include_blank => 'None')
-    = f.check_box_without_label(:override_status)
-    <small>override current status</small>
+  - if current_user.admin?
+    .input
+      = f.label(:status)
+      = f.select_without_label(:status, Status::Enum.invert, :include_blank => 'None')
+      = f.check_box_without_label(:override_status)
+      %small override current status

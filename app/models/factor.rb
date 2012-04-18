@@ -26,7 +26,7 @@ class Factor < ActiveRecord::Base
 
   LongDate = %r"(\d{1,2}[-/.]\d{1,2}[-/.]\d{4})"
   ShortDate = %r"(\d{1,2}[-/.]\d{1,2}[-/.]\d{2})"
-  Float = /([-+]?\d[.]?\d*)\D*/
+  Float = /([-+]?\d+[.]?\d*)\D*/
   
   def self.parse_target(target)
     case target

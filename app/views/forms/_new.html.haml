@@ -10,3 +10,8 @@
   .form_footer
     %input{:type => 'submit', :value => 'Create'}  
     = link_to('Cancel', session[:back] || :back, :class => 'button')
+
+  :javascript
+    scripts = document.getElementsByTagName('script');
+    script = scripts[scripts.length - 1];
+    Array.filter(script.parentElement.elements, function(e) {return e.getProperty('type') != 'hidden'}).pick().focus();

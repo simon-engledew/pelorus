@@ -9,6 +9,14 @@ module ApplicationHelper
   def title(title)
     @title = title
   end
+
+  def map_events(events)
+    ActiveSupport::OrderedHash.new.tap do |output|
+      events.each do |event|
+        (output[event.updated_at.to_date] ||= []) << event
+      end
+    end
+  end
   
   def polymorphic_parameters(parent_node)
     {:parent_node_type => parent_node.class.to_s.underscore.pluralize, :parent_node_id => parent_node.id}
@@ -85,7 +93,7 @@ module ApplicationHelper
   def breadcrumb(object)
     info = []
     info << status_image(object) if object.respond_to?(:status)
-    info << content_tag(:span, "&lt;#{object.class.human_name}&gt; #{object.new_record?? %(New #{object.class.human_name}) : object.name}")
+    info << content_tag(:span, [content_tag(:span, object.class.human_name, :class => 'model'), object.new_record?? %(New #{object.class.human_name}) : object.name].join)
     content_tag(:div, info.join(' '), :class => 'breadcrumb')
   end
 

@@ -18,10 +18,10 @@
 
 != render :partial => '/layouts/object_header', :object => resource
 
-%h2 Sub Goals
+%h2#sub_goals Sub Goals
 
 .container
-  %table#sub_goals
+  %table
     %thead
       %tr
         %th Name
@@ -44,10 +44,10 @@
             %p= new_link('new subgoal', goal.map.hierarchy << Goal, :parent_id => goal)
 
 
-%h2 Factors
+%h2#factors Factors
 
 .container
-  %table#factors
+  %table
     %thead
       %tr
         %th Name
@@ -75,10 +75,10 @@
           %td{:colspan => 4}
             %p= new_link('new factor', goal.hierarchy << Factor)
 
-%h2 Risks
+%h2#risks Risks
 
 .container
-  %table#risks
+  %table
     %thead
       %tr
         %th Name
@@ -100,10 +100,10 @@
           %td{:colspan => 2}
             %p= new_link('new risk', goal.hierarchy << Risk)
 
-%h2 Supporting Goals
+%h2#supporting_goals Supporting Goals
 
 .container
-  %table#supporting_goals
+  %table
     %thead
       %tr
         %th Name
@@ -131,10 +131,10 @@
           %td{:colspan => 2}
             %p= new_link('new supporting goal', goal.hierarchy << SupportingGoal)
 
-%h2 Supported Goals
+%h2#supported_goals Supported Goals
 
 .container
-  %table#supported_goals
+  %table
     %thead
       %tr
         %th Name

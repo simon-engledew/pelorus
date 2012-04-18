@@ -10,6 +10,7 @@ class CommentsController < ApplicationController
   def create
     @comment = parent_node.comments.build(params[:comment])
     @comment.user = current_user
+    @comment.override_status = false unless current_user.admin
     if @comment.save
       Event.create!(:controller => self, :model => resource)
       return redirect_to(@comment.parent_node.hierarchy)
