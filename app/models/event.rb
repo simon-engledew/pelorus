@@ -10,7 +10,7 @@ class Event < ActiveRecord::Base
   def model=(model)
     write_attribute(:model_id, model.id)
     write_attribute(:model_type, model.class.to_s)
-    write_attribute(:map_id, model.map.id)
+    write_attribute(:map_id, model.map.id) if model.respond_to?(:map)
   end
 
   def controller=(controller)

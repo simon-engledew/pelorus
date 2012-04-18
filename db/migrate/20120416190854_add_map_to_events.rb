@@ -4,7 +4,7 @@ class AddMapToEvents < ActiveRecord::Migration
     add_index :events, :map_id
     ActiveRecord::Base.record_timestamps = false
     Event.all.each do |event|
-        event.update_attribute(:map, event.model.map)
+        event.update_attribute(:map, event.model.map if event.model.respond_to?(:map))
     end
     ActiveRecord::Base.record_timestamps = true
   end
