@@ -27,11 +27,11 @@
                 - elsif user == current_user
                   %ul.controls= edit_control(user.hierarchy)
 
-                = link_to user.name, user.hierarchy
+                = link_to user.name, user
                 - if user.admin
                   (admin)
             %td
-              %div= link_to(h(user.email), user)
+              %div= user.email
         - if @users.empty?
           %tr
             %td{:colspan => 2}=t ".#{write_permission? ? 'write' : 'read'}.empty"
