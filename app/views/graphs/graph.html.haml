@@ -3,5 +3,5 @@
   = render :file => '/graphs/network', :locals => {:format => 'cmapx'}
   %img{:src => network_graph_path(map, :format => :png, :timestamp => Time.now.to_i), :usemap => "#map_#{map.id}"}
 
-#graphs-footer
+%p#graphs-footer.footer
   %a.button{:href => network_graph_path(map, :format => :png, :download => true, :timestamp => Time.now.to_i)} download

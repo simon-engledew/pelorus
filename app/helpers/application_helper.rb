@@ -5,6 +5,17 @@ module ApplicationHelper
   #   src = controller.instance_eval { "http://localhost:9393/graph.png?dot=#{RedRaw.encode_url64(Zlib::Deflate.deflate(render_to_string(options)))}" }
   #   content_tag(:a, content_tag(:div, tag(:img, :src => src), :class => 'graph'), :href => src)
   # end
+
+  def focus_form
+    content_tag(:script, """
+    //<![CDATA[
+      scripts = document.getElementsByTagName('script');
+      script = scripts[scripts.length - 1];
+      Array.filter(script.parentElement.elements, function(e) {return e.getProperty('type') != 'hidden'}).pick().focus();
+    //]]>
+    """,
+    :type => 'text/javascript')
+  end
   
   def title(title)
     @title = title
@@ -40,19 +51,15 @@ module ApplicationHelper
         ].join,
         :class => 'controls'
       )
-      # %(<ul class="controls"><li class="edit">#{link_to('edit', [:edit, *object])}</li><li class="delete">#{link_to('delete', object, :confirm => 'Are you sure?', :method => :delete)}</li></ul>)
     end
-      # %ul.controls
-      #   %li= link_to(content_tag(:span, 'delete'), goal.hierarchy, :confirm => 'Are you sure?', :method => :delete)
-      #   %li= link_to(content_tag(:span, 'edit'), [:edit, *goal.hierarchy])
   end
 
   def delete_control(object)
-    write_permission? ? content_tag(:li, link_to('delete', object, :confirm => 'Are you sure?', :method => :delete), :class => 'delete') : nil
+    content_tag(:li, link_to('delete', object, :confirm => 'Are you sure?', :method => :delete), :class => 'delete')
   end
   
   def edit_control(object)
-    write_permission? ? content_tag(:li, link_to('edit', polymorphic_path(object, :action => :edit)), :class => 'edit') : nil
+    content_tag(:li, link_to('edit', polymorphic_path(object, :action => :edit)), :class => 'edit')
   end
   
   def new_link(text, hierarchy, link_options = {})

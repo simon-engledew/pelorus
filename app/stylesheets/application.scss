@@ -879,11 +879,13 @@ $factor_content_width: $content_width - 20px;
   overflow: auto;
   text-align: center;
 }
+.footer {
+  text-align: right;
+  padding-top: 1em;
+}
 #graphs-footer
 {
-  text-align: right;
   width: $container_width;
-  padding-top: 10px;
 }
 
 @media screen and (min-width: 1280px) {

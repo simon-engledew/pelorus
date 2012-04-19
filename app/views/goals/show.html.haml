@@ -119,7 +119,6 @@
                 %ul.controls
                   = edit_control supported_by.hierarchy
                   = delete_control supporting_goal.hierarchy
-
               = link_to h(supported_by.name), supported_by.hierarchy
           %td= status_image(supported_by)
       - if goal.supporting_goals.empty?
