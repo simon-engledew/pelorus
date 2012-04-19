@@ -27,7 +27,7 @@
                 - elsif user == current_user
                   %ul.controls= edit_control(user.hierarchy)
 
-                = user.name
+                = link_to user.name, user.hierarchy
                 - if user.admin
                   (admin)
             %td

@@ -816,6 +816,7 @@ $factor_content_width: $content_width - 20px;
       }
       span.user, span.user > a {
         color: #328732;
+        color: darken(#D4CDC1, 15);
       }
       span.model, span.model > a {
         color: #c33;

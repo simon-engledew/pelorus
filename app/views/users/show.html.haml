@@ -35,3 +35,6 @@
             %nobr= link_to(h(stake.goal.name), stake.goal.hierarchy)
           %td
             %nobr= status_image(stake.goal)
+      - if user.stakes.empty?
+        %tr
+          %td{:colspan => 3}=t '.read.empty'

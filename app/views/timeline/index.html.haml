@@ -11,16 +11,16 @@
         %span.user= event_model(event.user)
         - if event.model.instance_of?(SupportingGoal)
           %span.action=t ".supporting_goal.#{event.action}"
-          %span.model== "#{ event_model(event.model.supported_by) }"
+          %span.model= event_model(event.model.supported_by)
           supporting
-          %span.model== "#{ event_model(event.model.goal) }"
+          %span.model= event_model(event.model.goal)
         - elsif event.model.instance_of?(Comment)
           %span.action=t ".comment.#{event.action}"
           on the
           %span.model_type= event.model.parent.class
-          %span.model== "#{ event_model(event.model.parent) }"
+          %span.model= event_model(event.model.parent)
         - else
           %span.action=t ".action.#{event.action}"
           the
           %span.model_type= event.model.class
-          %span.model== "#{ event_model(event.model) }"
+          %span.model= event_model(event.model)

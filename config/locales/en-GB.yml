@@ -76,6 +76,10 @@ en:
           factor: Contact your project manager to add a factor.
           subgoal: Contact your project manager to add a subgoal.    
   users:
+    show:
+      read:
+        empty:
+          This user does not manage any goals.
     index:
       write:
         empty:
