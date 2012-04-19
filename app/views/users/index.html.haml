@@ -10,27 +10,31 @@
       %tr
         %th Name
         %th Email Address
-    %tbody
-      - @users.each do |user|
-        %tr[user]
-          %td
-            %div
-              - if write_permission?
-                %ul.controls
-                  = edit_control(user.hierarchy)
-                  - if user != current_user
-                    = delete_control(user.hierarchy)
-              - elsif user == current_user
-                %ul.controls= edit_control(user.hierarchy)
-
-              = user.name
-              - if user.admin
-                (admin)
-          %td
-            %div= link_to(h(user.email), user)
-      - if @users.empty?
+    -@users.each do |initial, users|
+      %thead.category{:id => "users_#{ initial }"}
         %tr
-          %td{:colspan => 2}=t ".#{write_permission? ? 'write' : 'read'}.empty"
+          %th{:colspan => 2}= initial.capitalize
+      %tbody
+        - users.each do |user|
+          %tr[user]
+            %td
+              %div
+                - if write_permission?
+                  %ul.controls
+                    = edit_control(user.hierarchy)
+                    - if user != current_user
+                      = delete_control(user.hierarchy)
+                - elsif user == current_user
+                  %ul.controls= edit_control(user.hierarchy)
+
+                = user.name
+                - if user.admin
+                  (admin)
+            %td
+              %div= link_to(h(user.email), user)
+        - if @users.empty?
+          %tr
+            %td{:colspan => 2}=t ".#{write_permission? ? 'write' : 'read'}.empty"
     - if write_permission?
       %tfoot
         %tr

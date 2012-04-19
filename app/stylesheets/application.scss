@@ -728,7 +728,7 @@ div.container {
         width: 100%;
         text-align: left;
       }
-  }
+    }
     > thead {
       > tr:nth-child(odd) {
         background-color: #fafafa;
@@ -757,6 +757,12 @@ div.container {
     }
     > tbody > tr:hover > td > div > ul.controls {
       visibility: visible;
+    }
+    > thead.category > tr > th {
+      padding: 5px;
+      background-color: #F3F1EE;
+      box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.1);
+      font-size: 75%;
     }
   }
 }

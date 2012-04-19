@@ -2,6 +2,11 @@ class UsersController < ApplicationController
   
   def index
     @users = User.with_subdomain(current_subdomain).ordered.all
+    @users = ActiveSupport::OrderedHash.new.tap do |output|
+      @users.each do |user|
+        (output[user.name.first] ||= []) << user
+      end
+    end
   end
   
   def new
