@@ -4,7 +4,7 @@ class MapsController < ApplicationController
 
   def index
     @maps = Map.with_subdomain(current_subdomain).all(:include => :manager)
-    @events = Event.with_subdomain(current_subdomain).latest(10).all()
+    @events = Event.with_subdomain(current_subdomain).latest(10).all(:include => [:map, :model])
   end
   
   def new
@@ -37,7 +37,7 @@ class MapsController < ApplicationController
   end
   
   def show
-    @events = Event.with_subdomain(current_subdomain).latest(10).all(:conditions => {:map_id => map.id })
+    @events = Event.with_subdomain(current_subdomain).latest(10).all(:conditions => {:map_id => map.id }, :include => [:map, :model])
   end
   
 protected
