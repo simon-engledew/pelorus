@@ -19,7 +19,9 @@ class UsersController < ApplicationController
   include ActionView::Helpers::TextHelper
   
   def destroy
-    if user.destroy
+    if user == current_user
+      flash[:error] = %(You cannot delete yourself)
+    elsif user.destroy
       Event.create!(:controller => self, :model => resource)
     else
       flash[:error] = %(Cannot delete the stakeholder "#{user.name}" until #{pluralize user.stakes.count, 'stakes'} have been reassigned.)

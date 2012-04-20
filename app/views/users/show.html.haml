@@ -9,9 +9,11 @@
       %td
         %nobr= user.email
 
-- if write_permission?
+- if write_permission? or (resource == current_user)
   %p.footer
-    %a.button{:href => edit_user_path(current_user)} Edit
+    %a.button{:href => edit_user_path(resource)} Edit
+    - if user != current_user
+      = link_to('delete', resource, :confirm => 'Are you sure?', :method => :delete, :class => 'button')
 
 -#
   %h2 Stakes:
