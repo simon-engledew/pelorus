@@ -15,28 +15,29 @@
     - if user != current_user
       = link_to('delete', resource, :confirm => 'Are you sure?', :method => :delete, :class => 'button')
 
-%h2 Stakes:
+-#
+  %h2 Stakes:
 
-.container
-  %table
-    %thead
-      %tr
-        %th Role
-        %th Goal
-        %th Status
-    %tbody
-      - user.stakes.all(:conditions => ['goal_id IS NOT NULL']).each do |stake|
+  .container
+    %table
+      %thead
         %tr
-          %td
-            - if write_permission?
-              %div
-                - unless stake.enforced
-                  %ul.controls= delete_control(stake.hierarchy)
-            = stake.name
-          %td
-            %nobr= link_to(h(stake.goal.name), stake.goal.hierarchy)
-          %td
-            %nobr= status_image(stake.goal)
-      - if user.stakes.empty?
-        %tr
-          %td{:colspan => 3}=t '.read.empty'
+          %th Role
+          %th Goal
+          %th Status
+      %tbody
+        - user.stakes.all(:conditions => ['goal_id IS NOT NULL']).each do |stake|
+          %tr
+            %td
+              - if write_permission?
+                %div
+                  - unless stake.enforced
+                    %ul.controls= delete_control(stake.hierarchy)
+              = stake.name
+            %td
+              %nobr= link_to(h(stake.goal.name), stake.goal.hierarchy)
+            %td
+              %nobr= status_image(stake.goal)
+        - if user.stakes.empty?
+          %tr
+            %td{:colspan => 3}=t '.read.empty'
