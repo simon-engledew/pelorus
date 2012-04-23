@@ -935,3 +935,13 @@ $factor_content_width: $content_width - 20px;
     }
   }
 }
+
+table.stakes {
+  width: 100%;
+  th, td {
+    width: 30% !important;
+    &:last-of-type {
+      width: 10% !important;
+    }
+  }
+}

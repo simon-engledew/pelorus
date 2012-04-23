@@ -18,7 +18,7 @@
 %h2 Stakes:
 
 .container
-  %table
+  %table.stakes
     %thead
       %tr
         %th Stake
@@ -29,12 +29,9 @@
       - @stakes.each do |stake|
         %tr
           %td= stake.name
-          %td
-            %nobr= stake.goal.map.name
-          %td
-            %nobr= link_to(h(stake.goal.name), stake.goal.hierarchy)
-          %td
-            %nobr= status_image(stake.goal)
+          %td= stake.goal.map.name
+          %td= link_to(h(stake.goal.name), stake.goal.hierarchy)
+          %td= status_image(stake.goal)
       - if user.stakes.empty?
         %tr
           %td{:colspan => 3}=t '.read.empty'
