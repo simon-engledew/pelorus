@@ -15,27 +15,26 @@
     - if user != current_user
       = link_to('delete', resource, :confirm => 'Are you sure?', :method => :delete, :class => 'button')
 
--#
-  %h2 Stakes:
+%h2 Stakes:
 
-  .container
-    %table
-      %thead
+.container
+  %table
+    %thead
+      %tr
+        %th Stake
+        %th Map
+        %th Goal
+        %th Status
+    %tbody
+      - @stakes.each do |stake|
         %tr
-          %th Stake
-          %th Map
-          %th Goal
-          %th Status
-      %tbody
-        - user.stakes.all(:include => {:goal => [:map, :supporting_goals]}).reject{ |stake| stake.goal.nil? }[0...50].each do |stake|
-          %tr
-            %td= stake.name
-            %td
-              %nobr= stake.goal.map.name
-            %td
-              %nobr= link_to(h(stake.goal.name), stake.goal.hierarchy)
-            %td
-              %nobr= status_image(stake.goal)
-        - if user.stakes.empty?
-          %tr
-            %td{:colspan => 3}=t '.read.empty'
+          %td= stake.name
+          %td
+            %nobr= stake.goal.map.name
+          %td
+            %nobr= link_to(h(stake.goal.name), stake.goal.hierarchy)
+          %td
+            %nobr= status_image(stake.goal)
+      - if user.stakes.empty?
+        %tr
+          %td{:colspan => 3}=t '.read.empty'
