@@ -18,7 +18,7 @@ class Map < ActiveRecord::Base
   
   has_many :goals, :dependent => :destroy
   # has_many :roles, :dependent => :destroy
-  has_many :stakes, :conditions => {:goal_id => nil}, :dependent => :destroy
+  has_many :stakes, :dependent => :destroy, :conditions => {:goal_id => nil}
   
   validates_associated :manager
   validates_presence_of :manager
