@@ -49,15 +49,15 @@ class UsersController < ApplicationController
   def show
     @stakes = user.stakes.all(
       :include => {:goal => [:map, :supporting_goals], :map => []},
-      :joins => [:goal, :map],
-      :conditions => ['`goals`.deleted_at IS NULL and `maps`.deleted_at IS NULL'],
+      #:joins => [:goal, :map],
+      #:conditions => ['`goals`.deleted_at IS NULL and `maps`.deleted_at IS NULL'],
       :limit => 50,
       :order => '`stakes`.created_at ASC'
     )
   end
 
   def write_permission?
-    super or user == current_user
+    super or (not current_user.nil? and user == current_user)
   end
 
 protected
