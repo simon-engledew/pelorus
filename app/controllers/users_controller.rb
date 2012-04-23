@@ -49,6 +49,10 @@ class UsersController < ApplicationController
   def show
   end
 
+  def write_permission?
+    super or user == current_user
+  end
+
 protected
 
   def user
