@@ -2,9 +2,6 @@
 
 %h1= @title
 
-- content_for :sidebar do
-  != render :partial => '/shared/comments', :object => resource
-
 != error_messages_for controller_name.singularize
 
 - form_tag resource.hierarchy, :method => :put do
