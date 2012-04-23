@@ -29,9 +29,9 @@
       - @stakes.each do |stake|
         %tr
           %td= stake.name
-          %td= stake.goal.map.name
-          %td= link_to(h(stake.goal.name), stake.goal.hierarchy)
-          %td= status_image(stake.goal)
+          %td= stake.map.name
+          %td= stake.goal.nil? ? '&mdash;' : link_to(h(stake.goal.name), stake.goal.hierarchy)
+          %td= status_image(stake.parent_node)
       - if user.stakes.empty?
         %tr
           %td{:colspan => 3}=t '.read.empty'

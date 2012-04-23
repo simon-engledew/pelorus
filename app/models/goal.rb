@@ -21,7 +21,7 @@ public
   
   has_many :factors, :dependent => :destroy
   has_many :risks, :dependent => :destroy
-  has_many :stakes, :dependent => :destroy
+  has_many :stakes, :dependent => :destroy, :conditions => {:deleted_at => nil}
   
   has_many :supporting_goals, :dependent => :destroy, :dependent => :destroy, :conditions => {:deleted_at => nil}
   has_many :supported_by, :through => :supporting_goals, :source => :supported_by
