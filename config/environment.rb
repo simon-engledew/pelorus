@@ -29,7 +29,7 @@ Rails::Initializer.run do |config|
   config.gem 'RedCloth'
   config.gem 'devise', :version => '= 1.0.8'
   config.gem 'subdomain-fu'
-  
+
   # Only load the plugins named here, in the order given. By default, all plugins 
   # in vendor/plugins are loaded in alphabetical order.
   # :all can be used as a placeholder for all plugins not explicitly named

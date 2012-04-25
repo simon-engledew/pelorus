@@ -1,5 +1,6 @@
 Sass::Plugin.options[:template_location] = File.join('app', 'stylesheets')
-Sass::Plugin.options[:style] = Rails.env.development?? :expanded : :compressed
+# Sass::Plugin.options[:style] = Rails.env.development?? :expanded : :compact
+Sass::Plugin.options[:style] = :compact
 
 module Sass::Script::Functions
   def numeric_value(pixels)

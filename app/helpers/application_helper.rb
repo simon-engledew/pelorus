@@ -21,6 +21,14 @@ module ApplicationHelper
     @title = title
   end
 
+  def by_map(stakes)
+    ActiveSupport::OrderedHash.new.tap do |output|
+      stakes.each do |stake|
+        (output[stake.map] ||= []) << stake
+      end
+    end
+  end
+
   def map_events(events)
     ActiveSupport::OrderedHash.new.tap do |output|
       events.each do |event|
