@@ -1,0 +1,278 @@
+<!DOCTYPE HTML>
+<html><head>
+   <title>Pelorus User Guide</title>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+   <!-- This line includes the general project style sheet (not required) -->
+   <link type="text/css" href="default.css" rel="stylesheet" />
+
+   <script type="text/javascript">isIE=false</script>
+   <!--[if IE]>
+   <script type="text/javascript">isIE=true</script>
+   <![endif]-->
+
+      
+          
+   <style type="text/css">
+       body {  }
+       #idx          { margin: 0; padding: 0; }     /* div tag that wraps the keyword index */
+       #idx a        { font-color: #000; text-decoration: none; }  /* all links in index appear as text */
+
+       #idx p             { margin: 2px; }       /* keywords and secondary keywords */
+       #idx p.idxkeyword2 { margin-left: 20px }  /* indentation for secondary keywords */
+
+       table.idxtable { background: #F4F4F4;
+                        border: 1px solid #000000;
+                        border-collapse: collapse;
+                        -moz-box-shadow: 2px 2px 2px #B0B0B0;
+                        -webkit-box-shadow: 2px 2px 2px #B0B0B0;
+                        box-shadow: 2px 2px 2px #B0B0B0;
+                        filter: progid:DXImageTransform.Microsoft.Shadow(color=B0B0B0, Direction=135, Strength=4); }
+       td.idxtable    { background: #F4F4F4; }
+
+       /* font definitions for keyword section, keywords and popup links */
+       .idxsection  { font-family: Arial,Helvetica; font-weight: bold; font-size: 14pt; color: #000000; text-decoration: none;
+                      margin-top: 15px; margin-bottom: 15px; }
+       .idxkeyword  { font-family: Arial,Helvetica; font-weight: normal; font-size: 10pt; color: #000000; text-decoration: none; }
+       .idxkeyword2 { font-family: Arial,Helvetica; font-weight: normal; font-size: 10pt; color: #000000; text-decoration: none; }
+       .idxlink     { font-family: Arial,Helvetica; font-weight: normal; font-size: 9pt; color: #000000; text-decoration: none; }
+
+   </style>
+      
+
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+</head>
+<body>
+   
+   
+  <script type="text/javascript">
+
+  function hmInitHideLinks(cssCode) {
+  	var styleElement = document.createElement("style");
+  	styleElement.type = "text/css";
+  	if (styleElement.styleSheet) {
+    	styleElement.styleSheet.cssText = cssCode;
+  	}
+  	else {
+    	styleElement.appendChild(document.createTextNode(cssCode));
+  	}
+  	document.getElementsByTagName("head")[0].appendChild(styleElement);
+  }
+
+  hmInitHideLinks("#idx div { display: none }");
+
+  var currentdiv = null;
+  var canhidelinks = true;
+
+  function hmshowLinks(divID) {
+    var thisdiv = document.getElementById(divID);
+    canhidelinks = true;
+    hmhideLinks();
+    if (thisdiv) {
+      currentdiv = thisdiv;
+      $(currentdiv).show();
+      $(currentdiv).mouseover(hmdivMouseOver).mouseout(hmdivMouseOut);
+      $(document).mouseup(hmhideLinks);
+    }
+  }
+  function hmdivMouseOver() { canhidelinks = false; };
+  function hmdivMouseOut() { canhidelinks = true; };
+  function hmhideLinks() {
+    if (canhidelinks) {
+      if (currentdiv) {
+        $(currentdiv).hide();
+        $(currentdiv).unbind("onmouseover", "onmouseout");
+      }
+      currentdiv = null;
+      $(document).unbind("onmouseup");
+    }
+  }
+</script>
+<div id="idx" style="margin:0;padding:0;border:none">
+<a name="A" id="A"></a><p class="idxsection">- A -</p>
+<p class="idxkeyword"><a href="the_goal_network.htm" target="hmcontent"><span class="idxkeyword">activity</span></a></p>
+<p class="idxkeyword"><a href="the_goal_network.htm" target="hmcontent"><span class="idxkeyword">acyclic directed graph</span></a></p>
+<p class="idxkeyword"><a href="javascript:void(0)" onclick="return hmshowLinks('k3')"><span class="idxkeyword">adjusted impact</span></a></p>
+<div id="k3" style="position:relative;margin:0 0 0 20px;top:-3px">
+<table class="idxtable" style="padding:4px"><tr><td class="idxtable"><table style="border:none;padding:0"><tr style="vertical-align:baseline"><td><img src="ciconidx.gif" style="border:none" alt="Icon"></td><td><a href="risks-advanced_level.htm" target="hmcontent"><span class="idxlink">Risks—advanced level</span></a></td></tr><tr style="vertical-align:baseline"><td><img src="ciconidx.gif" style="border:none" alt="Icon"></td><td><a href="risk_management.htm" target="hmcontent"><span class="idxlink">Risk management</span></a></td></tr></table></td></tr></table></div>
+<p class="idxkeyword"><a href="javascript:void(0)" onclick="return hmshowLinks('k4')"><span class="idxkeyword">adjusted probability</span></a></p>
+<div id="k4" style="position:relative;margin:0 0 0 20px;top:-3px">
+<table class="idxtable" style="padding:4px"><tr><td class="idxtable"><table style="border:none;padding:0"><tr style="vertical-align:baseline"><td><img src="ciconidx.gif" style="border:none" alt="Icon"></td><td><a href="risks-advanced_level.htm" target="hmcontent"><span class="idxlink">Risks—advanced level</span></a></td></tr><tr style="vertical-align:baseline"><td><img src="ciconidx.gif" style="border:none" alt="Icon"></td><td><a href="risk_management.htm" target="hmcontent"><span class="idxlink">Risk management</span></a></td></tr></table></td></tr></table></div>
+<p class="idxkeyword"><a href="javascript:void(0)" onclick="return hmshowLinks('k5')"><span class="idxkeyword">adjusted severity</span></a></p>
+<div id="k5" style="position:relative;margin:0 0 0 20px;top:-3px">
+<table class="idxtable" style="padding:4px"><tr><td class="idxtable"><table style="border:none;padding:0"><tr style="vertical-align:baseline"><td><img src="ciconidx.gif" style="border:none" alt="Icon"></td><td><a href="risks-advanced_level.htm" target="hmcontent"><span class="idxlink">Risks—advanced level</span></a></td></tr><tr style="vertical-align:baseline"><td><img src="ciconidx.gif" style="border:none" alt="Icon"></td><td><a href="risk_management.htm" target="hmcontent"><span class="idxlink">Risk management</span></a></td></tr></table></td></tr></table></div>
+<p class="idxkeyword"><a href="javascript:void(0)" onclick="return hmshowLinks('k6')"><span class="idxkeyword">adjustment</span></a></p>
+<div id="k6" style="position:relative;margin:0 0 0 20px;top:-3px">
+<table class="idxtable" style="padding:4px"><tr><td class="idxtable"><table style="border:none;padding:0"><tr style="vertical-align:baseline"><td><img src="ciconidx.gif" style="border:none" alt="Icon"></td><td><a href="the_process_is_parallel_iterative_and_exploratory.htm" target="hmcontent"><span class="idxlink">The process is parallel, iterative and exploratory</span></a></td></tr><tr style="vertical-align:baseline"><td><img src="ciconidx.gif" style="border:none" alt="Icon"></td><td><a href="delivery_phase.htm" target="hmcontent"><span class="idxlink">Delivery Phase</span></a></td></tr></table></td></tr></table></div>
+<p class="idxkeyword"><a href="goal_categories.htm" target="hmcontent"><span class="idxkeyword">aim</span></a></p>
+<p class="idxkeyword"><a href="definition_phase.htm" target="hmcontent"><span class="idxkeyword">aligned</span></a></p>
+<p class="idxkeyword"><a href="javascript:void(0)" onclick="return hmshowLinks('k9')"><span class="idxkeyword">avoidance measure</span></a></p>
+<div id="k9" style="position:relative;margin:0 0 0 20px;top:-3px">
+<table class="idxtable" style="padding:4px"><tr><td class="idxtable"><table style="border:none;padding:0"><tr style="vertical-align:baseline"><td><img src="ciconidx.gif" style="border:none" alt="Icon"></td><td><a href="risks-advanced_level.htm" target="hmcontent"><span class="idxlink">Risks—advanced level</span></a></td></tr><tr style="vertical-align:baseline"><td><img src="ciconidx.gif" style="border:none" alt="Icon"></td><td><a href="risk_management.htm" target="hmcontent"><span class="idxlink">Risk management</span></a></td></tr></table></td></tr></table></div>
+<a name="B" id="B"></a><p class="idxsection">- B -</p>
+<p class="idxkeyword"><a href="javascript:void(0)" onclick="return hmshowLinks('k10')"><span class="idxkeyword">base impact</span></a></p>
+<div id="k10" style="position:relative;margin:0 0 0 20px;top:-3px">
+<table class="idxtable" style="padding:4px"><tr><td class="idxtable"><table style="border:none;padding:0"><tr style="vertical-align:baseline"><td><img src="ciconidx.gif" style="border:none" alt="Icon"></td><td><a href="risks-advanced_level.htm" target="hmcontent"><span class="idxlink">Risks—advanced level</span></a></td></tr><tr style="vertical-align:baseline"><td><img src="ciconidx.gif" style="border:none" alt="Icon"></td><td><a href="risk_management.htm" target="hmcontent"><span class="idxlink">Risk management</span></a></td></tr></table></td></tr></table></div>
+<p class="idxkeyword"><a href="javascript:void(0)" onclick="return hmshowLinks('k11')"><span class="idxkeyword">base probability</span></a></p>
+<div id="k11" style="position:relative;margin:0 0 0 20px;top:-3px">
+<table class="idxtable" style="padding:4px"><tr><td class="idxtable"><table style="border:none;padding:0"><tr style="vertical-align:baseline"><td><img src="ciconidx.gif" style="border:none" alt="Icon"></td><td><a href="risks-advanced_level.htm" target="hmcontent"><span class="idxlink">Risks—advanced level</span></a></td></tr><tr style="vertical-align:baseline"><td><img src="ciconidx.gif" style="border:none" alt="Icon"></td><td><a href="risk_management.htm" target="hmcontent"><span class="idxlink">Risk management</span></a></td></tr></table></td></tr></table></div>
+<p class="idxkeyword"><a href="javascript:void(0)" onclick="return hmshowLinks('k12')"><span class="idxkeyword">base severity</span></a></p>
+<div id="k12" style="position:relative;margin:0 0 0 20px;top:-3px">
+<table class="idxtable" style="padding:4px"><tr><td class="idxtable"><table style="border:none;padding:0"><tr style="vertical-align:baseline"><td><img src="ciconidx.gif" style="border:none" alt="Icon"></td><td><a href="risks-advanced_level.htm" target="hmcontent"><span class="idxlink">Risks—advanced level</span></a></td></tr><tr style="vertical-align:baseline"><td><img src="ciconidx.gif" style="border:none" alt="Icon"></td><td><a href="risk_management.htm" target="hmcontent"><span class="idxlink">Risk management</span></a></td></tr></table></td></tr></table></div>
+<p class="idxkeyword"><a href="context.htm" target="hmcontent"><span class="idxkeyword">benchmark source</span></a></p>
+<p class="idxkeyword"><a href="context.htm" target="hmcontent"><span class="idxkeyword">benchmark value</span></a></p>
+<p class="idxkeyword"><a href="three-valued_target.htm" target="hmcontent"><span class="idxkeyword">best</span></a></p>
+<p class="idxkeyword"><a href="its_all_about_maps.htm" target="hmcontent"><span class="idxkeyword">body goal</span></a></p>
+<a name="C" id="C"></a><p class="idxsection">- C -</p>
+<p class="idxkeyword"><a href="stakeholders_1.htm" target="hmcontent"><span class="idxkeyword">change manager</span></a></p>
+<p class="idxkeyword"><a href="discussions_and_comments.htm" target="hmcontent"><span class="idxkeyword">comment</span></a></p>
+<p class="idxkeyword"><a href="it_takes_time_effort_and_commitment.htm" target="hmcontent"><span class="idxkeyword">commitment</span></a></p>
+<p class="idxkeyword"><a href="definition_phase.htm" target="hmcontent"><span class="idxkeyword">complete</span></a></p>
+<p class="idxkeyword"><a href="concept_phase.htm" target="hmcontent"><span class="idxkeyword">concept phase</span></a></p>
+<p class="idxkeyword"><a href="stakeholders_1.htm" target="hmcontent"><span class="idxkeyword">consensus</span></a></p>
+<p class="idxkeyword"><a href="delivery_phase.htm" target="hmcontent"><span class="idxkeyword">containment</span></a></p>
+<p class="idxkeyword"><a href="context.htm" target="hmcontent"><span class="idxkeyword">context</span></a></p>
+<p class="idxkeyword"><a href="the_process_is_parallel_iterative_and_exploratory.htm" target="hmcontent"><span class="idxkeyword">convergence</span></a></p>
+<p class="idxkeyword"><a href="the_process_is_conversational.htm" target="hmcontent"><span class="idxkeyword">conversation</span></a></p>
+<a name="D" id="D"></a><p class="idxsection">- D -</p>
+<p class="idxkeyword"><a href="javascript:void(0)" onclick="return hmshowLinks('k27')"><span class="idxkeyword">decomposition</span></a></p>
+<div id="k27" style="position:relative;margin:0 0 0 20px;top:-3px">
+<table class="idxtable" style="padding:4px"><tr><td class="idxtable"><table style="border:none;padding:0"><tr style="vertical-align:baseline"><td><img src="ciconidx.gif" style="border:none" alt="Icon"></td><td><a href="the_goal_network.htm" target="hmcontent"><span class="idxlink">The goal network</span></a></td></tr><tr style="vertical-align:baseline"><td><img src="ciconidx.gif" style="border:none" alt="Icon"></td><td><a href="sub-goals.htm" target="hmcontent"><span class="idxlink">Sub-goals</span></a></td></tr></table></td></tr></table></div>
+<p class="idxkeyword"><a href="delivery_phase.htm" target="hmcontent"><span class="idxkeyword">deferment</span></a></p>
+<p class="idxkeyword"><a href="definition_phase.htm" target="hmcontent"><span class="idxkeyword">definition phase</span></a></p>
+<p class="idxkeyword"><a href="delivery_phase.htm" target="hmcontent"><span class="idxkeyword">delivery phase</span></a></p>
+<p class="idxkeyword"><a href="factors.htm" target="hmcontent"><span class="idxkeyword">direction indicator</span></a></p>
+<p class="idxkeyword"><a href="discussions_and_comments.htm" target="hmcontent"><span class="idxkeyword">discussion</span></a></p>
+<p class="idxkeyword"><a href="javascript:void(0)" onclick="return hmshowLinks('k33')"><span class="idxkeyword">distinguished stakeholder</span></a></p>
+<div id="k33" style="position:relative;margin:0 0 0 20px;top:-3px">
+<table class="idxtable" style="padding:4px"><tr><td class="idxtable"><table style="border:none;padding:0"><tr style="vertical-align:baseline"><td><img src="ciconidx.gif" style="border:none" alt="Icon"></td><td><a href="stakeholders.htm" target="hmcontent"><span class="idxlink">Stakeholders</span></a></td></tr><tr style="vertical-align:baseline"><td><img src="ciconidx.gif" style="border:none" alt="Icon"></td><td><a href="stakeholders_1.htm" target="hmcontent"><span class="idxlink">Stakeholders</span></a></td></tr></table></td></tr></table></div>
+<p class="idxkeyword"><a href="the_goal_network.htm" target="hmcontent"><span class="idxkeyword">dynamic activity</span></a></p>
+<a name="E" id="E"></a><p class="idxsection">- E -</p>
+<p class="idxkeyword"><a href="it_takes_time_effort_and_commitment.htm" target="hmcontent"><span class="idxkeyword">effort</span></a></p>
+<a name="F" id="F"></a><p class="idxsection">- F -</p>
+<p class="idxkeyword"><a href="factors.htm" target="hmcontent"><span class="idxkeyword">factor</span></a></p>
+<p class="idxkeyword"><a href="factors-advanced_level.htm" target="hmcontent"><span class="idxkeyword">factor—advanced level</span></a></p>
+<p class="idxkeyword"><a href="three-valued_target.htm" target="hmcontent"><span class="idxkeyword">fail</span></a></p>
+<a name="G" id="G"></a><p class="idxsection">- G -</p>
+<p class="idxkeyword"><a href="javascript:void(0)" onclick="return hmshowLinks('k39')"><span class="idxkeyword">goal</span></a></p>
+<div id="k39" style="position:relative;margin:0 0 0 20px;top:-3px">
+<table class="idxtable" style="padding:4px"><tr><td class="idxtable"><table style="border:none;padding:0"><tr style="vertical-align:baseline"><td><img src="ciconidx.gif" style="border:none" alt="Icon"></td><td><a href="its_all_about_maps.htm" target="hmcontent"><span class="idxlink">It’s all about maps</span></a></td></tr><tr style="vertical-align:baseline"><td><img src="ciconidx.gif" style="border:none" alt="Icon"></td><td><a href="the_goal_network.htm" target="hmcontent"><span class="idxlink">The goal network</span></a></td></tr></table></td></tr></table></div>
+<p class="idxkeyword"><a href="goal_categories.htm" target="hmcontent"><span class="idxkeyword">goal category</span></a></p>
+<p class="idxkeyword"><a href="stakeholders_1.htm" target="hmcontent"><span class="idxkeyword">goal champion</span></a></p>
+<p class="idxkeyword"><a href="the_goal_description.htm" target="hmcontent"><span class="idxkeyword">goal description</span></a></p>
+<p class="idxkeyword"><a href="stakeholders_1.htm" target="hmcontent"><span class="idxkeyword">goal manager</span></a></p>
+<p class="idxkeyword"><a href="the_goal_network.htm" target="hmcontent"><span class="idxkeyword">goal network</span></a></p>
+<p class="idxkeyword"><a href="structure_of_a_goal.htm" target="hmcontent"><span class="idxkeyword">goal structure</span></a></p>
+<p class="idxkeyword"><a href="12_golden_rules.htm" target="hmcontent"><span class="idxkeyword">golden rules</span></a></p>
+<p class="idxkeyword"><a href="stakeholders_1.htm" target="hmcontent"><span class="idxkeyword">group</span></a></p>
+<a name="H" id="H"></a><p class="idxsection">- H -</p>
+<p class="idxkeyword"><a href="harvesting_phase.htm" target="hmcontent"><span class="idxkeyword">harvesting phase</span></a></p>
+<p class="idxkeyword"><a href="javascript:void(0)" onclick="return hmshowLinks('k49')"><span class="idxkeyword">head goal</span></a></p>
+<div id="k49" style="position:relative;margin:0 0 0 20px;top:-3px">
+<table class="idxtable" style="padding:4px"><tr><td class="idxtable"><table style="border:none;padding:0"><tr style="vertical-align:baseline"><td><img src="ciconidx.gif" style="border:none" alt="Icon"></td><td><a href="its_all_about_maps.htm" target="hmcontent"><span class="idxlink">It’s all about maps</span></a></td></tr><tr style="vertical-align:baseline"><td><img src="ciconidx.gif" style="border:none" alt="Icon"></td><td><a href="concept_phase.htm" target="hmcontent"><span class="idxlink">Concept Phase</span></a></td></tr></table></td></tr></table></div>
+<a name="I" id="I"></a><p class="idxsection">- I -</p>
+<p class="idxkeyword"><a href="goal_categories.htm" target="hmcontent"><span class="idxkeyword">ideal</span></a></p>
+<p class="idxkeyword"><a href="javascript:void(0)" onclick="return hmshowLinks('k51')"><span class="idxkeyword">impact</span></a></p>
+<div id="k51" style="position:relative;margin:0 0 0 20px;top:-3px">
+<table class="idxtable" style="padding:4px"><tr><td class="idxtable"><table style="border:none;padding:0"><tr style="vertical-align:baseline"><td><img src="ciconidx.gif" style="border:none" alt="Icon"></td><td><a href="risks-advanced_level.htm" target="hmcontent"><span class="idxlink">Risks—advanced level</span></a></td></tr><tr style="vertical-align:baseline"><td><img src="ciconidx.gif" style="border:none" alt="Icon"></td><td><a href="risk_management.htm" target="hmcontent"><span class="idxlink">Risk management</span></a></td></tr></table></td></tr></table></div>
+<p class="idxkeyword"><a href="stakeholders_1.htm" target="hmcontent"><span class="idxkeyword">inheritance</span></a></p>
+<p class="idxkeyword"><a href="the_process_is_parallel_iterative_and_exploratory.htm" target="hmcontent"><span class="idxkeyword">iterative</span></a></p>
+<a name="K" id="K"></a><p class="idxsection">- K -</p>
+<p class="idxkeyword"><a href="javascript:void(0)" onclick="return hmshowLinks('k54')"><span class="idxkeyword">knowledge</span></a></p>
+<div id="k54" style="position:relative;margin:0 0 0 20px;top:-3px">
+<table class="idxtable" style="padding:4px"><tr><td class="idxtable"><table style="border:none;padding:0"><tr style="vertical-align:baseline"><td><img src="ciconidx.gif" style="border:none" alt="Icon"></td><td><a href="the_process_is_conversational.htm" target="hmcontent"><span class="idxlink">The process is conversational</span></a></td></tr><tr style="vertical-align:baseline"><td><img src="ciconidx.gif" style="border:none" alt="Icon"></td><td><a href="delivery_phase.htm" target="hmcontent"><span class="idxlink">Delivery Phase</span></a></td></tr></table></td></tr></table></div>
+<a name="L" id="L"></a><p class="idxsection">- L -</p>
+<p class="idxkeyword"><a href="the_process_is_parallel_iterative_and_exploratory.htm" target="hmcontent"><span class="idxkeyword">learning</span></a></p>
+<p class="idxkeyword"><a href="three-valued_target.htm" target="hmcontent"><span class="idxkeyword">likely</span></a></p>
+<p class="idxkeyword"><a href="the_goal_network.htm" target="hmcontent"><span class="idxkeyword">link</span></a></p>
+<p class="idxkeyword"><a href="the_traffic-light_system.htm" target="hmcontent"><span class="idxkeyword">local status</span></a></p>
+<a name="M" id="M"></a><p class="idxsection">- M -</p>
+<p class="idxkeyword"><a href="goal_categories.htm" target="hmcontent"><span class="idxkeyword">maintain</span></a></p>
+<p class="idxkeyword"><a href="its_all_about_maps.htm" target="hmcontent"><span class="idxkeyword">map</span></a></p>
+<p class="idxkeyword"><a href="map_structure-basic.htm" target="hmcontent"><span class="idxkeyword">map structure</span></a></p>
+<p class="idxkeyword"><a href="map_structure-advanced.htm" target="hmcontent"><span class="idxkeyword">map structure—advanced</span></a></p>
+<p class="idxkeyword"><a href="measurement_procedure.htm" target="hmcontent"><span class="idxkeyword">measurement procedure</span></a></p>
+<p class="idxkeyword"><a href="javascript:void(0)" onclick="return hmshowLinks('k64')"><span class="idxkeyword">mitigation measure</span></a></p>
+<div id="k64" style="position:relative;margin:0 0 0 20px;top:-3px">
+<table class="idxtable" style="padding:4px"><tr><td class="idxtable"><table style="border:none;padding:0"><tr style="vertical-align:baseline"><td><img src="ciconidx.gif" style="border:none" alt="Icon"></td><td><a href="risks-advanced_level.htm" target="hmcontent"><span class="idxlink">Risks—advanced level</span></a></td></tr><tr style="vertical-align:baseline"><td><img src="ciconidx.gif" style="border:none" alt="Icon"></td><td><a href="risk_management.htm" target="hmcontent"><span class="idxlink">Risk management</span></a></td></tr></table></td></tr></table></div>
+<a name="N" id="N"></a><p class="idxsection">- N -</p>
+<p class="idxkeyword"><a href="the_goal_network.htm" target="hmcontent"><span class="idxkeyword">network</span></a></p>
+<p class="idxkeyword"><a href="the_traffic-light_system.htm" target="hmcontent"><span class="idxkeyword">non-propagating goal</span></a></p>
+<a name="O" id="O"></a><p class="idxsection">- O -</p>
+<p class="idxkeyword"><a href="goal_categories.htm" target="hmcontent"><span class="idxkeyword">objective</span></a></p>
+<p class="idxkeyword"><a href="measurement_procedure.htm" target="hmcontent"><span class="idxkeyword">operational definition</span></a></p>
+<p class="idxkeyword"><a href="pelorus_is_used_with_other_tools.htm" target="hmcontent"><span class="idxkeyword">other tools</span></a></p>
+<p class="idxkeyword"><a href="the_traffic-light_system.htm" target="hmcontent"><span class="idxkeyword">overall status</span></a></p>
+<a name="P" id="P"></a><p class="idxsection">- P -</p>
+<p class="idxkeyword"><a href="the_process_is_parallel_iterative_and_exploratory.htm" target="hmcontent"><span class="idxkeyword">parallel</span></a></p>
+<p class="idxkeyword"><a href="javascript:void(0)" onclick="return hmshowLinks('k72')"><span class="idxkeyword">phases</span></a></p>
+<div id="k72" style="position:relative;margin:0 0 0 20px;top:-3px">
+<table class="idxtable" style="padding:4px"><tr><td class="idxtable"><table style="border:none;padding:0"><tr style="vertical-align:baseline"><td><img src="ciconidx.gif" style="border:none" alt="Icon"></td><td><a href="the_process.htm" target="hmcontent"><span class="idxlink">The process</span></a></td></tr><tr style="vertical-align:baseline"><td><img src="ciconidx.gif" style="border:none" alt="Icon"></td><td><a href="phase_summary_graphic.htm" target="hmcontent"><span class="idxlink">Phases Summary</span></a></td></tr></table></td></tr></table></div>
+<p class="idxkeyword"><a href="three-level_planning.htm" target="hmcontent"><span class="idxkeyword">planning</span></a></p>
+<p class="idxkeyword"><a href="factors.htm" target="hmcontent"><span class="idxkeyword">predicted/actual value</span></a></p>
+<p class="idxkeyword"><a href="context.htm" target="hmcontent"><span class="idxkeyword">priority</span></a></p>
+<p class="idxkeyword"><a href="javascript:void(0)" onclick="return hmshowLinks('k76')"><span class="idxkeyword">probability</span></a></p>
+<div id="k76" style="position:relative;margin:0 0 0 20px;top:-3px">
+<table class="idxtable" style="padding:4px"><tr><td class="idxtable"><table style="border:none;padding:0"><tr style="vertical-align:baseline"><td><img src="ciconidx.gif" style="border:none" alt="Icon"></td><td><a href="risks-advanced_level.htm" target="hmcontent"><span class="idxlink">Risks—advanced level</span></a></td></tr><tr style="vertical-align:baseline"><td><img src="ciconidx.gif" style="border:none" alt="Icon"></td><td><a href="risk_management.htm" target="hmcontent"><span class="idxlink">Risk management</span></a></td></tr></table></td></tr></table></div>
+<p class="idxkeyword"><a href="the_process.htm" target="hmcontent"><span class="idxkeyword">process</span></a></p>
+<p class="idxkeyword"><a href="the_traffic-light_system.htm" target="hmcontent"><span class="idxkeyword">propagation</span></a></p>
+<a name="Q" id="Q"></a><p class="idxsection">- Q -</p>
+<p class="idxkeyword"><a href="questions_to_keep_asking.htm" target="hmcontent"><span class="idxkeyword">questions</span></a></p>
+<a name="R" id="R"></a><p class="idxsection">- R -</p>
+<p class="idxkeyword"><a href="three-valued_target.htm" target="hmcontent"><span class="idxkeyword">report</span></a></p>
+<p class="idxkeyword"><a href="stakeholders_1.htm" target="hmcontent"><span class="idxkeyword">representative</span></a></p>
+<p class="idxkeyword"><a href="results_factors_and_resources_factors.htm" target="hmcontent"><span class="idxkeyword">resources factor</span></a></p>
+<p class="idxkeyword"><a href="results_factors_and_resources_factors.htm" target="hmcontent"><span class="idxkeyword">results factor</span></a></p>
+<p class="idxkeyword"><a href="risks.htm" target="hmcontent"><span class="idxkeyword">risk</span></a></p>
+<p class="idxkeyword"><a href="risk_management.htm" target="hmcontent"><span class="idxkeyword">risk management</span></a></p>
+<p class="idxkeyword"><a href="stakeholders_1.htm" target="hmcontent"><span class="idxkeyword">risk manager</span></a></p>
+<p class="idxkeyword"><a href="risks-advanced_level.htm" target="hmcontent"><span class="idxkeyword">risk—advanced level</span></a></p>
+<a name="S" id="S"></a><p class="idxsection">- S -</p>
+<p class="idxkeyword"><a href="javascript:void(0)" onclick="return hmshowLinks('k88')"><span class="idxkeyword">severity</span></a></p>
+<div id="k88" style="position:relative;margin:0 0 0 20px;top:-3px">
+<table class="idxtable" style="padding:4px"><tr><td class="idxtable"><table style="border:none;padding:0"><tr style="vertical-align:baseline"><td><img src="ciconidx.gif" style="border:none" alt="Icon"></td><td><a href="risks-advanced_level.htm" target="hmcontent"><span class="idxlink">Risks—advanced level</span></a></td></tr><tr style="vertical-align:baseline"><td><img src="ciconidx.gif" style="border:none" alt="Icon"></td><td><a href="risk_management.htm" target="hmcontent"><span class="idxlink">Risk management</span></a></td></tr></table></td></tr></table></div>
+<p class="idxkeyword"><a href="javascript:void(0)" onclick="return hmshowLinks('k89')"><span class="idxkeyword">stakeholder</span></a></p>
+<div id="k89" style="position:relative;margin:0 0 0 20px;top:-3px">
+<table class="idxtable" style="padding:4px"><tr><td class="idxtable"><table style="border:none;padding:0"><tr style="vertical-align:baseline"><td><img src="ciconidx.gif" style="border:none" alt="Icon"></td><td><a href="the_map_is_owned_by_its_stakeholders.htm" target="hmcontent"><span class="idxlink">The map is owned by its stakeholders</span></a></td></tr><tr style="vertical-align:baseline"><td><img src="ciconidx.gif" style="border:none" alt="Icon"></td><td><a href="stakeholders.htm" target="hmcontent"><span class="idxlink">Stakeholders</span></a></td></tr><tr style="vertical-align:baseline"><td><img src="ciconidx.gif" style="border:none" alt="Icon"></td><td><a href="stakeholders_1.htm" target="hmcontent"><span class="idxlink">Stakeholders</span></a></td></tr></table></td></tr></table></div>
+<p class="idxkeyword"><a href="the_goal_network.htm" target="hmcontent"><span class="idxkeyword">state</span></a></p>
+<p class="idxkeyword"><a href="the_traffic-light_system.htm" target="hmcontent"><span class="idxkeyword">status propagation</span></a></p>
+<p class="idxkeyword"><a href="the_goal_network.htm" target="hmcontent"><span class="idxkeyword">steady state</span></a></p>
+<p class="idxkeyword"><a href="its_all_about_maps.htm" target="hmcontent"><span class="idxkeyword">stepping stone</span></a></p>
+<p class="idxkeyword"><a href="structure_of_a_goal.htm" target="hmcontent"><span class="idxkeyword">structure of a goal</span></a></p>
+<p class="idxkeyword"><a href="map_structure-basic.htm" target="hmcontent"><span class="idxkeyword">structure of a map</span></a></p>
+<p class="idxkeyword"><a href="javascript:void(0)" onclick="return hmshowLinks('k96')"><span class="idxkeyword">sub-goal</span></a></p>
+<div id="k96" style="position:relative;margin:0 0 0 20px;top:-3px">
+<table class="idxtable" style="padding:4px"><tr><td class="idxtable"><table style="border:none;padding:0"><tr style="vertical-align:baseline"><td><img src="ciconidx.gif" style="border:none" alt="Icon"></td><td><a href="the_goal_network.htm" target="hmcontent"><span class="idxlink">The goal network</span></a></td></tr><tr style="vertical-align:baseline"><td><img src="ciconidx.gif" style="border:none" alt="Icon"></td><td><a href="sub-goals.htm" target="hmcontent"><span class="idxlink">Sub-goals</span></a></td></tr></table></td></tr></table></div>
+<p class="idxkeyword"><a href="supporting_and_supported_goals.htm" target="hmcontent"><span class="idxkeyword">supported goal</span></a></p>
+<p class="idxkeyword"><a href="the_traffic-light_system.htm" target="hmcontent"><span class="idxkeyword">supported status</span></a></p>
+<p class="idxkeyword"><a href="javascript:void(0)" onclick="return hmshowLinks('k99')"><span class="idxkeyword">supporting goal</span></a></p>
+<div id="k99" style="position:relative;margin:0 0 0 20px;top:-3px">
+<table class="idxtable" style="padding:4px"><tr><td class="idxtable"><table style="border:none;padding:0"><tr style="vertical-align:baseline"><td><img src="ciconidx.gif" style="border:none" alt="Icon"></td><td><a href="the_goal_network.htm" target="hmcontent"><span class="idxlink">The goal network</span></a></td></tr><tr style="vertical-align:baseline"><td><img src="ciconidx.gif" style="border:none" alt="Icon"></td><td><a href="supporting_and_supported_goals.htm" target="hmcontent"><span class="idxlink">Supporting and supported goals</span></a></td></tr></table></td></tr></table></div>
+<a name="T" id="T"></a><p class="idxsection">- T -</p>
+<p class="idxkeyword"><a href="concept_phase.htm" target="hmcontent"><span class="idxkeyword">tail goal</span></a></p>
+<p class="idxkeyword"><a href="javascript:void(0)" onclick="return hmshowLinks('k101')"><span class="idxkeyword">target</span></a></p>
+<div id="k101" style="position:relative;margin:0 0 0 20px;top:-3px">
+<table class="idxtable" style="padding:4px"><tr><td class="idxtable"><table style="border:none;padding:0"><tr style="vertical-align:baseline"><td><img src="ciconidx.gif" style="border:none" alt="Icon"></td><td><a href="factors.htm" target="hmcontent"><span class="idxlink">Factors</span></a></td></tr><tr style="vertical-align:baseline"><td><img src="ciconidx.gif" style="border:none" alt="Icon"></td><td><a href="three-valued_target.htm" target="hmcontent"><span class="idxlink">Three-valued target</span></a></td></tr></table></td></tr></table></div>
+<p class="idxkeyword"><a href="three-level_planning.htm" target="hmcontent"><span class="idxkeyword">three-level planning</span></a></p>
+<p class="idxkeyword"><a href="three-valued_target.htm" target="hmcontent"><span class="idxkeyword">three-valued target</span></a></p>
+<p class="idxkeyword"><a href="three-level_planning.htm" target="hmcontent"><span class="idxkeyword">timebox</span></a></p>
+<p class="idxkeyword"><a href="javascript:void(0)" onclick="return hmshowLinks('k105')"><span class="idxkeyword">traffic-light status</span></a></p>
+<div id="k105" style="position:relative;margin:0 0 0 20px;top:-3px">
+<table class="idxtable" style="padding:4px"><tr><td class="idxtable"><table style="border:none;padding:0"><tr style="vertical-align:baseline"><td><img src="ciconidx.gif" style="border:none" alt="Icon"></td><td><a href="the_traffic-light_system.htm" target="hmcontent"><span class="idxlink">The traffic-light system</span></a></td></tr><tr style="vertical-align:baseline"><td><img src="ciconidx.gif" style="border:none" alt="Icon"></td><td><a href="traffic-light_status_summary.htm" target="hmcontent"><span class="idxlink">Traffic-light status summary</span></a></td></tr></table></td></tr></table></div>
+<p class="idxkeyword"><a href="the_traffic-light_system.htm" target="hmcontent"><span class="idxkeyword">traffic-light system</span></a></p>
+<a name="U" id="U"></a><p class="idxsection">- U -</p>
+<p class="idxkeyword"><a href="factors.htm" target="hmcontent"><span class="idxkeyword">units indicator</span></a></p>
+<a name="V" id="V"></a><p class="idxsection">- V -</p>
+<p class="idxkeyword"><a href="definition_phase.htm" target="hmcontent"><span class="idxkeyword">valid</span></a></p>
+<a name="W" id="W"></a><p class="idxsection">- W -</p>
+<p class="idxkeyword"><a href="javascript:void(0)" onclick="return hmshowLinks('k109')"><span class="idxkeyword">wisdom</span></a></p>
+<div id="k109" style="position:relative;margin:0 0 0 20px;top:-3px">
+<table class="idxtable" style="padding:4px"><tr><td class="idxtable"><table style="border:none;padding:0"><tr style="vertical-align:baseline"><td><img src="ciconidx.gif" style="border:none" alt="Icon"></td><td><a href="the_process_is_conversational.htm" target="hmcontent"><span class="idxlink">The process is conversational</span></a></td></tr><tr style="vertical-align:baseline"><td><img src="ciconidx.gif" style="border:none" alt="Icon"></td><td><a href="delivery_phase.htm" target="hmcontent"><span class="idxlink">Delivery Phase</span></a></td></tr></table></td></tr></table></div>
+<p class="idxkeyword"><a href="three-valued_target.htm" target="hmcontent"><span class="idxkeyword">worst</span></a></p>
+</div>
+
+   
+</body>
+</html>

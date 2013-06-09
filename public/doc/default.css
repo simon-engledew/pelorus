@@ -1,0 +1,216 @@
+/* Text Styles */
+hr { color: #000000}
+body, table, tr, th /* Normal */
+{
+ font-size: 11pt;
+ font-family: Arial;
+ font-style: normal;
+ font-weight: normal;
+ color: #000000;
+ text-decoration: none;
+}
+span.f_CodeExample /* Code Example */
+{
+ font-size: 8pt;
+ font-family: 'Courier New';
+}
+span.f_Comment /* Comment */
+{
+}
+span.f_goldenrule /* goldenrule */
+{
+ font-weight: bold;
+ color: #1f497d;
+}
+span.f_heading1 /* heading 1 */
+{
+ font-size: 14pt;
+ font-family: Cambria;
+ font-weight: bold;
+ color: #365f91;
+}
+span.f_heading2 /* heading 2 */
+{
+ font-size: 13pt;
+ font-family: Cambria;
+ font-weight: bold;
+ color: #4f81bd;
+}
+span.f_heading3 /* heading 3 */
+{
+ font-family: Cambria;
+ font-weight: bold;
+ color: #4f81bd;
+}
+span.f_heading4 /* heading 4 */
+{
+ font-family: Cambria;
+ font-style: italic;
+ font-weight: bold;
+ color: #4f81bd;
+}
+span.f_Heading1 /* Heading1 */
+{
+ font-size: 16pt;
+ font-weight: bold;
+}
+span.f_ImageCaption /* Image Caption */
+{
+ font-size: 8pt;
+ font-weight: bold;
+}
+span.f_Indent /* Indent */
+{
+}
+span.f_Indent2 /* Indent2 */
+{
+}
+span.f_Indent3 /* Indent3 */
+{
+}
+span.f_indenthead /* indenthead */
+{
+ font-size: 12pt;
+ font-weight: bold;
+ color: #1f497d;
+}
+span.f_inhead2 /* inhead2 */
+{
+ font-weight: bold;
+ color: #1f497d;
+}
+span.f_ListParagraph /* List Paragraph */
+{
+}
+span.f_Notes /* Notes */
+{
+}
+span.f_SmallIndent /* SmallIndent */
+{
+}
+span.f_vich1 /* vich1 */
+{
+ font-size: 12pt;
+ font-weight: bold;
+ color: #1f497d;
+}
+/* Paragraph styles */
+p /* Normal */
+{
+ text-align: left;
+ text-indent: 0px;
+ padding: 0px 0px 0px 0px;
+ margin: 10px 0px 0px 0px;
+}
+.p_CodeExample /* Code Example */
+{
+ white-space: nowrap;
+ margin: 0px 0px 0px 0px;
+}
+.p_Comment /* Comment */
+{
+}
+.p_goldenrule /* goldenrule */
+{
+ line-height: 1.15;
+ margin: 19px 0px 0px 0px;
+}
+.p_heading1 /* heading 1 */
+{
+ line-height: 1.15;
+ margin: 32px 0px 0px 0px;
+}
+.p_heading2 /* heading 2 */
+{
+ line-height: 1.15;
+ margin: 13px 0px 0px 0px;
+}
+.p_heading3 /* heading 3 */
+{
+ line-height: 1.15;
+ margin: 13px 0px 0px 0px;
+}
+.p_heading4 /* heading 4 */
+{
+ line-height: 1.15;
+ margin: 13px 0px 0px 0px;
+}
+.p_Heading1 /* Heading1 */
+{
+ font-size: 100%;
+ font-weight: normal;
+ text-align: left;
+ text-indent: 0px;
+ padding: 0px 0px 0px 0px;
+ margin: 10px 0px 0px 0px;
+}
+.p_ImageCaption /* Image Caption */
+{
+}
+.p_Indent /* Indent */
+{
+ line-height: 1.15;
+ margin: 7px 0px 0px 57px;
+}
+.p_Indent2 /* Indent2 */
+{
+ line-height: 1.15;
+ margin: 7px 0px 0px 96px;
+}
+.p_Indent3 /* Indent3 */
+{
+ line-height: 1.15;
+ margin: 10px 0px 0px 132px;
+}
+.p_indenthead /* indenthead */
+{
+ line-height: 1.15;
+ margin: 7px 0px 0px 57px;
+}
+.p_inhead2 /* inhead2 */
+{
+ line-height: 1.15;
+ margin: 12px 0px 0px 0px;
+}
+.p_ListParagraph /* List Paragraph */
+{
+ line-height: 1.15;
+ margin: 7px 0px 0px 48px;
+}
+.p_Notes /* Notes */
+{
+}
+.p_SmallIndent /* SmallIndent */
+{
+ line-height: 1.15;
+ margin: 7px 0px 0px 28px;
+}
+.p_vich1 /* vich1 */
+{
+ line-height: 1.15;
+ margin: 16px 0px 0px 0px;
+}
+
+
+#hmpopupdiv /* used for javascript text popups */
+{
+  display: none;
+  position: absolute;
+  z-index: 1000;
+  background-color: #FFFFFF;
+  padding: 6px;
+  border:1px solid #000000;
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px #888;
+}
+
+#hmlightbox /* image lightbox */
+{
+  border: none;
+  padding: 8px;
+  background: #FFF;
+  font-size: 110%;
+  font-weight: bold;
+  color: #777;
+  box-shadow: 5px 5px 5px #888;
+}

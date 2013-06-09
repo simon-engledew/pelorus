@@ -1,0 +1,161 @@
+﻿<!DOCTYPE HTML>
+<html><head>
+   <title>Pelorus User Guide</title>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+   <!-- This line includes the general project style sheet (not required) -->
+   <link type="text/css" href="default.css" rel="stylesheet" />
+
+   <!-- This block defines the styles of the TOC headings, change them as needed -->
+   <style type="text/css">
+       body { }
+       .heading1 { font-size: 10pt; color: #000000; text-decoration: none; }
+       .heading2 { font-size: 10pt; color: #000000; text-decoration: none; }
+       .heading3 { font-size: 10pt; color: #000000; text-decoration: none; }
+       .heading4 { font-size: 10pt; color: #000000; text-decoration: none; }
+       .heading5 { font-size: 10pt; color: #000000; text-decoration: none; }
+       .heading6 { font-size: 10pt; color: #000000; text-decoration: none; }
+
+       .hilight1 { font-size: 10pt; color: #FFFFFF; background: #194E84; text-decoration: none; }
+       .hilight2 { font-size: 10pt; color: #FFFFFF; background: #194E84; text-decoration: none; }
+       .hilight3 { font-size: 10pt; color: #FFFFFF; background: #194E84; text-decoration: none; }
+       .hilight4 { font-size: 10pt; color: #FFFFFF; background: #194E84; text-decoration: none; }
+       .hilight5 { font-size: 10pt; color: #FFFFFF; background: #194E84; text-decoration: none; }
+       .hilight6 { font-size: 10pt; color: #FFFFFF; background: #194E84; text-decoration: none; }
+
+       /* TOC LIST CSS */
+       #toc    { padding:0; margin:0 }
+       #toc li { margin-top:2px; margin-left:0; padding:1px }
+       #toc ul { padding-left:0; margin-left:0px }       
+       /* TOC LIST CSS */
+   </style>
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript">
+     var parentScope = (parent.hmNavigationFrame);
+     if (!parentScope) {
+		      var s = document.createElement("script");
+		      s.setAttribute("type","text/javascript");
+		      s.setAttribute("src", "helpman_navigation.js");
+		      document.getElementsByTagName("head")[0].appendChild(s);
+	    }
+     else {
+       if (initialtocstate != "expandall") parent.hmAddCss(document, "#toc li ul { display: none }");
+     }
+     function loadicons() { var icons = new Array(); for (i=0; i<arguments.length; i++) { icons[i] = new Image(); icons[i].src = arguments[i]; } }
+     function loadtoc() { if (parentScope) parent.loadstate(document.getElementById("toc")); else loadstate(document.getElementById("toc")); }
+     function savetoc() { if (parentScope) parent.savestate(document.getElementById("toc")); else savestate(document.getElementById("toc")); }
+     function clicked(node, event) { deselect(); if (parentScope) parent.hmNodeClicked(node, event); else hmNodeClicked(node, event); }
+     function dblclicked(node) { if (parentScope) parent.hmNodeDblclicked(node); else hmNodeDblclicked(node); }
+     function deselect() { if (window.getSelection) window.getSelection().removeAllRanges(); else if (document.selection) document.selection.empty(); }
+     $(document).ready(function(){
+       loadtoc();
+       $(window).onunload = savetoc;
+     });
+   </script>
+</head>
+<body>
+<ul id="toc" style="list-style-type:none;display:block;padding-left:0">
+<li class="heading1" id="i1" style="background:url(cicon9.gif) no-repeat;padding-left:20px" onclick="return clicked(this,event)"><a class="heading1" id="a1" href="introduction.htm" target="hmcontent"><span class="heading1" id="s1">Introduction</span></a>
+</li>
+<li class="heading1" id="i2" data-bg="cicon1.gif;cicon2.gif" style="background:url(cicon2.gif) no-repeat;cursor:pointer;padding-left:20px" onclick="return clicked(this,event)"><a class="heading1" id="a2" href="principles.htm" target="hmcontent"><span class="heading1" id="s2" ondblclick="return dblclicked(this)">Principles</span></a>
+<ul id="ul2" style="list-style-type:none">
+<li class="heading2" id="i2.1" style="background:url(cicon9.gif) no-repeat;padding-left:20px" onclick="return clicked(this,event)"><a class="heading2" id="a2.1" href="its_all_about_maps.htm" target="hmcontent"><span class="heading2" id="s2.1">It’s all about maps</span></a>
+</li>
+<li class="heading2" id="i2.2" style="background:url(cicon9.gif) no-repeat;padding-left:20px" onclick="return clicked(this,event)"><a class="heading2" id="a2.2" href="the_map_is_owned_by_its_stakeholders.htm" target="hmcontent"><span class="heading2" id="s2.2">The map is owned by its stakeholders</span></a>
+</li>
+<li class="heading2" id="i2.3" style="background:url(cicon9.gif) no-repeat;padding-left:20px" onclick="return clicked(this,event)"><a class="heading2" id="a2.3" href="both_the_positive_and_the_negative.htm" target="hmcontent"><span class="heading2" id="s2.3">Both the ‘positive’ and the ‘negative’</span></a>
+</li>
+<li class="heading2" id="i2.4" style="background:url(cicon9.gif) no-repeat;padding-left:20px" onclick="return clicked(this,event)"><a class="heading2" id="a2.4" href="the_process_is_conversational.htm" target="hmcontent"><span class="heading2" id="s2.4">The process is conversational</span></a>
+</li>
+<li class="heading2" id="i2.5" style="background:url(cicon9.gif) no-repeat;padding-left:20px" onclick="return clicked(this,event)"><a class="heading2" id="a2.5" href="the_process_is_parallel_iterative_and_exploratory.htm" target="hmcontent"><span class="heading2" id="s2.5">The process is parallel, iterative and exploratory</span></a>
+</li>
+<li class="heading2" id="i2.6" style="background:url(cicon9.gif) no-repeat;padding-left:20px" onclick="return clicked(this,event)"><a class="heading2" id="a2.6" href="pelorus_is_used_with_other_tools.htm" target="hmcontent"><span class="heading2" id="s2.6">Pelorus is used with other tools</span></a>
+</li>
+<li class="heading2" id="i2.7" style="background:url(cicon9.gif) no-repeat;padding-left:20px" onclick="return clicked(this,event)"><a class="heading2" id="a2.7" href="it_takes_time_effort_and_commitment.htm" target="hmcontent"><span class="heading2" id="s2.7">It takes time, effort and commitment</span></a>
+</li>
+</ul>
+</li>
+<li class="heading1" id="i3" data-bg="cicon1.gif;cicon2.gif" style="background:url(cicon2.gif) no-repeat;cursor:pointer;padding-left:20px" onclick="return clicked(this,event)"><a class="heading1" id="a3" href="map_structure-basic.htm" target="hmcontent"><span class="heading1" id="s3" ondblclick="return dblclicked(this)">Map structure—basic</span></a>
+<ul id="ul3" style="list-style-type:none">
+<li class="heading2" id="i3.1" style="background:url(cicon9.gif) no-repeat;padding-left:20px" onclick="return clicked(this,event)"><a class="heading2" id="a3.1" href="the_goal_network.htm" target="hmcontent"><span class="heading2" id="s3.1">The goal network</span></a>
+</li>
+<li class="heading2" id="i3.2" data-bg="cicon1.gif;cicon2.gif" style="background:url(cicon2.gif) no-repeat;cursor:pointer;padding-left:20px" onclick="return clicked(this,event)"><a class="heading2" id="a3.2" href="structure_of_a_goal.htm" target="hmcontent"><span class="heading2" id="s3.2" ondblclick="return dblclicked(this)">Structure of a goal</span></a>
+<ul id="ul3.2" style="list-style-type:none">
+<li class="heading3" id="i3.2.1" style="background:url(cicon9.gif) no-repeat;padding-left:20px" onclick="return clicked(this,event)"><a class="heading3" id="a3.2.1" href="the_goal_description.htm" target="hmcontent"><span class="heading3" id="s3.2.1">The goal description</span></a>
+</li>
+<li class="heading3" id="i3.2.2" style="background:url(cicon9.gif) no-repeat;padding-left:20px" onclick="return clicked(this,event)"><a class="heading3" id="a3.2.2" href="stakeholders.htm" target="hmcontent"><span class="heading3" id="s3.2.2">Stakeholders</span></a>
+</li>
+<li class="heading3" id="i3.2.3" style="background:url(cicon9.gif) no-repeat;padding-left:20px" onclick="return clicked(this,event)"><a class="heading3" id="a3.2.3" href="sub-goals.htm" target="hmcontent"><span class="heading3" id="s3.2.3">Sub-goals</span></a>
+</li>
+<li class="heading3" id="i3.2.4" data-bg="cicon1.gif;cicon2.gif" style="background:url(cicon2.gif) no-repeat;cursor:pointer;padding-left:20px" onclick="return clicked(this,event)"><a class="heading3" id="a3.2.4" href="factors.htm" target="hmcontent"><span class="heading3" id="s3.2.4" ondblclick="return dblclicked(this)">Factors</span></a>
+<ul id="ul3.2.4" style="list-style-type:none">
+<li class="heading4" id="i3.2.4.1" style="background:url(cicon9.gif) no-repeat;padding-left:20px" onclick="return clicked(this,event)"><a class="heading4" id="a3.2.4.1" href="results_factors_and_resources_factors.htm" target="hmcontent"><span class="heading4" id="s3.2.4.1">Results factors and resources factors</span></a>
+</li>
+</ul>
+</li>
+<li class="heading3" id="i3.2.5" style="background:url(cicon9.gif) no-repeat;padding-left:20px" onclick="return clicked(this,event)"><a class="heading3" id="a3.2.5" href="risks.htm" target="hmcontent"><span class="heading3" id="s3.2.5">Risks</span></a>
+</li>
+<li class="heading3" id="i3.2.6" style="background:url(cicon9.gif) no-repeat;padding-left:20px" onclick="return clicked(this,event)"><a class="heading3" id="a3.2.6" href="supporting_and_supported_goals.htm" target="hmcontent"><span class="heading3" id="s3.2.6">Supporting and supported goals</span></a>
+</li>
+</ul>
+</li>
+<li class="heading2" id="i3.3" style="background:url(cicon9.gif) no-repeat;padding-left:20px" onclick="return clicked(this,event)"><a class="heading2" id="a3.3" href="discussions_and_comments.htm" target="hmcontent"><span class="heading2" id="s3.3">Discussions and comments</span></a>
+</li>
+</ul>
+</li>
+<li class="heading1" id="i4" data-bg="cicon1.gif;cicon2.gif" style="background:url(cicon2.gif) no-repeat;cursor:pointer;padding-left:20px" onclick="return clicked(this,event)"><a class="heading1" id="a4" href="map_structure-advanced.htm" target="hmcontent"><span class="heading1" id="s4" ondblclick="return dblclicked(this)">Map structure—advanced</span></a>
+<ul id="ul4" style="list-style-type:none">
+<li class="heading2" id="i4.1" data-bg="cicon1.gif;cicon2.gif" style="background:url(cicon2.gif) no-repeat;cursor:pointer;padding-left:20px" onclick="return clicked(this,event)"><a class="heading2" id="a4.1" href="factors-advanced_level.htm" target="hmcontent"><span class="heading2" id="s4.1" ondblclick="return dblclicked(this)">Factors—advanced level</span></a>
+<ul id="ul4.1" style="list-style-type:none">
+<li class="heading3" id="i4.1.1" style="background:url(cicon9.gif) no-repeat;padding-left:20px" onclick="return clicked(this,event)"><a class="heading3" id="a4.1.1" href="measurement_procedure.htm" target="hmcontent"><span class="heading3" id="s4.1.1">Measurement procedure</span></a>
+</li>
+<li class="heading3" id="i4.1.2" style="background:url(cicon9.gif) no-repeat;padding-left:20px" onclick="return clicked(this,event)"><a class="heading3" id="a4.1.2" href="three-valued_target.htm" target="hmcontent"><span class="heading3" id="s4.1.2">Three-valued target</span></a>
+</li>
+<li class="heading3" id="i4.1.3" style="background:url(cicon9.gif) no-repeat;padding-left:20px" onclick="return clicked(this,event)"><a class="heading3" id="a4.1.3" href="context.htm" target="hmcontent"><span class="heading3" id="s4.1.3">Context</span></a>
+</li>
+</ul>
+</li>
+<li class="heading2" id="i4.2" style="background:url(cicon9.gif) no-repeat;padding-left:20px" onclick="return clicked(this,event)"><a class="heading2" id="a4.2" href="risks-advanced_level.htm" target="hmcontent"><span class="heading2" id="s4.2">Risks—advanced level</span></a>
+</li>
+<li class="heading2" id="i4.3" style="background:url(cicon9.gif) no-repeat;padding-left:20px" onclick="return clicked(this,event)"><a class="heading2" id="a4.3" href="goal_categories.htm" target="hmcontent"><span class="heading2" id="s4.3">Goal categories</span></a>
+</li>
+</ul>
+</li>
+<li class="heading1" id="i5" data-bg="cicon1.gif;cicon2.gif" style="background:url(cicon2.gif) no-repeat;cursor:pointer;padding-left:20px" onclick="return clicked(this,event)"><a class="heading1" id="a5" href="the_traffic-light_system.htm" target="hmcontent"><span class="heading1" id="s5" ondblclick="return dblclicked(this)">The traffic-light system</span></a>
+<ul id="ul5" style="list-style-type:none">
+<li class="heading2" id="i5.1" style="background:url(cicon9.gif) no-repeat;padding-left:20px" onclick="return clicked(this,event)"><a class="heading2" id="a5.1" href="traffic-light_status_summary.htm" target="hmcontent"><span class="heading2" id="s5.1">Traffic-light status summary</span></a>
+</li>
+</ul>
+</li>
+<li class="heading1" id="i6" style="background:url(cicon9.gif) no-repeat;padding-left:20px" onclick="return clicked(this,event)"><a class="heading1" id="a6" href="risk_management.htm" target="hmcontent"><span class="heading1" id="s6">Risk management</span></a>
+</li>
+<li class="heading1" id="i7" style="background:url(cicon9.gif) no-repeat;padding-left:20px" onclick="return clicked(this,event)"><a class="heading1" id="a7" href="stakeholders_1.htm" target="hmcontent"><span class="heading1" id="s7">Stakeholders</span></a>
+</li>
+<li class="heading1" id="i8" data-bg="cicon1.gif;cicon2.gif" style="background:url(cicon2.gif) no-repeat;cursor:pointer;padding-left:20px" onclick="return clicked(this,event)"><a class="heading1" id="a8" href="the_process.htm" target="hmcontent"><span class="heading1" id="s8" ondblclick="return dblclicked(this)">The process</span></a>
+<ul id="ul8" style="list-style-type:none">
+<li class="heading2" id="i8.1" style="background:url(cicon9.gif) no-repeat;padding-left:20px" onclick="return clicked(this,event)"><a class="heading2" id="a8.1" href="concept_phase.htm" target="hmcontent"><span class="heading2" id="s8.1">Concept Phase</span></a>
+</li>
+<li class="heading2" id="i8.2" style="background:url(cicon9.gif) no-repeat;padding-left:20px" onclick="return clicked(this,event)"><a class="heading2" id="a8.2" href="definition_phase.htm" target="hmcontent"><span class="heading2" id="s8.2">Definition Phase</span></a>
+</li>
+<li class="heading2" id="i8.3" style="background:url(cicon9.gif) no-repeat;padding-left:20px" onclick="return clicked(this,event)"><a class="heading2" id="a8.3" href="delivery_phase.htm" target="hmcontent"><span class="heading2" id="s8.3">Delivery Phase</span></a>
+</li>
+<li class="heading2" id="i8.4" style="background:url(cicon9.gif) no-repeat;padding-left:20px" onclick="return clicked(this,event)"><a class="heading2" id="a8.4" href="harvesting_phase.htm" target="hmcontent"><span class="heading2" id="s8.4">Harvesting Phase</span></a>
+</li>
+<li class="heading2" id="i8.5" style="background:url(cicon9.gif) no-repeat;padding-left:20px" onclick="return clicked(this,event)"><a class="heading2" id="a8.5" href="phase_summary_graphic.htm" target="hmcontent"><span class="heading2" id="s8.5">Phases Summary</span></a>
+</li>
+</ul>
+</li>
+<li class="heading1" id="i9" style="background:url(cicon9.gif) no-repeat;padding-left:20px" onclick="return clicked(this,event)"><a class="heading1" id="a9" href="three-level_planning.htm" target="hmcontent"><span class="heading1" id="s9">Three-level planning</span></a>
+</li>
+<li class="heading1" id="i10" style="background:url(cicon9.gif) no-repeat;padding-left:20px" onclick="return clicked(this,event)"><a class="heading1" id="a10" href="questions_to_keep_asking.htm" target="hmcontent"><span class="heading1" id="s10">Questions to keep asking</span></a>
+</li>
+<li class="heading1" id="i11" style="background:url(cicon9.gif) no-repeat;padding-left:20px" onclick="return clicked(this,event)"><a class="heading1" id="a11" href="12_golden_rules.htm" target="hmcontent"><span class="heading1" id="s11">12 Golden Rules</span></a>
+</li>
+<li class="heading1" id="i12" style="background:url(cicon9.gif) no-repeat;padding-left:20px" onclick="return clicked(this,event)"><a class="heading1" id="a12" href="glossary.htm" target="hmcontent"><span class="heading1" id="s12">Glossary</span></a>
+</li>
+</ul>
+<script type="text/javascript">loadicons('cicon9.gif','cicon2.gif','cicon1.gif');</script>
+</body>
+</html>

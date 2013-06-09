@@ -1,0 +1,167 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+   <title>The traffic-light system</title>
+   <meta name="generator" content="Help &amp; Manual" />
+   <meta name="keywords" content="local status,non-propagating goal,overall status,propagation,status propagation,supported status,traffic-light status,traffic-light system" />
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />   
+   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+   <link type="text/css" href="default.css" rel="stylesheet" />
+   <link type="text/css" href="custom.css" rel="stylesheet">
+
+   <style TYPE="text/css" media="screen"> 
+      html, body { margin:0; 
+             padding:0; 
+             overflow: hidden; 
+             background: #FFFFFF; 
+       } 
+
+      div#printheader { display: none; }
+      #idheader { width:100%; 
+                  height:auto; 
+                  padding: 0; 
+                  margin: 0; 
+       } 
+      #idcontent { position:relative }                                               
+      #callout-table, #overview-table {display:block; position:relative; top:0; left:0;}
+      #callout-icon {display:block; position:absolute; top:-11px; left:-11px;}
+      #callout-icon-flag {display:block; position:absolute; top:-11px; left:-8px;}
+      #callout-table a {text-decoration: none; color: blue;}
+      #callout-table a:visited {text-decoration: none; color: blue;}
+      #overview-table a {text-decoration: none; color: black;}
+      #overview-table a:visited {text-decoration: none; color: black;}
+      #callout-table a:hover, #overview-table a:hover {text-decoration: underline;}      
+      #switchtoggles { text-align: right; padding: 0 5px 0 0; font-size: 90%; } 
+      p.help-url { margin: 20px 0 5px 0; text-align: center; font-size: 80%; text-decoration: none }
+   </style>
+   <noscript>
+   <style type="text/css">
+   html, body { overflow: auto; }
+   </style> 
+   </noscript>
+   <style type="text/css" media="print">
+      span.f_Heading1 { color: black; }
+      #idheader, #printheader img { display:none; }
+      #printheader { display: block; margin-top: 20px; }
+      #idcontent { margin-top: 10px; position:relative }
+   </style>   
+
+   <script type="text/javascript" src="jquery.js"></script>
+   <script type="text/javascript" src="helpman_settings.js"></script>
+   <script type="text/javascript" src="helpman_topicinit.js"></script>
+   <script type="text/javascript" src="nsh.js"></script>
+
+   <script type="text/javascript">
+     HMSyncTOC("index.html", "the_traffic-light_system.htm");
+   </script>
+</head>
+<body>
+<div id="breadcrumbs" style="display:none"></div>
+
+<div id="printheader"><h1 class="p_Heading1"><span class="f_Heading1">The traffic-light system</span></h1>
+</div>
+<div id="idheader">
+<div id="idheaderbg">
+<table style="width:100%;border:none;margin:0px;background:url(background-topic-header.jpg)" cellspacing="0" cellpadding="0"> 
+  <tr valign="bottom">
+    <td align="left" valign="bottom" class="topichead">
+   <p class="crumbs" id="idnav"><b>Navigation:</b>&nbsp;
+   &raquo;No topics above this level&laquo;
+   </p>
+   <h1 class="p_Heading1"><span class="f_Heading1">The traffic-light system</span></h1>
+
+    </td>
+    <td align="right" width="120" valign="middle" class="topichead" id="idnav">
+    
+     <a href="goal_categories.htm"
+        onmouseover="document.images.prev.src='hm_btn_navigate_prev_orange.png'" 
+        onmouseout="document.images.prev.src='hm_btn_navigate_prev.png'"
+        ><img name="prev" src="hm_btn_navigate_prev.png" border=0 alt="Previous page"
+        ></a><a href="introduction.htm"
+        onmouseover="document.images.main.src='hm_btn_navigate_top_orange.png'" 
+        onmouseout="document.images.main.src='hm_btn_navigate_top.png'"><img name=main src="hm_btn_navigate_top.png" border=0 alt="Return to chapter overview"
+        ></a><a href="traffic-light_status_summary.htm"
+        onmouseover="document.images.next.src='hm_btn_navigate_next_orange.png'" 
+        onmouseout="document.images.next.src='hm_btn_navigate_next.png'"><img name=next src="hm_btn_navigate_next.png" border=0 alt="Next page"
+        ></a>
+    </td>
+  </tr>  
+</table>
+<!-- The following code displays Expand All/Collapse All links  below the header in topics containing toggles -->
+  
+</div>
+</div>  
+
+<div id="idcontent"><div id="innerdiv">
+<!-- Ask Internet Explorer 6.users to update their obsolete and dangerous browser --> 
+<!--[if lt IE 7]><div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;'><a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode"><img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today." /></a></div><![endif]-->
+
+<!--ZOOMRESTART-->
+<p>Most elements of a map have a traffic-light status—one of red, amber or green. Broadly:</p>
+<p style="text-align: left; padding: 0px 0px 0px 24px; margin: 7px 0px 0px 24px;"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">&#8226;</span><span class="f_ListParagraph">green indicates OK</span></p><p style="text-align: left; padding: 0px 0px 0px 24px; margin: 7px 0px 0px 24px;"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">&#8226;</span><span class="f_ListParagraph">amber indicates a possible problem that may need attention</span></p><p style="text-align: left; padding: 0px 0px 0px 24px; margin: 7px 0px 0px 24px;"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">&#8226;</span><span class="f_ListParagraph">red indicates a definite problem that probably needs action.</span></p><p>Traffic-light statuses are often calculated as the <span style="font-style: italic;">worst case</span> of some set, by applying the following rules in order:</p>
+<p style="text-align: left; padding: 0px 0px 0px 24px; margin: 7px 0px 0px 24px;"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">&#8226;</span><span class="f_ListParagraph">if any member of the set is red then the worst case is red</span></p><p style="text-align: left; padding: 0px 0px 0px 24px; margin: 7px 0px 0px 24px;"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">&#8226;</span><span class="f_ListParagraph">if any member of the set is amber then the worst case is amber</span></p><p style="text-align: left; padding: 0px 0px 0px 24px; margin: 7px 0px 0px 24px;"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">&#8226;</span><span class="f_ListParagraph">otherwise the worst case is green.</span></p><p>Within a goal, the various sub-goals, factors, and risks all have their own traffic-light status, as does the discussion of the goal—see the <a href="traffic-light_status_summary.htm" class="topiclink">traffic-light status summary</a>. These statuses then propagate to generate a <span style="font-style: italic;">local status</span> for the goal as a whole, using worst case rules. </p>
+<p>In addition to its local status, a goal also has a <span style="font-style: italic;">supported status</span> which is propagated from all its supporting goals and is the worst case of all those goals.</p>
+<p>The overall status of a goal is then the worst case of its local status and its supported status. Thus, when any goal is amber or red, that status propagates to all its supported goals, then to their supported goals, and so on up the map.</p>
+<p>For example, at goal <span style="font-style: italic;">Customer Enquiry Process Redesigned</span> in the map shown on the left below:</p>
+<p style="text-align: left; padding: 0px 0px 0px 24px; margin: 7px 0px 0px 24px;"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">&#8226;</span><span class="f_ListParagraph">the local status is green (because its sub-goals, factors and risks are all green)</span></p><p style="text-align: left; padding: 0px 0px 0px 24px; margin: 7px 0px 0px 24px;"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">&#8226;</span><span class="f_ListParagraph">the supported status is red (because goal </span><span class="f_ListParagraph" style="font-style: italic;">Call Centre Staff Trained</span><span class="f_ListParagraph"> is red)</span></p><p style="text-align: left; padding: 0px 0px 0px 24px; margin: 7px 0px 0px 24px;"><span style="font-size:11pt; font-family: 'Arial Unicode MS','Lucida Sans Unicode','Arial';color:#000000;display:inline-block;width:24px;margin-left:-24px">&#8226;</span><span class="f_ListParagraph">the overall status is red (worst case of local status and supported status).</span></p><p>This red status then propagates to the goals <span style="font-style: italic;">New Process Stabilized,</span> <span style="font-style: italic;">Work Reallocated</span> and <span style="font-style: italic;">Business Benefits</span>.</p>
+<p>On viewing this map, any stakeholder can immediately see that there is a problem at goal <span style="font-style: italic;">Call Centre Staff Trained</span>. The stakeholder can drill down to find the precise nature of the problem by visiting the goal and examining its <span style="font-style: italic;">jump to</span> table. This shows the status of each part of the goal—its sub-goals, factors, risks and so on. The stakeholder can then jump to the part of the goal that has the problem and drill down one further level to see the details.</p>
+<p>When a problem exists, causing parts of the map to have amber of red status, the stakeholders may choose to contain that problem—that is, they aim to resolve the problem within a certain area of the map so that goals outside that area remain unaffected (see the <span style="font-style: italic;">Actions</span> of the <a href="delivery_phase.htm" class="topiclink">Delivery Phase</a>). &nbsp;In this case, the stakeholders set any goals at the area’s periphery to be non-propagating, so that their traffic-light status does not propagate to supported goals. The resulting map clearly shows the location of the problem and the decision to contain it.</p>
+<p>In the map on the right below, the goal <span style="font-style: italic;">Customer Enquiry Process Redesigned</span> has been set to be non-propagating.</p>
+<p style="text-align: center;"><img src="hmfile_hash_efe969ea.png" width="685" height="520" alt="status_propagation v2" style="border:none" /></p>
+
+<!--ZOOMSTOP-->
+</div></div>
+<script type="text/javascript">
+
+var lastSlashPos = document.URL.lastIndexOf("/") > document.URL.lastIndexOf("\\") ? document.URL.lastIndexOf("/") : document.URL.lastIndexOf("\\");
+if( document.URL.substring(lastSlashPos + 1, lastSlashPos + 4).toLowerCase() != "~hh" )
+{
+ if (document.all) setTimeout(function() {nsrInit();},20); 
+    else nsrInit();
+ } 
+
+
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
