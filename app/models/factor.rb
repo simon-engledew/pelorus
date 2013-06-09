@@ -33,7 +33,7 @@ class Factor < ActiveRecord::Base
       when /^([<>])\s*#{ShortDate}$/ then return ["#{$1}=", Date.strptime($2, '%d/%m/%y')]
       when /^([<>])\s*#{LongDate}$/ then return ["#{$1}=", Date.strptime($2, '%d/%m/%Y')]
       when /^([=<>])\s*#{Float}$/ then return ["#{$1}=", Float($2)]
-      when /^(=)?\s*([YN])$/ then return ["#{$1}=", $2]
+      when /^(=)\s*([YN])$/ then return ["#{$1}=", $2]
     end
     return nil
   rescue
